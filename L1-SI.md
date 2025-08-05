@@ -1,26 +1,11 @@
-## L1-SI: High-Level Inventory of All Screens Across Platforms (Revised)
+## L1-SI: High-Level Inventory of All Screens Across Platforms
 
 
-
----
-
-### Important Note on Notification Mechanism (Updated)
-In line with the current system scale, any mention of “push notifications” in earlier documents should be interpreted as manually polled or user-initiated in-app notifications. True real-time push (FCM/APNs) is not implemented in this release, and all references to “push” therefore refer to polled notifications.
-
-### Note on “Customer Accepted” Status (Clarification)
-Additionally, some solution documents mention a “Customer Accepted” lead status. It is NOT part of the default L1-WF status matrix. If utilized in a particular project, “Customer Accepted” must be explicitly and manually set by CP or Admin. No system-driven or automatic status transition occurs upon the customer’s acceptance of a quotation.
-
-### Draft Support for CP Quotations (Clarification)
-For CP mobile app workflows, no partial-save or “Draft” state is currently supported. Any references in older documents to a “Draft” feature for CP quotations are deprecated for this release. By contrast, Admins/KAMs in the Web Portal may utilize “Draft” status if partial-save is enabled there.
-
---------------------------------------------------------------------------------
-
-Below is the complete, revised screen inventory with these clarifications applied.
 
 ---
 
 ## 1. Introduction
-Below is an outline of the major screens for each platform, followed by a Screen Inventory & Flow Matrix. The matrix helps visualize navigation paths, dependencies, and cross-platform interactions. No dedicated in-app payment or meeting-scheduling screens exist in this release; these functions may be managed offline or introduced later if required by the business model.
+Below is an outline of the major screens for CP App, followed by a Screen Inventory & Flow Matrix. The matrix helps visualize navigation paths, dependencies, and cross-platform interactions. No dedicated in-app payment or meeting-scheduling screens exist in this release; these functions may be managed offline or introduced later if required by the business model.
 
 ---
 
@@ -119,67 +104,6 @@ The CP mobile app is primarily for Channel Partners to manage leads, generate an
 
 ---
 
-### 2.2 Customer Mobile App (CUSTAP)
-
-The Customer app allows end users to request solar services with an optional multi-service cart, view or accept quotations, upload personal KYC documents, track project status, and create support tickets once the installation is executed. No partial or online payments are included in this release.
-
-1. **Registration & Login Screen**  
-   - Primary User Roles: Customer  
-   - Key Features/Purpose: OTP-based login, capturing name/address/state/PIN for new signups  
-   - Critical Data Elements: Phone, OTP, minimal profile info  
-   - Primary API Dependencies: /auth/register, /auth/login  
-
-2. **Services Screen**  
-   - Primary User Roles: Customer  
-   - Key Features/Purpose: Catalog of available solar/renewable services, each can be added to the cart  
-   - Critical Data Elements: Service name, images, short description, price range  
-   - Primary API Dependencies: /services  
-
-3. **Cart Checkout Screen**  
-   - Primary User Roles: Customer  
-   - Key Features/Purpose: Displays selected (possibly multiple) services, user finalizes them into one lead request  
-   - Critical Data Elements: Selected services, optional instructions, address confirmation  
-   - Primary API Dependencies: POST /leads (multi-service)  
-
-4. **My Records Screen**  
-   - Primary User Roles: Customer  
-   - Key Features/Purpose: Lists all leads associated with this customer, showing statuses  
-   - Critical Data Elements: Lead ID, creation date, status, next follow-up  
-   - Primary API Dependencies: /leads?customerPhone=xxx  
-
-5. **Service Detail Screen**  
-   - Primary User Roles: Customer  
-   - Key Features/Purpose: A tabbed interface for each lead—Info (read-only), Quotes (accept/reject), Docs (KYC), and Tickets (only if status=Executed)  
-   - Critical Data Elements: Derived from the lead, plus any shared quotations  
-   - Primary API Dependencies: /leads/{id}, /quotations, /tickets  
-
-6. **Document Upload Screen (KYC)**  
-   - Primary User Roles: Customer  
-   - Key Features/Purpose: Unified KYC upload, supporting up to 7 doc types (Aadhaar, PAN, etc.)  
-   - Critical Data Elements: Document type, size ≤10 MB  
-   - Primary API Dependencies: /customers/{id}/kyc  
-
-7. **Support Screen**  
-   - Primary User Roles: Customer  
-   - Key Features/Purpose: Allows creation/view of support tickets for “Executed” leads  
-   - Critical Data Elements: Ticket subject, status, message history, attachments  
-   - Primary API Dependencies: /tickets, /tickets/{id}/messages  
-
-8. **Profile & Settings Screen**  
-   - Primary User Roles: Customer  
-   - Key Features/Purpose: Manage user details (name, email, address) and logout  
-   - Critical Data Elements: Personal profile fields, phone read-only  
-   - Primary API Dependencies: /user/{customerId}  
-
-9. **Notifications Screen (Newly Introduced)**  
-   - Primary User Roles: Customer  
-   - Key Features/Purpose: A scrollable list of in-app notifications (e.g., lead status changes, quote updates) retrieved via manual polling  
-   - Critical Data Elements: Notification text, timestamp, read/unread indicator  
-   - Primary API Dependencies: /notifications?customerPhone=xxx  
-
----
-
-### 2.3 Web Portal – Admin & KAM (WEBPRT)
 
 The web portal supports both Admin and KAM roles. Certain actions (e.g., user management, commission approvals) are restricted to Admin. Others, like lead oversight or partial-quotation creation, apply to both roles but with narrower KAM permissions.
 
@@ -292,33 +216,7 @@ The web portal supports both Admin and KAM roles. Certain actions (e.g., user ma
 | Customers Screen                    | CP Mobile     | Bottom nav “Customers”                                                              | Customer Detail Screen or lead references                                                       | /customers?cpId                                                                                                           |
 | Customer Detail Screen              | CP Mobile     | Customers list → tap a customer                                                     | Return to Customers list or handle KYC doc references                                                       | /customers/{customerId}, /documents                                                                                       |
 | Notifications Screen               | CP Mobile     | Top bar bell icon from Dashboard or any main screen                                 | Mark read, or navigate to relevant lead/quotation                                                           | /notifications?cpId (polled/manual)                                                                                      |
-| Registration & Login                | Customer      | App install → initial launch or logged-out state                                    | Services screen (on OTP success)                                                                            | /auth/register, /auth/login, manual SMS (polled) for OTP                                                                 |
-| Services                            | Customer      | Bottom nav “Services” (default home)                                                | Cart Checkout                                                                                               | /services (catalog)                                                                                                       |
-| Cart Checkout                       | Customer      | Floating Cart icon from Services screen                                             | My Records (on successful creation)                                                                         | POST /leads (multi-service)                                                                                                |
-| My Records                          | Customer      | Bottom nav “My Records”                                                             | Service Detail                                                                                              | /leads?customerPhone=                                                                                                     |
-| Service Detail                      | Customer      | My Records list → tap specific lead                                                 | Quotation acceptance flow, KYC Docs, Ticket creation (if executed)                                          | /leads/{id}, /quotations, /tickets                                                                                       |
-| Document Upload (KYC)              | Customer      | Bottom nav “Documents” or Service Detail’s “Docs” tab                               | Returns to main doc list or Service Detail                                                                  | /customers/{id}/kyc, /documents                                                                                           |
-| Support                             | Customer      | Bottom nav “Help”                                                                   | Ticket detail/creation, closure or re-open (if lead=Executed)                                              | /tickets, /tickets/{id}                                                                                                   |
-| Profile & Settings                  | Customer      | Top bar profile icon                                                                | Logout → Login; back to Services                                                                            | /user/{customerId} (phone read-only)                                                                                     |
-| Notifications Screen               | Customer      | Top bar bell icon or dedicated tab if desired                                      | Mark read, navigate to relevant lead/quotation                                                              | /notifications?customerPhone=xxx (polled/manual)                                                                          |
-| Login                               | Web Portal    | Web Portal URL (no session)                                                         | Dashboard (successful login)                                                                                | /auth/webLogin                                                                                                           |
-| Dashboard                           | Web Portal    | Login → main landing                                                                | Leads, Commissions, CPs, KAMs, etc.                                                                         | /dashboard/summary                                                                                                       |
-| Channel Partner Management Screen   | Web Portal    | Left sidebar “Channel Partners”                                                     | CP Detail, bulk assign KAM dialog                                                                           | /channelPartners                                                                                                          |
-| KAM Management                      | Web Portal    | Left sidebar “KAMs”                                                                | KAM detail/edit                                                                                              | /kams                                                                                                                     |
-| Customer Management                 | Web Portal    | Left sidebar “Customers”                                                           | Customer detail, KYC approvals                                                                              | /customers, /documents                                                                                                   |
-| Lead Management       | Web Portal    | Left sidebar “Leads Management” (Admin sees all; KAM sees assigned only) | Lead Detail (sub-view), Bulk Import, CSV Export; “Unassigned Leads” tab for Admin only         | /leads, /bulkImport                                                                                                       |
-| Quotation Management                | Web Portal    | Left sidebar “Quotation”                                                           | Quotation Wizard (Draft for Admin/KAM only), share toggles                                     | /quotations, /quotationWizard                                                                                             |
-| Commission & Payouts                | Web Portal    | Left sidebar “Commission & Payouts”                                                | Payment detail pop-up (Approve/Pay)                                                                         | /commissions                                                                                                             |
-| Reports                             | Web Portal    | Left sidebar “Reports” or top nav link                                             | Filter settings, CSV/PDF export, role-based data                                                             | /reports                                                                                                                 |
-| Global Settings                     | Web Portal    | Left sidebar “Global Settings” (Admin only)                                        | Configuration page (inflation %, token expiry, etc.)                                                        | /settings                                                                                                                |
-| Support                             | Web Portal    | Left sidebar “Support”                                                             | Ticket detail, replies, closure                                                                             | /tickets, /tickets/{id}                                                                                                  |
-| My Profile                          | Web Portal    | Top bar → “Profile”                                                                | Edit info, password reset, log out                                                                          | /user/{adminOrKAMId}                                                                                                     |
-| Quotation Master Data Mgmt          | Web Portal    | Left sidebar “Master Data”                                                         | Panels, Inverters, Fees, BOM, etc.                                                                          | /masterData                                                                                                              |
-| Services Catalog                    | Web Portal    | Left sidebar “Services Catalog” or main link                                       | Add/edit service listings for CUSTAP                                                                        | /services                                                                                                                |
-| Notifications Screen                | Web Portal    | Top bar bell icon or dedicated section                                             | View unread alerts, mark as read                                                                            | /notifications?role=adminOrKAM (polled/manual)                                                                           |
-
-All references to notifications are manual or polled, with no real-time push in this release. “Customer Accepted” is optional and manually set (if used). No partial-save “Draft” applies for CP quotations; only Admin/KAM have that option via WEBPRT.
-
+                                                                 |
 ---
 
 **End of Revised Document**
