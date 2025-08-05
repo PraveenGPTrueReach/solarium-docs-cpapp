@@ -1,0 +1,920 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  UpsertQuotationsPayload</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/store/slices/quotationSlice.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Upsert quotations payload interface</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#items" 
+>
+                                            items
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#page" 
+>
+                                            page
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#totalCount" 
+>
+                                            totalCount
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#totalPages" 
+>
+                                            totalPages
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="items"></a>
+                                        <span class="name "><b>items</b>
+                                            <a href="#items">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>items:     <code>Quotation[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Quotation[]</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="page"></a>
+                                        <span class="name "><b>page</b>
+                                            <a href="#page">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>page:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="totalCount"></a>
+                                        <span class="name "><b>totalCount</b>
+                                            <a href="#totalCount">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>totalCount:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="totalPages"></a>
+                                        <span class="name "><b>totalPages</b>
+                                            <a href="#totalPages">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>totalPages:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { createSlice, PayloadAction } from &#x27;@reduxjs/toolkit&#x27;;
+import type { Quotation } from &#x27;../../types/api/quotation&#x27;;
+import type {
+  QuotationWizardData,
+  QuotationWizardStep,
+} from &#x27;../../types/quotation&#x27;;
+import { quotationApi } from &#x27;../api/quotationApi&#x27;;
+
+/**
+ * Normalized Quotation state interface
+ */
+export interface QuotationState {
+  /** Normalized quotation items by ID */
+  items: Record&lt;string, Quotation&gt;;
+
+  /** Array of page numbers that have been loaded */
+  pagesLoaded: number[];
+
+  /** Total number of pages available */
+  totalPages: number;
+
+  /** Total count of quotations across all pages */
+  totalCount: number;
+
+  /** Whether currently loading next page */
+  loadingNext: boolean;
+
+  /** Whether more pages are available for loading */
+  hasMore: boolean;
+
+  /** Last synchronization timestamp */
+  lastSync: number | null;
+
+  /** Loading state indicator */
+  isLoading: boolean;
+
+  /** Error message if any */
+  error: string | null;
+
+  /** Search text for filtering quotations */
+  searchText: string;
+
+  /** Current filter/search criteria */
+  filters: {
+    /** Selected status filters */
+    statuses: string[];
+    /** Lead ID filter */
+    leadId?: string;
+    /** Date range filter */
+    dateRange?: {
+      from?: string;
+      to?: string;
+    };
+  };
+
+  /** Summary data from API */
+  summaryData?: {
+    generated: number;
+    shared: number;
+    accepted: number;
+    rejected: number;
+    total: number;
+  };
+
+  /** Wizard state management */
+  wizard: {
+    isActive: boolean;
+    currentStep: QuotationWizardStep;
+    leadId: string | null;
+    data: Partial&lt;QuotationWizardData&gt;;
+    errors: Record&lt;string, string&gt;;
+    isValid: boolean;
+    creating: boolean;
+  };
+
+  /** Detailed quotation data cache */
+  quotationDetails: Record&lt;string, any&gt;;
+}
+
+/**
+ * Upsert quotations payload interface
+ */
+export interface UpsertQuotationsPayload {
+  items: Quotation[];
+  page: number;
+  totalPages: number;
+  totalCount?: number;
+}
+
+/**
+ * Initial state
+ */
+const initialState: QuotationState &#x3D; {
+  items: {},
+  pagesLoaded: [],
+  totalPages: 0,
+  totalCount: 0,
+  loadingNext: false,
+  hasMore: true,
+  lastSync: null,
+  isLoading: false,
+  error: null,
+  searchText: &#x27;&#x27;,
+  filters: {
+    statuses: [],
+    leadId: undefined,
+    dateRange: undefined,
+  },
+  summaryData: undefined,
+  wizard: {
+    isActive: false,
+    currentStep: 1 as QuotationWizardStep,
+    leadId: null,
+    data: {},
+    errors: {},
+    isValid: false,
+    creating: false,
+  },
+  quotationDetails: {},
+};
+
+/**
+ * Quotation slice with normalized structure and pagination
+ */
+const quotationSlice &#x3D; createSlice({
+  name: &#x27;quotations&#x27;,
+  initialState,
+  reducers: {
+    /**
+     * Upsert quotations with pagination support
+     */
+    upsertQuotations: (
+      state,
+      action: PayloadAction&lt;UpsertQuotationsPayload&gt;
+    ) &#x3D;&gt; {
+      const { items, page, totalPages, totalCount } &#x3D; action.payload;
+
+      // Normalize quotations into items object
+      items.forEach((quotation) &#x3D;&gt; {
+        state.items[quotation.quotationId] &#x3D; quotation;
+      });
+
+      // Update pagination metadata
+      if (!state.pagesLoaded.includes(page)) {
+        state.pagesLoaded.push(page);
+      }
+      state.totalPages &#x3D; totalPages;
+      if (totalCount !&#x3D;&#x3D; undefined) {
+        state.totalCount &#x3D; totalCount;
+      }
+
+      // Update hasMore flag
+      state.hasMore &#x3D; page &lt; totalPages;
+
+      console.log(&#x60;📄 Upserted ${items.length} quotations for page ${page}&#x60;);
+    },
+
+    /**
+     * Update quotation status (for optimistic updates)
+     */
+    updateQuotationStatus: (
+      state,
+      action: PayloadAction&lt;{
+        quotationId: string;
+        status: string;
+        timestamp?: string;
+      }&gt;
+    ) &#x3D;&gt; {
+      const { quotationId, status, timestamp } &#x3D; action.payload;
+
+      if (state.items[quotationId]) {
+        state.items[quotationId].status &#x3D; status as any;
+
+        // Update timestamp based on status
+        const now &#x3D; timestamp || new Date().toISOString();
+        // Note: These fields don&#x27;t exist in the simple Quotation interface,
+        // but would be used if we had the extended interface
+      }
+
+      // Also update in quotationDetails if exists
+      if (state.quotationDetails[quotationId]) {
+        state.quotationDetails[quotationId].status &#x3D; status;
+        if (status &#x3D;&#x3D;&#x3D; &#x27;Shared&#x27;) {
+          state.quotationDetails[quotationId].sharedAt &#x3D;
+            timestamp || new Date().toISOString();
+        } else if (status &#x3D;&#x3D;&#x3D; &#x27;Accepted&#x27;) {
+          state.quotationDetails[quotationId].acceptedAt &#x3D;
+            timestamp || new Date().toISOString();
+        } else if (status &#x3D;&#x3D;&#x3D; &#x27;Rejected&#x27;) {
+          state.quotationDetails[quotationId].rejectedAt &#x3D;
+            timestamp || new Date().toISOString();
+        }
+      }
+    },
+
+    /**
+     * Set loading state
+     */
+    setLoading: (state, action: PayloadAction&lt;boolean&gt;) &#x3D;&gt; {
+      state.isLoading &#x3D; action.payload;
+      if (action.payload) {
+        state.error &#x3D; null;
+      }
+    },
+
+    /**
+     * Set loading next page state
+     */
+    setLoadingNext: (state, action: PayloadAction&lt;boolean&gt;) &#x3D;&gt; {
+      state.loadingNext &#x3D; action.payload;
+    },
+
+    /**
+     * Set error state
+     */
+    setError: (state, action: PayloadAction&lt;string | null&gt;) &#x3D;&gt; {
+      state.error &#x3D; action.payload;
+      state.isLoading &#x3D; false;
+      state.loadingNext &#x3D; false;
+    },
+
+    /**
+     * Update search text
+     */
+    setSearchText: (state, action: PayloadAction&lt;string&gt;) &#x3D;&gt; {
+      state.searchText &#x3D; action.payload;
+    },
+    /**
+     * Clear all filters and search text
+     */
+    clearAllFilters: (state) &#x3D;&gt; {
+      state.searchText &#x3D; &#x27;&#x27;;
+      state.filters &#x3D; {
+        statuses: [],
+        leadId: undefined,
+        dateRange: undefined,
+      };
+    },
+
+    /**
+     * Update filters
+     */
+    setFilters: (
+      state,
+      action: PayloadAction&lt;Partial&lt;QuotationState[&#x27;filters&#x27;]&gt;&gt;
+    ) &#x3D;&gt; {
+      state.filters &#x3D; {
+        ...state.filters,
+        ...action.payload,
+      };
+    },
+
+    /**
+     * Clear all quotations and reset pagination
+     */
+    clearQuotations: (state) &#x3D;&gt; {
+      state.items &#x3D; {};
+      state.pagesLoaded &#x3D; [];
+      state.totalPages &#x3D; 0;
+      state.totalCount &#x3D; 0;
+      state.hasMore &#x3D; true;
+      state.error &#x3D; null;
+    },
+
+    /**
+     * Set last sync timestamp
+     */
+    setLastSync: (state, action: PayloadAction&lt;number&gt;) &#x3D;&gt; {
+      state.lastSync &#x3D; action.payload;
+    },
+
+    /**
+     * Update summary data
+     */
+    setSummaryData: (
+      state,
+      action: PayloadAction&lt;QuotationState[&#x27;summaryData&#x27;]&gt;
+    ) &#x3D;&gt; {
+      state.summaryData &#x3D; action.payload;
+    },
+
+    // Wizard management reducers
+    /**
+     * Start quotation wizard
+     */
+    startWizard: (state, action: PayloadAction&lt;{ leadId: string }&gt;) &#x3D;&gt; {
+      state.wizard.isActive &#x3D; true;
+      state.wizard.currentStep &#x3D; 1;
+      state.wizard.leadId &#x3D; action.payload.leadId;
+      state.wizard.data &#x3D; { leadId: action.payload.leadId };
+      state.wizard.errors &#x3D; {};
+      state.wizard.isValid &#x3D; false;
+      state.wizard.creating &#x3D; false;
+    },
+
+    /**
+     * Set wizard step
+     */
+    setWizardStep: (state, action: PayloadAction&lt;QuotationWizardStep&gt;) &#x3D;&gt; {
+      state.wizard.currentStep &#x3D; action.payload;
+    },
+
+    /**
+     * Update wizard data
+     */
+    updateWizardData: (
+      state,
+      action: PayloadAction&lt;Partial&lt;QuotationWizardData&gt;&gt;
+    ) &#x3D;&gt; {
+      state.wizard.data &#x3D; {
+        ...state.wizard.data,
+        ...action.payload,
+      };
+    },
+
+    /**
+     * Set wizard validation errors
+     */
+    setWizardErrors: (state, action: PayloadAction&lt;Record&lt;string, string&gt;&gt;) &#x3D;&gt; {
+      state.wizard.errors &#x3D; action.payload;
+    },
+
+    /**
+     * Set wizard validity
+     */
+    setWizardValid: (state, action: PayloadAction&lt;boolean&gt;) &#x3D;&gt; {
+      state.wizard.isValid &#x3D; action.payload;
+    },
+
+    /**
+     * Set wizard creating state
+     */
+    setWizardCreating: (state, action: PayloadAction&lt;boolean&gt;) &#x3D;&gt; {
+      state.wizard.creating &#x3D; action.payload;
+    },
+
+    /**
+     * Clear wizard state
+     */
+    clearWizard: (state) &#x3D;&gt; {
+      state.wizard &#x3D; initialState.wizard;
+    },
+
+    /**
+     * Cache detailed quotation data
+     */
+    cacheQuotationDetail: (
+      state,
+      action: PayloadAction&lt;{ quotationId: string; data: any }&gt;
+    ) &#x3D;&gt; {
+      const { quotationId, data } &#x3D; action.payload;
+      state.quotationDetails[quotationId] &#x3D; data;
+    },
+
+    // In the quotationSlice reducers, ADD:
+    /**
+     * Populate quotations from preloaded cache data
+     */
+    populateFromCache: (
+      state,
+      action: PayloadAction&lt;{
+        quotations: Quotation[];
+        lastSync: number | null;
+      }&gt;
+    ) &#x3D;&gt; {
+      const { quotations, lastSync } &#x3D; action.payload;
+
+      // Convert array to normalized object
+      const quotationItems: Record&lt;string, Quotation&gt; &#x3D; {};
+      quotations.forEach((quotation) &#x3D;&gt; {
+        quotationItems[quotation.quotationId] &#x3D; quotation;
+      });
+
+      state.items &#x3D; quotationItems;
+      state.lastSync &#x3D; lastSync;
+      state.isLoading &#x3D; false;
+      state.error &#x3D; null;
+
+      console.log(&#x60;✅ Populated ${quotations.length} quotations from cache&#x60;);
+    },
+  },
+
+  extraReducers: (builder) &#x3D;&gt; {
+    builder
+      // Handle getQuotations API responses
+      .addMatcher(
+        quotationApi.endpoints.getQuotations.matchPending,
+        (state) &#x3D;&gt; {
+          state.isLoading &#x3D; true;
+          state.error &#x3D; null;
+        }
+      )
+      .addMatcher(
+        quotationApi.endpoints.getQuotations.matchFulfilled,
+        (state, action) &#x3D;&gt; {
+          const quotations &#x3D; action.payload;
+
+          // For simplicity, treat as page 1 (can be enhanced later)
+          const payload: UpsertQuotationsPayload &#x3D; {
+            items: quotations,
+            page: 1,
+            totalPages: 1,
+            totalCount: quotations.length,
+          };
+
+          // Use the upsertQuotations logic
+          payload.items.forEach((quotation) &#x3D;&gt; {
+            state.items[quotation.quotationId] &#x3D; quotation;
+          });
+
+          if (!state.pagesLoaded.includes(payload.page)) {
+            state.pagesLoaded.push(payload.page);
+          }
+          state.totalPages &#x3D; payload.totalPages;
+          state.totalCount &#x3D; payload.totalCount || 0;
+          state.hasMore &#x3D; payload.page &lt; payload.totalPages;
+
+          state.isLoading &#x3D; false;
+          state.lastSync &#x3D; Date.now();
+        }
+      )
+      .addMatcher(
+        quotationApi.endpoints.getQuotations.matchRejected,
+        (state, action) &#x3D;&gt; {
+          state.isLoading &#x3D; false;
+          state.error &#x3D; action.error.message || &#x27;Failed to fetch quotations&#x27;;
+        }
+      )
+
+      // Handle getQuotationById API responses
+      .addMatcher(
+        quotationApi.endpoints.getQuotationById.matchFulfilled,
+        (state, action) &#x3D;&gt; {
+          const quotationDetail &#x3D; action.payload;
+          state.quotationDetails[quotationDetail.quotationId] &#x3D; quotationDetail;
+        }
+      )
+
+      // Handle createQuotation API responses
+      .addMatcher(
+        quotationApi.endpoints.createQuotation.matchPending,
+        (state) &#x3D;&gt; {
+          state.wizard.creating &#x3D; true;
+          state.error &#x3D; null;
+        }
+      )
+      .addMatcher(
+        quotationApi.endpoints.createQuotation.matchFulfilled,
+        (state) &#x3D;&gt; {
+          state.wizard.creating &#x3D; false;
+          // Clear wizard after successful creation
+          state.wizard &#x3D; initialState.wizard;
+        }
+      )
+      .addMatcher(
+        quotationApi.endpoints.createQuotation.matchRejected,
+        (state, action) &#x3D;&gt; {
+          state.wizard.creating &#x3D; false;
+          state.error &#x3D; action.error.message || &#x27;Failed to create quotation&#x27;;
+        }
+      )
+
+      // Handle action errors (share/accept/reject)
+      .addMatcher(
+        quotationApi.endpoints.shareQuotation.matchRejected,
+        (state, action) &#x3D;&gt; {
+          state.error &#x3D; action.error.message || &#x27;Failed to share quotation&#x27;;
+        }
+      )
+      .addMatcher(
+        quotationApi.endpoints.acceptQuotation.matchRejected,
+        (state, action) &#x3D;&gt; {
+          state.error &#x3D; action.error.message || &#x27;Failed to accept quotation&#x27;;
+        }
+      )
+      .addMatcher(
+        quotationApi.endpoints.rejectQuotation.matchRejected,
+        (state, action) &#x3D;&gt; {
+          state.error &#x3D; action.error.message || &#x27;Failed to reject quotation&#x27;;
+        }
+      );
+  },
+});
+
+// Export actions
+export const {
+  upsertQuotations,
+  updateQuotationStatus,
+  setLoading,
+  setLoadingNext,
+  setError,
+  setSearchText,
+  clearAllFilters,
+  setFilters,
+  clearQuotations,
+  setLastSync,
+  setSummaryData,
+  startWizard,
+  setWizardStep,
+  updateWizardData,
+  setWizardErrors,
+  setWizardValid,
+  setWizardCreating,
+  clearWizard,
+  cacheQuotationDetail,
+  populateFromCache,
+} &#x3D; quotationSlice.actions;
+
+// Export reducer
+export default quotationSlice.reducer;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'UpsertQuotationsPayload.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

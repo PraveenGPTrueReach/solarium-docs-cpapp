@@ -1,0 +1,793 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  TopBarProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/components/common/TopBar.tsx</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#onBackPress" 
+>
+                                            onBackPress
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#showBackButton" 
+>
+                                            showBackButton
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#showNotifications" 
+>
+                                            showNotifications
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#showProfile" 
+>
+                                            showProfile
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#showSync" 
+>
+                                            showSync
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#title" 
+>
+                                            title
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="onBackPress"></a>
+                                        <span class="name "><b>onBackPress</b>
+                                            <a href="#onBackPress">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>onBackPress:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="showBackButton"></a>
+                                        <span class="name "><b>showBackButton</b>
+                                            <a href="#showBackButton">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>showBackButton:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="showNotifications"></a>
+                                        <span class="name "><b>showNotifications</b>
+                                            <a href="#showNotifications">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>showNotifications:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="showProfile"></a>
+                                        <span class="name "><b>showProfile</b>
+                                            <a href="#showProfile">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>showProfile:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="showSync"></a>
+                                        <span class="name "><b>showSync</b>
+                                            <a href="#showSync">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>showSync:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="title"></a>
+                                        <span class="name "><b>title</b>
+                                            <a href="#title">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>title:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React, { useCallback } from &#x27;react&#x27;;
+import {
+  View,
+  StyleSheet,
+  Platform,
+  TouchableOpacity,
+  Text,
+} from &#x27;react-native&#x27;;
+import { Appbar, Badge, Icon, IconButton, useTheme } from &#x27;react-native-paper&#x27;;
+import { useSafeAreaInsets } from &#x27;react-native-safe-area-context&#x27;;
+import { useAppSelector } from &#x27;../../hooks/reduxHooks&#x27;;
+import { useConnectivity } from &#x27;../../contexts/ConnectivityContext&#x27;;
+import {
+  selectUnreadCount,
+  selectSyncInProgress,
+  selectLastSyncTs,
+} from &#x27;../../store/slices/networkSlice&#x27;;
+import { getSyncManager } from &#x27;../../services/SyncManager&#x27;;
+import { navigateToNotifications } from &#x27;../../navigation/navigationRef&#x27;;
+import { store } from &#x27;../../store/index&#x27;;
+
+export interface TopBarProps {
+  title?: string;
+  showSync?: boolean;
+  showNotifications?: boolean;
+  showProfile?: boolean;
+  onBackPress?: () &#x3D;&gt; void;
+  showBackButton?: boolean;
+}
+
+export const TopBar: React.FC&lt;TopBarProps&gt; &#x3D; ({
+  title &#x3D; &#x27;&#x27;,
+  showSync &#x3D; true,
+  showNotifications &#x3D; true,
+  showProfile &#x3D; true,
+  onBackPress,
+  showBackButton &#x3D; false,
+}) &#x3D;&gt; {
+  const theme &#x3D; useTheme();
+  const insets &#x3D; useSafeAreaInsets();
+  const { isConnected } &#x3D; useConnectivity();
+
+  // Redux selectors
+  const unreadCount &#x3D; useAppSelector(selectUnreadCount);
+  const syncInProgress &#x3D; useAppSelector(selectSyncInProgress);
+  const lastSyncTs &#x3D; useAppSelector(selectLastSyncTs);
+
+  // Sync manager instance
+  const syncManager &#x3D; getSyncManager(store);
+
+  // Calculate sync button state
+  const isSyncDisabled &#x3D; syncInProgress || !isConnected;
+  const syncIconColor &#x3D; isSyncDisabled
+    ? theme.colors.disabled
+    : theme.colors.primary;
+
+  /**
+   * Handle sync button press (manual sync)
+   */
+  const handleSyncPress &#x3D; useCallback(async () &#x3D;&gt; {
+    try {
+      console.log(&#x27;🔄 TopBar sync button pressed&#x27;);
+      await syncManager.manualSync(&#x27;manual&#x27;);
+    } catch (error) {
+      console.error(&#x27;❌ TopBar sync failed:&#x27;, error);
+    }
+  }, [syncManager]);
+
+  /**
+   * Handle sync button long press (full sync)
+   */
+  const handleSyncLongPress &#x3D; useCallback(async () &#x3D;&gt; {
+    try {
+      console.log(&#x27;🔄 TopBar sync button long-pressed (full sync)&#x27;);
+      await syncManager.fullSync(&#x27;longPress&#x27;);
+    } catch (error) {
+      console.error(&#x27;❌ TopBar full sync failed:&#x27;, error);
+    }
+  }, [syncManager]);
+
+  /**
+   * Handle notifications button press
+   */
+  const handleNotificationsPress &#x3D; useCallback(() &#x3D;&gt; {
+    console.log(&#x27;🔔 TopBar notifications button pressed&#x27;);
+    navigateToNotifications();
+  }, []);
+
+  /**
+   * Handle profile button press
+   */
+  const handleProfilePress &#x3D; useCallback(() &#x3D;&gt; {
+    console.log(&#x27;👤 TopBar profile button pressed&#x27;);
+    // TODO: Navigate to profile screen when implemented
+  }, []);
+
+  /**
+   * Get sync button accessibility label
+   */
+  const getSyncAccessibilityLabel &#x3D; (): string &#x3D;&gt; {
+    if (syncInProgress) {
+      return &#x27;Synchronizing data, please wait&#x27;;
+    }
+    if (!isConnected) {
+      return &#x27;Sync disabled, no internet connection&#x27;;
+    }
+    return &#x27;Synchronise data&#x27;;
+  };
+
+  /**
+   * Get sync button accessibility hint
+   */
+  const getSyncAccessibilityHint &#x3D; (): string &#x3D;&gt; {
+    return &#x27;Tap to sync data, long press for full sync&#x27;;
+  };
+
+  /**
+   * Get notifications accessibility label
+   */
+  const getNotificationsAccessibilityLabel &#x3D; (): string &#x3D;&gt; {
+    if (unreadCount &gt; 0) {
+      return &#x60;Notifications, ${unreadCount} unread&#x60;;
+    }
+    return &#x27;Notifications&#x27;;
+  };
+
+  return (
+    &lt;Appbar.Header
+      style&#x3D;{[
+        styles.header,
+        {
+          paddingTop: insets.top,
+          backgroundColor: theme.colors.surface,
+          elevation: Platform.OS &#x3D;&#x3D;&#x3D; &#x27;android&#x27; ? 4 : 0,
+          shadowColor: Platform.OS &#x3D;&#x3D;&#x3D; &#x27;ios&#x27; ? theme.colors.shadow : undefined,
+          shadowOffset:
+            Platform.OS &#x3D;&#x3D;&#x3D; &#x27;ios&#x27; ? { width: 0, height: 2 } : undefined,
+          shadowOpacity: Platform.OS &#x3D;&#x3D;&#x3D; &#x27;ios&#x27; ? 0.1 : undefined,
+          shadowRadius: Platform.OS &#x3D;&#x3D;&#x3D; &#x27;ios&#x27; ? 4 : undefined,
+        },
+      ]}
+    &gt;
+      {/* Back Button */}
+      {showBackButton &amp;&amp; (
+        &lt;Appbar.BackAction onPress&#x3D;{onBackPress} accessibilityLabel&#x3D;&quot;Go back&quot; /&gt;
+      )}
+
+      {/* Title */}
+      {title &amp;&amp; (
+        &lt;Appbar.Content
+          title&#x3D;{title}
+          titleStyle&#x3D;{[styles.title, { color: theme.colors.onSurface }]}
+        /&gt;
+      )}
+
+      {/* Spacer to push actions to the right */}
+      {!title &amp;&amp; &lt;View style&#x3D;{styles.spacer} /&gt;}
+
+      {/* Sync Button */}
+      {showSync &amp;&amp; (
+        &lt;View style&#x3D;{styles.syncContainer}&gt;
+          &lt;TouchableOpacity
+            onPress&#x3D;{handleSyncPress}
+            onLongPress&#x3D;{handleSyncLongPress}
+            disabled&#x3D;{isSyncDisabled}
+            style&#x3D;{[styles.iconButton, { opacity: isSyncDisabled ? 0.3 : 1 }]}
+            testID&#x3D;&quot;topbar-sync-button&quot;
+          &gt;
+            &lt;Text style&#x3D;{[styles.iconText, { color: syncIconColor }]}&gt;
+              {syncInProgress ? &#x27;⟳&#x27; : &#x27;↻&#x27;}
+            &lt;/Text&gt;
+          &lt;/TouchableOpacity&gt;
+
+          {/* Last sync indicator */}
+          {lastSyncTs &amp;&amp; !syncInProgress &amp;&amp; (
+            &lt;View style&#x3D;{styles.syncIndicator}&gt;
+              &lt;View
+                style&#x3D;{[
+                  styles.syncDot,
+                  { backgroundColor: theme.colors.primary },
+                ]}
+              /&gt;
+            &lt;/View&gt;
+          )}
+        &lt;/View&gt;
+      )}
+
+      {/* Notifications Button */}
+      {showNotifications &amp;&amp; (
+        &lt;View style&#x3D;{styles.notificationContainer}&gt;
+          {/* Notifications Button */}
+          &lt;TouchableOpacity
+            onPress&#x3D;{handleNotificationsPress}
+            style&#x3D;{styles.iconButton}
+            testID&#x3D;&quot;topbar-notifications-button&quot;
+          &gt;
+            &lt;Text style&#x3D;{[styles.iconText, { color: theme.colors.onSurface }]}&gt;
+              🔔
+            &lt;/Text&gt;
+            {unreadCount &gt; 0 &amp;&amp; (
+              &lt;Badge style&#x3D;{styles.notificationBadge}&gt;
+                {unreadCount &gt; 99 ? &#x27;99+&#x27; : unreadCount.toString()}
+              &lt;/Badge&gt;
+            )}
+          &lt;/TouchableOpacity&gt;
+        &lt;/View&gt;
+      )}
+
+      {/* Profile Button */}
+      {showProfile &amp;&amp; (
+        &lt;TouchableOpacity
+          onPress&#x3D;{handleProfilePress}
+          style&#x3D;{styles.iconButton}
+          testID&#x3D;&quot;topbar-profile-button&quot;
+        &gt;
+          &lt;Text style&#x3D;{[styles.iconText, { color: theme.colors.onSurface }]}&gt;
+            👤
+          &lt;/Text&gt;
+        &lt;/TouchableOpacity&gt;
+      )}
+    &lt;/Appbar.Header&gt;
+  );
+};
+
+const styles &#x3D; StyleSheet.create({
+  header: {
+    elevation: 4,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: &#x27;600&#x27;,
+  },
+  spacer: {
+    flex: 1,
+  },
+  syncContainer: {
+    position: &#x27;relative&#x27;,
+  },
+  syncButton: {
+    margin: 0,
+  },
+  syncIndicator: {
+    position: &#x27;absolute&#x27;,
+    bottom: 11,
+    right: 12,
+  },
+  syncDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+  },
+  notificationContainer: {
+    position: &#x27;relative&#x27;,
+  },
+  notificationBadge: {
+    position: &#x27;absolute&#x27;,
+    top: 6,
+    right: 6,
+    minWidth: 18,
+    height: 18,
+    borderRadius: 9,
+    fontSize: 11,
+    fontWeight: &#x27;bold&#x27;,
+    textAlign: &#x27;center&#x27;,
+    zIndex: 1,
+  },
+  iconButton: {
+    padding: 12,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    position: &#x27;relative&#x27;,
+  },
+  iconText: {
+    fontSize: 20,
+    fontWeight: &#x27;bold&#x27;,
+  },
+});
+
+export default TopBar;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'TopBarProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

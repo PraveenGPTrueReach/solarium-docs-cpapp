@@ -1,0 +1,727 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  UseQuotationActionsResult</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/hooks/useQuotationActions.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#acceptQuotation" 
+>
+                                            acceptQuotation
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#error" 
+>
+                                            error
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#isAccepting" 
+>
+                                            isAccepting
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#isLoading" 
+>
+                                            isLoading
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#isRejecting" 
+>
+                                            isRejecting
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#isSharing" 
+>
+                                            isSharing
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#rejectQuotation" 
+>
+                                            rejectQuotation
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#shareQuotation" 
+>
+                                            shareQuotation
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="acceptQuotation"></a>
+                                        <span class="name "><b>acceptQuotation</b>
+                                            <a href="#acceptQuotation">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>acceptQuotation:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="error"></a>
+                                        <span class="name "><b>error</b>
+                                            <a href="#error">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>error:     <code>string | undefined</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | undefined</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="isAccepting"></a>
+                                        <span class="name "><b>isAccepting</b>
+                                            <a href="#isAccepting">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>isAccepting:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="isLoading"></a>
+                                        <span class="name "><b>isLoading</b>
+                                            <a href="#isLoading">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>isLoading:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="isRejecting"></a>
+                                        <span class="name "><b>isRejecting</b>
+                                            <a href="#isRejecting">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>isRejecting:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="isSharing"></a>
+                                        <span class="name "><b>isSharing</b>
+                                            <a href="#isSharing">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>isSharing:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="rejectQuotation"></a>
+                                        <span class="name "><b>rejectQuotation</b>
+                                            <a href="#rejectQuotation">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>rejectQuotation:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="shareQuotation"></a>
+                                        <span class="name "><b>shareQuotation</b>
+                                            <a href="#shareQuotation">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>shareQuotation:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { useMemo, useCallback } from &#x27;react&#x27;;
+import Toast from &#x27;react-native-toast-message&#x27;;
+import {
+  useShareQuotationMutation,
+  useAcceptQuotationMutation,
+  useRejectQuotationMutation,
+} from &#x27;../store/api/quotationApi&#x27;;
+
+interface UseQuotationActionsResult {
+  shareQuotation: (quotationId: string) &#x3D;&gt; Promise&lt;void&gt;;
+  acceptQuotation: (quotationId: string) &#x3D;&gt; Promise&lt;void&gt;;
+  rejectQuotation: (quotationId: string) &#x3D;&gt; Promise&lt;void&gt;;
+  isSharing: boolean;
+  isAccepting: boolean;
+  isRejecting: boolean;
+  error: string | undefined;
+  isLoading: boolean;
+}
+
+/**
+ * Transform technical errors to user-friendly messages
+ */
+const transformActionError &#x3D; (error: any, action: string): string &#x3D;&gt; {
+  if (!error) return &#x60;Unknown error occurred while ${action} quotation&#x60;;
+
+  // Handle RTK Query errors
+  if (error.status) {
+    switch (error.status) {
+      case 400:
+        return &#x60;Invalid request. Cannot ${action} this quotation.&#x60;;
+      case 401:
+        return &#x27;Session expired. Please login again.&#x27;;
+      case 403:
+        return &#x60;You do not have permission to ${action} this quotation.&#x60;;
+      case 404:
+        return &#x27;Quotation not found. It may have been deleted.&#x27;;
+      case 409:
+        return &#x60;Quotation cannot be ${action}ed in its current state.&#x60;;
+      case 500:
+        return &#x60;Server error ${action}ing quotation. Try again later.&#x60;;
+      case 503:
+        return &#x27;Service temporarily unavailable. Please retry.&#x27;;
+      case &#x27;FETCH_ERROR&#x27;:
+        return &#x27;Network error. Check your connection and try again.&#x27;;
+      case &#x27;PARSING_ERROR&#x27;:
+        return &#x27;Invalid response format. Contact support.&#x27;;
+      case &#x27;TIMEOUT_ERROR&#x27;:
+        return &#x27;Request timed out. Please try again.&#x27;;
+      default:
+        return &#x60;Failed to ${action} quotation. Please try again.&#x60;;
+    }
+  }
+
+  // Handle error messages
+  if (error.data?.error) {
+    return error.data.error;
+  }
+
+  if (error.data?.message) {
+    return error.data.message;
+  }
+
+  if (error.message) {
+    return error.message;
+  }
+
+  return &#x60;Unable to ${action} quotation. Please try again.&#x60;;
+};
+
+export const useQuotationActions &#x3D; (): UseQuotationActionsResult &#x3D;&gt; {
+  const [shareQuotationMutation, { isLoading: isSharing, error: shareError }] &#x3D;
+    useShareQuotationMutation();
+  const [
+    acceptQuotationMutation,
+    { isLoading: isAccepting, error: acceptError },
+  ] &#x3D; useAcceptQuotationMutation();
+  const [
+    rejectQuotationMutation,
+    { isLoading: isRejecting, error: rejectError },
+  ] &#x3D; useRejectQuotationMutation();
+
+  const shareQuotation &#x3D; useCallback(
+    async (quotationId: string) &#x3D;&gt; {
+      try {
+        await shareQuotationMutation(quotationId).unwrap();
+        Toast.show({
+          type: &#x27;success&#x27;,
+          text1: &#x27;Quotation Shared&#x27;,
+          text2: &#x27;Quotation has been shared with the customer&#x27;,
+          visibilityTime: 3000,
+        });
+      } catch (error) {
+        const errorMessage &#x3D; transformActionError(error, &#x27;share&#x27;);
+        Toast.show({
+          type: &#x27;error&#x27;,
+          text1: &#x27;Share Failed&#x27;,
+          text2: errorMessage,
+          visibilityTime: 4000,
+        });
+        throw error;
+      }
+    },
+    [shareQuotationMutation]
+  );
+
+  const acceptQuotation &#x3D; useCallback(
+    async (quotationId: string) &#x3D;&gt; {
+      try {
+        await acceptQuotationMutation(quotationId).unwrap();
+        Toast.show({
+          type: &#x27;success&#x27;,
+          text1: &#x27;Quotation Accepted&#x27;,
+          text2: &#x27;Quotation has been accepted successfully&#x27;,
+          visibilityTime: 3000,
+        });
+      } catch (error) {
+        const errorMessage &#x3D; transformActionError(error, &#x27;accept&#x27;);
+        Toast.show({
+          type: &#x27;error&#x27;,
+          text1: &#x27;Accept Failed&#x27;,
+          text2: errorMessage,
+          visibilityTime: 4000,
+        });
+        throw error;
+      }
+    },
+    [acceptQuotationMutation]
+  );
+
+  const rejectQuotation &#x3D; useCallback(
+    async (quotationId: string) &#x3D;&gt; {
+      try {
+        await rejectQuotationMutation(quotationId).unwrap();
+        Toast.show({
+          type: &#x27;success&#x27;,
+          text1: &#x27;Quotation Rejected&#x27;,
+          text2: &#x27;Quotation has been rejected&#x27;,
+          visibilityTime: 3000,
+        });
+      } catch (error) {
+        const errorMessage &#x3D; transformActionError(error, &#x27;reject&#x27;);
+        Toast.show({
+          type: &#x27;error&#x27;,
+          text1: &#x27;Reject Failed&#x27;,
+          text2: errorMessage,
+          visibilityTime: 4000,
+        });
+        throw error;
+      }
+    },
+    [rejectQuotationMutation]
+  );
+
+  // Transform error messages
+  const userFriendlyError &#x3D; useMemo(() &#x3D;&gt; {
+    if (shareError) return transformActionError(shareError, &#x27;share&#x27;);
+    if (acceptError) return transformActionError(acceptError, &#x27;accept&#x27;);
+    if (rejectError) return transformActionError(rejectError, &#x27;reject&#x27;);
+    return undefined;
+  }, [shareError, acceptError, rejectError]);
+
+  return {
+    shareQuotation,
+    acceptQuotation,
+    rejectQuotation,
+    isSharing,
+    isAccepting,
+    isRejecting,
+    error: userFriendlyError,
+    isLoading: isSharing || isAccepting || isRejecting,
+  };
+};
+
+export default useQuotationActions;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'UseQuotationActionsResult.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

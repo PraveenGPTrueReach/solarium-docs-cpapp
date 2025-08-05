@@ -1,0 +1,867 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  CommissionFilters</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/store/slices/commissionSlice.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Commission filter interface</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#dateRange" 
+>
+                                            dateRange
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#leadId" 
+>
+                                            leadId
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#statuses" 
+>
+                                            statuses
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="dateRange"></a>
+                                        <span class="name "><b>dateRange</b>
+                                            <a href="#dateRange">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>dateRange:     <code>literal type</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>literal type</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="leadId"></a>
+                                        <span class="name "><b>leadId</b>
+                                            <a href="#leadId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>leadId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="statuses"></a>
+                                        <span class="name "><b>statuses</b>
+                                            <a href="#statuses">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>statuses:     <code>string[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string[]</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { createSlice, PayloadAction, createSelector } from &#x27;@reduxjs/toolkit&#x27;;
+import type {
+  Commission,
+  CommissionKPIStats,
+} from &#x27;../../database/models/Commission&#x27;;
+import { commissionApi } from &#x27;../api/commissionApi&#x27;;
+import { getCurrentYearRange } from &#x27;../../utils/dateHelpers&#x27;;
+
+/**
+ * Commission filter interface
+ */
+export interface CommissionFilters {
+  dateRange?: { startDate: string; endDate: string };
+  statuses?: string[];
+  leadId?: string;
+}
+
+/**
+ * Enhanced Commission state interface (following customer pattern)
+ */
+export interface CommissionState {
+  /** Normalized commission items by ID */
+  items: Record&lt;string, Commission&gt;;
+
+  /** Array of page numbers that have been loaded */
+  pagesLoaded: number[];
+
+  /** Total number of pages available */
+  totalPages: number;
+
+  /** Total count of commissions across all pages */
+  totalCount: number;
+
+  /** Whether currently loading next page */
+  loadingNext: boolean;
+
+  /** Whether more pages are available for loading */
+  hasMore: boolean;
+
+  /** Last synchronization timestamp */
+  lastSync: number | null;
+
+  /** Loading state indicator */
+  isLoading: boolean;
+
+  /** Error message if any */
+  error: string | null;
+
+  /** Current search term */
+  searchTerm: string;
+
+  /** Current filter criteria */
+  filters: CommissionFilters;
+
+  /** Cached KPI totals */
+  kpiTotals: CommissionKPIStats | null;
+}
+
+/**
+ * Initial state with current-year filter applied by default
+ */
+const initialState: CommissionState &#x3D; {
+  items: {},
+  pagesLoaded: [],
+  totalPages: 0,
+  totalCount: 0,
+  loadingNext: false,
+  hasMore: true,
+  lastSync: null,
+  isLoading: false,
+  error: null,
+  searchTerm: &#x27;&#x27;,
+  filters: {
+    dateRange: getCurrentYearRange(), // Default to current year
+  },
+  kpiTotals: null,
+};
+
+/**
+ * Commission slice with pagination support (following customer pattern)
+ */
+const commissionSlice &#x3D; createSlice({
+  name: &#x27;commissions&#x27;,
+  initialState,
+  reducers: {
+    /**
+     * Upsert commissions from API response
+     */
+    upsertCommissions: (state, action: PayloadAction&lt;Commission[]&gt;) &#x3D;&gt; {
+      console.log(
+        &#x27;🔄 upsertCommissions reducer called with:&#x27;,
+        action.payload?.length || &#x27;undefined&#x27;,
+        &#x27;commissions&#x27;
+      );
+
+      if (!action.payload || !Array.isArray(action.payload)) {
+        console.error(&#x27;❌ upsertCommissions: Invalid payload&#x27;, action.payload);
+        return;
+      }
+
+      action.payload.forEach((commission, index) &#x3D;&gt; {
+        if (commission &amp;&amp; commission.id) {
+          state.items[commission.id] &#x3D; commission;
+          console.log(&#x60;✅ Added commission ${index + 1}:&#x60;, commission.id);
+        } else {
+          console.error(&#x27;❌ Invalid commission object:&#x27;, commission);
+        }
+      });
+
+      state.totalCount &#x3D; Object.keys(state.items).length;
+      console.log(&#x27;✅ Total commissions in state:&#x27;, state.totalCount);
+    },
+
+    /**
+     * Set commissions from cache/API (legacy compatibility)
+     */
+    setItems: (state, action: PayloadAction&lt;Commission[]&gt;) &#x3D;&gt; {
+      console.log(
+        &#x27;🔄 setItems reducer called with:&#x27;,
+        action.payload?.length || &#x27;undefined&#x27;,
+        &#x27;commissions&#x27;
+      );
+
+      if (!action.payload || !Array.isArray(action.payload)) {
+        console.error(&#x27;❌ setItems: Invalid payload&#x27;, action.payload);
+        return;
+      }
+
+      // Clear existing commissions and set new ones
+      state.items &#x3D; {};
+      action.payload.forEach((commission) &#x3D;&gt; {
+        if (commission &amp;&amp; commission.id) {
+          state.items[commission.id] &#x3D; commission;
+        }
+      });
+      state.totalCount &#x3D; Object.keys(state.items).length;
+      state.error &#x3D; null;
+      console.log(&#x27;✅ setItems: Total commissions now:&#x27;, state.totalCount);
+    },
+
+    /**
+     * Set date filter
+     */
+    setDateFilter: (
+      state,
+      action: PayloadAction&lt;{ startDate: string; endDate: string }&gt;
+    ) &#x3D;&gt; {
+      state.filters.dateRange &#x3D; action.payload;
+      console.log(&#x27;📅 Date filter updated:&#x27;, action.payload);
+    },
+
+    /**
+     * Set status filter
+     */
+    setStatusFilter: (state, action: PayloadAction&lt;string[]&gt;) &#x3D;&gt; {
+      state.filters.statuses &#x3D; action.payload;
+      console.log(&#x27;🔧 Status filter updated:&#x27;, action.payload);
+    },
+
+    /**
+     * Update filters (partial update)
+     */
+    updateFilters: (
+      state,
+      action: PayloadAction&lt;Partial&lt;CommissionFilters&gt;&gt;
+    ) &#x3D;&gt; {
+      state.filters &#x3D; { ...state.filters, ...action.payload };
+      console.log(&#x27;🔧 Filters updated:&#x27;, state.filters);
+    },
+
+    /**
+     * Reset filters to current year default
+     */
+    resetFilters: (state) &#x3D;&gt; {
+      state.filters &#x3D; {
+        dateRange: getCurrentYearRange(),
+      };
+      state.searchTerm &#x3D; &#x27;&#x27;;
+      console.log(&#x27;🧹 Filters reset to current year default&#x27;);
+    },
+
+    /**
+     * Clear all filters (no date filter)
+     */
+    clearFilters: (state) &#x3D;&gt; {
+      state.filters &#x3D; {};
+      state.searchTerm &#x3D; &#x27;&#x27;;
+      console.log(&#x27;🧹 All filters cleared&#x27;);
+    },
+
+    /**
+     * Update KPI totals cache
+     */
+    updateKPITotals: (state, action: PayloadAction&lt;CommissionKPIStats&gt;) &#x3D;&gt; {
+      state.kpiTotals &#x3D; action.payload;
+      console.log(&#x27;📊 KPI totals updated:&#x27;, action.payload);
+    },
+
+    /**
+     * Update search term
+     */
+    updateSearchTerm: (state, action: PayloadAction&lt;string&gt;) &#x3D;&gt; {
+      state.searchTerm &#x3D; action.payload;
+      console.log(&#x27;🔍 Search term updated:&#x27;, action.payload);
+    },
+
+    /**
+     * Set loading state
+     */
+    setLoading: (state, action: PayloadAction&lt;boolean&gt;) &#x3D;&gt; {
+      state.isLoading &#x3D; action.payload;
+      if (action.payload) {
+        state.error &#x3D; null;
+      }
+    },
+
+    /**
+     * Set error state
+     */
+    setError: (state, action: PayloadAction&lt;string&gt;) &#x3D;&gt; {
+      state.error &#x3D; action.payload;
+      state.isLoading &#x3D; false;
+      state.loadingNext &#x3D; false;
+    },
+
+    /**
+     * Update last sync timestamp
+     */
+    setLastSync: (state, action: PayloadAction&lt;number&gt;) &#x3D;&gt; {
+      state.lastSync &#x3D; action.payload;
+    },
+
+    /**
+     * Start loading next page (pagination support)
+     */
+    startNextPageLoad: (state) &#x3D;&gt; {
+      state.loadingNext &#x3D; true;
+      state.error &#x3D; null;
+      console.log(&#x27;🔄 Started loading next page&#x27;);
+    },
+
+    /**
+     * Finish loading next page (pagination support)
+     */
+    finishNextPageLoad: (
+      state,
+      action: PayloadAction&lt;{
+        page: number;
+        totalPages: number;
+        success: boolean;
+        error?: string;
+      }&gt;
+    ) &#x3D;&gt; {
+      const { page, totalPages, success, error } &#x3D; action.payload;
+
+      state.loadingNext &#x3D; false;
+      state.totalPages &#x3D; totalPages;
+
+      if (success) {
+        // Add page to loaded pages if not already present
+        if (!state.pagesLoaded.includes(page)) {
+          state.pagesLoaded.push(page);
+        }
+        // Update hasMore based on whether we&#x27;ve loaded all pages
+        state.hasMore &#x3D; page &lt; totalPages;
+        console.log(
+          &#x60;✅ Page ${page} loaded. HasMore: ${state.hasMore} (${page}/${totalPages})&#x60;
+        );
+      } else {
+        state.error &#x3D; error || &#x27;Failed to load next page&#x27;;
+        console.log(&#x60;❌ Page ${page} failed: ${error}&#x60;);
+      }
+    },
+
+    /**
+     * Reset pagination state (useful for refresh)
+     */
+    resetPagination: (state) &#x3D;&gt; {
+      state.pagesLoaded &#x3D; [];
+      state.totalPages &#x3D; 0;
+      state.loadingNext &#x3D; false;
+      state.hasMore &#x3D; true;
+      state.error &#x3D; null;
+      console.log(&#x27;🔄 Commission pagination state reset&#x27;);
+    },
+
+    /**
+     * Clear all pages and reset state
+     */
+    clearPages: (state) &#x3D;&gt; {
+      state.items &#x3D; {};
+      state.pagesLoaded &#x3D; [];
+      state.totalPages &#x3D; 0;
+      state.totalCount &#x3D; 0;
+      state.lastSync &#x3D; null;
+      state.error &#x3D; null;
+      state.loadingNext &#x3D; false;
+      state.hasMore &#x3D; true;
+      state.kpiTotals &#x3D; null;
+      console.log(&#x27;✅ Cleared all commission pages&#x27;);
+    },
+
+    /**
+     * Clear all commission data
+     */
+    clear: (state) &#x3D;&gt; {
+      return { ...initialState };
+    },
+
+    /**
+     * Set rehydration data (used by SQLite transform)
+     */
+    rehydrate: (
+      state,
+      action: PayloadAction&lt;{ items: Commission[]; lastSync: number | null }&gt;
+    ) &#x3D;&gt; {
+      const { items, lastSync } &#x3D; action.payload;
+
+      // Convert array to normalized structure
+      state.items &#x3D; {};
+      if (Array.isArray(items)) {
+        items.forEach((commission) &#x3D;&gt; {
+          if (commission &amp;&amp; commission.id) {
+            state.items[commission.id] &#x3D; commission;
+          }
+        });
+      }
+
+      state.lastSync &#x3D; lastSync;
+      state.totalCount &#x3D; Object.keys(state.items).length;
+      state.isLoading &#x3D; false;
+      state.error &#x3D; null;
+      console.log(
+        &#x27;✅ Commission state rehydrated with&#x27;,
+        state.totalCount,
+        &#x27;commissions&#x27;
+      );
+    },
+  },
+
+  /**
+   * Extra reducers to handle API responses
+   */
+  extraReducers: (builder) &#x3D;&gt; {
+    builder
+      // Handle getCommissions fulfilled
+      .addMatcher(
+        commissionApi.endpoints?.getCommissions?.matchFulfilled,
+        (state, action) &#x3D;&gt; {
+          console.log(&#x27;🔄 getCommissions fulfilled, syncing to Redux state&#x27;);
+
+          if (action.payload?.data?.items) {
+            const commissions &#x3D; action.payload.data.items;
+
+            // Transform API commissions to our Commission model
+            commissions.forEach((apiCommission: any) &#x3D;&gt; {
+              const transformedCommission: Commission &#x3D; {
+                id: apiCommission.commissionId,
+                cp_id: apiCommission.cpId,
+                lead_id: apiCommission.leadId || undefined,
+                customer_id: undefined, // Not provided by API
+                amount: apiCommission.amount,
+                status: apiCommission.status,
+                created_at: apiCommission.createdAt || new Date().toISOString(),
+                updated_at: new Date().toISOString(),
+                payment_date: undefined, // API doesn&#x27;t provide this in list
+                description: undefined, // API doesn&#x27;t provide this in list
+                sync_status: &#x27;synced&#x27;,
+                local_changes: &#x27;{}&#x27;,
+              };
+
+              state.items[transformedCommission.id] &#x3D; transformedCommission;
+            });
+
+            state.totalCount &#x3D; Object.keys(state.items).length;
+            state.lastSync &#x3D; Date.now();
+            console.log(
+              &#x27;✅ Redux state synced with API data, total commissions:&#x27;,
+              state.totalCount
+            );
+          }
+        }
+      )
+
+      // Handle getCommissionById fulfilled
+      .addMatcher(
+        commissionApi.endpoints?.getCommissionById?.matchFulfilled,
+        (state, action) &#x3D;&gt; {
+          console.log(&#x27;💰 getCommissionById fulfilled:&#x27;, action.payload);
+
+          if (action.payload?.data) {
+            const apiCommission &#x3D; action.payload.data;
+
+            const transformedCommission: Commission &#x3D; {
+              id: apiCommission.commissionId,
+              cp_id: apiCommission.cpId,
+              lead_id: apiCommission.leadId || undefined,
+              customer_id: undefined, // Not provided by API
+              amount: apiCommission.amount,
+              status: apiCommission.status,
+              created_at: apiCommission.createdAt || new Date().toISOString(),
+              updated_at: apiCommission.updatedAt || new Date().toISOString(),
+              payment_date: apiCommission.paidAt || undefined,
+              description: undefined,
+              sync_status: &#x27;synced&#x27;,
+              local_changes: &#x27;{}&#x27;,
+            };
+
+            state.items[transformedCommission.id] &#x3D; transformedCommission;
+            console.log(
+              &#x27;✅ Commission detail added to Redux state:&#x27;,
+              transformedCommission.id
+            );
+          }
+        }
+      );
+  },
+});
+
+// Export actions
+export const {
+  upsertCommissions,
+  setItems,
+  setDateFilter,
+  setStatusFilter,
+  updateFilters,
+  resetFilters,
+  clearFilters,
+  updateKPITotals,
+  updateSearchTerm,
+  setLoading,
+  setError,
+  setLastSync,
+  startNextPageLoad,
+  finishNextPageLoad,
+  resetPagination,
+  clearPages,
+  clear,
+  rehydrate,
+} &#x3D; commissionSlice.actions;
+
+// Export reducer
+export default commissionSlice.reducer;
+
+// Base selectors
+export const selectCommissionState &#x3D; (state: {
+  commissions: CommissionState;
+}) &#x3D;&gt; state.commissions;
+
+// Legacy selectors for backward compatibility
+export const selectCommissions &#x3D; createSelector(
+  [selectCommissionState],
+  (commissionState) &#x3D;&gt; Object.values(commissionState?.items || {})
+);
+
+export const selectCommissionsLoading &#x3D; createSelector(
+  [selectCommissionState],
+  (commissionState) &#x3D;&gt; commissionState?.isLoading || false
+);
+
+export const selectCommissionsError &#x3D; createSelector(
+  [selectCommissionState],
+  (commissionState) &#x3D;&gt; commissionState?.error || null
+);
+
+export const selectCommissionsLastSync &#x3D; createSelector(
+  [selectCommissionState],
+  (commissionState) &#x3D;&gt; commissionState?.lastSync || null
+);
+
+export const selectCommissionsTotalCount &#x3D; createSelector(
+  [selectCommissionState],
+  (commissionState) &#x3D;&gt; commissionState?.totalCount || 0
+);
+
+export const selectCommissionsSearchTerm &#x3D; createSelector(
+  [selectCommissionState],
+  (commissionState) &#x3D;&gt; commissionState?.searchTerm || &#x27;&#x27;
+);
+
+export const selectCommissionsFilters &#x3D; createSelector(
+  [selectCommissionState],
+  (commissionState) &#x3D;&gt; commissionState?.filters || {}
+);
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'CommissionFilters-1.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

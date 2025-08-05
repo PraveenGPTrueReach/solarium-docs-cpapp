@@ -1,0 +1,934 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  CompressionOptions</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/utils/imageCompressor.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Image compression utility with performance optimization
+Follows existing utility patterns for logging and performance monitoring</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#format" 
+>
+                                            format
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#maxHeight" 
+>
+                                            maxHeight
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#maxWidth" 
+>
+                                            maxWidth
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#quality" 
+>
+                                            quality
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#targetSize" 
+>
+                                            targetSize
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="format"></a>
+                                        <span class="name "><b>format</b>
+                                            <a href="#format">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>format:     <code>&quot;jpeg&quot; | &quot;png&quot;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>&quot;jpeg&quot; | &quot;png&quot;</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Compression format</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="maxHeight"></a>
+                                        <span class="name "><b>maxHeight</b>
+                                            <a href="#maxHeight">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>maxHeight:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Maximum height in pixels</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="maxWidth"></a>
+                                        <span class="name "><b>maxWidth</b>
+                                            <a href="#maxWidth">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>maxWidth:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Maximum width in pixels</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="quality"></a>
+                                        <span class="name "><b>quality</b>
+                                            <a href="#quality">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>quality:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Quality factor (0.1-1.0)</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="targetSize"></a>
+                                        <span class="name "><b>targetSize</b>
+                                            <a href="#targetSize">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>targetSize:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Target size in bytes</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Platform } from &#x27;react-native&#x27;;
+// import {
+//   manipulateAsync,
+//   SaveFormat,
+//   ImageResult,
+// } from &#x27;react-native-image-manipulator&#x27;;
+import RNImageManipulator from &quot;@oguzhnatly/react-native-image-manipulator&quot;;
+import AsyncStorage from &#x27;@react-native-async-storage/async-storage&#x27;;
+import { Logger } from &#x27;./Logger&#x27;;
+import { PerformanceMonitor, PerformanceMetric } from &#x27;./PerformanceMonitor&#x27;;
+
+/**
+ * Image compression utility with performance optimization
+ * Follows existing utility patterns for logging and performance monitoring
+ */
+
+export interface CompressionOptions {
+  /** Quality factor (0.1-1.0) */
+  quality?: number;
+  /** Maximum width in pixels */
+  maxWidth?: number;
+  /** Maximum height in pixels */
+  maxHeight?: number;
+  /** Target size in bytes */
+  targetSize?: number;
+  /** Compression format */
+  format?: &#x27;jpeg&#x27; | &#x27;png&#x27;;
+}
+
+export interface CompressedImage {
+  /** Compressed image URI */
+  uri: string;
+  /** Original size in bytes */
+  originalSize: number;
+  /** Compressed size in bytes */
+  compressedSize: number;
+  /** Compression ratio (0-1) */
+  compressionRatio: number;
+  /** Whether compression was successful */
+  success: boolean;
+  /** Processing time in milliseconds */
+  processingTime: number;
+  /** Original image dimensions */
+  originalDimensions?: { width: number; height: number };
+  /** Compressed image dimensions */
+  compressedDimensions?: { width: number; height: number };
+  /** Error message if compression failed */
+  error?: string;
+}
+
+export interface CompressionMetrics {
+  totalImages: number;
+  successCount: number;
+  failureCount: number;
+  averageProcessingTime: number;
+  averageCompressionRatio: number;
+  totalTimeSaved: number;
+}
+
+class ImageCompressor {
+  private readonly logger: Logger;
+  private readonly performanceMonitor: PerformanceMonitor;
+  private readonly COMPRESSION_THRESHOLD &#x3D; 2 * 1024 * 1024; // 2MB
+  private readonly MAX_FILE_SIZE &#x3D; 10 * 1024 * 1024; // 10MB
+  private readonly DEFAULT_QUALITY &#x3D; 0.8;
+  private readonly MAX_PROCESSING_TIME &#x3D; 3000; // 3 seconds
+  private readonly STORAGE_KEY &#x3D; &#x27;image_compression_metrics&#x27;;
+
+  constructor() {
+    this.logger &#x3D; new Logger(&#x27;ImageCompressor&#x27;);
+    this.performanceMonitor &#x3D; new PerformanceMonitor();
+  }
+
+  /**
+   * Compress a single image if it exceeds the threshold
+   * @param uri - Image URI to compress
+   * @param options - Compression options
+   * @returns Promise resolving to compressed image data
+   */
+  async compressImage(
+    uri: string,
+    options: CompressionOptions &#x3D; {}
+  ): Promise&lt;CompressedImage&gt; {
+    const startTime &#x3D; Date.now();
+    const metricName &#x3D; &#x60;compress_image_${Date.now()}&#x60;;
+
+    this.performanceMonitor.startMetric(metricName, {
+      uri,
+      options,
+      platform: Platform.OS,
+    });
+
+    this.logger.info(&#x27;Starting image compression&#x27;, {
+      uri,
+      options,
+      timestamp: startTime,
+    });
+
+    try {
+      // Calculate original image size
+      const originalSize &#x3D; await this.calculateImageSize(uri);
+
+      // Check if compression is needed
+      if (!this.shouldCompress(originalSize)) {
+        this.logger.info(&#x27;Image compression skipped - below threshold&#x27;, {
+          uri,
+          originalSize,
+          threshold: this.COMPRESSION_THRESHOLD,
+        });
+
+        return {
+          uri,
+          originalSize,
+          compressedSize: originalSize,
+          compressionRatio: 1,
+          success: true,
+          processingTime: Date.now() - startTime,
+        };
+      }
+
+      // Perform compression
+      const compressedResult &#x3D; await this.performCompression(uri, options);
+      const processingTime &#x3D; Date.now() - startTime;
+
+      // Check processing time constraint
+      if (processingTime &gt; this.MAX_PROCESSING_TIME) {
+        this.logger.warn(&#x27;Compression exceeded time limit&#x27;, {
+          uri,
+          processingTime,
+          maxTime: this.MAX_PROCESSING_TIME,
+        });
+      }
+
+      const result: CompressedImage &#x3D; {
+        uri: compressedResult.uri,
+        originalSize,
+        compressedSize: await this.calculateImageSize(compressedResult.uri),
+        compressionRatio: 0,
+        success: true,
+        processingTime,
+        originalDimensions: {
+          width: compressedResult.width,
+          height: compressedResult.height,
+        },
+        compressedDimensions: {
+          width: compressedResult.width,
+          height: compressedResult.height,
+        },
+      };
+
+      result.compressionRatio &#x3D; result.compressedSize / result.originalSize;
+
+      // Log performance metrics
+      this.performanceMonitor.endMetric(metricName, {
+        success: true,
+        originalSize,
+        compressedSize: result.compressedSize,
+        compressionRatio: result.compressionRatio,
+        processingTime,
+      });
+
+      // Store metrics for monitoring
+      await this.storeCompressionMetrics(result);
+
+      this.logger.info(&#x27;Image compression completed successfully&#x27;, {
+        uri,
+        originalSize,
+        compressedSize: result.compressedSize,
+        compressionRatio: result.compressionRatio,
+        processingTime,
+      });
+
+      return result;
+    } catch (error) {
+      const processingTime &#x3D; Date.now() - startTime;
+
+      this.logger.error(&#x27;Image compression failed&#x27;, {
+        uri,
+        error: error.message,
+        processingTime,
+      });
+
+      this.performanceMonitor.endMetric(metricName, {
+        success: false,
+        error: error.message,
+        processingTime,
+      });
+
+      // Return original image on failure
+      const originalSize &#x3D; await this.calculateImageSize(uri).catch(() &#x3D;&gt; 0);
+
+      return {
+        uri, // Return original URI
+        originalSize,
+        compressedSize: originalSize,
+        compressionRatio: 1,
+        success: false,
+        processingTime,
+        error: error.message,
+      };
+    }
+  }
+
+  /**
+   * Calculate image file size in bytes
+   * @param uri - Image URI
+   * @returns Promise resolving to file size in bytes
+   */
+  async calculateImageSize(uri: string): Promise&lt;number&gt; {
+    try {
+      // For file:// URIs, we need to estimate size
+      // This is a simplified approach - in production, you might want to use react-native-fs
+      const response &#x3D; await fetch(uri);
+      const blob &#x3D; await response.blob();
+      return blob.size;
+    } catch (error) {
+      this.logger.warn(&#x27;Failed to calculate image size&#x27;, {
+        uri,
+        error: error.message,
+      });
+      return 0;
+    }
+  }
+
+  /**
+   * Check if image should be compressed based on size
+   * @param sizeInBytes - Image size in bytes
+   * @returns True if compression is needed
+   */
+  shouldCompress(sizeInBytes: number): boolean {
+    return (
+      sizeInBytes &gt; this.COMPRESSION_THRESHOLD &amp;&amp;
+      sizeInBytes &lt;&#x3D; this.MAX_FILE_SIZE
+    );
+  }
+
+  /**
+   * Compress multiple images in batch
+   * @param uris - Array of image URIs
+   * @param options - Compression options
+   * @returns Promise resolving to array of compressed images
+   */
+  async compressImageBatch(
+    uris: string[],
+    options: CompressionOptions &#x3D; {}
+  ): Promise&lt;CompressedImage[]&gt; {
+    const batchStartTime &#x3D; Date.now();
+    const batchMetricName &#x3D; &#x60;compress_batch_${Date.now()}&#x60;;
+
+    this.performanceMonitor.startMetric(batchMetricName, {
+      imageCount: uris.length,
+      options,
+    });
+
+    this.logger.info(&#x27;Starting batch image compression&#x27;, {
+      imageCount: uris.length,
+      options,
+    });
+
+    const results: CompressedImage[] &#x3D; [];
+
+    for (const uri of uris) {
+      const result &#x3D; await this.compressImage(uri, options);
+      results.push(result);
+    }
+
+    const batchProcessingTime &#x3D; Date.now() - batchStartTime;
+    const successCount &#x3D; results.filter((r) &#x3D;&gt; r.success).length;
+    const failureCount &#x3D; results.length - successCount;
+
+    this.performanceMonitor.endMetric(batchMetricName, {
+      imageCount: uris.length,
+      successCount,
+      failureCount,
+      batchProcessingTime,
+    });
+
+    this.logger.info(&#x27;Batch image compression completed&#x27;, {
+      imageCount: uris.length,
+      successCount,
+      failureCount,
+      batchProcessingTime,
+    });
+
+    return results;
+  }
+
+  /**
+   * Perform the actual compression using react-native-image-manipulator
+   * @param uri - Image URI
+   * @param options - Compression options
+   * @returns Promise resolving to compressed image result
+   */
+  private async performCompression(
+    uri: string,
+    options: CompressionOptions
+  ): Promise&lt;any&gt; {
+    const {
+      quality &#x3D; this.DEFAULT_QUALITY,
+      maxWidth &#x3D; 1920,
+      maxHeight &#x3D; 1080,
+      format &#x3D; &#x27;jpeg&#x27;,
+    } &#x3D; options;
+
+    const manipulateOptions &#x3D; [];
+
+    // Add resize if needed
+    if (maxWidth &amp;&amp; maxHeight) {
+      manipulateOptions.push({
+        resize: {
+          width: maxWidth,
+          height: maxHeight,
+        },
+      });
+    }
+
+    // Determine save format
+    const saveFormat &#x3D; format &#x3D;&#x3D;&#x3D; &#x27;png&#x27; ? &#x27;png&#x27; : &#x27;jpeg&#x27;;
+
+    return await RNImageManipulator.manipulate(uri, manipulateOptions, {
+      compress: quality,
+      format: saveFormat,
+    });
+  }
+
+  /**
+   * Store compression metrics for monitoring
+   * @param result - Compression result
+   */
+  private async storeCompressionMetrics(
+    result: CompressedImage
+  ): Promise&lt;void&gt; {
+    try {
+      const existingMetrics &#x3D; await this.getStoredMetrics();
+
+      const updatedMetrics: CompressionMetrics &#x3D; {
+        totalImages: existingMetrics.totalImages + 1,
+        successCount: existingMetrics.successCount + (result.success ? 1 : 0),
+        failureCount: existingMetrics.failureCount + (result.success ? 0 : 1),
+        averageProcessingTime:
+          (existingMetrics.averageProcessingTime * existingMetrics.totalImages +
+            result.processingTime) /
+          (existingMetrics.totalImages + 1),
+        averageCompressionRatio:
+          (existingMetrics.averageCompressionRatio *
+            existingMetrics.totalImages +
+            result.compressionRatio) /
+          (existingMetrics.totalImages + 1),
+        totalTimeSaved:
+          existingMetrics.totalTimeSaved +
+          (result.originalSize - result.compressedSize),
+      };
+
+      await AsyncStorage.setItem(
+        this.STORAGE_KEY,
+        JSON.stringify(updatedMetrics)
+      );
+    } catch (error) {
+      this.logger.error(&#x27;Failed to store compression metrics&#x27;, {
+        error: error.message,
+      });
+    }
+  }
+
+  /**
+   * Get stored compression metrics
+   * @returns Promise resolving to compression metrics
+   */
+  async getCompressionMetrics(): Promise&lt;CompressionMetrics&gt; {
+    return await this.getStoredMetrics();
+  }
+
+  /**
+   * Clear stored compression metrics
+   */
+  async clearCompressionMetrics(): Promise&lt;void&gt; {
+    try {
+      await AsyncStorage.removeItem(this.STORAGE_KEY);
+      this.logger.info(&#x27;Compression metrics cleared&#x27;);
+    } catch (error) {
+      this.logger.error(&#x27;Failed to clear compression metrics&#x27;, {
+        error: error.message,
+      });
+    }
+  }
+
+  /**
+   * Get stored metrics with defaults
+   * @returns Promise resolving to stored metrics
+   */
+  private async getStoredMetrics(): Promise&lt;CompressionMetrics&gt; {
+    try {
+      const stored &#x3D; await AsyncStorage.getItem(this.STORAGE_KEY);
+      if (stored) {
+        return JSON.parse(stored);
+      }
+    } catch (error) {
+      this.logger.warn(&#x27;Failed to retrieve stored metrics&#x27;, {
+        error: error.message,
+      });
+    }
+
+    // Return default metrics
+    return {
+      totalImages: 0,
+      successCount: 0,
+      failureCount: 0,
+      averageProcessingTime: 0,
+      averageCompressionRatio: 0,
+      totalTimeSaved: 0,
+    };
+  }
+}
+
+// Export singleton instance
+export const imageCompressor &#x3D; new ImageCompressor();
+
+// Export individual functions for convenience
+export const compressImage &#x3D;
+  imageCompressor.compressImage.bind(imageCompressor);
+export const calculateImageSize &#x3D;
+  imageCompressor.calculateImageSize.bind(imageCompressor);
+export const shouldCompress &#x3D;
+  imageCompressor.shouldCompress.bind(imageCompressor);
+export const compressImageBatch &#x3D;
+  imageCompressor.compressImageBatch.bind(imageCompressor);
+export const getCompressionMetrics &#x3D;
+  imageCompressor.getCompressionMetrics.bind(imageCompressor);
+export const clearCompressionMetrics &#x3D;
+  imageCompressor.clearCompressionMetrics.bind(imageCompressor);
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'CompressionOptions-1.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

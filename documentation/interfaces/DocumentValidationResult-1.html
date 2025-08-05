@@ -1,0 +1,616 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  DocumentValidationResult</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/validation/documentSchema.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Document Validation Result Interface</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#errors" 
+>
+                                            errors
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#isValid" 
+>
+                                            isValid
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#warnings" 
+>
+                                            warnings
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="errors"></a>
+                                        <span class="name "><b>errors</b>
+                                            <a href="#errors">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>errors:     <code>Record&lt;string | string&gt;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Record&lt;string | string&gt;</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="isValid"></a>
+                                        <span class="name "><b>isValid</b>
+                                            <a href="#isValid">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>isValid:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="warnings"></a>
+                                        <span class="name "><b>warnings</b>
+                                            <a href="#warnings">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>warnings:     <code>string[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string[]</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  MAX_FILE_SIZE,
+  MAX_DOCUMENT_COUNT,
+  SUPPORTED_DOCUMENT_TYPES,
+} from &#x27;../constants/document&#x27;;
+import { DOCUMENT_VALIDATION_MESSAGES } from &#x27;../constants/strings&#x27;;
+// import {
+//   validateFileContentMatch,
+//   getFileSize,
+//   checkFileAccess,
+// } from &#x27;../utils/fileContentValidator&#x27;;
+
+/**
+ * Document Input Interface
+ */
+export interface DocumentInput {
+  uri: string;
+  fileName: string;
+  type: string;
+  fileSize?: number;
+}
+
+/**
+ * Document Validation Result Interface
+ */
+export interface DocumentValidationResult {
+  isValid: boolean;
+  errors: Record&lt;string, string&gt;;
+  warnings?: string[];
+}
+
+/**
+ * Individual document validators
+ */
+export const documentValidators &#x3D; {
+  /**
+   * Validate file size
+   */
+  fileSize: (sizeInBytes: number): string | null &#x3D;&gt; {
+    if (sizeInBytes &lt;&#x3D; 0) {
+      return DOCUMENT_VALIDATION_MESSAGES.CORRUPTED_FILE;
+    }
+    if (sizeInBytes &gt; MAX_FILE_SIZE) {
+      return DOCUMENT_VALIDATION_MESSAGES.FILE_TOO_LARGE;
+    }
+    return null;
+  },
+
+  /**
+   * Validate file type by extension
+   */
+  fileType: (filename: string): string | null &#x3D;&gt; {
+    if (!filename || filename.trim().length &#x3D;&#x3D;&#x3D; 0) {
+      return DOCUMENT_VALIDATION_MESSAGES.UNKNOWN_ERROR;
+    }
+
+    const extension &#x3D; filename.toLowerCase().match(/\.[^.]+$/);
+    if (!extension) {
+      return DOCUMENT_VALIDATION_MESSAGES.UNSUPPORTED_TYPE;
+    }
+
+    const ext &#x3D; extension[0];
+    const supportedExtensions &#x3D; [&#x27;.jpg&#x27;, &#x27;.jpeg&#x27;, &#x27;.png&#x27;, &#x27;.pdf&#x27;];
+
+    if (!supportedExtensions.includes(ext)) {
+      return DOCUMENT_VALIDATION_MESSAGES.UNSUPPORTED_TYPE;
+    }
+
+    return null;
+  },
+
+  /**
+   * Validate file type by MIME type
+   */
+  mimeType: (type: string): string | null &#x3D;&gt; {
+    if (!type || type.trim().length &#x3D;&#x3D;&#x3D; 0) {
+      return DOCUMENT_VALIDATION_MESSAGES.UNKNOWN_ERROR;
+    }
+
+    if (!SUPPORTED_DOCUMENT_TYPES.includes(type as any)) {
+      return DOCUMENT_VALIDATION_MESSAGES.UNSUPPORTED_TYPE;
+    }
+
+    return null;
+  },
+
+  /**
+   * Validate document count
+   */
+  documentCount: (currentCount: number, newCount: number): string | null &#x3D;&gt; {
+    if (currentCount &lt; 0 || newCount &lt; 0) {
+      return DOCUMENT_VALIDATION_MESSAGES.UNKNOWN_ERROR;
+    }
+
+    if (currentCount + newCount &gt; MAX_DOCUMENT_COUNT) {
+      return DOCUMENT_VALIDATION_MESSAGES.MAX_DOCUMENTS_EXCEEDED;
+    }
+
+    return null;
+  },
+};
+
+/**
+ * Validate file content matches extension (async)
+ */
+export const validateFileContent &#x3D; async (
+  uri: string,
+  expectedType: string
+): Promise&lt;string | null&gt; &#x3D;&gt; {
+  // TODO: Implement file content validation for React Native
+  // Currently disabled due to Node.js dependency conflicts
+  console.log(&#x27;File content validation skipped for React Native compatibility&#x27;);
+  return null;
+};
+
+/**
+ * Validate single document (async)
+ */
+// export const validateDocument &#x3D; async (
+//   document: DocumentInput
+// ): Promise&lt;DocumentValidationResult&gt; &#x3D;&gt; {
+//   const errors: Record&lt;string, string&gt; &#x3D; {};
+//   const warnings: string[] &#x3D; [];
+
+//   try {
+//     // Validate file name
+//     const fileTypeError &#x3D; documentValidators.fileType(document.fileName);
+//     if (fileTypeError) {
+//       errors.fileName &#x3D; fileTypeError;
+//     }
+
+//     // Validate MIME type
+//     const mimeTypeError &#x3D; documentValidators.mimeType(document.type);
+//     if (mimeTypeError) {
+//       errors.type &#x3D; mimeTypeError;
+//     }
+
+//     // Validate file size (if provided)
+//     if (document.fileSize !&#x3D;&#x3D; undefined) {
+//       const sizeError &#x3D; documentValidators.fileSize(document.fileSize);
+//       if (sizeError) {
+//         errors.fileSize &#x3D; sizeError;
+//       }
+//     }
+
+//     // Validate file content (security check)
+//     const contentError &#x3D; await validateFileContent(document.uri, document.type);
+//     if (contentError) {
+//       errors.content &#x3D; contentError;
+//     }
+
+//     return {
+//       isValid: Object.keys(errors).length &#x3D;&#x3D;&#x3D; 0,
+//       errors,
+//       warnings,
+//     };
+//   } catch (error) {
+//     console.error(&#x27;❌ Error validating document:&#x27;, error);
+//     return {
+//       isValid: false,
+//       errors: { general: DOCUMENT_VALIDATION_MESSAGES.UNKNOWN_ERROR },
+//       warnings,
+//     };
+//   }
+// };
+
+/**
+ * Validate multiple documents (batch validation)
+ */
+export const validateDocuments &#x3D; async (
+  documents: DocumentInput[],
+  currentCount: number &#x3D; 0
+): Promise&lt;DocumentValidationResult&gt; &#x3D;&gt; {
+  const errors: Record&lt;string, string&gt; &#x3D; {};
+  const warnings: string[] &#x3D; [];
+
+  try {
+    // Validate document count
+    const countError &#x3D; documentValidators.documentCount(
+      currentCount,
+      documents.length
+    );
+    if (countError) {
+      errors.count &#x3D; countError;
+      return { isValid: false, errors, warnings };
+    }
+
+    // Validate each document
+    const validationPromises &#x3D; documents.map(async (doc, index) &#x3D;&gt; {
+      const result &#x3D; await validateDocument(doc);
+      return { index, result };
+    });
+
+    const results &#x3D; await Promise.all(validationPromises);
+
+    // Collect errors from all documents
+    results.forEach(({ index, result }) &#x3D;&gt; {
+      if (!result.isValid) {
+        Object.keys(result.errors).forEach((field) &#x3D;&gt; {
+          errors[&#x60;document_${index}_${field}&#x60;] &#x3D; result.errors[field];
+        });
+      }
+      if (result.warnings) {
+        warnings.push(...result.warnings);
+      }
+    });
+
+    return {
+      isValid: Object.keys(errors).length &#x3D;&#x3D;&#x3D; 0,
+      errors,
+      warnings,
+    };
+  } catch (error) {
+    console.error(&#x27;❌ Error validating documents:&#x27;, error);
+    return {
+      isValid: false,
+      errors: { general: DOCUMENT_VALIDATION_MESSAGES.UNKNOWN_ERROR },
+      warnings,
+    };
+  }
+};
+
+/**
+ * Check if document is valid (simple check)
+ */
+export const isDocumentValid &#x3D; async (
+  document: DocumentInput
+): Promise&lt;boolean&gt; &#x3D;&gt; {
+  const result &#x3D; await validateDocument(document);
+  return result.isValid;
+};
+
+/**
+ * Get document validation error message
+ */
+export const getDocumentError &#x3D; async (
+  document: DocumentInput
+): Promise&lt;string | null&gt; &#x3D;&gt; {
+  const result &#x3D; await validateDocument(document);
+  if (!result.isValid) {
+    const firstError &#x3D; Object.values(result.errors)[0];
+    return firstError || DOCUMENT_VALIDATION_MESSAGES.UNKNOWN_ERROR;
+  }
+  return null;
+};
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'DocumentValidationResult-1.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

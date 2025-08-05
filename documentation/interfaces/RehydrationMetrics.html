@@ -1,0 +1,721 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  RehydrationMetrics</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/store/transforms/sqliteTransform.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Performance tracking for rehydration</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#duration" 
+>
+                                            duration
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#endTime" 
+>
+                                            endTime
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#recordCount" 
+>
+                                            recordCount
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#startTime" 
+>
+                                            startTime
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="duration"></a>
+                                        <span class="name "><b>duration</b>
+                                            <a href="#duration">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>duration:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="endTime"></a>
+                                        <span class="name "><b>endTime</b>
+                                            <a href="#endTime">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>endTime:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="recordCount"></a>
+                                        <span class="name "><b>recordCount</b>
+                                            <a href="#recordCount">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>recordCount:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="startTime"></a>
+                                        <span class="name "><b>startTime</b>
+                                            <a href="#startTime">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>startTime:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Transform } from &#x27;redux-persist&#x27;;
+import { openDatabase } from &#x27;../../database/database&#x27;;
+import {
+  getLeadDao,
+  getCustomerDao,
+  getQuotationDao,
+  getSyncDao,
+} from &#x27;../../database/dao&#x27;; // ✅ ADD getQuotationDao
+import type { Lead } from &#x27;../../database/models/Lead&#x27;;
+import type { Customer } from &#x27;../../database/models/Customer&#x27;;
+import type { Quotation } from &#x27;../../database/models/Quotation&#x27;; // ✅ ADD
+
+/**
+ * Performance tracking for rehydration
+ */
+interface RehydrationMetrics {
+  startTime: number;
+  endTime: number;
+  duration: number;
+  recordCount: number;
+}
+
+/**
+ * Log rehydration performance
+ */
+function logRehydrationMetrics(
+  tableName: string,
+  metrics: RehydrationMetrics
+): void {
+  const { duration, recordCount } &#x3D; metrics;
+  console.log(
+    &#x60;SQLite rehydration [${tableName}]: ${recordCount} records in ${duration}ms&#x60;
+  );
+
+  // Warn if performance is slower than expected
+  if (duration &gt; 500 &amp;&amp; recordCount &gt; 100) {
+    console.warn(
+      &#x60;Slow rehydration detected for ${tableName}: ${duration}ms for ${recordCount} records&#x60;
+    );
+  }
+}
+
+/**
+ * Load leads from SQLite cache
+ */
+async function loadLeadsFromCache(): Promise&lt;{
+  items: Lead[];
+  lastSync: number | null;
+}&gt; {
+  const startTime &#x3D; Date.now();
+
+  try {
+    const db &#x3D; await openDatabase();
+    const leadDao &#x3D; getLeadDao(db);
+    const syncDao &#x3D; getSyncDao(db);
+
+    // Load leads and sync metadata in parallel
+    const [leads, syncMetadata] &#x3D; await Promise.all([
+      leadDao.findAll(),
+      syncDao.getByTableName(&#x27;leads&#x27;),
+    ]);
+
+    const lastSync &#x3D; syncMetadata?.last_sync_timestamp
+      ? new Date(syncMetadata.last_sync_timestamp).getTime()
+      : null;
+
+    const endTime &#x3D; Date.now();
+    logRehydrationMetrics(&#x27;leads&#x27;, {
+      startTime,
+      endTime,
+      duration: endTime - startTime,
+      recordCount: leads.length,
+    });
+
+    return { items: leads, lastSync };
+  } catch (error) {
+    console.error(&#x27;Failed to load leads from cache:&#x27;, error);
+    return { items: [], lastSync: null };
+  }
+}
+
+/**
+ * Load customers from SQLite cache
+ */
+async function loadCustomersFromCache(): Promise&lt;{
+  items: Customer[];
+  lastSync: number | null;
+}&gt; {
+  const startTime &#x3D; Date.now();
+
+  try {
+    const db &#x3D; await openDatabase();
+    const customerDao &#x3D; getCustomerDao(db);
+    const syncDao &#x3D; getSyncDao(db);
+
+    // Load customers and sync metadata in parallel
+    const [customers, syncMetadata] &#x3D; await Promise.all([
+      customerDao.findAll(),
+      syncDao.getByTableName(&#x27;customers&#x27;),
+    ]);
+
+    const lastSync &#x3D; syncMetadata?.last_sync_timestamp
+      ? new Date(syncMetadata.last_sync_timestamp).getTime()
+      : null;
+
+    const endTime &#x3D; Date.now();
+    logRehydrationMetrics(&#x27;customers&#x27;, {
+      startTime,
+      endTime,
+      duration: endTime - startTime,
+      recordCount: customers.length,
+    });
+
+    return { items: customers, lastSync };
+  } catch (error) {
+    console.error(&#x27;Failed to load customers from cache:&#x27;, error);
+    return { items: [], lastSync: null };
+  }
+}
+
+/**
+ * ✅ ADD - Load quotations from SQLite cache
+ */
+async function loadQuotationsFromCache(): Promise&lt;{
+  items: Quotation[];
+  lastSync: number | null;
+}&gt; {
+  const startTime &#x3D; Date.now();
+
+  try {
+    const db &#x3D; await openDatabase();
+    const quotationDao &#x3D; getQuotationDao(db);
+    const syncDao &#x3D; getSyncDao(db);
+
+    // Load quotations and sync metadata in parallel
+    const [quotations, syncMetadata] &#x3D; await Promise.all([
+      quotationDao.findAll(),
+      syncDao.getByTableName(&#x27;quotations&#x27;),
+    ]);
+
+    const lastSync &#x3D; syncMetadata?.last_sync_timestamp
+      ? new Date(syncMetadata.last_sync_timestamp).getTime()
+      : null;
+
+    const endTime &#x3D; Date.now();
+    logRehydrationMetrics(&#x27;quotations&#x27;, {
+      startTime,
+      endTime,
+      duration: endTime - startTime,
+      recordCount: quotations.length,
+    });
+
+    return { items: quotations, lastSync };
+  } catch (error) {
+    console.error(&#x27;Failed to load quotations from cache:&#x27;, error);
+    return { items: [], lastSync: null };
+  }
+}
+
+/**
+ * Create SQLite transform for Redux Persist
+ * Handles rehydration from encrypted SQLite cache
+ */
+export function createSQLiteTransform(): Transform&lt;any, any, any&gt; {
+  return {
+    // Transform name for debugging
+    name: &#x27;sqliteTransform&#x27;,
+
+    /**
+     * Inbound transform (serialize to storage)
+     * NO-OP: We don&#x27;t want to store large arrays in AsyncStorage
+     */
+    in: (inboundState: any, key: string) &#x3D;&gt; {
+      // Only persist small metadata, not large item arrays
+      if (key &#x3D;&#x3D;&#x3D; &#x27;leads&#x27;) {
+        return {
+          lastSync: inboundState.lastSync,
+          filters: inboundState.filters,
+          // Don&#x27;t persist items array - it comes from SQLite
+        };
+      }
+
+      if (key &#x3D;&#x3D;&#x3D; &#x27;customers&#x27;) {
+        return {
+          lastSync: inboundState.lastSync,
+          searchTerm: inboundState.searchTerm,
+          filters: inboundState.filters,
+          // Don&#x27;t persist items array - it comes from SQLite
+        };
+      }
+
+      // ✅ ADD - Quotation transform
+      if (key &#x3D;&#x3D;&#x3D; &#x27;quotation&#x27;) {
+        return {
+          lastSync: inboundState.lastSync,
+          filters: inboundState.filters,
+          wizard: inboundState.wizard, // Keep wizard state persisted
+          // Don&#x27;t persist items object - it comes from SQLite
+        };
+      }
+
+      // For other slices, persist normally
+      return inboundState;
+    },
+
+    /**
+     * Outbound transform (deserialize from storage)
+     * Load data from SQLite cache during rehydration
+     */
+    out: async (outboundState: any, key: string) &#x3D;&gt; {
+      try {
+        // Skip SQLite loading during initial app startup to prevent race conditions
+        if (key &#x3D;&#x3D;&#x3D; &#x27;leads&#x27; || key &#x3D;&#x3D;&#x3D; &#x27;customers&#x27;) {
+          console.log(
+            &#x60;SQLite Transform: Skipping ${key} rehydration during startup&#x60;
+          );
+
+          // Return state without items - they&#x27;ll be loaded later by DatabaseProvider
+          return {
+            ...outboundState,
+            items: [], // Empty initially for lead/customer arrays
+            lastSync: outboundState.lastSync,
+            totalCount: 0,
+            isLoading: false,
+            error: null,
+          };
+        }
+
+        // ✅ ADD - Handle quotation rehydration
+        if (key &#x3D;&#x3D;&#x3D; &#x27;quotation&#x27;) {
+          console.log(
+            &#x60;SQLite Transform: Skipping quotation rehydration during startup&#x60;
+          );
+
+          // Return state without items - they&#x27;ll be loaded later by DatabaseProvider
+          return {
+            ...outboundState,
+            items: {}, // Empty normalized object for quotations
+            lastSync: outboundState.lastSync,
+            totalCount: 0,
+            isLoading: false,
+            error: null,
+            wizard: outboundState.wizard || {
+              isActive: false,
+              currentStep: 1,
+              leadId: null,
+              data: {},
+              errors: {},
+              isValid: false,
+              creating: false,
+            },
+          };
+        }
+
+        // For other slices, return as-is
+        return outboundState;
+      } catch (error) {
+        console.error(&#x60;SQLite transform error for ${key}:&#x60;, error);
+        return outboundState;
+      }
+    },
+  };
+}
+
+/**
+ * Preload cache data for immediate availability
+ * Can be called during app startup for better UX
+ */
+export async function preloadCacheData(): Promise&lt;{
+  leads: { items: Lead[]; lastSync: number | null };
+  customers: { items: Customer[]; lastSync: number | null };
+  quotations: { items: Quotation[]; lastSync: number | null }; // ✅ ADD
+}&gt; {
+  console.log(&#x27;🔄 Preloading cache data...&#x27;);
+  const startTime &#x3D; Date.now();
+
+  try {
+    const [leadsData, customersData, quotationsData] &#x3D; await Promise.all([
+      loadLeadsFromCache(),
+      loadCustomersFromCache(),
+      loadQuotationsFromCache(), // ✅ ADD
+    ]);
+
+    const duration &#x3D; Date.now() - startTime;
+    const totalRecords &#x3D;
+      leadsData.items.length +
+      customersData.items.length +
+      quotationsData.items.length;
+
+    console.log(
+      &#x60;✅ Cache preload completed: ${totalRecords} records in ${duration}ms&#x60;
+    );
+
+    return {
+      leads: leadsData,
+      customers: customersData,
+      quotations: quotationsData, // ✅ ADD
+    };
+  } catch (error) {
+    console.error(&#x27;❌ Failed to preload cache data:&#x27;, error);
+    return {
+      leads: { items: [], lastSync: null },
+      customers: { items: [], lastSync: null },
+      quotations: { items: [], lastSync: null }, // ✅ ADD
+    };
+  }
+}
+
+/**
+ * Clear cache transform state
+ * Used during logout to ensure clean state
+ */
+export function clearCacheTransform(): void {
+  console.log(&#x27;🧹 Clearing SQLite transform cache...&#x27;);
+  // This function can be used to clear any in-memory caches
+  // if we add them in the future
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'RehydrationMetrics.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

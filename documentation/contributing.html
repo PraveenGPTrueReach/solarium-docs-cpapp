@@ -1,0 +1,715 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+        <link rel="stylesheet" href="./styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1>Contributing to Solarium CP App</h1>
+<p>Thank you for contributing to the Solarium Channel Partner App! This guide outlines our development workflow and coding standards.</p>
+<h2>🚀 Getting Started</h2>
+<h3>Development Workflow</h3>
+<ol>
+<li><strong>Fork &amp; Clone</strong> the repository</li>
+<li><strong>Create feature branch</strong> from <code>main</code></li>
+<li><strong>Make changes</strong> following our standards</li>
+<li><strong>Test thoroughly</strong> with automated and manual tests  </li>
+<li><strong>Submit pull request</strong> with clear description</li>
+</ol>
+<h3>Branch Strategy</h3>
+<p>main (development) ← Default branch for development ├── feature/CP-123-feature-name ← Feature branches ├── bugfix/CP-456-bug-description ← Bug fix branches └── hotfix/CP-789-critical-fix ← Critical fixes</p>
+<p>staging ← Staging environment branch production ← Production environment branch</p>
+<h4>Branch Naming</h4>
+<ul>
+<li><strong>Feature</strong>: <code>feature/CP-123-short-description</code></li>
+<li><strong>Bug Fix</strong>: <code>bugfix/CP-456-short-description</code>  </li>
+<li><strong>Hot Fix</strong>: <code>hotfix/CP-789-short-description</code></li>
+<li><strong>Refactor</strong>: <code>refactor/CP-101-short-description</code></li>
+</ul>
+<h3>Environment Requirements</h3>
+<p><strong>Mandatory ENVFILE Usage</strong>: All builds and tests require environment configuration.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># ✅ Correct - Always specify environment
+ENVFILE=.env.development yarn test
+ENVFILE=.env.staging fastlane android_debug
+
+# ❌ Incorrect - Will fail
+yarn test
+fastlane android_debug
+📝 Coding Standards
+TypeScript Guidelines
+// ✅ Good: Strong typing
+interface UserProfile {
+  id: string;
+  name: string;
+  role: &#39;channel_partner&#39; | &#39;admin&#39;;
+}
+
+// ✅ Good: Documented functions
+/**
+ * Calculates commission based on lead value
+ * &#64;param leadValue - Lead value in currency
+ * &#64;param rate - Commission rate (0-1)
+ * &#64;returns Commission amount
+ */
+const calculateCommission = (leadValue: number, rate: number): number =&gt; {
+  return leadValue * rate;
+};
+
+// ❌ Avoid: Any types
+const userData: any = getUser();
+
+// ❌ Avoid: Undocumented complex functions
+const calc = (x, y) =&gt; x * y * 0.15;
+React Native Components
+// ✅ Good: Functional component with proper types
+interface LeadCardProps {
+  lead: Lead;
+  onPress: (leadId: string) =&gt; void;
+}
+
+const LeadCard: React.FC&lt;LeadCardProps&gt; = ({ lead, onPress }) =&gt; {
+  const handlePress = useCallback(() =&gt; {
+    onPress(lead.id);
+  }, [lead.id, onPress]);
+
+  return (
+    &lt;TouchableOpacity onPress={handlePress}&gt;
+      &lt;Text&gt;{lead.customerName}&lt;/Text&gt;
+    &lt;/TouchableOpacity&gt;
+  );
+};
+
+export default React.memo(LeadCard);
+File Organization
+// Import order
+import React from &#39;react&#39;;                    // 1. React
+import { View, Text } from &#39;react-native&#39;;    // 2. React Native
+import { useSelector } from &#39;react-redux&#39;;    // 3. Third-party
+import { Lead } from &#39;&#64;models/Lead&#39;;           // 4. Internal types
+import { LeadService } from &#39;&#64;services/api&#39;;   // 5. Internal services
+import styles from &#39;./LeadScreen.styles&#39;;     // 6. Local styles
+Testing Standards
+// ✅ Good: Comprehensive test coverage
+describe(&#39;LeadService&#39;, () =&gt; {
+  describe(&#39;createLead&#39;, () =&gt; {
+    it(&#39;should create lead with valid data&#39;, async () =&gt; {
+      const leadData = createTestData.lead();
+      const result = await LeadService.createLead(leadData);
+      
+      expect(result.success).toBe(true);
+      expect(result.data.id).toBeDefined();
+    });
+
+    it(&#39;should handle validation errors&#39;, async () =&gt; {
+      const invalidData = { ...createTestData.lead(), customerName: &#39;&#39; };
+      
+      await expect(LeadService.createLead(invalidData))
+        .rejects.toThrow(&#39;Customer name is required&#39;);
+    });
+
+    it(&#39;should handle network errors&#39;, async () =&gt; {
+      mockApi.post.mockRejectedValue(new Error(&#39;Network error&#39;));
+      
+      await expect(LeadService.createLead(createTestData.lead()))
+        .rejects.toThrow(&#39;Network error&#39;);
+    });
+  });
+});
+🔧 Development Tools
+Pre-commit Hooks
+Husky automatically runs these checks before each commit:
+
+# Runs automatically on git commit:
+1. ESLint (with auto-fix)
+2. Prettier formatting  
+3. TypeScript type checking
+4. Test execution (if relevant files changed)
+Bypassing Hooks
+# Only in emergencies (not recommended)
+git commit --no-verify -m &quot;Emergency fix&quot;
+Code Quality Checks
+# Run all quality checks
+yarn lint              # ESLint
+yarn type-check        # TypeScript
+yarn test:coverage     # Tests with coverage
+yarn format:check      # Prettier formatting
+
+# Auto-fix issues
+yarn lint:fix          # Fix ESLint issues
+yarn format            # Apply Prettier formatting
+🧪 Testing Requirements
+Coverage Requirements
+| Component Type | Coverage Threshold | |----------------|-------------------| | Services/API | ≥85% | | Components | ≥75% | | Utilities | ≥90% | | Overall | ≥80% |
+
+Test Categories
+Unit Tests: Individual functions and components
+Integration Tests: API interactions and data flow
+Manual Testing: User workflows on both platforms
+Writing Tests
+// Test file naming: ComponentName.test.tsx
+// Test location: __tests__/components/ComponentName.test.tsx
+
+import { render, fireEvent } from &#39;&#64;testing-library/react-native&#39;;
+import { LeadCard } from &#39;&#64;components/LeadCard&#39;;
+import { createTestData } from &#39;&#64;utils/testUtils&#39;;
+
+describe(&#39;LeadCard&#39;, () =&gt; {
+  const mockLead = createTestData.lead();
+  const mockOnPress = jest.fn();
+
+  beforeEach(() =&gt; {
+    jest.clearAllMocks();
+  });
+
+  it(&#39;displays lead information correctly&#39;, () =&gt; {
+    const { getByText } = render(
+      &lt;LeadCard lead={mockLead} onPress={mockOnPress} /&gt;
+    );
+    
+    expect(getByText(mockLead.customerName)).toBeTruthy();
+  });
+
+  it(&#39;calls onPress when tapped&#39;, () =&gt; {
+    const { getByTestId } = render(
+      &lt;LeadCard lead={mockLead} onPress={mockOnPress} /&gt;
+    );
+    
+    fireEvent.press(getByTestId(&#39;lead-card&#39;));
+    expect(mockOnPress).toHaveBeenCalledWith(mockLead.id);
+  });
+});
+📦 Build &amp; Deployment
+Local Builds
+# Android
+ENVFILE=.env.development fastlane android_debug
+ENVFILE=.env.staging fastlane android_debug  
+
+# iOS (macOS only)
+ENVFILE=.env.development fastlane ios_debug
+ENVFILE=.env.staging fastlane ios_debug
+Environment Validation
+Before any build or test:
+
+# Validate environment setup
+yarn ci:validate-env
+
+# Check environment variables
+echo $ENVFILE
+cat $ENVFILE
+🚀 Pull Request Process
+Before Submitting
+Rebase your branch on latest main
+Run all checks locally:
+yarn lint
+yarn type-check  
+yarn test:coverage
+ENVFILE=.env.development yarn ci:validate-env
+Test on both platforms (if UI changes)
+Update documentation if needed
+PR Requirements
+[ ] Clear title describing the change
+[ ] Detailed description with context and reasoning
+[ ] Screenshots for UI changes
+[ ] Test coverage maintained or improved
+[ ] No linting errors or TypeScript issues
+[ ] All CI checks passing
+PR Template
+Use the provided PR template covering:
+
+Description of changes
+Type of change (feature/bugfix/refactor)
+Testing performed
+Screenshots (if applicable)
+Checklist completion
+Review Process
+Automated checks must pass (CI pipeline)
+Code review by team member
+Manual testing on staging environment
+Approval and merge to target branch
+🔐 Security Guidelines
+Secret Management
+# ✅ Good: Using placeholders in committed files
+REACT_APP_PUSH_KEY=PLACEHOLDER-FCM-KEY
+
+# ❌ Never commit real secrets
+REACT_APP_PUSH_KEY=AIzaSyBvG4_actual_secret_key_here
+Security Checklist
+[ ] No hardcoded secrets or credentials
+[ ] Environment files contain only placeholders
+[ ] Sensitive files in .gitignore
+[ ] Gitleaks scan passes
+[ ] Dependencies regularly updated
+📱 Platform-Specific Guidelines
+Android
+Test on multiple screen sizes and Android versions
+Follow Material Design guidelines
+Ensure proper ProGuard/R8 configuration for releases
+Test with and without Google Play Services
+iOS
+Test on multiple iOS versions and device sizes
+Follow Human Interface Guidelines
+Ensure proper iOS-specific permissions
+Test on both simulator and physical devices
+🐛 Debugging
+Common Issues
+Metro bundler issues
+yarn start --reset-cache
+Android build issues
+cd android &amp;&amp; ./gradlew clean &amp;&amp; cd ..
+iOS build issues
+cd ios &amp;&amp; rm -rf Pods &amp;&amp; pod install &amp;&amp; cd ..
+Environment issues
+export ENVFILE=.env.development
+yarn ci:validate-env
+Debug Tools
+Flipper: React Native debugging
+React DevTools: Component inspection
+Redux DevTools: State management debugging
+Network Inspector: API call monitoring
+📊 Performance Guidelines
+React Native Performance
+Use React.memo for expensive components
+Implement proper FlatList optimization
+Avoid anonymous functions in render methods
+Use proper image optimization and caching
+Bundle Size
+Monitor bundle size with Metro bundle analyzer
+Use proper tree-shaking for unused code
+Optimize images and assets
+Consider code splitting for large features
+📚 Documentation Standards
+Code Documentation
+/**
+ * Lead management service
+ * Handles CRUD operations for leads with offline caching
+ */
+export class LeadService {
+  /**
+   * Creates a new lead
+   * &#64;param leadData - Lead information
+   * &#64;param options - Additional options
+   * &#64;returns Promise with created lead data
+   * &#64;throws ValidationError if data is invalid
+   * &#64;throws NetworkError if API call fails
+   */
+  static async createLead(
+    leadData: CreateLeadRequest,
+    options?: CreateLeadOptions
+  ): Promise&lt;Lead&gt; {
+    // Implementation
+  }
+}
+Markdown Documentation
+Use consistent heading structure
+Include code examples for APIs
+Add table of contents for long documents
+Keep examples copy-pasteable
+🤝 Communication
+Issue Reporting
+Search existing issues before creating new ones
+Use issue templates provided
+Include reproduction steps for bugs
+Add relevant labels and assignees
+Code Review Comments
+Be constructive and specific
+Explain the &quot;why&quot; behind suggestions
+Acknowledge good code practices
+Focus on code, not the person
+Team Communication
+Use clear, professional language
+Reference relevant issue numbers
+Tag appropriate team members
+Include context for decisions
+📋 Checklist for Contributors
+First-time Setup
+[ ] Fork and clone repository
+[ ] Install all prerequisites
+[ ] Run yarn install successfully
+[ ] Run tests and verify they pass
+[ ] Understand branch strategy and naming
+Before Each Commit
+[ ] Code follows style guidelines
+[ ] Tests added/updated for changes
+[ ] Documentation updated if needed
+[ ] Pre-commit hooks pass
+[ ] Environment validation passes
+Before Pull Request
+[ ] Rebased on latest main branch
+[ ] All CI checks passing locally
+[ ] Screenshots included for UI changes
+[ ] PR template completed
+[ ] Self-review performed
+
+
+## Component Development Guidelines
+
+### Creating New Components
+
+1. **Use Shared Components**: Always use AppButton, AppTextInput, ScreenContainer for consistency
+2. **Theme Integration**: Use `useTheme()` hook for color values
+3. **TypeScript**: Export proper interfaces for component props
+4. **Testing**: Include both snapshot and interaction tests
+
+Example component structure:
+```typescript
+import React from &#39;react&#39;;
+import { useTheme } from &#39;react-native-paper&#39;;
+import { ScreenContainer, AppButton } from &#39;&#64;components/common&#39;;
+
+interface MyComponentProps {
+  title: string;
+  onPress: () =&gt; void;
+}
+
+export const MyComponent: React.FC&lt;MyComponentProps&gt; = ({ title, onPress }) =&gt; {
+  const theme = useTheme();
+  
+  return (
+    &lt;ScreenContainer&gt;
+      &lt;AppButton 
+        title={title} 
+        onPress={onPress}
+        variant=&quot;contained&quot;
+      /&gt;
+    &lt;/ScreenContainer&gt;
+  );
+};
+Navigation Guidelines
+Screen Naming: Use descriptive names ending in &quot;Screen&quot;
+Type Safety: Define param lists for all navigators
+Authentication: Use the existing auth-based routing pattern
+Deep Linking: Add new routes to the linking configuration
+State Management Guidelines
+Redux Slices: Keep slices focused on single concerns
+Persistence: Only persist user preferences, not business data
+RTK Query: Use baseApi for all future API integrations
+Type Safety: Export and use typed hooks (useAppDispatch, useAppSelector)
+Testing Requirements
+Minimum Coverage: 80% overall, 85% for business logic
+Component Tests: Render + interaction tests for all components
+Redux Tests: Test all reducers and actions
+Hook Tests: Test custom hooks with renderHook
+Integration Tests: Test navigation flows where applicable
+Code Quality Standards
+TypeScript: Strict mode enabled, no any types in production code
+ESLint: All rules must pass
+Prettier: Consistent code formatting
+Performance: Use React.memo and useCallback for expensive operations
+Accessibility: Include accessibility props where appropriate
+
+### 4. Create Development Guide
+
+**File**: `docs/DEVELOPMENT.md`
+```markdown
+# Development Guide
+
+## Architecture Decisions
+
+This project follows key architectural decisions documented in `/docs/adr/`:
+
+- **ADR-0001**: CI/CD Pipeline Toolchain
+- **ADR-0002**: Navigation and State Management Architecture
+
+## State Management
+
+### Redux Store Structure
+store ├── auth (persisted) │ ├── isLoggedIn: boolean │ ├── token?: string │ └── user?: User ├── preferences (persisted) │ └── colorScheme: &#39;system&#39; | &#39;light&#39; | &#39;dark&#39; └── baseApi (not persisted) └── [cache managed by RTK Query]
+
+
+### Persistence Strategy
+Only auth and preferences are persisted to AsyncStorage:
+- Reduces startup time by avoiding large cached datasets
+- Ensures fresh API data on each app launch
+- Maintains user session and theme preferences
+
+## Component Architecture
+
+### Shared Components
+- **AppButton**: Themed button with consistent styling
+- **AppTextInput**: Themed text input with error handling
+- **ScreenContainer**: Consistent screen wrapper with theme support
+
+### Theme Integration
+All components should use the theme system:
+```typescript
+const theme = useTheme();
+// Use theme.colors.primary, theme.colors.surface, etc.
+Navigation Structure
+NavigationProvider
+├── AuthStack (when not logged in)
+│   ├── SplashScreen
+│   └── LoginScreen
+└── MainTabNavigator (when logged in)
+    ├── HomeTab
+    │   └── HomeStack
+    │       └── HomeScreen
+    └── Settings
+        └── SettingsScreen
+Testing Strategy
+Test Types
+Unit Tests: Redux slices, utility functions
+Component Tests: React components with RNTL
+Hook Tests: Custom hooks with renderHook
+Integration Tests: Navigation flows
+Mock Strategy
+React Native components and hooks
+React Navigation
+React Native Paper
+Redux Persist
+AsyncStorage
+Performance Considerations
+Startup Optimization
+Only essential data (auth + preferences) persisted
+RTK Query cache starts fresh each launch
+Theme applied synchronously to prevent flash
+Runtime Optimization
+React.memo for expensive components
+useCallback for event handlers passed to children
+Proper key props for list items
+Future Enhancements
+API Integration
+The baseApi is configured with tag types for future endpoints:
+
+Lead, Customer, Quotation, Commission
+User, KYC, Product, Service
+Additional Features
+Push notifications (MSG91 integration ready)
+Offline data synchronization
+Advanced error handling and retry logic
+
+
+## Testing Requirements
+
+### Code Coverage Standards
+
+All contributions must maintain our quality standards:
+
+#### Minimum Coverage Thresholds
+
+**Global Requirements:**
+- **Lines**: ≥ 80%
+- **Functions**: ≥ 80%
+- **Branches**: ≥ 80%
+- **Statements**: ≥ 80%
+
+**Critical Components (Higher Standards):**
+- Authentication code (`authSlice.ts`): ≥ 90% lines, ≥ 85% branches
+- Security utilities (`KeychainHelper.ts`): ≥ 90% lines, ≥ 85% branches
+- Auth business logic (`authThunks.ts`): ≥ 85% all metrics
+
+#### Coverage Enforcement
+
+- **Automated**: Jest enforces thresholds on every test run
+- **CI Pipeline**: PRs are blocked if coverage drops below thresholds
+- **Local Verification**: Run `yarn test:ci` before submitting PRs
+
+### Testing Checklist
+
+Before submitting a pull request, ensure:
+
+#### ✅ Code Quality
+- [ ] All tests pass: `yarn test`
+- [ ] Coverage thresholds met: `yarn test:ci`
+- [ ] No linting errors: `yarn lint`
+- [ ] TypeScript compiles: `npx tsc --noEmit`
+
+#### ✅ Test Coverage
+- [ ] **New features**: Include comprehensive unit tests
+- [ ] **Bug fixes**: Add regression tests
+- [ ] **Components**: Include accessibility tests
+- [ ] **Critical paths**: Test success and failure scenarios
+
+#### ✅ Test Quality
+- [ ] Tests are focused and readable
+- [ ] Mock dependencies appropriately
+- [ ] Avoid testing implementation details
+- [ ] Include edge cases and error conditions
+
+### Writing Quality Tests
+
+#### Test Structure
+
+```typescript
+describe(&#39;ComponentName&#39;, () =&gt; {
+  describe(&#39;feature or method&#39;, () =&gt; {
+    it(&#39;should do something specific&#39;, () =&gt; {
+      // Arrange
+      const props = { ... };
+      
+      // Act
+      const result = render(&lt;Component {...props} /&gt;);
+      
+      // Assert
+      expect(result.getByText(&#39;Expected&#39;)).toBeTruthy();
+    });
+  });
+});</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'contributing.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

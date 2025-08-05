@@ -1,0 +1,1170 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  SyncPerformanceData</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/utils/PerformanceMonitor.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#apiCallCount" 
+>
+                                            apiCallCount
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#duration" 
+>
+                                            duration
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#endTime" 
+>
+                                            endTime
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#error" 
+>
+                                            error
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#itemsProcessed" 
+>
+                                            itemsProcessed
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#memoryAfter" 
+>
+                                            memoryAfter
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#memoryBefore" 
+>
+                                            memoryBefore
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#source" 
+>
+                                            source
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#startTime" 
+>
+                                            startTime
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#success" 
+>
+                                            success
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#syncId" 
+>
+                                            syncId
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="apiCallCount"></a>
+                                        <span class="name "><b>apiCallCount</b>
+                                            <a href="#apiCallCount">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>apiCallCount:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="duration"></a>
+                                        <span class="name "><b>duration</b>
+                                            <a href="#duration">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>duration:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="endTime"></a>
+                                        <span class="name "><b>endTime</b>
+                                            <a href="#endTime">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>endTime:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="error"></a>
+                                        <span class="name "><b>error</b>
+                                            <a href="#error">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>error:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="itemsProcessed"></a>
+                                        <span class="name "><b>itemsProcessed</b>
+                                            <a href="#itemsProcessed">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>itemsProcessed:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="memoryAfter"></a>
+                                        <span class="name "><b>memoryAfter</b>
+                                            <a href="#memoryAfter">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>memoryAfter:         <code><a href="../interfaces/MemorySnapshot.html" target="_self" >MemorySnapshot</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/MemorySnapshot.html" target="_self" >MemorySnapshot</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="memoryBefore"></a>
+                                        <span class="name "><b>memoryBefore</b>
+                                            <a href="#memoryBefore">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>memoryBefore:         <code><a href="../interfaces/MemorySnapshot.html" target="_self" >MemorySnapshot</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/MemorySnapshot.html" target="_self" >MemorySnapshot</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="source"></a>
+                                        <span class="name "><b>source</b>
+                                            <a href="#source">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>source:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="startTime"></a>
+                                        <span class="name "><b>startTime</b>
+                                            <a href="#startTime">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>startTime:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="success"></a>
+                                        <span class="name "><b>success</b>
+                                            <a href="#success">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>success:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="syncId"></a>
+                                        <span class="name "><b>syncId</b>
+                                            <a href="#syncId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>syncId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Platform } from &#x27;react-native&#x27;;
+
+/**
+ * Performance monitoring utilities
+ * Tracks sync performance, memory usage, and errors
+ */
+
+export interface PerformanceMetric {
+  name: string;
+  startTime: number;
+  endTime?: number;
+  duration?: number;
+  metadata?: Record&lt;string, any&gt;;
+  error?: string;
+}
+
+export interface MemorySnapshot {
+  timestamp: number;
+  jsHeapUsed?: number;
+  jsHeapTotal?: number;
+  nativeHeapAllocated?: number;
+  platform: string;
+}
+
+export interface SyncPerformanceData {
+  syncId: string;
+  source: string;
+  startTime: number;
+  endTime?: number;
+  duration?: number;
+  success: boolean;
+  error?: string;
+  itemsProcessed?: number;
+  apiCallCount?: number;
+  memoryBefore?: MemorySnapshot;
+  memoryAfter?: MemorySnapshot;
+}
+
+export class PerformanceMonitor {
+  private static instance: PerformanceMonitor | null &#x3D; null;
+  private metrics: Map&lt;string, PerformanceMetric&gt; &#x3D; new Map();
+  private syncPerformanceData: SyncPerformanceData[] &#x3D; [];
+  private memorySnapshots: MemorySnapshot[] &#x3D; [];
+  private maxMetricsHistory &#x3D; 100;
+  private maxSyncHistory &#x3D; 50;
+  private maxMemorySnapshots &#x3D; 20;
+
+  private constructor() {
+    console.log(&#x27;PerformanceMonitor: Instance created&#x27;);
+
+    // Take initial memory snapshot
+    this.takeMemorySnapshot();
+
+    // Setup periodic memory monitoring
+    this.startMemoryMonitoring();
+  }
+
+  /**
+   * Get singleton instance
+   */
+  public static getInstance(): PerformanceMonitor {
+    if (!PerformanceMonitor.instance) {
+      PerformanceMonitor.instance &#x3D; new PerformanceMonitor();
+    }
+    return PerformanceMonitor.instance;
+  }
+
+  /**
+   * Start timing a performance metric
+   */
+  public startTiming(name: string, metadata?: Record&lt;string, any&gt;): string {
+    const metricId &#x3D; &#x60;${name}_${Date.now()}_${Math.random()
+      .toString(36)
+      .substr(2, 9)}&#x60;;
+
+    const metric: PerformanceMetric &#x3D; {
+      name,
+      startTime: performance.now(),
+      metadata,
+    };
+
+    this.metrics.set(metricId, metric);
+
+    console.log(&#x60;PerformanceMonitor: Started timing &quot;${name}&quot;&#x60;, {
+      metricId,
+      metadata,
+    });
+
+    return metricId;
+  }
+
+  /**
+   * End timing a performance metric
+   */
+  public endTiming(metricId: string, error?: string): PerformanceMetric | null {
+    const metric &#x3D; this.metrics.get(metricId);
+
+    if (!metric) {
+      console.warn(&#x60;PerformanceMonitor: Metric ${metricId} not found&#x60;);
+      return null;
+    }
+
+    const endTime &#x3D; performance.now();
+    const duration &#x3D; endTime - metric.startTime;
+
+    metric.endTime &#x3D; endTime;
+    metric.duration &#x3D; duration;
+    metric.error &#x3D; error;
+
+    console.log(&#x60;PerformanceMonitor: Finished timing &quot;${metric.name}&quot;&#x60;, {
+      duration: &#x60;${duration.toFixed(2)}ms&#x60;,
+      success: !error,
+      error,
+    });
+
+    // Remove from active metrics and add to history
+    this.metrics.delete(metricId);
+    this.addToHistory(metric);
+
+    return metric;
+  }
+
+  /**
+   * Start sync performance tracking
+   */
+  public startSyncTracking(
+    source: string,
+    metadata?: Record&lt;string, any&gt;
+  ): string {
+    const syncId &#x3D; &#x60;sync_${Date.now()}_${Math.random()
+      .toString(36)
+      .substr(2, 9)}&#x60;;
+
+    const syncData: SyncPerformanceData &#x3D; {
+      syncId,
+      source,
+      startTime: Date.now(),
+      success: false,
+      memoryBefore: this.getCurrentMemorySnapshot(),
+      ...metadata,
+    };
+
+    this.syncPerformanceData.push(syncData);
+
+    console.log(&#x60;PerformanceMonitor: Started sync tracking&#x60;, {
+      syncId,
+      source,
+      memoryBefore: syncData.memoryBefore,
+    });
+
+    return syncId;
+  }
+
+  /**
+   * End sync performance tracking
+   */
+  public endSyncTracking(
+    syncId: string,
+    success: boolean,
+    error?: string,
+    additionalData?: Partial&lt;SyncPerformanceData&gt;
+  ): SyncPerformanceData | null {
+    const syncData &#x3D; this.syncPerformanceData.find((s) &#x3D;&gt; s.syncId &#x3D;&#x3D;&#x3D; syncId);
+
+    if (!syncData) {
+      console.warn(&#x60;PerformanceMonitor: Sync ${syncId} not found&#x60;);
+      return null;
+    }
+
+    const endTime &#x3D; Date.now();
+    const duration &#x3D; endTime - syncData.startTime;
+
+    // Update sync data
+    syncData.endTime &#x3D; endTime;
+    syncData.duration &#x3D; duration;
+    syncData.success &#x3D; success;
+    syncData.error &#x3D; error;
+    syncData.memoryAfter &#x3D; this.getCurrentMemorySnapshot();
+
+    // Merge additional data
+    if (additionalData) {
+      Object.assign(syncData, additionalData);
+    }
+
+    console.log(&#x60;PerformanceMonitor: Finished sync tracking&#x60;, {
+      syncId,
+      duration: &#x60;${duration}ms&#x60;,
+      success,
+      error,
+      memoryDelta: this.calculateMemoryDelta(
+        syncData.memoryBefore,
+        syncData.memoryAfter
+      ),
+    });
+
+    // Keep only recent sync data
+    this.trimSyncHistory();
+
+    return syncData;
+  }
+
+  /**
+   * Take memory snapshot
+   */
+  public takeMemorySnapshot(): MemorySnapshot {
+    const snapshot: MemorySnapshot &#x3D; {
+      timestamp: Date.now(),
+      platform: Platform.OS,
+    };
+
+    // Get memory info if available
+    if (global.performance &amp;&amp; global.performance.memory) {
+      const memory &#x3D; global.performance.memory;
+      snapshot.jsHeapUsed &#x3D; memory.usedJSHeapSize;
+      snapshot.jsHeapTotal &#x3D; memory.totalJSHeapSize;
+    }
+
+    // Add to snapshots history
+    this.memorySnapshots.push(snapshot);
+    this.trimMemorySnapshots();
+
+    return snapshot;
+  }
+
+  /**
+   * Get current memory snapshot
+   */
+  public getCurrentMemorySnapshot(): MemorySnapshot {
+    return this.takeMemorySnapshot();
+  }
+
+  /**
+   * Get performance summary
+   */
+  public getPerformanceSummary(): {
+    activeTiming: number;
+    syncHistory: SyncPerformanceData[];
+    recentMemory: MemorySnapshot[];
+    averageSyncDuration: number;
+    syncSuccessRate: number;
+  } {
+    const recentSyncs &#x3D; this.syncPerformanceData.slice(-10);
+    const completedSyncs &#x3D; recentSyncs.filter((s) &#x3D;&gt; s.duration !&#x3D;&#x3D; undefined);
+
+    const averageSyncDuration &#x3D;
+      completedSyncs.length &gt; 0
+        ? completedSyncs.reduce((sum, s) &#x3D;&gt; sum + (s.duration || 0), 0) /
+          completedSyncs.length
+        : 0;
+
+    const successfulSyncs &#x3D; completedSyncs.filter((s) &#x3D;&gt; s.success);
+    const syncSuccessRate &#x3D;
+      completedSyncs.length &gt; 0
+        ? (successfulSyncs.length / completedSyncs.length) * 100
+        : 0;
+
+    return {
+      activeTiming: this.metrics.size,
+      syncHistory: recentSyncs,
+      recentMemory: this.memorySnapshots.slice(-5),
+      averageSyncDuration,
+      syncSuccessRate,
+    };
+  }
+
+  /**
+   * Detect potential memory leaks
+   */
+  public checkForMemoryLeaks(): {
+    hasLeak: boolean;
+    trend: &#x27;increasing&#x27; | &#x27;stable&#x27; | &#x27;decreasing&#x27;;
+    details: string;
+  } {
+    const recentSnapshots &#x3D; this.memorySnapshots.slice(-5);
+
+    if (recentSnapshots.length &lt; 3) {
+      return {
+        hasLeak: false,
+        trend: &#x27;stable&#x27;,
+        details: &#x27;Insufficient data for leak detection&#x27;,
+      };
+    }
+
+    // Check JS heap trend
+    const heapValues &#x3D; recentSnapshots
+      .map((s) &#x3D;&gt; s.jsHeapUsed)
+      .filter((v) &#x3D;&gt; v !&#x3D;&#x3D; undefined) as number[];
+
+    if (heapValues.length &lt; 3) {
+      return {
+        hasLeak: false,
+        trend: &#x27;stable&#x27;,
+        details: &#x27;No JS heap data available&#x27;,
+      };
+    }
+
+    // Calculate trend
+    const firstThird &#x3D; heapValues.slice(0, Math.floor(heapValues.length / 3));
+    const lastThird &#x3D; heapValues.slice(-Math.floor(heapValues.length / 3));
+
+    const avgFirst &#x3D; firstThird.reduce((a, b) &#x3D;&gt; a + b, 0) / firstThird.length;
+    const avgLast &#x3D; lastThird.reduce((a, b) &#x3D;&gt; a + b, 0) / lastThird.length;
+
+    const growthRate &#x3D; (avgLast - avgFirst) / avgFirst;
+    const threshold &#x3D; 0.1; // 10% growth threshold
+
+    let trend: &#x27;increasing&#x27; | &#x27;stable&#x27; | &#x27;decreasing&#x27;;
+    if (growthRate &gt; threshold) {
+      trend &#x3D; &#x27;increasing&#x27;;
+    } else if (growthRate &lt; -threshold) {
+      trend &#x3D; &#x27;decreasing&#x27;;
+    } else {
+      trend &#x3D; &#x27;stable&#x27;;
+    }
+
+    const hasLeak &#x3D; trend &#x3D;&#x3D;&#x3D; &#x27;increasing&#x27; &amp;&amp; growthRate &gt; 0.2; // 20% increase
+
+    return {
+      hasLeak,
+      trend,
+      details: &#x60;Memory ${trend} by ${(growthRate * 100).toFixed(1)}%&#x60;,
+    };
+  }
+
+  /**
+   * Get diagnostic report
+   */
+  public getDiagnosticReport(): string {
+    const summary &#x3D; this.getPerformanceSummary();
+    const memoryCheck &#x3D; this.checkForMemoryLeaks();
+
+    const report &#x3D; [
+      &#x27;&#x3D;&#x3D;&#x3D; PERFORMANCE DIAGNOSTIC REPORT &#x3D;&#x3D;&#x3D;&#x27;,
+      &#x60;Generated: ${new Date().toISOString()}&#x60;,
+      &#x60;Platform: ${Platform.OS}&#x60;,
+      &#x27;&#x27;,
+      &#x27;--- Sync Performance ---&#x27;,
+      &#x60;Recent syncs: ${summary.syncHistory.length}&#x60;,
+      &#x60;Average duration: ${summary.averageSyncDuration.toFixed(2)}ms&#x60;,
+      &#x60;Success rate: ${summary.syncSuccessRate.toFixed(1)}%&#x60;,
+      &#x27;&#x27;,
+      &#x27;--- Memory Analysis ---&#x27;,
+      &#x60;Memory trend: ${memoryCheck.trend}&#x60;,
+      &#x60;Potential leak: ${memoryCheck.hasLeak ? &#x27;YES&#x27; : &#x27;NO&#x27;}&#x60;,
+      &#x60;Details: ${memoryCheck.details}&#x60;,
+      &#x27;&#x27;,
+      &#x27;--- Active Timers ---&#x27;,
+      &#x60;Active measurements: ${summary.activeTiming}&#x60;,
+      &#x27;&#x27;,
+      &#x27;--- Recent Sync Details ---&#x27;,
+      ...summary.syncHistory
+        .slice(-3)
+        .map(
+          (sync) &#x3D;&gt;
+            &#x60;${sync.source}: ${sync.duration}ms (${
+              sync.success ? &#x27;SUCCESS&#x27; : &#x27;FAILED&#x27;
+            })&#x60;
+        ),
+    ].join(&#x27;\n&#x27;);
+
+    return report;
+  }
+
+  /**
+   * Clear all performance data
+   */
+  public clearData(): void {
+    this.metrics.clear();
+    this.syncPerformanceData &#x3D; [];
+    this.memorySnapshots &#x3D; [];
+
+    // Take fresh memory snapshot
+    this.takeMemorySnapshot();
+
+    console.log(&#x27;PerformanceMonitor: All data cleared&#x27;);
+  }
+
+  /**
+   * Cleanup monitor (for testing and shutdown)
+   */
+  public cleanup(): void {
+    this.stopMemoryMonitoring();
+    this.clearData();
+    PerformanceMonitor.instance &#x3D; null;
+
+    console.log(&#x27;PerformanceMonitor: Cleanup completed&#x27;);
+  }
+
+  /**
+   * Start periodic memory monitoring
+   */
+  private startMemoryMonitoring(): void {
+    // Take snapshot every 2 minutes
+    setInterval(() &#x3D;&gt; {
+      this.takeMemorySnapshot();
+    }, 120_000);
+  }
+
+  /**
+   * Stop memory monitoring
+   */
+  private stopMemoryMonitoring(): void {
+    // Note: In a real implementation, you&#x27;d store the interval ID
+    // For now, intervals will be cleared on app restart
+  }
+
+  /**
+   * Add metric to history and trim if needed
+   */
+  private addToHistory(metric: PerformanceMetric): void {
+    // In a real app, you might want to persist this data
+    // For now, we just track in memory with limits
+
+    if (this.syncPerformanceData.length &gt;&#x3D; this.maxMetricsHistory) {
+      // Could implement metric history if needed
+    }
+  }
+
+  /**
+   * Trim sync history to prevent memory growth
+   */
+  private trimSyncHistory(): void {
+    if (this.syncPerformanceData.length &gt; this.maxSyncHistory) {
+      this.syncPerformanceData &#x3D; this.syncPerformanceData.slice(
+        -this.maxSyncHistory
+      );
+    }
+  }
+
+  /**
+   * Trim memory snapshots to prevent memory growth
+   */
+  private trimMemorySnapshots(): void {
+    if (this.memorySnapshots.length &gt; this.maxMemorySnapshots) {
+      this.memorySnapshots &#x3D; this.memorySnapshots.slice(
+        -this.maxMemorySnapshots
+      );
+    }
+  }
+
+  /**
+   * Calculate memory delta between snapshots
+   */
+  private calculateMemoryDelta(
+    before?: MemorySnapshot,
+    after?: MemorySnapshot
+  ): string {
+    if (!before || !after || !before.jsHeapUsed || !after.jsHeapUsed) {
+      return &#x27;N/A&#x27;;
+    }
+
+    const delta &#x3D; after.jsHeapUsed - before.jsHeapUsed;
+    const sign &#x3D; delta &gt;&#x3D; 0 ? &#x27;+&#x27; : &#x27;&#x27;;
+    return &#x60;${sign}${(delta / 1024).toFixed(1)}KB&#x60;;
+  }
+}
+
+export default PerformanceMonitor;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'SyncPerformanceData.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

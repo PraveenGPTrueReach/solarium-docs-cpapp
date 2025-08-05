@@ -1,0 +1,922 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  DocumentUploadHook</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/hooks/useDocumentUpload.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#canCancel" 
+>
+                                            canCancel
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#cancelUpload" 
+>
+                                            cancelUpload
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#maxRetriesReached" 
+>
+                                            maxRetriesReached
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#resetRetryCounter" 
+>
+                                            resetRetryCounter
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#resetUpload" 
+>
+                                            resetUpload
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#retryCount" 
+>
+                                            retryCount
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#startUpload" 
+>
+                                            startUpload
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#uploadState" 
+>
+                                            uploadState
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="canCancel"></a>
+                                        <span class="name "><b>canCancel</b>
+                                            <a href="#canCancel">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>canCancel:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Whether upload can be cancelled</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="cancelUpload"></a>
+                                        <span class="name "><b>cancelUpload</b>
+                                            <a href="#cancelUpload">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>cancelUpload:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Cancel current upload</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="maxRetriesReached"></a>
+                                        <span class="name "><b>maxRetriesReached</b>
+                                            <a href="#maxRetriesReached">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>maxRetriesReached:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Whether retry limit has been reached</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="resetRetryCounter"></a>
+                                        <span class="name "><b>resetRetryCounter</b>
+                                            <a href="#resetRetryCounter">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>resetRetryCounter:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Reset retry counter manually</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="resetUpload"></a>
+                                        <span class="name "><b>resetUpload</b>
+                                            <a href="#resetUpload">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>resetUpload:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Reset upload state</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="retryCount"></a>
+                                        <span class="name "><b>retryCount</b>
+                                            <a href="#retryCount">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>retryCount:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Current retry attempt count</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="startUpload"></a>
+                                        <span class="name "><b>startUpload</b>
+                                            <a href="#startUpload">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>startUpload:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Start upload with SAS URL</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="uploadState"></a>
+                                        <span class="name "><b>uploadState</b>
+                                            <a href="#uploadState">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>uploadState:         <code><a href="../interfaces/UploadState.html" target="_self" >UploadState</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/UploadState.html" target="_self" >UploadState</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Current upload state</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { useState, useCallback, useRef, useEffect } from &#x27;react&#x27;;
+import type { DocumentAsset } from &#x27;../types/document&#x27;;
+import type {
+  UploadState,
+  UploadProgress,
+  UploadResult,
+} from &#x27;../types/upload&#x27;;
+import { documentUploadService } from &#x27;../services/DocumentUploadService&#x27;;
+
+export interface DocumentUploadHook {
+  /** Current upload state */
+  uploadState: UploadState;
+  /** Start upload with SAS URL */
+  startUpload: (
+    document: DocumentAsset,
+    sasUrl: string
+  ) &#x3D;&gt; Promise&lt;UploadResult&gt;;
+  /** Cancel current upload */
+  cancelUpload: () &#x3D;&gt; void;
+  /** Reset upload state */
+  resetUpload: () &#x3D;&gt; void;
+  /** Whether upload can be cancelled */
+  canCancel: boolean;
+  /** Current retry attempt count */
+  retryCount: number;
+  /** Whether retry limit has been reached */
+  maxRetriesReached: boolean;
+  /** Reset retry counter manually */
+  resetRetryCounter: () &#x3D;&gt; void;
+}
+
+interface RetryState {
+  consecutiveFailures: number;
+  lastFailureTime: number | null;
+  isRetrying: boolean;
+}
+
+const initialUploadState: UploadState &#x3D; {
+  progress: {
+    percent: 0,
+    loaded: 0,
+    total: 0,
+  },
+  isUploading: false,
+  isCancelled: false,
+  isCompleted: false,
+  error: null,
+};
+
+const initialRetryState: RetryState &#x3D; {
+  consecutiveFailures: 0,
+  lastFailureTime: null,
+  isRetrying: false,
+};
+
+const MAX_RETRY_ATTEMPTS &#x3D; 2;
+
+/**
+ * Use Document Upload Hook with Retry Logic
+ */
+export const useDocumentUpload &#x3D; (): DocumentUploadHook &#x3D;&gt; {
+  const [uploadState, setUploadState] &#x3D;
+    useState&lt;UploadState&gt;(initialUploadState);
+  const [retryState, setRetryState] &#x3D; useState&lt;RetryState&gt;(initialRetryState);
+  const [currentDocumentId, setCurrentDocumentId] &#x3D; useState&lt;string | null&gt;(
+    null
+  );
+  const abortControllerRef &#x3D; useRef&lt;AbortController | null&gt;(null);
+  const startTimeRef &#x3D; useRef&lt;number&gt;(0);
+
+  /**
+   * Track retry attempt and check if max retries reached
+   * @returns true if retry is allowed, false if max retries reached
+   */
+  const trackRetryAttempt &#x3D; useCallback((): boolean &#x3D;&gt; {
+    console.log(
+      &#x27;🔄 Tracking retry attempt, current failures:&#x27;,
+      retryState.consecutiveFailures
+    );
+
+    if (retryState.consecutiveFailures &gt;&#x3D; MAX_RETRY_ATTEMPTS) {
+      console.warn(&#x27;❌ Maximum retry attempts reached&#x27;);
+      return false;
+    }
+
+    setRetryState((prev) &#x3D;&gt; ({
+      ...prev,
+      consecutiveFailures: prev.consecutiveFailures + 1,
+      lastFailureTime: Date.now(),
+      isRetrying: true,
+    }));
+
+    return true;
+  }, [retryState.consecutiveFailures]);
+
+  /**
+   * Reset retry counter on success or manual reset
+   */
+  const resetRetryCounter &#x3D; useCallback(() &#x3D;&gt; {
+    console.log(&#x27;✅ Resetting retry counter&#x27;);
+    setRetryState(initialRetryState);
+  }, []);
+
+  /**
+   * Handle upload progress updates
+   */
+  const handleProgress &#x3D; useCallback((progress: UploadProgress) &#x3D;&gt; {
+    setUploadState((prev) &#x3D;&gt; ({
+      ...prev,
+      progress,
+    }));
+  }, []);
+
+  /**
+   * Start document upload with retry logic
+   */
+  const startUpload &#x3D; useCallback(
+    async (document: DocumentAsset, sasUrl: string): Promise&lt;UploadResult&gt; &#x3D;&gt; {
+      console.log(&#x27;🚀 Starting upload for:&#x27;, document.fileName);
+
+      // Check if max retries reached
+      if (
+        retryState.consecutiveFailures &gt;&#x3D; MAX_RETRY_ATTEMPTS &amp;&amp;
+        !retryState.isRetrying
+      ) {
+        const errorMessage &#x3D; &#x60;Upload failed after ${MAX_RETRY_ATTEMPTS} attempts. Please reset and try again.&#x60;;
+        console.error(&#x27;❌ Max retries reached:&#x27;, errorMessage);
+
+        return {
+          success: false,
+          error: errorMessage,
+          duration: 0,
+        };
+      }
+
+      // Reset state
+      setCurrentDocumentId(document.id);
+      startTimeRef.current &#x3D; Date.now();
+
+      // Create abort controller
+      abortControllerRef.current &#x3D; new AbortController();
+
+      // Set initial upload state
+      setUploadState({
+        progress: {
+          percent: 0,
+          loaded: 0,
+          total: document.fileSize,
+        },
+        isUploading: true,
+        isCancelled: false,
+        isCompleted: false,
+        error: null,
+        startTime: startTimeRef.current,
+      });
+
+      // Clear retry flag
+      setRetryState((prev) &#x3D;&gt; ({ ...prev, isRetrying: false }));
+
+      try {
+        // Start upload with progress tracking
+        const result &#x3D; await documentUploadService.uploadToBlob(
+          document,
+          sasUrl,
+          {
+            onProgress: handleProgress,
+            abortSignal: abortControllerRef.current.signal,
+          }
+        );
+
+        const endTime &#x3D; Date.now();
+
+        if (result.success) {
+          // Upload completed successfully - reset retry counter
+          resetRetryCounter();
+
+          setUploadState((prev) &#x3D;&gt; ({
+            ...prev,
+            isUploading: false,
+            isCompleted: true,
+            endTime,
+            progress: {
+              ...prev.progress,
+              percent: 100,
+            },
+          }));
+
+          console.log(&#x27;✅ Upload completed successfully&#x27;);
+        } else {
+          // Upload failed - track retry attempt
+          const isCancelled &#x3D; result.error &#x3D;&#x3D;&#x3D; &#x27;Upload cancelled&#x27;;
+
+          if (!isCancelled) {
+            const canRetry &#x3D; trackRetryAttempt();
+            console.log(&#x27;❌ Upload failed, can retry:&#x27;, canRetry);
+          }
+
+          setUploadState((prev) &#x3D;&gt; ({
+            ...prev,
+            isUploading: false,
+            isCancelled,
+            error: result.error || &#x27;Upload failed&#x27;,
+            endTime,
+          }));
+
+          if (isCancelled) {
+            console.log(&#x27;🛑 Upload was cancelled&#x27;);
+          } else {
+            console.error(&#x27;❌ Upload failed:&#x27;, result.error);
+          }
+        }
+
+        return result;
+      } catch (error: any) {
+        const endTime &#x3D; Date.now();
+
+        // Track retry attempt for exceptions
+        const canRetry &#x3D; trackRetryAttempt();
+        console.log(&#x27;❌ Upload exception, can retry:&#x27;, canRetry);
+
+        setUploadState((prev) &#x3D;&gt; ({
+          ...prev,
+          isUploading: false,
+          error: error.message || &#x27;Upload failed&#x27;,
+          endTime,
+        }));
+
+        console.error(&#x27;❌ Upload hook error:&#x27;, error);
+        return {
+          success: false,
+          error: error.message || &#x27;Upload failed&#x27;,
+          duration: endTime - startTimeRef.current,
+        };
+      } finally {
+        // Cleanup
+        setCurrentDocumentId(null);
+        abortControllerRef.current &#x3D; null;
+      }
+    },
+    [
+      handleProgress,
+      retryState.consecutiveFailures,
+      retryState.isRetrying,
+      trackRetryAttempt,
+      resetRetryCounter,
+    ]
+  );
+
+  /**
+   * Cancel current upload
+   */
+  const cancelUpload &#x3D; useCallback(() &#x3D;&gt; {
+    if (currentDocumentId &amp;&amp; uploadState.isUploading) {
+      console.log(&#x27;🛑 Cancelling upload via hook&#x27;);
+
+      // Abort via AbortController
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+
+      // Also cancel via service (backup)
+      documentUploadService.cancelUpload(currentDocumentId);
+
+      setUploadState((prev) &#x3D;&gt; ({
+        ...prev,
+        isUploading: false,
+        isCancelled: true,
+        error: &#x27;Upload cancelled by user&#x27;,
+        endTime: Date.now(),
+      }));
+    }
+  }, [currentDocumentId, uploadState.isUploading]);
+
+  /**
+   * Reset upload state
+   */
+  const resetUpload &#x3D; useCallback(() &#x3D;&gt; {
+    console.log(&#x27;🔄 Resetting upload state&#x27;);
+
+    // Cancel any active upload first
+    if (uploadState.isUploading) {
+      cancelUpload();
+    }
+
+    setUploadState(initialUploadState);
+    setCurrentDocumentId(null);
+    abortControllerRef.current &#x3D; null;
+    startTimeRef.current &#x3D; 0;
+  }, [uploadState.isUploading, cancelUpload]);
+
+  /**
+   * Whether upload can be cancelled
+   */
+  const canCancel &#x3D; uploadState.isUploading &amp;&amp; !uploadState.isCancelled;
+
+  // Computed properties
+  const maxRetriesReached &#x3D;
+    retryState.consecutiveFailures &gt;&#x3D; MAX_RETRY_ATTEMPTS;
+
+  // Cleanup on unmount
+  useEffect(() &#x3D;&gt; {
+    return () &#x3D;&gt; {
+      if (currentDocumentId &amp;&amp; uploadState.isUploading) {
+        documentUploadService.cancelUpload(currentDocumentId);
+      }
+    };
+  }, [currentDocumentId, uploadState.isUploading]);
+
+  return {
+    uploadState,
+    startUpload,
+    cancelUpload,
+    resetUpload,
+    canCancel,
+    retryCount: retryState.consecutiveFailures,
+    maxRetriesReached,
+    resetRetryCounter,
+  };
+};
+
+export default useDocumentUpload;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'DocumentUploadHook.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

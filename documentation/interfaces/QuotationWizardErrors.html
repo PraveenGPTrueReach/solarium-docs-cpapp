@@ -1,0 +1,707 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  QuotationWizardErrors</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/types/quotation.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Wizard validation errors by step</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#dealerAddon" 
+>
+                                            dealerAddon
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#general" 
+>
+                                            general
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#inverterBom" 
+>
+                                            inverterBom
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#location" 
+>
+                                            location
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#panels" 
+>
+                                            panels
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="dealerAddon"></a>
+                                        <span class="name "><b>dealerAddon</b>
+                                            <a href="#dealerAddon">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>dealerAddon:     <code>Record&lt;string | string&gt;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Record&lt;string | string&gt;</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="general"></a>
+                                        <span class="name "><b>general</b>
+                                            <a href="#general">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>general:     <code>string[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string[]</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="inverterBom"></a>
+                                        <span class="name "><b>inverterBom</b>
+                                            <a href="#inverterBom">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>inverterBom:     <code>Record&lt;string | string&gt;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Record&lt;string | string&gt;</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="location"></a>
+                                        <span class="name "><b>location</b>
+                                            <a href="#location">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>location:     <code>Record&lt;string | string&gt;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Record&lt;string | string&gt;</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="panels"></a>
+                                        <span class="name "><b>panels</b>
+                                            <a href="#panels">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>panels:     <code>Record&lt;string | string&gt;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Record&lt;string | string&gt;</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { QuotationStatus } from &#x27;./api/quotation&#x27;;
+
+/**
+ * Quotation wizard step enumeration
+ */
+export enum QuotationWizardStep {
+  LOCATION &#x3D; 1,
+  PANELS &#x3D; 2,
+  INVERTER_BOM &#x3D; 3,
+  FEES_LOOKUP &#x3D; 4,
+  DEALER_ADDON &#x3D; 5,
+  PRICING_SUBSIDY &#x3D; 6,
+  REVIEW_GENERATE &#x3D; 7,
+}
+
+/**
+ * Quotation wizard state for UI management
+ */
+export interface QuotationWizardState {
+  currentStep: QuotationWizardStep;
+  totalSteps: 7;
+  isValid: boolean;
+  canProceed: boolean;
+  data: QuotationWizardData;
+  errors: QuotationWizardErrors;
+}
+
+/**
+ * Complete wizard data collected across all steps
+ */
+export interface QuotationWizardData {
+  // Step 1: Location
+  location: {
+    state?: string;
+    discom?: string;
+    phase?: &#x27;Single&#x27; | &#x27;Three&#x27;;
+    hasSmartMeter?: boolean;
+  };
+
+  // Step 2: Panels
+  panels: {
+    selectedPanels: Array&lt;{
+      panelId: string;
+      make: string;
+      variant: string;
+      wattage: number;
+      quantity: number;
+      unitPrice: number;
+      isDCR: boolean;
+    }&gt;;
+    totalCapacityKW: number;
+  };
+
+  // Step 3: Inverter &amp; BOM
+  inverterBom: {
+    selectedInverter?: {
+      inverterId: string;
+      make: string;
+      model: string;
+      capacityKW: number;
+      phase: &#x27;Single&#x27; | &#x27;Three&#x27;;
+      unitPrice: number;
+    };
+    cableType: &#x27;Standard&#x27; | &#x27;Polycab&#x27;;
+    extraStructureHeight: number; // 0, 0.5, 1.0, 1.5, 2.0
+    bomItems: Array&lt;{
+      itemId: string;
+      name: string;
+      type: string;
+      quantity: number;
+      unitPrice: number;
+    }&gt;;
+  };
+
+  // Step 4: Fees (read-only, auto-calculated)
+  fees: {
+    discomFee: number;
+    discomMiscCharges: number;
+    installationFee: number;
+    meterCharges: number;
+    modemBoxCharges: number;
+    total: number;
+  };
+
+  // Step 5: Dealer Add-on
+  dealerAddon: {
+    perKWAmount: number; // 0-2000, default 1800
+    totalAmount: number;
+  };
+
+  // Step 6: Pricing &amp; Subsidy (calculated, read-only)
+  pricing: {
+    hardwareSubtotal: number;
+    inflatedBasePrice: number;
+    systemPrice: number;
+    centralSubsidy: number;
+    stateSubsidy: number;
+    totalSubsidy: number;
+    finalAmount: number;
+    commissionAmount: number;
+  };
+
+  // Common data
+  leadId: string;
+  roofType: &#x27;RCC&#x27; | &#x27;TinShed&#x27; | &#x27;Other&#x27;;
+}
+
+/**
+ * Wizard validation errors by step
+ */
+export interface QuotationWizardErrors {
+  location: Record&lt;string, string&gt;;
+  panels: Record&lt;string, string&gt;;
+  inverterBom: Record&lt;string, string&gt;;
+  dealerAddon: Record&lt;string, string&gt;;
+  general: string[];
+}
+
+/**
+ * Quotation filter options for UI
+ */
+export interface QuotationFilters {
+  status: QuotationStatus[];
+  dateRange?: {
+    from: string;
+    to: string;
+  };
+  leadId?: string;
+  customerName?: string;
+  amountRange?: {
+    min: number;
+    max: number;
+  };
+}
+
+/**
+ * Quotation sort options
+ */
+export type QuotationSortBy &#x3D;
+  | &#x27;createdAt&#x27;
+  | &#x27;updatedAt&#x27;
+  | &#x27;totalCost&#x27;
+  | &#x27;systemKW&#x27;
+  | &#x27;status&#x27;;
+export type QuotationSortOrder &#x3D; &#x27;asc&#x27; | &#x27;desc&#x27;;
+
+/**
+ * Quotation list configuration
+ */
+export interface QuotationListConfig {
+  filters: QuotationFilters;
+  sortBy: QuotationSortBy;
+  sortOrder: QuotationSortOrder;
+  page: number;
+  limit: number;
+}
+
+/**
+ * Type guards for quotation status validation
+ */
+
+/**
+ * Check if a status is valid for quotations
+ */
+export function isValidQuotationStatus(
+  status: string
+): status is QuotationStatus {
+  return [&#x27;Generated&#x27;, &#x27;Shared&#x27;, &#x27;Accepted&#x27;, &#x27;Rejected&#x27;].includes(status);
+}
+
+/**
+ * Check if a status transition is valid
+ * CP users cannot create &#x27;Draft&#x27; status, quotations become immutable after &#x27;Shared&#x27;
+ */
+export function isValidQuotationTransition(
+  currentStatus: QuotationStatus | undefined,
+  newStatus: QuotationStatus
+): boolean {
+  // New quotations can only be created as &#x27;Generated&#x27;
+  if (!currentStatus) {
+    return newStatus &#x3D;&#x3D;&#x3D; &#x27;Generated&#x27;;
+  }
+
+  // Valid transitions based on business rules
+  const validTransitions: Record&lt;QuotationStatus, QuotationStatus[]&gt; &#x3D; {
+    Generated: [&#x27;Shared&#x27;], // Can only share a generated quotation
+    Shared: [&#x27;Accepted&#x27;, &#x27;Rejected&#x27;], // Customer can accept or reject shared quotation
+    Accepted: [], // Terminal state - no further transitions
+    Rejected: [], // Terminal state - no further transitions
+  };
+
+  return validTransitions[currentStatus].includes(newStatus);
+}
+
+/**
+ * Check if quotation can be edited (only &#x27;Generated&#x27; status allows editing)
+ */
+export function canEditQuotation(status: QuotationStatus): boolean {
+  return status &#x3D;&#x3D;&#x3D; &#x27;Generated&#x27;;
+}
+
+/**
+ * Check if quotation can be shared
+ */
+export function canShareQuotation(status: QuotationStatus): boolean {
+  return status &#x3D;&#x3D;&#x3D; &#x27;Generated&#x27;;
+}
+
+/**
+ * Check if quotation is in terminal state
+ */
+export function isTerminalQuotationStatus(status: QuotationStatus): boolean {
+  return [&#x27;Accepted&#x27;, &#x27;Rejected&#x27;].includes(status);
+}
+
+/**
+ * Get user-friendly status display text
+ */
+export function getQuotationStatusDisplayText(status: QuotationStatus): string {
+  const statusMap: Record&lt;QuotationStatus, string&gt; &#x3D; {
+    Generated: &#x27;Generated&#x27;,
+    Shared: &#x27;Shared with Customer&#x27;,
+    Accepted: &#x27;Accepted by Customer&#x27;,
+    Rejected: &#x27;Rejected by Customer&#x27;,
+  };
+
+  return statusMap[status] || status;
+}
+
+/**
+ * Calculate panel capacity constraints based on phase
+ */
+export function getPanelQuantityRange(phase: &#x27;Single&#x27; | &#x27;Three&#x27;): {
+  min: number;
+  max: number;
+} {
+  return phase &#x3D;&#x3D;&#x3D; &#x27;Single&#x27; ? { min: 4, max: 9 } : { min: 7, max: 18 };
+}
+
+/**
+ * Calculate total system capacity from panels
+ */
+export function calculateSystemCapacity(
+  panels: Array&lt;{ wattage: number; quantity: number }&gt;
+): number {
+  const totalWattage &#x3D; panels.reduce(
+    (sum, panel) &#x3D;&gt; sum + panel.wattage * panel.quantity,
+    0
+  );
+  return Math.round((totalWattage / 1000) * 100) / 100; // Convert to kW, round to 2 decimal places
+}
+
+/**
+ * Check if inverter capacity is within acceptable range (±15% of system capacity)
+ */
+export function isInverterCapacityCompatible(
+  systemCapacityKW: number,
+  inverterCapacityKW: number,
+  tolerance: number &#x3D; 0.15
+): boolean {
+  const minCapacity &#x3D; systemCapacityKW * (1 - tolerance);
+  const maxCapacity &#x3D; systemCapacityKW * (1 + tolerance);
+  return inverterCapacityKW &gt;&#x3D; minCapacity &amp;&amp; inverterCapacityKW &lt;&#x3D; maxCapacity;
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'QuotationWizardErrors.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

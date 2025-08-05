@@ -1,0 +1,1678 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  SyncProgress</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/sync/SyncManager.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Sync progress information</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#currentPage" 
+>
+                                            currentPage
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#entity" 
+>
+                                            entity
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#processedRecords" 
+>
+                                            processedRecords
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#totalPages" 
+>
+                                            totalPages
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#totalRecords" 
+>
+                                            totalRecords
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="currentPage"></a>
+                                        <span class="name "><b>currentPage</b>
+                                            <a href="#currentPage">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>currentPage:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="entity"></a>
+                                        <span class="name "><b>entity</b>
+                                            <a href="#entity">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>entity:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="processedRecords"></a>
+                                        <span class="name "><b>processedRecords</b>
+                                            <a href="#processedRecords">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>processedRecords:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="totalPages"></a>
+                                        <span class="name "><b>totalPages</b>
+                                            <a href="#totalPages">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>totalPages:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="totalRecords"></a>
+                                        <span class="name "><b>totalRecords</b>
+                                            <a href="#totalRecords">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>totalRecords:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CustomerDao } from &#x27;../database/dao/CustomerDao&#x27;;
+import { DocumentDao } from &#x27;../database/dao/DocumentDao&#x27;;
+import { Customer } from &#x27;../database/models/Customer&#x27;;
+import type { ApiKycDocument, KycDocument } from &#x27;../database/models/Document&#x27;;
+import { customerApi } from &#x27;../store/api/customerApi&#x27;;
+import type { CustomersResponse } from &#x27;../types/api/customer&#x27;;
+////////////////////////
+import { EventEmitter } from &#x27;events&#x27;;
+import { LeadDao } from &#x27;../database/dao/LeadDao&#x27;;
+import { Lead } from &#x27;../database/models/Lead&#x27;;
+import {
+  isApiLead,
+  assertLead,
+  transformApiLeadToLead,
+} from &#x27;../models/LeadModel&#x27;;
+import type { SQLiteDatabase } from &#x27;react-native-sqlite-storage&#x27;;
+import type { ApiLead, LeadsApiResponse } from &#x27;../types/api&#x27;;
+
+// ✅ ADD - Quotation-related imports
+import { QuotationDao } from &#x27;../database/dao/QuotationDao&#x27;;
+import { Quotation } from &#x27;../database/models/Quotation&#x27;;
+import type {
+  Quotation as ApiQuotation,
+  QuotationResponse,
+} from &#x27;../types/api/quotation&#x27;;
+
+/**
+ * Sync events
+ */
+export enum SyncEvents {
+  SYNC_STARTED &#x3D; &#x27;syncStarted&#x27;,
+  SYNC_PROGRESS &#x3D; &#x27;syncProgress&#x27;,
+  SYNC_FINISHED &#x3D; &#x27;syncFinished&#x27;,
+  SYNC_FAILED &#x3D; &#x27;syncFailed&#x27;,
+}
+
+/**
+ * Sync failure reasons
+ */
+export enum SyncFailureReason {
+  NETWORK_ERROR &#x3D; &#x27;NETWORK_ERROR&#x27;,
+  VALIDATION_ERROR &#x3D; &#x27;VALIDATION_ERROR&#x27;,
+  DATABASE_ERROR &#x3D; &#x27;DATABASE_ERROR&#x27;,
+  LEADS_INCOMPLETE &#x3D; &#x27;LEADS_INCOMPLETE&#x27;,
+  AUTHENTICATION_ERROR &#x3D; &#x27;AUTHENTICATION_ERROR&#x27;,
+}
+
+/**
+ * Sync progress information
+ */
+export interface SyncProgress {
+  entity: string;
+  currentPage: number;
+  totalPages: number;
+  processedRecords: number;
+  totalRecords: number;
+}
+
+/**
+ * Sync result information
+ */
+export interface SyncResult {
+  success: boolean;
+  recordCounts: {
+    leads: number;
+    customers?: number;
+    documents?: number; // ✅ ADD
+    quotations?: number;
+  };
+  duration: number;
+  pagesProcessed: number;
+  failureReason?: SyncFailureReason;
+  error?: string;
+}
+
+/**
+ * Enhanced SyncManager with atomic page-aware synchronization
+ */
+export class SyncManager extends EventEmitter {
+  private isRunning &#x3D; false;
+  private syncMutex &#x3D; false;
+  private lastSyncTime: number | null &#x3D; null;
+  private readonly SYNC_THROTTLE_MS &#x3D; 30000; // 30 seconds throttle
+  private readonly API_BASE_URL &#x3D; &#x27;https://truereach-production.up.railway.app&#x27;;
+  private readonly DEFAULT_PAGE_SIZE &#x3D; 25;
+
+  constructor(private db: SQLiteDatabase, private authToken: string) {
+    super();
+  }
+
+  /**
+   * Main sync method with page-aware fetching and atomic persistence
+   */
+  /**
+   * Main sync method with page-aware fetching and atomic persistence
+   */
+  async performSync(): Promise&lt;SyncResult&gt; {
+    console.log(&#x27;🔄 Starting enhanced sync with page-aware fetching...&#x27;);
+
+    // Check throttle and mutex
+    if (this.syncMutex) {
+      console.log(&#x27;⚠️ Sync already in progress, skipping&#x27;);
+      throw new Error(&#x27;Sync already in progress&#x27;);
+    }
+
+    if (this.shouldThrottleSync()) {
+      console.log(&#x27;⚠️ Sync throttled, too soon since last sync&#x27;);
+      throw new Error(&#x27;Sync throttled&#x27;);
+    }
+
+    this.syncMutex &#x3D; true;
+    this.isRunning &#x3D; true;
+    const syncStartTime &#x3D; Date.now();
+
+    this.emit(SyncEvents.SYNC_STARTED);
+
+    try {
+      // Perform page-aware leads sync
+      const leadsResult &#x3D; await this.syncLeadsPageAware();
+
+      // ✅ ADD - Perform customer and document sync (atomic)
+      let customersResult &#x3D; {
+        totalCustomers: 0,
+        totalDocuments: 0,
+        pagesProcessed: 0,
+      };
+      try {
+        customersResult &#x3D; await this.syncCustomersAndDocumentsPageAware();
+      } catch (customerError) {
+        console.warn(
+          &#x27;⚠️ Customers sync failed but continuing with leads:&#x27;,
+          customerError
+        );
+      }
+
+      // ✅ UPDATE - Perform quotations sync (non-blocking)
+      let quotationsResult &#x3D; { totalRecords: 0, pagesProcessed: 0 };
+      try {
+        quotationsResult &#x3D; await this.syncQuotationsPageAware();
+      } catch (quotationError) {
+        console.warn(
+          &#x27;⚠️ Quotations sync failed but continuing with leads:&#x27;,
+          quotationError
+        );
+      }
+
+      const syncResult: SyncResult &#x3D; {
+        success: true,
+        recordCounts: {
+          leads: leadsResult.totalRecords,
+          customers: customersResult.totalCustomers, // ✅ ADD
+          documents: customersResult.totalDocuments, // ✅ ADD
+          quotations: quotationsResult.totalRecords,
+        },
+        duration: Date.now() - syncStartTime,
+        pagesProcessed:
+          leadsResult.pagesProcessed +
+          customersResult.pagesProcessed +
+          quotationsResult.pagesProcessed,
+      };
+
+      // Update sync metadata for all entities
+      const syncPromises &#x3D; [this.updateSyncMetadata(&#x27;leads&#x27;, Date.now())];
+      if (customersResult.totalCustomers &gt; 0) {
+        syncPromises.push(this.updateSyncMetadata(&#x27;customers&#x27;, Date.now()));
+      }
+      if (quotationsResult.totalRecords &gt; 0) {
+        syncPromises.push(this.updateSyncMetadata(&#x27;quotations&#x27;, Date.now()));
+      }
+      await Promise.all(syncPromises);
+
+      this.lastSyncTime &#x3D; Date.now();
+
+      console.log(&#x27;✅ Enhanced sync completed successfully:&#x27;, syncResult);
+      this.emit(SyncEvents.SYNC_FINISHED, syncResult);
+
+      return syncResult;
+    } catch (error) {
+      console.error(&#x27;❌ Enhanced sync failed:&#x27;, error);
+
+      const syncResult: SyncResult &#x3D; {
+        success: false,
+        recordCounts: { leads: 0, customers: 0, documents: 0, quotations: 0 }, // ✅ ADD
+        duration: Date.now() - syncStartTime,
+        pagesProcessed: 0,
+        failureReason: this.categorizeError(error),
+        error: error instanceof Error ? error.message : String(error),
+      };
+
+      this.emit(SyncEvents.SYNC_FAILED, syncResult);
+      return syncResult;
+    } finally {
+      this.isRunning &#x3D; false;
+      this.syncMutex &#x3D; false;
+    }
+  }
+
+  /**
+   * Page-aware leads synchronization with atomic persistence
+   */
+  private async syncLeadsPageAware(): Promise&lt;{
+    totalRecords: number;
+    pagesProcessed: number;
+  }&gt; {
+    console.log(&#x27;🔄 Starting page-aware leads sync...&#x27;);
+
+    const leadDao &#x3D; new LeadDao(this.db);
+    const allValidatedLeads: { leads: Lead[]; page: number }[] &#x3D; [];
+    let totalRecords &#x3D; 0;
+    let pagesProcessed &#x3D; 0;
+
+    try {
+      // Step 1: Fetch first page to determine total pages
+      console.log(&#x27;🔄 Fetching page 1 to determine total pages...&#x27;);
+      const firstPageResponse &#x3D; await this.fetchLeadsPage(
+        1,
+        this.DEFAULT_PAGE_SIZE
+      );
+
+      if (!firstPageResponse.success || !firstPageResponse.data) {
+        throw new Error(&#x27;Failed to fetch first page of leads&#x27;);
+      }
+
+      const totalPages &#x3D; Math.ceil(
+        firstPageResponse.data.total / firstPageResponse.data.limit
+      );
+      const totalExpectedRecords &#x3D; firstPageResponse.data.total;
+
+      console.log(
+        &#x60;📊 Found ${totalPages} pages with ${totalExpectedRecords} total leads&#x60;
+      );
+
+      // Step 2: Validate and store first page
+      const firstPageValidatedLeads &#x3D; await this.validateAndTransformPage(
+        firstPageResponse.data.items,
+        1
+      );
+      allValidatedLeads.push({
+        leads: firstPageValidatedLeads,
+        page: 1,
+      });
+      totalRecords +&#x3D; firstPageValidatedLeads.length;
+      pagesProcessed &#x3D; 1;
+
+      this.emit(SyncEvents.SYNC_PROGRESS, {
+        entity: &#x27;leads&#x27;,
+        currentPage: 1,
+        totalPages,
+        processedRecords: totalRecords,
+        totalRecords: totalExpectedRecords,
+      } as SyncProgress);
+
+      // Step 3: Fetch remaining pages
+      if (totalPages &gt; 1) {
+        console.log(&#x60;🔄 Fetching remaining ${totalPages - 1} pages...&#x60;);
+
+        for (let page &#x3D; 2; page &lt;&#x3D; totalPages; page++) {
+          console.log(&#x60;🔄 Fetching page ${page}/${totalPages}...&#x60;);
+
+          try {
+            const pageResponse &#x3D; await this.fetchLeadsPage(
+              page,
+              this.DEFAULT_PAGE_SIZE
+            );
+
+            if (!pageResponse.success || !pageResponse.data) {
+              throw new Error(
+                &#x60;Failed to fetch page ${page}: ${
+                  pageResponse.message || &#x27;Unknown error&#x27;
+                }&#x60;
+              );
+            }
+
+            // Validate this page
+            const pageValidatedLeads &#x3D; await this.validateAndTransformPage(
+              pageResponse.data.items,
+              page
+            );
+
+            allValidatedLeads.push({
+              leads: pageValidatedLeads,
+              page,
+            });
+
+            totalRecords +&#x3D; pageValidatedLeads.length;
+            pagesProcessed++;
+
+            // Emit progress
+            this.emit(SyncEvents.SYNC_PROGRESS, {
+              entity: &#x27;leads&#x27;,
+              currentPage: page,
+              totalPages,
+              processedRecords: totalRecords,
+              totalRecords: totalExpectedRecords,
+            } as SyncProgress);
+
+            console.log(
+              &#x60;✅ Page ${page} validated: ${pageValidatedLeads.length} leads&#x60;
+            );
+          } catch (pageError) {
+            console.error(
+              &#x60;❌ Failed to fetch/validate page ${page}:&#x60;,
+              pageError
+            );
+            throw new Error(&#x60;Page ${page} sync failed: ${pageError}&#x60;);
+          }
+        }
+      }
+
+      // Step 4: Atomic persistence - ALL pages in a single transaction
+      console.log(
+        &#x60;💾 Starting atomic persistence of ${totalRecords} leads from ${pagesProcessed} pages...&#x60;
+      );
+
+      await this.atomicPersistAllPages(leadDao, allValidatedLeads);
+
+      console.log(
+        &#x60;✅ Page-aware sync completed: ${totalRecords} leads from ${pagesProcessed} pages&#x60;
+      );
+
+      return {
+        totalRecords,
+        pagesProcessed,
+      };
+    } catch (error) {
+      console.error(&#x27;❌ Page-aware leads sync failed:&#x27;, error);
+
+      // Emit failure with LEADS_INCOMPLETE reason
+      throw new Error(&#x60;Leads sync incomplete: ${error}&#x60;);
+    }
+  }
+
+  /**
+   * ✅ ADD - Page-aware quotations synchronization
+   */
+  private async syncQuotationsPageAware(): Promise&lt;{
+    totalRecords: number;
+    pagesProcessed: number;
+  }&gt; {
+    console.log(&#x27;🔄 Starting quotations sync...&#x27;);
+
+    const quotationDao &#x3D; new QuotationDao(this.db);
+    let totalRecords &#x3D; 0;
+    let pagesProcessed &#x3D; 0;
+
+    try {
+      // Fetch quotations from API (simplified approach - get recent quotations)
+      console.log(&#x27;🔄 Fetching quotations from API...&#x27;);
+      const response &#x3D; await this.fetchQuotationsPage(1, 50); // Get first 50 quotations
+
+      if (!response.success || !response.data || !response.data.items) {
+        console.log(&#x27;ℹ️ No quotations found or endpoint not available&#x27;);
+        return { totalRecords: 0, pagesProcessed: 0 };
+      }
+
+      // Validate and transform quotations
+      const validatedQuotations &#x3D; await this.validateAndTransformQuotationPage(
+        response.data.items,
+        1
+      );
+
+      // Persist to database
+      if (validatedQuotations.length &gt; 0) {
+        await this.atomicPersistQuotations(quotationDao, validatedQuotations);
+        totalRecords &#x3D; validatedQuotations.length;
+        pagesProcessed &#x3D; 1;
+
+        this.emit(SyncEvents.SYNC_PROGRESS, {
+          entity: &#x27;quotations&#x27;,
+          currentPage: 1,
+          totalPages: 1,
+          processedRecords: totalRecords,
+          totalRecords: totalRecords,
+        } as SyncProgress);
+      }
+
+      console.log(&#x60;✅ Quotations sync completed: ${totalRecords} records&#x60;);
+      return { totalRecords, pagesProcessed };
+    } catch (error) {
+      console.error(&#x27;❌ Quotations sync failed:&#x27;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * ✅ ADD - Page-aware customer and document synchronization with atomic persistence
+   */
+  private async syncCustomersAndDocumentsPageAware(): Promise&lt;{
+    totalCustomers: number;
+    totalDocuments: number;
+    pagesProcessed: number;
+  }&gt; {
+    console.log(&#x27;🔄 Starting page-aware customers and documents sync...&#x27;);
+
+    const customerDao &#x3D; new CustomerDao(this.db);
+    const documentDao &#x3D; new DocumentDao(this.db);
+    const allCustomersWithDocs: {
+      customers: Customer[];
+      documents: KycDocument[];
+      page: number;
+    }[] &#x3D; [];
+    let totalCustomers &#x3D; 0;
+    let totalDocuments &#x3D; 0;
+    let pagesProcessed &#x3D; 0;
+
+    try {
+      // Step 1: Fetch first page of customers to determine total pages
+      console.log(&#x27;📄 Fetching customers page 1 to determine total pages...&#x27;);
+      const firstPageResponse &#x3D; await this.fetchCustomersPage(
+        1,
+        this.DEFAULT_PAGE_SIZE
+      );
+
+      if (!firstPageResponse.success || !firstPageResponse.data) {
+        throw new Error(&#x27;Failed to fetch first page of customers&#x27;);
+      }
+
+      const totalPages &#x3D; Math.ceil(
+        firstPageResponse.data.total / firstPageResponse.data.limit
+      );
+      const totalExpectedCustomers &#x3D; firstPageResponse.data.total;
+
+      console.log(
+        &#x60;📊 Found ${totalPages} pages with ${totalExpectedCustomers} total customers&#x60;
+      );
+
+      // Step 2: Process first page with documents
+      const firstPageResult &#x3D;
+        await this.validateAndTransformCustomerPageWithDocuments(
+          firstPageResponse.data.items,
+          1
+        );
+
+      allCustomersWithDocs.push(firstPageResult);
+      totalCustomers +&#x3D; firstPageResult.customers.length;
+      totalDocuments +&#x3D; firstPageResult.documents.length;
+      pagesProcessed &#x3D; 1;
+
+      this.emit(SyncEvents.SYNC_PROGRESS, {
+        entity: &#x27;customers&#x27;,
+        currentPage: 1,
+        totalPages,
+        processedRecords: totalCustomers,
+        totalRecords: totalExpectedCustomers,
+      } as SyncProgress);
+
+      // Step 3: Fetch remaining pages
+      if (totalPages &gt; 1) {
+        console.log(
+          &#x60;📄 Fetching remaining ${totalPages - 1} customer pages...&#x60;
+        );
+
+        for (let page &#x3D; 2; page &lt;&#x3D; totalPages; page++) {
+          console.log(&#x60;📄 Fetching customers page ${page}/${totalPages}...&#x60;);
+
+          try {
+            const pageResponse &#x3D; await this.fetchCustomersPage(
+              page,
+              this.DEFAULT_PAGE_SIZE
+            );
+
+            if (!pageResponse.success || !pageResponse.data) {
+              throw new Error(
+                &#x60;Failed to fetch customers page ${page}: ${
+                  pageResponse.message || &#x27;Unknown error&#x27;
+                }&#x60;
+              );
+            }
+
+            // Validate and fetch documents for this page
+            const pageResult &#x3D;
+              await this.validateAndTransformCustomerPageWithDocuments(
+                pageResponse.data.items,
+                page
+              );
+
+            allCustomersWithDocs.push(pageResult);
+            totalCustomers +&#x3D; pageResult.customers.length;
+            totalDocuments +&#x3D; pageResult.documents.length;
+            pagesProcessed++;
+
+            // Emit progress
+            this.emit(SyncEvents.SYNC_PROGRESS, {
+              entity: &#x27;customers&#x27;,
+              currentPage: page,
+              totalPages,
+              processedRecords: totalCustomers,
+              totalRecords: totalExpectedCustomers,
+            } as SyncProgress);
+
+            console.log(
+              &#x60;✅ Page ${page} processed: ${pageResult.customers.length} customers, ${pageResult.documents.length} documents&#x60;
+            );
+          } catch (pageError) {
+            console.error(
+              &#x60;❌ Failed to fetch/process customers page ${page}:&#x60;,
+              pageError
+            );
+            throw new Error(&#x60;Customers page ${page} sync failed: ${pageError}&#x60;);
+          }
+        }
+      }
+
+      // Step 4: Atomic persistence - ALL customers + documents in a single transaction
+      console.log(
+        &#x60;💾 Starting atomic persistence of ${totalCustomers} customers and ${totalDocuments} documents...&#x60;
+      );
+
+      await this.atomicPersistCustomersAndDocuments(
+        customerDao,
+        documentDao,
+        allCustomersWithDocs
+      );
+
+      console.log(
+        &#x60;✅ Customers and documents sync completed: ${totalCustomers} customers, ${totalDocuments} documents from ${pagesProcessed} pages&#x60;
+      );
+
+      return {
+        totalCustomers,
+        totalDocuments,
+        pagesProcessed,
+      };
+    } catch (error) {
+      console.error(&#x27;❌ Customers and documents sync failed:&#x27;, error);
+      throw new Error(&#x60;Customers sync incomplete: ${error}&#x60;);
+    }
+  }
+
+  /**
+   * ✅ ADD - Fetch a single page of customers from the API
+   */
+  private async fetchCustomersPage(
+    page: number,
+    limit: number &#x3D; this.DEFAULT_PAGE_SIZE
+  ): Promise&lt;CustomersResponse&gt; {
+    const offset &#x3D; (page - 1) * limit;
+    const url &#x3D; &#x60;${this.API_BASE_URL}/api/v1/customers?offset&#x3D;${offset}&amp;limit&#x3D;${limit}&#x60;;
+
+    console.log(&#x60;🌐 Fetching customers page ${page}: ${url}&#x60;);
+
+    try {
+      const response &#x3D; await this.fetchWithRetry(url, {
+        method: &#x27;GET&#x27;,
+        headers: {
+          Authorization: &#x60;Bearer ${this.authToken}&#x60;,
+          &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+          Accept: &#x27;*/*&#x27;,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(&#x60;HTTP ${response.status}: ${response.statusText}&#x60;);
+      }
+
+      const data &#x3D; await response.json();
+      return data;
+    } catch (error) {
+      console.error(&#x60;❌ Failed to fetch customers page ${page}:&#x60;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * ✅ ADD - Fetch KYC documents for a customer
+   */
+  private async fetchCustomerDocuments(
+    customerId: string
+  ): Promise&lt;ApiKycDocument[]&gt; {
+    const url &#x3D; &#x60;${this.API_BASE_URL}/api/v1/kycDocuments?customerId&#x3D;${customerId}&#x60;;
+
+    console.log(&#x60;📄 Fetching KYC documents for customer: ${customerId}&#x60;);
+
+    try {
+      const response &#x3D; await this.fetchWithRetry(url, {
+        method: &#x27;GET&#x27;,
+        headers: {
+          Authorization: &#x60;Bearer ${this.authToken}&#x60;,
+          &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+          Accept: &#x27;application/json&#x27;,
+        },
+      });
+
+      if (!response.ok) {
+        if (response.status &#x3D;&#x3D;&#x3D; 404) {
+          // No documents found for this customer
+          console.log(&#x60;📄 No KYC documents found for customer: ${customerId}&#x60;);
+          return [];
+        }
+        throw new Error(&#x60;HTTP ${response.status}: ${response.statusText}&#x60;);
+      }
+
+      const data &#x3D; await response.json();
+      return data.data?.documents || [];
+    } catch (error) {
+      console.warn(
+        &#x60;⚠️ Failed to fetch documents for customer ${customerId}:&#x60;,
+        error
+      );
+      return []; // Return empty array on error to avoid breaking customer sync
+    }
+  }
+
+  /**
+   * ✅ ADD - Validate and transform a page of API customers with their documents
+   */
+  private async validateAndTransformCustomerPageWithDocuments(
+    apiCustomers: any[],
+    pageNumber: number
+  ): Promise&lt;{
+    customers: Customer[];
+    documents: KycDocument[];
+    page: number;
+  }&gt; {
+    console.log(
+      &#x60;🔍 Processing ${apiCustomers.length} customers from page ${pageNumber}...&#x60;
+    );
+
+    const validatedCustomers: Customer[] &#x3D; [];
+    const allDocuments: KycDocument[] &#x3D; [];
+
+    for (const apiCustomer of apiCustomers) {
+      try {
+        // Validate and transform customer
+        if (!apiCustomer.customerId || !apiCustomer.name) {
+          console.warn(&#x27;⚠️ Skipping invalid customer:&#x27;, apiCustomer);
+          continue;
+        }
+
+        // Transform API customer to database format
+        const dbCustomer: Customer &#x3D; {
+          id: apiCustomer.customerId,
+          name: apiCustomer.name,
+          phone: apiCustomer.phone || &#x27;&#x27;,
+          email: apiCustomer.email || undefined,
+          address: apiCustomer.address || undefined,
+          city: undefined, // Not provided by API
+          state: undefined, // Not provided by API
+          pincode: undefined, // Not provided by API
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+          kyc_status: &#x27;pending&#x27;, // Will be updated based on documents
+          sync_status: &#x27;synced&#x27;,
+          local_changes: &#x27;{}&#x27;,
+        };
+
+        // Fetch customer&#x27;s KYC documents
+        const apiDocuments &#x3D; await this.fetchCustomerDocuments(
+          apiCustomer.customerId
+        );
+
+        // Transform documents
+        const customerDocuments: KycDocument[] &#x3D; apiDocuments.map((apiDoc) &#x3D;&gt; ({
+          id: apiDoc.docId,
+          customerId: apiDoc.customerId,
+          docType: apiDoc.docType,
+          status: apiDoc.status,
+          uploadedAt: apiDoc.uploadedAt,
+          uploadedBy: apiDoc.uploadedBy,
+          created_at: new Date().toISOString(),
+          updated_at: apiDoc.uploadedAt,
+          sync_status: &#x27;synced&#x27;,
+          local_changes: &#x27;{}&#x27;,
+        }));
+
+        // Calculate KYC status from documents (following business logic)
+        if (customerDocuments.length &gt; 0) {
+          const hasRejected &#x3D; customerDocuments.some(
+            (doc) &#x3D;&gt; doc.status &#x3D;&#x3D;&#x3D; &#x27;Rejected&#x27;
+          );
+          const allApproved &#x3D; customerDocuments.every(
+            (doc) &#x3D;&gt; doc.status &#x3D;&#x3D;&#x3D; &#x27;Approved&#x27;
+          );
+
+          if (hasRejected) {
+            dbCustomer.kyc_status &#x3D; &#x27;rejected&#x27;;
+          } else if (allApproved) {
+            dbCustomer.kyc_status &#x3D; &#x27;approved&#x27;;
+          } else {
+            dbCustomer.kyc_status &#x3D; &#x27;submitted&#x27;;
+          }
+        }
+
+        validatedCustomers.push(dbCustomer);
+        allDocuments.push(...customerDocuments);
+
+        console.log(
+          &#x60;✅ Customer ${apiCustomer.customerId}: ${customerDocuments.length} docs, KYC: ${dbCustomer.kyc_status}&#x60;
+        );
+      } catch (error) {
+        console.error(
+          &#x60;❌ Failed to process customer ${apiCustomer.customerId}:&#x60;,
+          error
+        );
+        // Continue with next customer
+      }
+    }
+
+    const validationRate &#x3D;
+      (validatedCustomers.length / apiCustomers.length) * 100;
+    console.log(
+      &#x60;✅ Page ${pageNumber} validation complete: ${
+        validatedCustomers.length
+      }/${apiCustomers.length} customers (${validationRate.toFixed(1)}%), ${
+        allDocuments.length
+      } total documents&#x60;
+    );
+
+    return {
+      customers: validatedCustomers,
+      documents: allDocuments,
+      page: pageNumber,
+    };
+  }
+
+  /**
+   * ✅ FIX - Atomically persist all customers and their documents
+   */
+  private async atomicPersistCustomersAndDocuments(
+    customerDao: CustomerDao,
+    documentDao: DocumentDao,
+    allCustomersWithDocs: {
+      customers: Customer[];
+      documents: KycDocument[];
+      page: number;
+    }[]
+  ): Promise&lt;void&gt; {
+    const totalCustomers &#x3D; allCustomersWithDocs.reduce(
+      (sum, pageData) &#x3D;&gt; sum + pageData.customers.length,
+      0
+    );
+    const totalDocuments &#x3D; allCustomersWithDocs.reduce(
+      (sum, pageData) &#x3D;&gt; sum + pageData.documents.length,
+      0
+    );
+
+    console.log(
+      &#x60;💾 Atomically persisting ${totalCustomers} customers and ${totalDocuments} documents...&#x60;
+    );
+
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.db.transaction(
+        (tx) &#x3D;&gt; {
+          try {
+            // Flatten all data
+            const allCustomers &#x3D; allCustomersWithDocs.flatMap(
+              (pageData) &#x3D;&gt; pageData.customers
+            );
+            const allDocuments &#x3D; allCustomersWithDocs.flatMap(
+              (pageData) &#x3D;&gt; pageData.documents
+            );
+
+            // Persist customers first
+            console.log(&#x60;💾 Persisting ${allCustomers.length} customers...&#x60;);
+            for (const customer of allCustomers) {
+              tx.executeSql(
+                &#x60;INSERT OR REPLACE INTO customers (
+                id, name, phone, email, address, city, state, pincode, kyc_status,
+                created_at, updated_at, sync_status, local_changes
+              ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)&#x60;,
+                [
+                  customer.id,
+                  customer.name,
+                  customer.phone,
+                  customer.email,
+                  customer.address,
+                  customer.city,
+                  customer.state,
+                  customer.pincode,
+                  customer.kyc_status,
+                  customer.created_at,
+                  customer.updated_at,
+                  customer.sync_status,
+                  customer.local_changes,
+                ]
+              );
+            }
+
+            // ✅ FIX - Persist KYC documents with proper NULL values
+            console.log(
+              &#x60;💾 Persisting ${allDocuments.length} KYC documents...&#x60;
+            );
+            for (const document of allDocuments) {
+              tx.executeSql(
+                &#x60;INSERT OR REPLACE INTO documents (
+                id, lead_id, customer_id, doc_type, status, uploaded_at, uploaded_by,
+                created_at, updated_at, sync_status, local_changes
+              ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)&#x60;,
+                [
+                  document.id,
+                  null, // ✅ FIX: Set lead_id to NULL for KYC documents
+                  document.customerId,
+                  document.docType,
+                  document.status,
+                  document.uploadedAt,
+                  document.uploadedBy,
+                  document.created_at,
+                  document.updated_at,
+                  document.sync_status,
+                  document.local_changes,
+                ]
+              );
+            }
+
+            console.log(
+              &#x60;✅ Transaction prepared: ${allCustomers.length} customers, ${allDocuments.length} documents&#x60;
+            );
+          } catch (error) {
+            console.error(&#x27;❌ Error preparing transaction:&#x27;, error);
+            throw error;
+          }
+        },
+        (error) &#x3D;&gt; {
+          console.error(&#x27;❌ Transaction failed:&#x27;, error);
+          reject(
+            new Error(
+              &#x60;Failed to persist customers and documents: ${error.message}&#x60;
+            )
+          );
+        },
+        () &#x3D;&gt; {
+          console.log(
+            &#x60;✅ Successfully persisted ${totalCustomers} customers and ${totalDocuments} documents atomically&#x60;
+          );
+          resolve();
+        }
+      );
+    });
+  }
+
+  /**
+   * Fetch a single page of leads from the API
+   */
+  private async fetchLeadsPage(
+    page: number,
+    limit: number &#x3D; this.DEFAULT_PAGE_SIZE
+  ): Promise&lt;LeadsApiResponse&gt; {
+    const offset &#x3D; (page - 1) * limit;
+    const url &#x3D; &#x60;${this.API_BASE_URL}/api/v1/leads?offset&#x3D;${offset}&amp;limit&#x3D;${limit}&#x60;;
+
+    console.log(&#x60;🌐 Fetching leads page ${page}: ${url}&#x60;);
+
+    try {
+      const response &#x3D; await this.fetchWithRetry(url, {
+        method: &#x27;GET&#x27;,
+        headers: {
+          Authorization: &#x60;Bearer ${this.authToken}&#x60;,
+          &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+          Accept: &#x27;*/*&#x27;,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(&#x60;HTTP ${response.status}: ${response.statusText}&#x60;);
+      }
+
+      const data &#x3D; await response.json();
+      return data;
+    } catch (error) {
+      console.error(&#x60;❌ Failed to fetch leads page ${page}:&#x60;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * ✅ ADD - Fetch quotations from API
+   */
+  private async fetchQuotationsPage(
+    page: number,
+    limit: number &#x3D; 25
+  ): Promise&lt;QuotationResponse&gt; {
+    const offset &#x3D; (page - 1) * limit;
+    const url &#x3D; &#x60;${this.API_BASE_URL}/api/v1/quotations?offset&#x3D;${offset}&amp;limit&#x3D;${limit}&#x60;;
+
+    console.log(&#x60;🌐 Fetching quotations: ${url}&#x60;);
+
+    try {
+      const response &#x3D; await this.fetchWithRetry(url, {
+        method: &#x27;GET&#x27;,
+        headers: {
+          Authorization: &#x60;Bearer ${this.authToken}&#x60;,
+          &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+          Accept: &#x27;*/*&#x27;,
+        },
+      });
+
+      if (!response.ok) {
+        if (response.status &#x3D;&#x3D;&#x3D; 404) {
+          // Quotations endpoint might not exist yet
+          return {
+            success: false,
+            data: { items: [], total: 0, offset: 0, limit: 0 },
+          };
+        }
+        throw new Error(&#x60;HTTP ${response.status}: ${response.statusText}&#x60;);
+      }
+
+      const data &#x3D; await response.json();
+      return data;
+    } catch (error) {
+      console.error(&#x60;❌ Failed to fetch quotations:&#x60;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Validate and transform a page of API leads
+   */
+  private async validateAndTransformPage(
+    apiLeads: ApiLead[],
+    pageNumber: number
+  ): Promise&lt;Lead[]&gt; {
+    console.log(
+      &#x60;🔍 Validating ${apiLeads.length} leads from page ${pageNumber}...&#x60;
+    );
+
+    const validatedLeads: Lead[] &#x3D; [];
+
+    for (const apiLead of apiLeads) {
+      try {
+        // ✅ FIX - Use isApiLead type guard instead of assertLead
+        if (!isApiLead(apiLead)) {
+          console.warn(&#x27;⚠️ Invalid lead structure, skipping:&#x27;, {
+            leadId: apiLead?.leadId,
+            customerName: apiLead?.customerName,
+            missingFields: this.getMissingLeadFields(apiLead),
+          });
+          continue;
+        }
+
+        // ✅ FIX - Transform to database-compatible Lead format
+        const dbLead: Lead &#x3D; {
+          id: apiLead.leadId,
+          customer_id: undefined,
+          status: apiLead.status,
+          priority: &#x27;medium&#x27; as const,
+          source: &#x27;CP&#x27;,
+          product_type: apiLead.services?.join(&#x27;, &#x27;) || &#x27;&#x27;,
+          estimated_value: undefined,
+          follow_up_date: undefined,
+          created_at: apiLead.createdAt,
+          updated_at: apiLead.updatedAt,
+          remarks: undefined,
+          address: apiLead.address,
+          phone: apiLead.phone,
+          email: undefined,
+          sync_status: &#x27;synced&#x27; as const,
+          local_changes: &#x27;{}&#x27;,
+          customerName: apiLead.customerName,
+          assignedTo: apiLead.assignedTo,
+          services: apiLead.services,
+        };
+
+        validatedLeads.push(dbLead);
+      } catch (error) {
+        console.error(&#x27;❌ Error processing lead, skipping:&#x27;, error);
+        console.error(&#x27;Lead data:&#x27;, JSON.stringify(apiLead, null, 2));
+      }
+    }
+
+    const validationRate &#x3D; (validatedLeads.length / apiLeads.length) * 100;
+    console.log(
+      &#x60;✅ Validation complete: ${validatedLeads.length}/${
+        apiLeads.length
+      } leads (${validationRate.toFixed(1)}%)&#x60;
+    );
+
+    return validatedLeads;
+  }
+
+  // ✅ ADD - Helper method to identify missing fields
+  private getMissingLeadFields(obj: any): string[] {
+    const required &#x3D; [
+      &#x27;leadId&#x27;,
+      &#x27;customerName&#x27;,
+      &#x27;phone&#x27;,
+      &#x27;address&#x27;,
+      &#x27;status&#x27;,
+      &#x27;services&#x27;,
+      &#x27;assignedTo&#x27;,
+      &#x27;createdAt&#x27;,
+      &#x27;updatedAt&#x27;,
+    ];
+    return required.filter(
+      (field) &#x3D;&gt;
+        !obj ||
+        obj[field] &#x3D;&#x3D;&#x3D; undefined ||
+        obj[field] &#x3D;&#x3D;&#x3D; null ||
+        obj[field] &#x3D;&#x3D;&#x3D; &#x27;&#x27;
+    );
+  }
+
+  /**
+   * ✅ FIX - Transform API quotations to database format
+   */
+  private async validateAndTransformQuotationPage(
+    apiQuotations: ApiQuotation[],
+    pageNumber: number
+  ): Promise&lt;Quotation[]&gt; {
+    console.log(
+      &#x60;🔍 Validating ${apiQuotations.length} quotations from page ${pageNumber}...&#x60;
+    );
+
+    const validatedQuotations: Quotation[] &#x3D; [];
+
+    for (const apiQuotation of apiQuotations) {
+      try {
+        // Basic validation
+        if (!apiQuotation.quotationId || !apiQuotation.leadId) {
+          console.warn(&#x27;⚠️ Skipping invalid quotation:&#x27;, apiQuotation);
+          continue;
+        }
+
+        // ✅ FIX - Transform to match actual database schema
+        const dbQuotation: Quotation &#x3D; {
+          id: apiQuotation.quotationId,
+          lead_id: apiQuotation.leadId,
+          customer_id: &#x27;&#x27;, // Set empty string instead of missing field
+          amount: apiQuotation.totalCost || 0, // Map to amount column
+          status: apiQuotation.status || &#x27;draft&#x27;,
+          items: JSON.stringify({
+            systemKW: apiQuotation.systemKW,
+            totalCost: apiQuotation.totalCost,
+          }), // Store structured data in items
+          terms: &#x27;Standard terms&#x27;, // Default terms
+          created_at: apiQuotation.createdAt || new Date().toISOString(),
+          updated_at: apiQuotation.createdAt || new Date().toISOString(),
+          sync_status: &#x27;synced&#x27;,
+          local_changes: &#x27;{}&#x27;,
+
+          // Keep these for interface compatibility but don&#x27;t use in SQL
+          quotation_id: apiQuotation.quotationId,
+          system_kw: apiQuotation.systemKW || 0,
+          roof_type: &#x27;RCC&#x27;,
+          total_amount: apiQuotation.totalCost || 0,
+          subsidy_amount: 0,
+          final_amount: apiQuotation.totalCost || 0,
+          created_by: &#x27;&#x27;,
+          shared_with_customer: false,
+          components_data: &#x27;{}&#x27;,
+          pricing_data: &#x27;{}&#x27;,
+          last_sync: new Date().toISOString(),
+        };
+
+        validatedQuotations.push(dbQuotation);
+      } catch (error) {
+        console.error(&#x27;❌ Failed to validate quotation:&#x27;, error);
+      }
+    }
+
+    console.log(
+      &#x60;✅ Validated ${validatedQuotations.length}/${apiQuotations.length} quotations&#x60;
+    );
+    return validatedQuotations;
+  }
+
+  /**
+   * Atomically persist all lead pages to database
+   */
+  private async atomicPersistAllPages(
+    leadDao: LeadDao,
+    allValidatedLeads: { leads: Lead[]; page: number }[]
+  ): Promise&lt;void&gt; {
+    const totalLeads &#x3D; allValidatedLeads.reduce(
+      (sum, pageData) &#x3D;&gt; sum + pageData.leads.length,
+      0
+    );
+    console.log(
+      &#x60;💾 Atomically persisting ${totalLeads} leads from ${allValidatedLeads.length} pages...&#x60;
+    );
+
+    try {
+      // ✅ FIX - Use upsertMany for each page instead of upsertBatch
+      for (const pageData of allValidatedLeads) {
+        if (pageData.leads.length &gt; 0) {
+          await leadDao.upsertMany(pageData.leads, pageData.page);
+          console.log(
+            &#x60;✅ Persisted ${pageData.leads.length} leads for page ${pageData.page}&#x60;
+          );
+        }
+      }
+
+      console.log(&#x60;✅ Successfully persisted ${totalLeads} leads atomically&#x60;);
+    } catch (error) {
+      console.error(&#x27;❌ Failed to persist leads atomically:&#x27;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * ✅ FIX - Atomic persistence of quotations
+   */
+  private async atomicPersistQuotations(
+    quotationDao: QuotationDao,
+    quotations: Quotation[]
+  ): Promise&lt;void&gt; {
+    console.log(&#x60;💾 Atomically persisting ${quotations.length} quotations...&#x60;);
+
+    try {
+      // ✅ FIX - Use upsertAll instead of upsertBatch
+      await quotationDao.upsertAll(quotations);
+      console.log(&#x60;✅ Successfully persisted ${quotations.length} quotations&#x60;);
+    } catch (error) {
+      console.error(&#x27;❌ Failed to persist quotations atomically:&#x27;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Fetch with retry logic
+   */
+  private async fetchWithRetry(
+    url: string,
+    options: RequestInit,
+    maxRetries: number &#x3D; 3
+  ): Promise&lt;Response&gt; {
+    let lastError: Error;
+
+    for (let attempt &#x3D; 1; attempt &lt;&#x3D; maxRetries; attempt++) {
+      try {
+        console.log(
+          &#x60;🌐 HTTP ${options.method} ${url} (attempt ${attempt}/${maxRetries})&#x60;
+        );
+        const response &#x3D; await fetch(url, options);
+        return response;
+      } catch (error) {
+        lastError &#x3D; error instanceof Error ? error : new Error(String(error));
+        console.warn(
+          &#x60;⚠️ Attempt ${attempt}/${maxRetries} failed:&#x60;,
+          lastError.message
+        );
+
+        if (attempt &lt; maxRetries) {
+          const delay &#x3D; Math.min(1000 * Math.pow(2, attempt - 1), 5000);
+          console.log(&#x60;⏳ Retrying in ${delay}ms...&#x60;);
+          await new Promise((resolve) &#x3D;&gt; setTimeout(resolve, delay));
+        }
+      }
+    }
+
+    throw lastError!;
+  }
+
+  /**
+   * Update sync metadata for a specific table
+   */
+  private async updateSyncMetadata(
+    tableName: string,
+    timestamp: number
+  ): Promise&lt;void&gt; {
+    try {
+      console.log(&#x60;📝 Updating sync metadata for ${tableName}...&#x60;);
+
+      // Note: This would need to be implemented based on your SyncDao
+      // For now, this is a placeholder
+
+      console.log(&#x60;✅ Updated sync metadata for ${tableName}&#x60;);
+    } catch (error) {
+      console.error(
+        &#x60;❌ Failed to update sync metadata for ${tableName}:&#x60;,
+        error
+      );
+      throw error;
+    }
+  }
+
+  /**
+   * Check if sync should be throttled
+   */
+  private shouldThrottleSync(): boolean {
+    if (!this.lastSyncTime) return false;
+    return Date.now() - this.lastSyncTime &lt; this.SYNC_THROTTLE_MS;
+  }
+
+  /**
+   * Categorize error for reporting
+   */
+  private categorizeError(error: any): SyncFailureReason {
+    if (!error) return SyncFailureReason.UNKNOWN;
+
+    const errorMessage &#x3D; error.message || String(error);
+    const errorLower &#x3D; errorMessage.toLowerCase();
+
+    if (errorLower.includes(&#x27;network&#x27;) || errorLower.includes(&#x27;fetch&#x27;)) {
+      return SyncFailureReason.NETWORK_ERROR;
+    }
+
+    if (errorLower.includes(&#x27;auth&#x27;) || errorLower.includes(&#x27;401&#x27;)) {
+      return SyncFailureReason.AUTHENTICATION_ERROR;
+    }
+
+    if (errorLower.includes(&#x27;validation&#x27;) || errorLower.includes(&#x27;invalid&#x27;)) {
+      return SyncFailureReason.VALIDATION_ERROR;
+    }
+
+    if (errorLower.includes(&#x27;database&#x27;) || errorLower.includes(&#x27;sqlite&#x27;)) {
+      return SyncFailureReason.DATABASE_ERROR;
+    }
+
+    if (errorLower.includes(&#x27;leads&#x27;)) {
+      return SyncFailureReason.LEADS_INCOMPLETE;
+    }
+
+    // ✅ ADD - Customer-specific error handling
+    if (errorLower.includes(&#x27;customers&#x27;) || errorLower.includes(&#x27;customer&#x27;)) {
+      return SyncFailureReason.DATABASE_ERROR; // Treat as database error
+    }
+
+    return SyncFailureReason.NETWORK_ERROR; // Default fallback
+  }
+
+  /**
+   * Check if sync is currently running
+   */
+  public isRunning(): boolean {
+    return this.isRunning;
+  }
+
+  /**
+   * Get last sync timestamp
+   */
+  public getLastSyncTime(): number | null {
+    return this.lastSyncTime;
+  }
+}
+
+// Add missing enum value for unknown errors
+export enum SyncFailureReason {
+  NETWORK_ERROR &#x3D; &#x27;NETWORK_ERROR&#x27;,
+  VALIDATION_ERROR &#x3D; &#x27;VALIDATION_ERROR&#x27;,
+  DATABASE_ERROR &#x3D; &#x27;DATABASE_ERROR&#x27;,
+  LEADS_INCOMPLETE &#x3D; &#x27;LEADS_INCOMPLETE&#x27;,
+  AUTHENTICATION_ERROR &#x3D; &#x27;AUTHENTICATION_ERROR&#x27;,
+  UNKNOWN &#x3D; &#x27;UNKNOWN&#x27;, // ✅ ADD
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'SyncProgress.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

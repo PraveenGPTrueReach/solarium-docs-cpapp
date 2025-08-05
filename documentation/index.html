@@ -1,0 +1,756 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+        <link rel="stylesheet" href="./styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1>Solarium CP App</h1>
+<p>Channel Partner Mobile Application for Solarium Green Energy - Lead Management Platform for Solar Product Sales.</p>
+<h2>Overview</h2>
+<p>The Solarium CP App provides an end-to-end Lead Management Platform for solar product sales, addressing:</p>
+<ul>
+<li>Lead capture from multiple channels (Channel Partners, direct Customer requests, Admin/KAM entries)</li>
+<li>Sales funnel management (status transitions, follow-ups, quotations, commission payouts)</li>
+<li>Centralized documentation (lead-level files, KYC documents, quotation archives)</li>
+<li>Unified workflows and security for Channel Partners in the solar energy ecosystem</li>
+</ul>
+<h2>Getting Started</h2>
+<h3>Prerequisites</h3>
+<ul>
+<li>Node.js 18 LTS</li>
+<li>Yarn 1.22+</li>
+<li>React Native CLI</li>
+<li>Xcode 14.2+ (for iOS)</li>
+<li>Android Studio Giraffe+ (for Android)</li>
+<li>CocoaPods (for iOS dependencies)</li>
+</ul>
+<h3>Quick Setup</h3>
+<ol>
+<li><p><strong>Clone and Install</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">git clone &lt;repository-url&gt;
+cd SOLARIUM-CPAPP
+yarn install
+bundle install --path vendor/bundle</code></pre></div></li>
+<li><p><strong>Environment Configuration</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">cp .env.development .env
+# Edit .env with your configuration</code></pre></div></li>
+<li><p><strong>iOS Setup</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">cd ios &amp;&amp; pod install &amp;&amp; cd ..
+yarn ios</code></pre></div></li>
+<li><p><strong>Android Setup</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">yarn android</code></pre></div></li>
+</ol>
+<h3>Architecture Overview</h3>
+<p>The app uses a modern React Native architecture:</p>
+<ul>
+<li><strong>Navigation</strong>: React Navigation v6 with authentication-based routing</li>
+<li><strong>State Management</strong>: Redux Toolkit with RTK Query for API integration</li>
+<li><strong>UI Components</strong>: React Native Paper with Material Design 3</li>
+<li><strong>Theme System</strong>: Light/Dark/System theme support with persistence</li>
+<li><strong>Testing</strong>: Jest + React Native Testing Library with 80%+ coverage</li>
+</ul>
+<h3>Key Features Implemented</h3>
+<ul>
+<li>✅ <strong>Authentication Flow</strong>: Splash → Login → Main Navigation</li>
+<li>✅ <strong>Bottom Tab Navigation</strong>: Home and Settings tabs</li>
+<li>✅ <strong>Theme Management</strong>: System/Light/Dark themes with user preference</li>
+<li>✅ <strong>State Persistence</strong>: Auth and preferences persist across app restarts</li>
+<li>✅ <strong>Shared UI Components</strong>: AppButton, AppTextInput, ScreenContainer</li>
+<li>✅ <strong>RTK Query Base</strong>: Ready for API integration in future sprints</li>
+</ul>
+<h3>Development Workflow</h3>
+<ol>
+<li><p><strong>Start Metro</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">yarn start</code></pre></div></li>
+<li><p><strong>Run Tests</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">yarn test          # Run all tests
+yarn test:coverage # Run with coverage report
+yarn test:watch    # Watch mode for development</code></pre></div></li>
+<li><p><strong>Code Quality</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">yarn lint          # ESLint check
+yarn format        # Prettier format
+yarn type-check    # TypeScript check</code></pre></div></li>
+<li><p><strong>Environment Switching</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">yarn env:dev       # Switch to development
+yarn env:staging   # Switch to staging
+yarn env:prod      # Switch to production</code></pre></div></li>
+</ol>
+<h3>Project Structure</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">src/
+├── components/
+│   └── common/           # Shared UI components
+├── hooks/               # Custom React hooks
+├── navigation/          # Navigation configuration
+├── screens/            # Screen components
+│   ├── auth/           # Authentication screens
+│   ├── home/           # Home screens
+│   └── settings/       # Settings screens
+├── store/              # Redux store configuration
+│   ├── api/            # RTK Query API definitions
+│   └── slices/         # Redux slices
+└── theme/              # Theme configuration</code></pre></div><h3>Navigation Flow</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">App Launch
+    ↓
+Splash Screen (1s)
+    ↓
+Login Screen
+    ↓ (Sign In)
+Main Tab Navigator
+├── Home Tab (Dashboard)
+└── Settings Tab (Profile &amp; Preferences)
+    ↓ (Logout)
+Back to Splash → Login</code></pre></div><h3>Theme System</h3>
+<p>The app supports three theme modes:</p>
+<ul>
+<li><strong>System</strong>: Follows device theme automatically</li>
+<li><strong>Light</strong>: Fixed light theme</li>
+<li><strong>Dark</strong>: Fixed dark theme</li>
+</ul>
+<p>Theme preference is persisted and applies immediately across all screens.</p>
+<h2>Available Scripts</h2>
+<h3>Development</h3>
+<ul>
+<li><code>yarn start</code> - Start Metro bundler</li>
+<li><code>yarn android</code> - Run on Android</li>
+<li><code>yarn ios</code> - Run on iOS</li>
+<li><code>yarn pods</code> - Install iOS dependencies</li>
+</ul>
+<h3>Testing</h3>
+<ul>
+<li><code>yarn test</code> - Run all tests</li>
+<li><code>yarn test:watch</code> - Run tests in watch mode</li>
+<li><code>yarn test:coverage</code> - Run tests with coverage report</li>
+<li><code>yarn test:ci</code> - Run tests in CI mode</li>
+</ul>
+<h3>Code Quality</h3>
+<ul>
+<li><code>yarn lint</code> - Run ESLint</li>
+<li><code>yarn lint:fix</code> - Fix ESLint issues</li>
+<li><code>yarn format</code> - Format code with Prettier</li>
+<li><code>yarn type-check</code> - Run TypeScript compiler</li>
+</ul>
+<h3>Documentation</h3>
+<ul>
+<li><code>yarn docs:lint</code> - Lint markdown files</li>
+<li><code>yarn docs:check</code> - Check markdown syntax</li>
+</ul>
+<h3>Build &amp; Deploy</h3>
+<ul>
+<li><code>yarn build:android:dev</code> - Build Android debug</li>
+<li><code>yarn build:ios:dev</code> - Build iOS debug</li>
+<li><code>yarn fastlane:android:debug</code> - Build Android with Fastlane</li>
+<li><code>yarn fastlane:ios:debug</code> - Build iOS with Fastlane</li>
+</ul>
+<h2>Tech Stack</h2>
+<h3>Core</h3>
+<ul>
+<li><strong>React Native 0.71.x</strong> - Cross-platform mobile framework</li>
+<li><strong>TypeScript 5.8.x</strong> - Type-safe JavaScript</li>
+<li><strong>React Navigation v6</strong> - Navigation library</li>
+<li><strong>Redux Toolkit</strong> - State management</li>
+<li><strong>RTK Query</strong> - Data fetching and caching</li>
+</ul>
+<h3>UI &amp; Styling</h3>
+<ul>
+<li><strong>React Native Paper</strong> - Material Design components</li>
+<li><strong>React Native Vector Icons</strong> - Icon library</li>
+<li><strong>React Native Safe Area Context</strong> - Safe area handling</li>
+</ul>
+<h3>Development Tools</h3>
+<ul>
+<li><strong>ESLint</strong> - Code linting</li>
+<li><strong>Prettier</strong> - Code formatting</li>
+<li><strong>Husky</strong> - Git hooks</li>
+<li><strong>Jest</strong> - Testing framework</li>
+<li><strong>React Native Testing Library</strong> - Component testing</li>
+</ul>
+<h3>CI/CD</h3>
+<ul>
+<li><strong>GitHub Actions</strong> - Continuous integration</li>
+<li><strong>Fastlane</strong> - Mobile app automation</li>
+<li><strong>SonarCloud</strong> - Code quality analysis</li>
+</ul>
+<h2>Testing</h2>
+<h3>Running Tests</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Run all tests
+yarn test
+
+# Run tests with coverage
+yarn test:coverage
+
+# Run tests in watch mode
+yarn test:watch
+
+# Run specific test file
+yarn test AuthSlice.test.ts</code></pre></div><h3>Coverage Requirements</h3>
+<ul>
+<li><strong>Overall Coverage</strong>: ≥80%</li>
+<li><strong>Business Logic</strong>: ≥85%</li>
+<li><strong>Statements</strong>: ≥80%</li>
+<li><strong>Branches</strong>: ≥80%</li>
+<li><strong>Functions</strong>: ≥80%</li>
+<li><strong>Lines</strong>: ≥80%</li>
+</ul>
+<h3>Test Structure</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">__tests__/
+├── components/     # Component tests
+├── hooks/         # Custom hook tests
+├── navigation/    # Navigation tests
+├── setup/         # Test utilities
+└── store/         # Redux tests</code></pre></div><h2>Build &amp; Deployment</h2>
+<h3>Environment Configuration</h3>
+<ul>
+<li><strong>Development</strong>: <code>.env.development</code></li>
+<li><strong>Staging</strong>: <code>.env.staging</code></li>
+<li><strong>Production</strong>: <code>.env.production</code></li>
+</ul>
+<h3>Build Commands</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Android
+yarn build:android:dev
+yarn build:android:staging
+yarn build:android:prod
+
+# iOS
+yarn build:ios:dev
+yarn build:ios:staging
+yarn build:ios:prod</code></pre></div><h3>Fastlane Integration</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Android
+yarn fastlane:android:debug
+yarn fastlane:android:internal
+
+# iOS
+yarn fastlane:ios:debug
+yarn fastlane:ios:beta</code></pre></div><h2>Contributing</h2>
+<p>We welcome contributions! Please see <a href="./CONTRIBUTING.md">CONTRIBUTING.md</a> for:</p>
+<ul>
+<li>Development guidelines</li>
+<li>Code standards</li>
+<li>Testing requirements</li>
+<li>Pull request process</li>
+</ul>
+<h3>Quick Contributing Guide</h3>
+<ol>
+<li><p><strong>Fork and Clone</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">git fork &lt;repository-url&gt;
+git clone &lt;your-fork-url&gt;
+cd SOLARIUM-CPAPP</code></pre></div></li>
+<li><p><strong>Create Feature Branch</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">git checkout -b feature/your-feature-name</code></pre></div></li>
+<li><p><strong>Develop and Test</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">yarn install
+yarn test
+yarn lint</code></pre></div></li>
+<li><p><strong>Submit Pull Request</strong></p>
+<ul>
+<li>Ensure all tests pass</li>
+<li>Follow conventional commit format</li>
+<li>Include appropriate documentation</li>
+</ul>
+</li>
+</ol>
+<h2>Architecture Decisions</h2>
+<p>Key architectural decisions are documented in <code>/docs/adr/</code>:</p>
+<ul>
+<li><strong>ADR-0001</strong>: CI/CD Pipeline Toolchain</li>
+<li><strong>ADR-0002</strong>: Navigation and State Management Architecture</li>
+</ul>
+<h2>Documentation</h2>
+<ul>
+<li><strong><a href="docs/DEVELOPMENT.md">Development Guide</a></strong> - Architecture and development patterns</li>
+<li><strong><a href="docs/TESTING.md">Testing Guide</a></strong> - Testing strategies and examples</li>
+<li><strong><a href="docs/ARCHITECTURE.md">Architecture Overview</a></strong> - High-level system design</li>
+</ul>
+<h2>Performance</h2>
+<h3>Startup Performance</h3>
+<ul>
+<li><strong>Cold Start</strong>: &lt;3 seconds on mid-range devices</li>
+<li><strong>Selective Persistence</strong>: Only auth + preferences stored locally</li>
+<li><strong>Optimized Bundle</strong>: Tree-shaking and code splitting</li>
+</ul>
+<h3>Runtime Performance</h3>
+<ul>
+<li><strong>Memory Usage</strong>: Optimized with React.memo and useCallback</li>
+<li><strong>Navigation</strong>: Native stack for smooth transitions</li>
+<li><strong>Theme Switching</strong>: Immediate application without flicker</li>
+</ul>
+<h2>Security</h2>
+<ul>
+<li><strong>Authentication</strong>: JWT-based with secure token storage</li>
+<li><strong>Data Protection</strong>: Sensitive data encrypted at rest</li>
+<li><strong>Network Security</strong>: TLS 1.2+ for all communications</li>
+<li><strong>Local Storage</strong>: Minimal data persistence for security</li>
+</ul>
+<h2>Troubleshooting</h2>
+<h3>Common Issues</h3>
+<ol>
+<li><p><strong>Metro Bundle Error</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">yarn start --reset-cache</code></pre></div></li>
+<li><p><strong>iOS Build Issues</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">cd ios &amp;&amp; pod install &amp;&amp; cd ..
+xcodebuild clean</code></pre></div></li>
+<li><p><strong>Android Build Issues</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">cd android &amp;&amp; ./gradlew clean &amp;&amp; cd ..</code></pre></div></li>
+<li><p><strong>Type Check Errors</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">yarn type-check</code></pre></div></li>
+</ol>
+<h3>Environment Issues</h3>
+<ul>
+<li>Ensure correct Node.js version (18 LTS)</li>
+<li>Verify React Native CLI installation</li>
+<li>Check Xcode/Android Studio setup</li>
+</ul>
+<h2>License</h2>
+<p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
+<h2>Support</h2>
+<p>For support and questions:</p>
+<ul>
+<li><strong>Issues</strong>: GitHub Issues</li>
+<li><strong>Documentation</strong>: <code>/docs</code> directory</li>
+<li><strong>Contributing</strong>: See <a href="./CONTRIBUTING.md">CONTRIBUTING.md</a></li>
+</ul>
+<h1>Testing</h1>
+<h2>Overview</h2>
+<p>This project uses Jest with React Native Testing Library for comprehensive testing. We maintain high code quality standards with enforced coverage thresholds and automated testing in CI.</p>
+<h2>Testing Stack</h2>
+<ul>
+<li><strong>Jest 29.2.1</strong> - Testing framework with React Native preset</li>
+<li><strong>React Native Testing Library 13.2.0</strong> - Component testing utilities</li>
+<li><strong>Jest Native 5.4.3</strong> - Enhanced Jest matchers for React Native</li>
+<li><strong>Detox 19.x</strong> - End-to-end testing (configured separately for E2E tests)</li>
+</ul>
+<h2>Running Tests</h2>
+<h3>Basic Commands</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Run all tests
+yarn test
+
+# Run tests in watch mode (development)
+yarn test:watch
+
+# Run tests with coverage
+yarn test:coverage
+
+# Run tests in CI mode (no watch, with coverage)
+yarn test:ci
+
+# Run specific test file
+yarn test LoginScreen.test.tsx
+
+# Run tests matching pattern
+yarn test --testNamePattern=&quot;auth&quot;
+yarn test --testPathPattern=&quot;components&quot;
+
+
+
+## Offline Sync Architecture
+
+The CPAPP implements a robust offline-first synchronization system that manages data consistency between local SQLite cache and backend APIs.
+
+### Key Features
+
+- **🔄 Automatic Synchronization**: Server-wins strategy with atomic database transactions
+- **🛡️ Authentication Handling**: Automatic logout on token expiry (401 errors)
+- **🔁 Smart Retry Logic**: Exponential backoff for server errors (1s → 2s → 4s)
+- **🚫 Concurrency Protection**: Prevents duplicate sync operations
+- **📱 Network Awareness**: Offline detection with graceful degradation
+- **⚡ Real-time Updates**: Immediate Redux state updates after successful sync
+
+### Usage
+
+```typescript
+import { getSyncManager } from &#39;./src/sync&#39;;
+
+// Get singleton instance
+const syncManager = getSyncManager();
+
+// Listen to sync events
+syncManager.onSyncEvent(&#39;syncStarted&#39;, (data) =&gt; {
+  console.log(&#39;Sync started:&#39;, data.source);
+});
+
+syncManager.onSyncEvent(&#39;syncFinished&#39;, (data) =&gt; {
+  console.log(&#39;Sync completed:&#39;, data.recordCounts);
+});
+
+syncManager.onSyncEvent(&#39;syncFailed&#39;, (data) =&gt; {
+  console.log(&#39;Sync failed:&#39;, data.error);
+});
+
+// Trigger manual sync
+const result = await syncManager.manualSync(&#39;manual&#39;);
+if (result.success) {
+  console.log(&#39;Synced records:&#39;, result.recordCounts);
+} else {
+  console.error(&#39;Sync error:&#39;, result.error);
+}
+
+// Check sync status
+const status = syncManager.getSyncStatus();
+console.log(&#39;Is running:&#39;, status.isRunning);
+Architecture Overview
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   UI Trigger    │───→│   SyncManager    │───→│  Backend APIs   │
+│  (Manual/Timer) │    │   (Singleton)    │    │ /leads /customers│
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+                                │
+                                ▼
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│  Redux Store    │◄───│ Cache Persistence│───→│ SQLite Database │
+│ (UI Updates)    │    │ (Atomic Txn)     │    │ (Encrypted)     │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+
+---
+
+
+This complete README.md file includes:
+
+1. **Updated Getting Started** section with navigation/state setup
+2. **Architecture Overview** reflecting current implementation
+3. **Key Features** showing completed functionality
+4. **Development Workflow** with all necessary commands
+5. **Project Structure** showing current organization
+6. **Navigation Flow** diagram
+7. **Theme System** explanation
+8. **Comprehensive Scripts** section
+9. **Tech Stack** details
+10. **Testing** requirements and structure
+11. **Build &amp; Deployment** instructions
+12. **Contributing** guidelines
+13. **Architecture Decisions** references
+14. **Performance** metrics
+15. **Security** overview
+16. **Troubleshooting** guide
+
+
+&lt;!-- BADGES:START --&gt;
+![Version](https://img.shields.io/badge/version-1.2.0-blue.svg)
+![Coverage](https://img.shields.io/badge/coverage-87%25-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)
+![Platform](https://img.shields.io/badge/platform-React%20Native-blue.svg)
+
+### Business Logic Coverage
+![Home](https://img.shields.io/badge/home-89%25-brightgreen.svg)
+![Leads](https://img.shields.io/badge/leads-91%25-brightgreen.svg)
+![Dashboard](https://img.shields.io/badge/dashboard-88%25-brightgreen.svg)
+![Sync](https://img.shields.io/badge/sync-85%25-green.svg)
+&lt;!-- BADGES:END --&gt;
+
+A comprehensive React Native application for managing solar leads, customers, and quotations with offline-first architecture.
+
+## 📱 Overview
+
+Solarium CP App is a mobile customer portal for solar energy consultants, enabling efficient lead management, customer tracking, and quotation generation with full offline support.
+
+## 🚀 Feature Matrix
+
+| Feature Category | Feature | Status | Sprint | Notes |
+|------------------|---------|--------|--------|-------|
+| **Authentication** | JWT Login | ✅ | S1 | Secure token-based auth |
+| | Biometric Login | ❌ | S4 | Touch/Face ID support |
+| | Auto-logout | ✅ | S1 | Token expiration handling |
+| **Dashboard** | **Dashboard counters** | ✅ | **S2** | **Live metrics display** |
+| | Today&#39;s tasks | ❌ | S3 | Calendar integration |
+| | Quick actions | ✅ | S2 | Navigation shortcuts |
+| | Sync status | ✅ | S2 | Real-time sync feedback |
+| **Lead Management** | **Leads list (read-only)** | ✅ | **S2** | **Paginated list with search** |
+| | Add new lead | ❌ | S3 | Form-based creation |
+| | Edit lead details | ❌ | S3 | In-place editing |
+| | Lead status tracking | ✅ | S2 | Color-coded status chips |
+| | Follow-up reminders | ❌ | S4 | Push notifications |
+| **Customer Management** | Customer list | ❌ | S3 | Contact management |
+| | Customer details | ❌ | S3 | Detailed profiles |
+| | KYC document upload | ❌ | S4 | Document management |
+| **Quotations** | Quotation list | ❌ | S3 | PDF generation |
+| | Generate quotation | ❌ | S3 | Template-based |
+| | Send via email | ❌ | S4 | Email integration |
+| **Offline Support** | SQLite caching | ✅ | S1 | Local data persistence |
+| | Offline operations | ✅ | S2 | Read operations offline |
+| | Sync conflict resolution | ❌ | S4 | Server-wins strategy |
+| **Performance** | Optimized rendering | ✅ | S2 | React.memo, lazy loading |
+| | Background sync | ✅ | S1 | Non-blocking operations |
+| | App state persistence | ✅ | S2 | Redux persistence |
+| **Accessibility** | Screen reader support | ✅ | S2 | WCAG 2.1 AA compliance |
+| | Dynamic Type support | ✅ | S2 | Font scaling |
+| | High contrast mode | ❌ | S4 | Color accessibility |
+| **Security** | Data encryption | ✅ | S1 | SQLite encryption |
+| | Secure storage | ✅ | S1 | Keychain/Keystore |
+| | Certificate pinning | ❌ | S4 | Network security |
+
+### Legend
+- ✅ **Completed** - Feature is fully implemented and tested
+- 🚧 **In Progress** - Currently being developed
+- ❌ **Planned** - Scheduled for future sprint
+- 🔄 **Enhanced** - Existing feature improved in current sprint
+
+## 🏗️ Architecture
+
+### Tech Stack
+- **Framework**: React Native 0.72+
+- **Language**: TypeScript
+- **State Management**: Redux Toolkit + RTK Query
+- **Database**: SQLite with react-native-sqlite-storage
+- **UI Components**: React Native Paper (Material Design 3)
+- **Navigation**: React Navigation v6
+- **Testing**: Jest + React Native Testing Library + Detox
+- **Code Quality**: ESLint + Prettier + SonarQube
+
+### Project Structure
+src/ ├── components/ # Reusable UI components │ ├── common/ # Generic components (buttons, inputs) │ ├── dashboard/ # Dashboard-specific components │ └── leads/ # Lead management components ├── screens/ # Screen components │ ├── auth/ # Authentication screens │ ├── home/ # Dashboard screens │ ├── leads/ # Lead management screens │ └── profile/ # Profile screens ├── navigation/ # Navigation configuration ├── store/ # Redux store configuration │ ├── slices/ # Redux slices │ └── thunks/ # Async actions ├── database/ # SQLite database layer │ ├── models/ # Data models │ └── dao/ # Data Access Objects ├── sync/ # Offline sync system ├── utils/ # Utility functions └── types/ # TypeScript type definitions
+
+
+## 🧪 Testing Strategy
+
+### Test Coverage Requirements
+- **Overall Coverage**: ≥80%
+- **Business Logic**: ≥85% (Home, Leads, Dashboard, Sync)
+- **Accessibility**: 100% (jest-axe compliance)
+
+### Test Types
+- **Unit Tests**: Component behavior and logic
+- **Integration Tests**: Feature workflows
+- **E2E Tests**: Complete user journeys
+- **Accessibility Tests**: WCAG compliance
+- **Performance Tests**: Rendering optimization
+
+### Running Tests
+```bash
+# Unit tests with coverage
+npm run test:coverage
+
+# Accessibility tests
+npm run test:a11y
+
+# E2E tests
+npm run detox:android:test
+
+# All quality checks
+npm run quality-check
+
+### Overview
+The Lead Detail Screen provides comprehensive lead information with offline capabilities, tab navigation, and robust error handling.
+
+### Features
+- **Offline Support**: Automatic cache fallback with &lt;800ms load time
+- **Tab Navigation**: Info, Quotations, Documents, Timeline tabs
+- **Error Handling**: Comprehensive error states with retry functionality
+- **Performance**: Optimized for &gt;55 FPS and &lt;100ms render time
+- **Accessibility**: Full WCAG compliance with screen reader support
+
+### Architecture
+LeadDetailScreen ├── useLeadById Hook (Data Management) │ ├── RTK Query (API calls) │ ├── NetInfo (Network monitoring) │ └── SQLite Cache (Offline fallback) ├── SegmentedButtons (Tab Navigation) ├── TabErrorBoundary (Error handling) └── LeadInfoTab (Information display)
+
+
+### Usage
+
+#### Navigation
+```typescript
+// Navigate to lead detail
+navigation.navigate(&#39;LeadDetail&#39;, { leadId: &#39;LEAD-123&#39; });
+
+// Deep link support
+solariumcp://leads/LEAD-123
+
+### Lead Status Management (NEW - Sprint 3)
+
+#### Status Update Flow
+- ✅ **Sequential Status Transitions**: New Lead → In Discussion → Physical Meeting Assigned → Customer Accepted → Won → Pending at Solarium → Under Execution → Executed
+- ✅ **Terminal Status Handling**: Not Responding, Not Interested, Other Territory
+- ✅ **Business Rule Validation**: Quotation required for Won, Token number for execution phases
+- ✅ **Optimistic Updates**: Immediate UI feedback with server rollback
+- ✅ **Offline Protection**: Status changes blocked when offline
+- ✅ **Real-time Validation**: Form validation with business rules
+
+#### Performance Metrics
+- ⚡ **Dialog Open Time**: &lt; 300ms
+- ⚡ **Perceived Latency**: &lt; 150ms (optimistic updates)
+- ⚡ **Auto-refresh**: MyLeadsScreen updates within 5 seconds
+- ⚡ **Cache Consistency**: RTK Query + Redux + SQLite sync
+
+#### Quotation Integration
+- 📋 **Dynamic Quotation Loading**: Fetched on-demand per lead
+- 📋 **Won Status Gating**: Requires existing quotation
+- 📋 **Empty State Handling**: Clear messaging when no quotations exist
+- 📋 **Format Validation**: QUOT-XXXX reference format
+
+#### Technical Implementation
+- 🔧 **StatusValidationService**: Pure function validation (85% test coverage)
+- 🔧 **StatusChangeDialog**: Reusable modal component
+- 🔧 **RTK Query Integration**: Optimistic updates with rollback
+- 🔧 **Background Sync**: Non-blocking SQLite persistence
+- 🔧 **Error Handling**: Comprehensive error recovery
+
+#### Accessibility Features
+- ♿ **Screen Reader Support**: Full VoiceOver/TalkBack compatibility
+- ♿ **Keyboard Navigation**: Focus management and tab order
+- ♿ **Color Contrast**: WCAG AA compliance
+- ♿ **Touch Targets**: Minimum 44px touch areas
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

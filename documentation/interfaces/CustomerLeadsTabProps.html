@@ -1,0 +1,715 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  CustomerLeadsTabProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/components/customers/CustomerLeadsTab.tsx</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#customerId" 
+>
+                                            customerId
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="customerId"></a>
+                                        <span class="name "><b>customerId</b>
+                                            <a href="#customerId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>customerId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React, { useState, useEffect } from &#x27;react&#x27;;
+import { View, StyleSheet, FlatList } from &#x27;react-native&#x27;;
+import {
+  Text,
+  Card,
+  Chip,
+  ActivityIndicator,
+  Banner,
+  Button,
+} from &#x27;react-native-paper&#x27;;
+
+// Mock lead interface
+interface MockLead {
+  leadId: string;
+  customerName: string;
+  status: string;
+  createdAt: string;
+  nextFollowUpDate?: string;
+  phone: string;
+}
+
+export interface CustomerLeadsTabProps {
+  customerId: string;
+}
+
+/**
+ * Lead Status Badge Component
+ */
+const LeadStatusBadge: React.FC&lt;{ status: string }&gt; &#x3D; ({ status }) &#x3D;&gt; {
+  const getStatusColor &#x3D; (status: string): string &#x3D;&gt; {
+    switch (status.toLowerCase()) {
+      case &#x27;won&#x27;:
+        return &#x27;#34C759&#x27;;
+      case &#x27;lost&#x27;:
+        return &#x27;#FF3B30&#x27;;
+      case &#x27;qualified&#x27;:
+        return &#x27;#004C89&#x27;;
+      case &#x27;contacted&#x27;:
+        return &#x27;#FF9500&#x27;;
+      case &#x27;new&#x27;:
+      default:
+        return &#x27;#8E8E93&#x27;;
+    }
+  };
+
+  return (
+    &lt;Chip
+      mode&#x3D;&quot;flat&quot;
+      style&#x3D;{[
+        styles.statusBadge,
+        { backgroundColor: &#x60;${getStatusColor(status)}20&#x60; },
+      ]}
+      textStyle&#x3D;{[styles.statusText, { color: getStatusColor(status) }]}
+      compact
+    &gt;
+      {status}
+    &lt;/Chip&gt;
+  );
+};
+
+/**
+ * Lead Item Component
+ */
+const LeadItem: React.FC&lt;{ lead: MockLead }&gt; &#x3D; ({ lead }) &#x3D;&gt; {
+  const formatDate &#x3D; (dateString: string): string &#x3D;&gt; {
+    try {
+      const date &#x3D; new Date(dateString);
+      return date.toLocaleDateString(&#x27;en-US&#x27;, {
+        year: &#x27;numeric&#x27;,
+        month: &#x27;short&#x27;,
+        day: &#x27;numeric&#x27;,
+      });
+    } catch {
+      return dateString;
+    }
+  };
+
+  return (
+    &lt;Card style&#x3D;{styles.leadCard}&gt;
+      &lt;Card.Content&gt;
+        &lt;View style&#x3D;{styles.leadHeader}&gt;
+          &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.leadId}&gt;
+            Lead #{lead.leadId}
+          &lt;/Text&gt;
+          &lt;LeadStatusBadge status&#x3D;{lead.status} /&gt;
+        &lt;/View&gt;
+
+        &lt;View style&#x3D;{styles.leadDetails}&gt;
+          &lt;Text variant&#x3D;&quot;bodyMedium&quot; style&#x3D;{styles.detailText}&gt;
+            Created: {formatDate(lead.createdAt)}
+          &lt;/Text&gt;
+          {lead.nextFollowUpDate &amp;&amp; (
+            &lt;Text variant&#x3D;&quot;bodyMedium&quot; style&#x3D;{styles.detailText}&gt;
+              Follow-up: {formatDate(lead.nextFollowUpDate)}
+            &lt;/Text&gt;
+          )}
+          &lt;Text variant&#x3D;&quot;bodyMedium&quot; style&#x3D;{styles.detailText}&gt;
+            Phone: {lead.phone}
+          &lt;/Text&gt;
+        &lt;/View&gt;
+      &lt;/Card.Content&gt;
+    &lt;/Card&gt;
+  );
+};
+
+/**
+ * Empty Leads State Component
+ */
+const EmptyLeadsState: React.FC &#x3D; () &#x3D;&gt; (
+  &lt;View style&#x3D;{styles.emptyContainer}&gt;
+    &lt;Text style&#x3D;{styles.emptyIcon}&gt;📋&lt;/Text&gt;
+    &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.emptyTitle}&gt;
+      No Associated Leads
+    &lt;/Text&gt;
+    &lt;Text variant&#x3D;&quot;bodyMedium&quot; style&#x3D;{styles.emptyMessage}&gt;
+      This customer doesn&#x27;t have any associated leads yet.
+    &lt;/Text&gt;
+  &lt;/View&gt;
+);
+
+/**
+ * Loading State Component
+ */
+const LoadingState: React.FC &#x3D; () &#x3D;&gt; (
+  &lt;View style&#x3D;{styles.loadingContainer}&gt;
+    &lt;ActivityIndicator size&#x3D;&quot;large&quot; style&#x3D;{styles.loader} /&gt;
+    &lt;Text variant&#x3D;&quot;bodyMedium&quot; style&#x3D;{styles.loadingText}&gt;
+      Loading associated leads...
+    &lt;/Text&gt;
+  &lt;/View&gt;
+);
+
+/**
+ * Mock API call function
+ */
+const fetchCustomerLeads &#x3D; async (customerId: string): Promise&lt;MockLead[]&gt; &#x3D;&gt; {
+  // Simulate API delay
+  await new Promise((resolve) &#x3D;&gt; setTimeout(resolve, 1500));
+
+  // Mock data - in real implementation this would be an API call
+  const mockLeads: MockLead[] &#x3D; [
+    {
+      leadId: &#x27;LEAD-001&#x27;,
+      customerName: &#x27;John Doe&#x27;,
+      status: &#x27;Qualified&#x27;,
+      createdAt: &#x27;2024-01-15&#x27;,
+      nextFollowUpDate: &#x27;2024-01-20&#x27;,
+      phone: &#x27;+91-9876543210&#x27;,
+    },
+    {
+      leadId: &#x27;LEAD-002&#x27;,
+      customerName: &#x27;John Doe&#x27;,
+      status: &#x27;Won&#x27;,
+      createdAt: &#x27;2024-01-10&#x27;,
+      phone: &#x27;+91-9876543210&#x27;,
+    },
+    {
+      leadId: &#x27;LEAD-003&#x27;,
+      customerName: &#x27;John Doe&#x27;,
+      status: &#x27;Contacted&#x27;,
+      createdAt: &#x27;2024-01-05&#x27;,
+      nextFollowUpDate: &#x27;2024-01-25&#x27;,
+      phone: &#x27;+91-9876543210&#x27;,
+    },
+  ];
+
+  // Filter leads by customerId in real implementation
+  return mockLeads;
+};
+
+/**
+ * Customer Leads Tab Component
+ */
+export const CustomerLeadsTab: React.FC&lt;CustomerLeadsTabProps&gt; &#x3D; ({
+  customerId,
+}) &#x3D;&gt; {
+  const [leads, setLeads] &#x3D; useState&lt;MockLead[]&gt;([]);
+  const [isLoading, setIsLoading] &#x3D; useState(true);
+  const [error, setError] &#x3D; useState&lt;string | null&gt;(null);
+
+  // Load leads data
+  const loadLeads &#x3D; async () &#x3D;&gt; {
+    try {
+      setIsLoading(true);
+      setError(null);
+      const data &#x3D; await fetchCustomerLeads(customerId);
+      setLeads(data);
+    } catch (err) {
+      setError(&#x27;Failed to load associated leads&#x27;);
+      console.error(&#x27;Error loading customer leads:&#x27;, err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() &#x3D;&gt; {
+    loadLeads();
+  }, [customerId]);
+
+  // Loading state
+  if (isLoading) {
+    return &lt;LoadingState /&gt;;
+  }
+
+  // Error state
+  if (error) {
+    return (
+      &lt;View style&#x3D;{styles.errorContainer}&gt;
+        &lt;Banner
+          visible&#x3D;{true}
+          actions&#x3D;{[
+            {
+              label: &#x27;Retry&#x27;,
+              onPress: loadLeads,
+            },
+          ]}
+          style&#x3D;{styles.errorBanner}
+        &gt;
+          &lt;View&gt;
+            &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.errorTitle}&gt;
+              Failed to load leads
+            &lt;/Text&gt;
+          &lt;/View&gt;
+          &lt;View&gt;
+            &lt;Text variant&#x3D;&quot;bodyMedium&quot; style&#x3D;{styles.errorMessage}&gt;
+              {error}
+            &lt;/Text&gt;
+          &lt;/View&gt;
+        &lt;/Banner&gt;
+      &lt;/View&gt;
+    );
+  }
+
+  // Empty state
+  if (leads.length &#x3D;&#x3D;&#x3D; 0) {
+    return &lt;EmptyLeadsState /&gt;;
+  }
+
+  // Calculate lead stats
+  const leadStats &#x3D; leads.reduce(
+    (acc, lead) &#x3D;&gt; {
+      acc.total++;
+      const status &#x3D; lead.status.toLowerCase();
+      if (status &#x3D;&#x3D;&#x3D; &#x27;won&#x27;) acc.won++;
+      else if (status &#x3D;&#x3D;&#x3D; &#x27;lost&#x27;) acc.lost++;
+      else acc.active++;
+      return acc;
+    },
+    { total: 0, won: 0, lost: 0, active: 0 }
+  );
+
+  const renderLeadItem &#x3D; ({ item }: { item: MockLead }) &#x3D;&gt; (
+    &lt;LeadItem lead&#x3D;{item} /&gt;
+  );
+
+  return (
+    &lt;View style&#x3D;{styles.container}&gt;
+      {/* Leads Summary Header */}
+      &lt;Card style&#x3D;{styles.summaryCard}&gt;
+        &lt;Card.Content&gt;
+          &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.summaryTitle}&gt;
+            Associated Leads Summary
+          &lt;/Text&gt;
+
+          &lt;View style&#x3D;{styles.statsContainer}&gt;
+            &lt;View style&#x3D;{styles.statItem}&gt;
+              &lt;Text style&#x3D;{styles.statNumber}&gt;{leadStats.total}&lt;/Text&gt;
+              &lt;Text style&#x3D;{styles.statLabel}&gt;Total&lt;/Text&gt;
+            &lt;/View&gt;
+            &lt;View style&#x3D;{styles.statItem}&gt;
+              &lt;Text style&#x3D;{[styles.statNumber, { color: &#x27;#34C759&#x27; }]}&gt;
+                {leadStats.won}
+              &lt;/Text&gt;
+              &lt;Text style&#x3D;{styles.statLabel}&gt;Won&lt;/Text&gt;
+            &lt;/View&gt;
+            &lt;View style&#x3D;{styles.statItem}&gt;
+              &lt;Text style&#x3D;{[styles.statNumber, { color: &#x27;#007AFF&#x27; }]}&gt;
+                {leadStats.active}
+              &lt;/Text&gt;
+              &lt;Text style&#x3D;{styles.statLabel}&gt;Active&lt;/Text&gt;
+            &lt;/View&gt;
+            &lt;View style&#x3D;{styles.statItem}&gt;
+              &lt;Text style&#x3D;{[styles.statNumber, { color: &#x27;#FF3B30&#x27; }]}&gt;
+                {leadStats.lost}
+              &lt;/Text&gt;
+              &lt;Text style&#x3D;{styles.statLabel}&gt;Lost&lt;/Text&gt;
+            &lt;/View&gt;
+          &lt;/View&gt;
+        &lt;/Card.Content&gt;
+      &lt;/Card&gt;
+
+      {/* Mock Data Notice */}
+      {/* &lt;Banner visible&#x3D;{true} style&#x3D;{styles.mockBanner}&gt;
+        &lt;Text variant&#x3D;&quot;bodySmall&quot; style&#x3D;{styles.mockText}&gt;
+          🚧 Using mock data - Real API integration pending
+        &lt;/Text&gt;
+      &lt;/Banner&gt; */}
+
+      {/* Leads List */}
+      &lt;FlatList
+        data&#x3D;{leads}
+        renderItem&#x3D;{renderLeadItem}
+        keyExtractor&#x3D;{(item) &#x3D;&gt; item.leadId}
+        contentContainerStyle&#x3D;{styles.leadsList}
+        showsVerticalScrollIndicator&#x3D;{false}
+        ItemSeparatorComponent&#x3D;{() &#x3D;&gt; &lt;View style&#x3D;{styles.separator} /&gt;}
+      /&gt;
+    &lt;/View&gt;
+  );
+};
+
+const styles &#x3D; StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: &#x27;#F2F2F7&#x27;,
+  },
+  summaryCard: {
+    marginBottom: 16,
+    elevation: 2,
+  },
+  summaryTitle: {
+    marginBottom: 12,
+    color: &#x27;#004C89&#x27;,
+    fontWeight: &#x27;bold&#x27;,
+  },
+  statsContainer: {
+    flexDirection: &#x27;row&#x27;,
+    justifyContent: &#x27;space-around&#x27;,
+  },
+  statItem: {
+    alignItems: &#x27;center&#x27;,
+  },
+  statNumber: {
+    fontSize: 24,
+    fontWeight: &#x27;bold&#x27;,
+    color: &#x27;#004C89&#x27;,
+  },
+  statLabel: {
+    fontSize: 12,
+    color: &#x27;#666&#x27;,
+    marginTop: 4,
+  },
+  mockBanner: {
+    marginBottom: 16,
+    backgroundColor: &#x27;#FFF3CD&#x27;,
+    borderColor: &#x27;#FFEAA7&#x27;,
+  },
+  mockText: {
+    color: &#x27;#856404&#x27;,
+    fontStyle: &#x27;italic&#x27;,
+  },
+  leadsList: {
+    paddingBottom: 20,
+  },
+  separator: {
+    height: 8,
+  },
+  leadCard: {
+    elevation: 1,
+  },
+  leadHeader: {
+    flexDirection: &#x27;row&#x27;,
+    justifyContent: &#x27;space-between&#x27;,
+    alignItems: &#x27;center&#x27;,
+    marginBottom: 8,
+  },
+  leadId: {
+    fontWeight: &#x27;bold&#x27;,
+    flex: 1,
+  },
+  statusBadge: {
+    marginLeft: 8,
+  },
+  statusText: {
+    fontSize: 12,
+    fontWeight: &#x27;600&#x27;,
+  },
+  leadDetails: {
+    gap: 4,
+  },
+  detailText: {
+    color: &#x27;#666666&#x27;,
+    fontSize: 14,
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    padding: 32,
+  },
+  emptyIcon: {
+    fontSize: 48,
+    marginBottom: 16,
+  },
+  emptyTitle: {
+    color: &#x27;#333&#x27;,
+    marginBottom: 8,
+    textAlign: &#x27;center&#x27;,
+  },
+  emptyMessage: {
+    color: &#x27;#666&#x27;,
+    textAlign: &#x27;center&#x27;,
+    lineHeight: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+  },
+  loader: {
+    marginBottom: 16,
+  },
+  loadingText: {
+    color: &#x27;#666666&#x27;,
+    textAlign: &#x27;center&#x27;,
+  },
+  errorContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    padding: 16,
+  },
+  errorBanner: {
+    marginBottom: 20,
+  },
+  errorTitle: {
+    color: &#x27;#FF3B30&#x27;,
+    marginBottom: 4,
+  },
+  errorMessage: {
+    color: &#x27;#666666&#x27;,
+  },
+});
+
+export default CustomerLeadsTab;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'CustomerLeadsTabProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

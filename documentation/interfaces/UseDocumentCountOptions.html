@@ -1,0 +1,866 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  UseDocumentCountOptions</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/hooks/useDocumentCount.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Document count hook options</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#refreshInterval" 
+>
+                                            refreshInterval
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#skip" 
+>
+                                            skip
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#useCacheFirst" 
+>
+                                            useCacheFirst
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="refreshInterval"></a>
+                                        <span class="name "><b>refreshInterval</b>
+                                            <a href="#refreshInterval">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>refreshInterval:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Refresh interval in milliseconds</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="skip"></a>
+                                        <span class="name "><b>skip</b>
+                                            <a href="#skip">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>skip:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Skip automatic count fetching</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="useCacheFirst"></a>
+                                        <span class="name "><b>useCacheFirst</b>
+                                            <a href="#useCacheFirst">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>useCacheFirst:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Use cache first before API</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { useCallback, useEffect, useRef } from &#x27;react&#x27;;
+import { useAppSelector, useAppDispatch } from &#x27;./reduxHooks&#x27;;
+import { useDatabase } from &#x27;./useDatabase&#x27;;
+import { DocumentSyncService } from &#x27;../services/DocumentSyncService&#x27;;
+import {
+  selectDocumentCount,
+  selectDocumentCountLoading,
+  selectDocumentCountError,
+  selectDocumentCountLastSync,
+  selectUiLocked,
+  selectIsOperationInProgress,
+  setDocumentCount,
+  incrementDocumentCount,
+  resetDocumentCount,
+  setLoadingState,
+  setErrorState,
+  clearError,
+  setUiLocked,
+  setOperationInProgress,
+  clearLeadData,
+} from &#x27;../store/slices/documentCountSlice&#x27;;
+import {
+  useGetDocumentCountQuery,
+  useLazyGetDocumentCountQuery,
+} from &#x27;../store/api/documentApi&#x27;;
+
+/**
+ * Document count hook options
+ */
+export interface UseDocumentCountOptions {
+  /** Skip automatic count fetching */
+  skip?: boolean;
+  /** Refresh interval in milliseconds */
+  refreshInterval?: number;
+  /** Use cache first before API */
+  useCacheFirst?: boolean;
+}
+
+/**
+ * Document count hook return type
+ */
+export interface UseDocumentCountReturn {
+  /** Current document count */
+  count: number;
+  /** Loading state */
+  loading: boolean;
+  /** Error message */
+  error: string | null;
+  /** Last sync timestamp */
+  lastSync: number | null;
+  /** Whether UI is locked */
+  isCountLocked: boolean;
+  /** Whether count operations are in progress */
+  isRefreshing: boolean;
+  /** Refresh count from server and cache */
+  refreshCount: () &#x3D;&gt; Promise&lt;void&gt;;
+  /** Increment count by specified amount */
+  incrementCount: (increment?: number) &#x3D;&gt; Promise&lt;void&gt;;
+  /** Reset count to 0 */
+  resetCount: () &#x3D;&gt; Promise&lt;void&gt;;
+  /** Clear error state */
+  clearErrorState: () &#x3D;&gt; void;
+  /** Clear all data for this lead */
+  cleanup: () &#x3D;&gt; void;
+  /** Reset loading state */
+  resetLoadingState: () &#x3D;&gt; void;
+  /** Invalidate cache and refresh from server */
+  invalidateAndRefresh: () &#x3D;&gt; Promise&lt;void&gt;;
+}
+
+/**
+ * Use Document Count Hook with Real API Integration
+ */
+export const useDocumentCount &#x3D; (
+  leadId: string,
+  options: UseDocumentCountOptions &#x3D; {}
+): UseDocumentCountReturn &#x3D;&gt; {
+  const dispatch &#x3D; useAppDispatch();
+  const { db, authToken } &#x3D; useDatabase();
+  const { skip &#x3D; false, refreshInterval, useCacheFirst &#x3D; true } &#x3D; options;
+
+  // RTK Query hooks for API calls
+  const {
+    data: apiCountData,
+    isLoading: apiLoading,
+    error: apiError,
+  } &#x3D; useGetDocumentCountQuery(leadId, {
+    skip: skip || !leadId,
+    refetchOnMountOrArgChange: true,
+  });
+
+  const [triggerApiCount] &#x3D; useLazyGetDocumentCountQuery();
+
+  // Redux selectors
+  const count &#x3D; useAppSelector(selectDocumentCount(leadId));
+  const loading &#x3D; useAppSelector(selectDocumentCountLoading(leadId));
+  const error &#x3D; useAppSelector(selectDocumentCountError(leadId));
+  const lastSync &#x3D; useAppSelector(selectDocumentCountLastSync(leadId));
+  const isCountLocked &#x3D; useAppSelector(selectUiLocked);
+  const isRefreshing &#x3D; useAppSelector(
+    selectIsOperationInProgress(leadId, &#x27;refresh&#x27;)
+  );
+
+  // Refs for cleanup and service
+  const refreshIntervalRef &#x3D; useRef&lt;NodeJS.Timeout | null&gt;(null);
+  const mountedRef &#x3D; useRef(true);
+  const documentSyncServiceRef &#x3D; useRef&lt;DocumentSyncService | null&gt;(null);
+
+  // Initialize document sync service
+  useEffect(() &#x3D;&gt; {
+    if (db &amp;&amp; authToken &amp;&amp; !documentSyncServiceRef.current) {
+      documentSyncServiceRef.current &#x3D; new DocumentSyncService(
+        db,
+        authToken
+        // Pass store for Redux updates - we&#x27;ll access it via dispatch
+      );
+    }
+  }, [db, authToken]);
+
+  const resetLoadingState &#x3D; useCallback(() &#x3D;&gt; {
+    dispatch(setLoadingState({ leadId, loading: false }));
+    dispatch(setUiLocked(false));
+  }, [leadId, dispatch]);
+
+  /**
+   * Refresh count from both cache and server
+   */
+  const refreshCount &#x3D; useCallback(async () &#x3D;&gt; {
+    if (!leadId || isCountLocked || !documentSyncServiceRef.current) {
+      console.log(&#x27;📊 Refresh skipped:&#x27;, {
+        leadId,
+        isCountLocked,
+        hasService: !!documentSyncServiceRef.current,
+      });
+      return;
+    }
+
+    // Reset stuck loading state after 10 seconds
+    if (loading) {
+      console.log(&#x27;⚠️ Resetting stuck loading state for:&#x27;, leadId);
+      resetLoadingState();
+    }
+
+    console.log(&#x27;📊 Starting document count refresh for lead:&#x27;, leadId);
+
+    try {
+      // Set loading state
+      dispatch(setLoadingState({ leadId, loading: true }));
+      dispatch(
+        setOperationInProgress({
+          leadId,
+          operation: &#x27;refresh&#x27;,
+          inProgress: true,
+        })
+      );
+
+      let finalCount &#x3D; 0;
+
+      if (useCacheFirst) {
+        // Try cache first
+        try {
+          const cachedCount &#x3D;
+            await documentSyncServiceRef.current.getCachedDocumentCount(leadId);
+          if (cachedCount &gt; 0) {
+            finalCount &#x3D; cachedCount;
+            console.log(&#x27;📊 Using cached count:&#x27;, finalCount);
+          }
+        } catch (cacheError) {
+          console.warn(
+            &#x27;⚠️ Cache read failed, falling back to API:&#x27;,
+            cacheError
+          );
+        }
+      }
+
+      // Get fresh count from API
+      try {
+        const apiResult &#x3D; await triggerApiCount(leadId);
+        if (apiResult.data?.data?.count !&#x3D;&#x3D; undefined) {
+          finalCount &#x3D; apiResult.data.data.count;
+          console.log(&#x27;📊 Using API count:&#x27;, finalCount);
+
+          // Update cache via sync service
+          await documentSyncServiceRef.current.syncDocumentsByLead(leadId);
+        }
+      } catch (apiError) {
+        console.warn(&#x27;⚠️ API call failed:&#x27;, apiError);
+        if (finalCount &#x3D;&#x3D;&#x3D; 0) {
+          throw new Error(
+            &#x27;Failed to fetch document count from both cache and API&#x27;
+          );
+        }
+      }
+
+      // Update Redux state
+      if (mountedRef.current) {
+        dispatch(setDocumentCount({ leadId, count: finalCount }));
+      }
+
+      console.log(
+        &#x60;✅ Document count refreshed for lead ${leadId}: ${finalCount}&#x60;
+      );
+    } catch (err: any) {
+      console.error(
+        &#x60;❌ Error refreshing document count for lead ${leadId}:&#x60;,
+        err
+      );
+
+      if (mountedRef.current) {
+        const errorMessage &#x3D;
+          err instanceof Error
+            ? err.message
+            : &#x27;Failed to refresh document count&#x27;;
+        dispatch(setErrorState({ leadId, error: errorMessage }));
+      }
+    } finally {
+      if (mountedRef.current) {
+        dispatch(setLoadingState({ leadId, loading: false }));
+        dispatch(
+          setOperationInProgress({
+            leadId,
+            operation: &#x27;refresh&#x27;,
+            inProgress: false,
+          })
+        );
+      }
+    }
+  }, [
+    leadId,
+    loading,
+    isCountLocked,
+    dispatch,
+    triggerApiCount,
+    useCacheFirst,
+    resetLoadingState,
+  ]);
+
+  /**
+   * Invalidate cache and refresh from server
+   */
+  const invalidateAndRefresh &#x3D; useCallback(async () &#x3D;&gt; {
+    if (!documentSyncServiceRef.current || !leadId) {
+      return;
+    }
+
+    console.log(&#x27;🔄 Invalidating cache and refreshing for lead:&#x27;, leadId);
+
+    try {
+      dispatch(setLoadingState({ leadId, loading: true }));
+
+      await documentSyncServiceRef.current.invalidateLeadDocuments(leadId);
+
+      console.log(&#x27;✅ Cache invalidated and refreshed for lead:&#x27;, leadId);
+    } catch (error: any) {
+      console.error(&#x27;❌ Failed to invalidate and refresh:&#x27;, error);
+      dispatch(
+        setErrorState({
+          leadId,
+          error: error.message || &#x27;Failed to refresh documents&#x27;,
+        })
+      );
+    } finally {
+      dispatch(setLoadingState({ leadId, loading: false }));
+    }
+  }, [leadId, dispatch]);
+
+  /**
+   * Increment count by specified amount
+   */
+  const incrementCount &#x3D; useCallback(
+    async (increment: number &#x3D; 1) &#x3D;&gt; {
+      if (!leadId || loading || isCountLocked) {
+        return;
+      }
+
+      try {
+        // Set loading state and UI lock
+        dispatch(setLoadingState({ leadId, loading: true }));
+        dispatch(setUiLocked(true));
+        dispatch(
+          setOperationInProgress({
+            leadId,
+            operation: &#x27;increment&#x27;,
+            inProgress: true,
+          })
+        );
+
+        // Update Redux state immediately for optimistic UI
+        if (mountedRef.current) {
+          dispatch(incrementDocumentCount({ leadId, increment }));
+        }
+
+        console.log(
+          &#x60;✅ Document count incremented for lead ${leadId}: +${increment}&#x60;
+        );
+      } catch (err: any) {
+        console.error(
+          &#x60;❌ Error incrementing document count for lead ${leadId}:&#x60;,
+          err
+        );
+
+        if (mountedRef.current) {
+          const errorMessage &#x3D;
+            err instanceof Error
+              ? err.message
+              : &#x27;Failed to increment document count&#x27;;
+          dispatch(setErrorState({ leadId, error: errorMessage }));
+        }
+      } finally {
+        if (mountedRef.current) {
+          dispatch(setLoadingState({ leadId, loading: false }));
+          dispatch(setUiLocked(false));
+          dispatch(
+            setOperationInProgress({
+              leadId,
+              operation: &#x27;increment&#x27;,
+              inProgress: false,
+            })
+          );
+        }
+      }
+    },
+    [leadId, loading, isCountLocked, dispatch]
+  );
+
+  /**
+   * Reset count to 0
+   */
+  const resetCount &#x3D; useCallback(async () &#x3D;&gt; {
+    if (!leadId || loading || isCountLocked) {
+      return;
+    }
+
+    try {
+      // Set loading state and UI lock
+      dispatch(setLoadingState({ leadId, loading: true }));
+      dispatch(setUiLocked(true));
+      dispatch(
+        setOperationInProgress({ leadId, operation: &#x27;reset&#x27;, inProgress: true })
+      );
+
+      // Update state if component is still mounted
+      if (mountedRef.current) {
+        dispatch(resetDocumentCount(leadId));
+      }
+
+      console.log(&#x60;✅ Document count reset for lead ${leadId}&#x60;);
+    } catch (err: any) {
+      console.error(
+        &#x60;❌ Error resetting document count for lead ${leadId}:&#x60;,
+        err
+      );
+
+      if (mountedRef.current) {
+        const errorMessage &#x3D;
+          err instanceof Error ? err.message : &#x27;Failed to reset document count&#x27;;
+        dispatch(setErrorState({ leadId, error: errorMessage }));
+      }
+    } finally {
+      if (mountedRef.current) {
+        dispatch(setLoadingState({ leadId, loading: false }));
+        dispatch(setUiLocked(false));
+        dispatch(
+          setOperationInProgress({
+            leadId,
+            operation: &#x27;reset&#x27;,
+            inProgress: false,
+          })
+        );
+      }
+    }
+  }, [leadId, loading, isCountLocked, dispatch]);
+
+  /**
+   * Clear error state
+   */
+  const clearErrorState &#x3D; useCallback(() &#x3D;&gt; {
+    if (error) {
+      dispatch(clearError(leadId));
+    }
+  }, [leadId, error, dispatch]);
+
+  /**
+   * Clear all data for this lead
+   */
+  const cleanup &#x3D; useCallback(() &#x3D;&gt; {
+    dispatch(clearLeadData(leadId));
+  }, [leadId, dispatch]);
+
+  // Auto-refresh on mount if not skipped
+  useEffect(() &#x3D;&gt; {
+    if (!skip &amp;&amp; !loading &amp;&amp; !lastSync &amp;&amp; leadId) {
+      refreshCount();
+    }
+  }, [skip, loading, lastSync, refreshCount, leadId]);
+
+  // Handle API data updates
+  useEffect(() &#x3D;&gt; {
+    if (apiCountData?.data?.count !&#x3D;&#x3D; undefined &amp;&amp; leadId) {
+      dispatch(
+        setDocumentCount({
+          leadId,
+          count: apiCountData.data.count,
+        })
+      );
+    }
+  }, [apiCountData, leadId, dispatch]);
+
+  // Handle API errors
+  useEffect(() &#x3D;&gt; {
+    if (apiError &amp;&amp; leadId) {
+      const errorMessage &#x3D;
+        &#x27;message&#x27; in apiError
+          ? (apiError as any).message
+          : &#x27;Failed to fetch document count&#x27;;
+      dispatch(setErrorState({ leadId, error: errorMessage }));
+    }
+  }, [apiError, leadId, dispatch]);
+
+  // Set up refresh interval
+  useEffect(() &#x3D;&gt; {
+    if (refreshInterval &amp;&amp; refreshInterval &gt; 0) {
+      refreshIntervalRef.current &#x3D; setInterval(() &#x3D;&gt; {
+        if (!loading &amp;&amp; !isCountLocked) {
+          refreshCount();
+        }
+      }, refreshInterval);
+
+      return () &#x3D;&gt; {
+        if (refreshIntervalRef.current) {
+          clearInterval(refreshIntervalRef.current);
+          refreshIntervalRef.current &#x3D; null;
+        }
+      };
+    }
+  }, [refreshInterval, loading, isCountLocked, refreshCount]);
+
+  // Cleanup on unmount
+  useEffect(() &#x3D;&gt; {
+    return () &#x3D;&gt; {
+      mountedRef.current &#x3D; false;
+
+      if (refreshIntervalRef.current) {
+        clearInterval(refreshIntervalRef.current);
+        refreshIntervalRef.current &#x3D; null;
+      }
+    };
+  }, []);
+
+  return {
+    count,
+    loading: loading || apiLoading,
+    error: error || (apiError ? &#x27;API Error&#x27; : null),
+    lastSync,
+    isCountLocked,
+    isRefreshing,
+    refreshCount,
+    incrementCount,
+    resetCount,
+    clearErrorState,
+    cleanup,
+    resetLoadingState,
+    invalidateAndRefresh,
+  };
+};
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'UseDocumentCountOptions.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

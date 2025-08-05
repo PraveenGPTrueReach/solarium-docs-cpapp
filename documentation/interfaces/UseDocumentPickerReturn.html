@@ -1,0 +1,900 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  UseDocumentPickerReturn</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/hooks/useDocumentPicker.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Document picker hook return interface</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#clearError" 
+>
+                                            clearError
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#error" 
+>
+                                            error
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#isLoading" 
+>
+                                            isLoading
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#permissionStatus" 
+>
+                                            permissionStatus
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#pickDocuments" 
+>
+                                            pickDocuments
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#requestPermission" 
+>
+                                            requestPermission
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="clearError"></a>
+                                        <span class="name "><b>clearError</b>
+                                            <a href="#clearError">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>clearError:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Clear current error</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="error"></a>
+                                        <span class="name "><b>error</b>
+                                            <a href="#error">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>error:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Current error message</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="isLoading"></a>
+                                        <span class="name "><b>isLoading</b>
+                                            <a href="#isLoading">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>isLoading:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Current loading state</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="permissionStatus"></a>
+                                        <span class="name "><b>permissionStatus</b>
+                                            <a href="#permissionStatus">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>permissionStatus:         <code><a href="../interfaces/PermissionStatus.html" target="_self" >PermissionStatus</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/PermissionStatus.html" target="_self" >PermissionStatus</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Permission status for camera and photo library</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="pickDocuments"></a>
+                                        <span class="name "><b>pickDocuments</b>
+                                            <a href="#pickDocuments">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>pickDocuments:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Pick documents from specified source</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="requestPermission"></a>
+                                        <span class="name "><b>requestPermission</b>
+                                            <a href="#requestPermission">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>requestPermission:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Request specific permission</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { useState, useCallback } from &#x27;react&#x27;;
+import { Platform, PermissionsAndroid, Alert } from &#x27;react-native&#x27;;
+// import {
+//   launchCamera,
+//   launchImageLibrary,
+//   MediaType,
+// } from &#x27;react-native-image-picker&#x27;;
+import { DocumentPickerResponse, pick, types } from &#x27;@react-native-documents/picker&#x27;;
+import { useAppDispatch } from &#x27;./reduxHooks&#x27;;
+import { getFriendlyMessage } from &#x27;../utils/errorMessage&#x27;;
+import { validateDocument } from &#x27;../validation/documentSchema&#x27;;
+import type {
+  DocumentAsset,
+  PickerOptions,
+  PermissionStatus,
+  DocumentSource,
+} from &#x27;../types/document&#x27;;
+import React from &#x27;react&#x27;;
+
+/**
+ * Document picker hook return interface
+ */
+export interface UseDocumentPickerReturn {
+  /** Pick documents from specified source */
+  pickDocuments: (
+    source: DocumentSource,
+    options?: PickerOptions
+  ) &#x3D;&gt; Promise&lt;DocumentAsset[]&gt;;
+  /** Current loading state */
+  isLoading: boolean;
+  /** Current error message */
+  error: string | null;
+  /** Permission status for camera and photo library */
+  permissionStatus: PermissionStatus;
+  /** Request specific permission */
+  requestPermission: (type: &#x27;camera&#x27; | &#x27;photoLibrary&#x27;) &#x3D;&gt; Promise&lt;boolean&gt;;
+  /** Clear current error */
+  clearError: () &#x3D;&gt; void;
+}
+
+/**
+ * Custom hook for document selection with accessibility and permissions
+ */
+export const useDocumentPicker &#x3D; (): UseDocumentPickerReturn &#x3D;&gt; {
+  const dispatch &#x3D; useAppDispatch();
+  const [isLoading, setIsLoading] &#x3D; useState(false);
+  const [error, setError] &#x3D; useState&lt;string | null&gt;(null);
+  const [permissionStatus, setPermissionStatus] &#x3D; useState&lt;PermissionStatus&gt;({
+    camera: &#x27;unavailable&#x27;,
+    photoLibrary: &#x27;unavailable&#x27;,
+  });
+
+  /**
+   * Clear current error state
+   */
+  const clearError &#x3D; useCallback(() &#x3D;&gt; {
+    setError(null);
+  }, []);
+
+  /**
+   * Check if permission is granted on Android
+   */
+  const checkAndroidPermission &#x3D; async (
+    permission: string
+  ): Promise&lt;boolean&gt; &#x3D;&gt; {
+    try {
+      const hasPermission &#x3D; await PermissionsAndroid.check(permission);
+      return hasPermission;
+    } catch (error) {
+      console.error(&#x27;❌ Error checking Android permission:&#x27;, error);
+      return false;
+    }
+  };
+
+  /**
+   * Request permission on Android
+   */
+  const requestAndroidPermission &#x3D; async (
+    permission: string
+  ): Promise&lt;boolean&gt; &#x3D;&gt; {
+    try {
+      const result &#x3D; await PermissionsAndroid.request(permission);
+      return result &#x3D;&#x3D;&#x3D; PermissionsAndroid.RESULTS.GRANTED;
+    } catch (error) {
+      console.error(&#x27;❌ Error requesting Android permission:&#x27;, error);
+      return false;
+    }
+  };
+
+  /**
+   * Check current permissions
+   */
+  const checkPermissions &#x3D; useCallback(async () &#x3D;&gt; {
+    if (Platform.OS &#x3D;&#x3D;&#x3D; &#x27;android&#x27;) {
+      const cameraGranted &#x3D; await checkAndroidPermission(
+        PermissionsAndroid.PERMISSIONS.CAMERA
+      );
+      const storageGranted &#x3D; await checkAndroidPermission(
+        PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE
+      );
+
+      setPermissionStatus({
+        camera: cameraGranted ? &#x27;granted&#x27; : &#x27;denied&#x27;,
+        photoLibrary: storageGranted ? &#x27;granted&#x27; : &#x27;denied&#x27;,
+      });
+    } else {
+      // For iOS, permissions are handled by the picker libraries
+      setPermissionStatus({
+        camera: &#x27;granted&#x27;, // Will be checked when picker is launched
+        photoLibrary: &#x27;granted&#x27;,
+      });
+    }
+  }, []);
+
+  /**
+   * Request specific permission
+   */
+  const requestPermission &#x3D; useCallback(
+    async (type: &#x27;camera&#x27; | &#x27;photoLibrary&#x27;): Promise&lt;boolean&gt; &#x3D;&gt; {
+      setError(null);
+
+      if (Platform.OS &#x3D;&#x3D;&#x3D; &#x27;ios&#x27;) {
+        // iOS permissions are handled by the picker libraries
+        return true;
+      }
+
+      try {
+        let permission: string;
+        let granted &#x3D; false;
+
+        if (type &#x3D;&#x3D;&#x3D; &#x27;camera&#x27;) {
+          permission &#x3D; PermissionsAndroid.PERMISSIONS.CAMERA;
+          granted &#x3D; await requestAndroidPermission(permission);
+
+          setPermissionStatus((prev) &#x3D;&gt; ({
+            ...prev,
+            camera: granted ? &#x27;granted&#x27; : &#x27;denied&#x27;,
+          }));
+        } else {
+          permission &#x3D; PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
+          granted &#x3D; await requestAndroidPermission(permission);
+
+          setPermissionStatus((prev) &#x3D;&gt; ({
+            ...prev,
+            photoLibrary: granted ? &#x27;granted&#x27; : &#x27;denied&#x27;,
+          }));
+        }
+
+        if (!granted) {
+          const errorMessage &#x3D;
+            type &#x3D;&#x3D;&#x3D; &#x27;camera&#x27;
+              ? &#x27;Camera permission is required to take photos&#x27;
+              : &#x27;Storage permission is required to access gallery&#x27;;
+          setError(errorMessage);
+        }
+
+        return granted;
+      } catch (error) {
+        console.error(&#x60;❌ Error requesting ${type} permission:&#x60;, error);
+        setError(getFriendlyMessage(&#x27;PERMISSION_ERROR&#x27;));
+        return false;
+      }
+    },
+    []
+  );
+
+  /**
+   * Convert image picker response to DocumentAsset
+   */
+  const convertImageToDocument &#x3D; (asset: any): DocumentAsset &#x3D;&gt; {
+    return {
+      id: &#x60;img_${Date.now()}_${Math.random().toString(36).substr(2, 9)}&#x60;,
+      uri: asset.uri,
+      fileName: asset.fileName || &#x60;image_${Date.now()}.jpg&#x60;,
+      type: asset.type || &#x27;image/jpeg&#x27;,
+      fileSize: asset.fileSize || 0,
+      timestamp: Date.now(),
+    };
+  };
+
+  /**
+   * Convert document picker response to DocumentAsset
+   */
+  const convertDocumentToAsset &#x3D; (doc: any): DocumentAsset &#x3D;&gt; {
+    return {
+      id: &#x60;doc_${Date.now()}_${Math.random().toString(36).substr(2, 9)}&#x60;,
+      uri: doc.uri,
+      fileName: doc.name,
+      type: doc.type,
+      fileSize: doc.size || 0,
+      timestamp: Date.now(),
+    };
+  };
+
+/**
+ * Launch camera using document picker
+ */
+const launchCameraSelection &#x3D; useCallback(
+  async (options: PickerOptions &#x3D; {}): Promise&lt;DocumentAsset[]&gt; &#x3D;&gt; {
+    try {
+      const result &#x3D; await pick({
+        type: [types.images],
+        copyTo: &#x27;documentDirectory&#x27;,
+      });
+
+      return [convertDocumentToAsset(result)];
+    } catch (error: any) {
+      // Check for cancel error by error message
+      if (error.message &amp;&amp; error.message.includes(&#x27;cancel&#x27;)) {
+        return [];
+      }
+      throw error;
+    }
+  },
+  []
+);
+
+/**
+ * Launch gallery using document picker
+ */
+const launchGallerySelection &#x3D; useCallback(
+  async (options: PickerOptions &#x3D; {}): Promise&lt;DocumentAsset[]&gt; &#x3D;&gt; {
+    try {
+      const result &#x3D; await pick({
+        type: [types.images],
+        allowMultiSelection: options.multiple || false,
+        copyTo: &#x27;documentDirectory&#x27;,
+      });
+
+      if (Array.isArray(result)) {
+        return result.map(convertDocumentToAsset);
+      } else {
+        return [convertDocumentToAsset(result)];
+      }
+    } catch (error: any) {
+      if (error.message &amp;&amp; error.message.includes(&#x27;cancel&#x27;)) {
+        return [];
+      }
+      throw error;
+    }
+  },
+  []
+);
+
+/**
+ * Launch document picker for files
+ */
+const launchDocumentSelection &#x3D; useCallback(
+  async (options: PickerOptions &#x3D; {}): Promise&lt;DocumentAsset[]&gt; &#x3D;&gt; {
+    try {
+      const result &#x3D; await pick({
+        type: [types.images, types.pdf],
+        allowMultiSelection: options.multiple || false,
+        copyTo: &#x27;documentDirectory&#x27;,
+      });
+
+      if (Array.isArray(result)) {
+        return result.map(convertDocumentToAsset);
+      } else {
+        return [convertDocumentToAsset(result)];
+      }
+    } catch (error: any) {
+      if (error.message &amp;&amp; error.message.includes(&#x27;cancel&#x27;)) {
+        return [];
+      }
+      throw error;
+    }
+  },
+  []
+);
+
+  /**
+   * Validate selected documents
+   */
+  const validateDocuments &#x3D; useCallback(
+    async (documents: DocumentAsset[]): Promise&lt;DocumentAsset[]&gt; &#x3D;&gt; {
+      console.log(&#x27;📄 Processing documents:&#x27;, documents.length);
+      
+      // Skip complex validation for now - just do basic checks
+      const validDocuments: DocumentAsset[] &#x3D; [];
+      
+      for (const document of documents) {
+        // Basic validation: check if essential properties exist
+        if (document.uri &amp;&amp; document.fileName &amp;&amp; document.type) {
+          validDocuments.push(document);
+          console.log(&#x27;✅ Document valid:&#x27;, document.fileName);
+        } else {
+          console.log(&#x27;❌ Document invalid:&#x27;, document.fileName);
+        }
+      }
+      
+      return validDocuments;
+    },
+    []
+  );
+
+  /**
+   * Pick documents from specified source
+   */
+  const pickDocuments &#x3D; useCallback(
+    async (
+      source: DocumentSource,
+      options: PickerOptions &#x3D; {}
+    ): Promise&lt;DocumentAsset[]&gt; &#x3D;&gt; {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        let documents: DocumentAsset[] &#x3D; [];
+
+        // Skip permission check for files on Android
+        if (source &#x3D;&#x3D;&#x3D; &#x27;files&#x27;) {
+          documents &#x3D; await launchDocumentSelection(options);
+        } else {
+          // For camera and gallery, try direct access first
+          try {
+            switch (source) {
+              case &#x27;camera&#x27;:
+                documents &#x3D; await launchCameraSelection(options);
+                break;
+              case &#x27;gallery&#x27;:
+                documents &#x3D; await launchGallerySelection(options);
+                break;
+            }
+          } catch (permError) {
+            console.log(&#x27;📱 Permission error, trying to request:&#x27;, permError);
+            // Try to request permission and retry
+            const permissionType &#x3D;
+              source &#x3D;&#x3D;&#x3D; &#x27;camera&#x27; ? &#x27;camera&#x27; : &#x27;photoLibrary&#x27;;
+            const granted &#x3D; await requestPermission(permissionType);
+
+            if (!granted) {
+              throw new Error(&#x60;${source} permission denied&#x60;);
+            }
+
+            // Retry after permission granted
+            switch (source) {
+              case &#x27;camera&#x27;:
+                documents &#x3D; await launchCameraSelection(options);
+                break;
+              case &#x27;gallery&#x27;:
+                documents &#x3D; await launchGallerySelection(options);
+                break;
+            }
+          }
+        }
+
+        // Validate documents
+        const validDocuments &#x3D; await validateDocuments(documents);
+        return validDocuments;
+      } catch (error: any) {
+        console.error(&#x60;❌ Error picking documents from ${source}:&#x60;, error);
+        const errorMessage &#x3D; error.message || &#x27;Failed to select documents&#x27;;
+        setError(errorMessage);
+        return [];
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [
+      launchCameraSelection,
+      launchGallerySelection,
+      launchDocumentSelection,
+      validateDocuments,
+      requestPermission,
+    ]
+  );
+
+  // Check permissions on hook initialization
+  React.useEffect(() &#x3D;&gt; {
+    checkPermissions();
+  }, [checkPermissions]);
+
+  return {
+    pickDocuments,
+    isLoading,
+    error,
+    permissionStatus,
+    requestPermission,
+    clearError,
+  };
+};
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'UseDocumentPickerReturn.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

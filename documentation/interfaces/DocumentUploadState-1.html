@@ -1,0 +1,1705 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  DocumentUploadState</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/screens/documents/DocumentUploadScreen.tsx</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#compressingDocument" 
+>
+                                            compressingDocument
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#isCompressing" 
+>
+                                            isCompressing
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#persistedState" 
+>
+                                            persistedState
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#selectedDocuments" 
+>
+                                            selectedDocuments
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#showOfflineBanner" 
+>
+                                            showOfflineBanner
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#showPickerModal" 
+>
+                                            showPickerModal
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="compressingDocument"></a>
+                                        <span class="name "><b>compressingDocument</b>
+                                            <a href="#compressingDocument">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>compressingDocument:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="isCompressing"></a>
+                                        <span class="name "><b>isCompressing</b>
+                                            <a href="#isCompressing">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>isCompressing:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="persistedState"></a>
+                                        <span class="name "><b>persistedState</b>
+                                            <a href="#persistedState">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>persistedState:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="selectedDocuments"></a>
+                                        <span class="name "><b>selectedDocuments</b>
+                                            <a href="#selectedDocuments">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>selectedDocuments:     <code>DocumentAsset[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>DocumentAsset[]</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="showOfflineBanner"></a>
+                                        <span class="name "><b>showOfflineBanner</b>
+                                            <a href="#showOfflineBanner">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>showOfflineBanner:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="showPickerModal"></a>
+                                        <span class="name "><b>showPickerModal</b>
+                                            <a href="#showPickerModal">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>showPickerModal:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React, { useState, useCallback, useEffect, useMemo } from &#x27;react&#x27;;
+import { View, StyleSheet, Alert, Platform, Linking } from &#x27;react-native&#x27;;
+import {
+  Text,
+  Card,
+  Banner,
+  FAB,
+  Portal,
+  Modal,
+  List,
+  ActivityIndicator,
+  Button,
+  Chip,
+} from &#x27;react-native-paper&#x27;;
+import {
+  useNavigation,
+  useRoute,
+  useFocusEffect,
+} from &#x27;@react-navigation/native&#x27;;
+import type { NativeStackNavigationProp } from &#x27;@react-navigation/native-stack&#x27;;
+import { useTheme } from &#x27;react-native-paper&#x27;;
+import Toast from &#x27;react-native-toast-message&#x27;;
+
+// Internal imports
+import ScreenContainer from &#x27;../../components/common/ScreenContainer&#x27;;
+import AppButton from &#x27;../../components/common/AppButton&#x27;;
+import { DocumentGrid } from &#x27;../../components/documents/DocumentGrid&#x27;;
+import { PermissionDeniedMessage } from &#x27;../../components/documents/PermissionDeniedMessage&#x27;;
+import { UploadProgressBar } from &#x27;../../components/documents/UploadProgressBar&#x27;;
+import { UploadErrorState } from &#x27;../../components/documents/UploadErrorState&#x27;;
+import { DocumentUploadErrorBoundary } from &#x27;../../components/documents/DocumentUploadErrorBoundary&#x27;;
+import { useConnectivity } from &#x27;../../contexts/ConnectivityContext&#x27;;
+import { useDocumentPicker } from &#x27;../../hooks/useDocumentPicker&#x27;;
+import { useDocumentUpload } from &#x27;../../hooks/useDocumentUpload&#x27;;
+import {
+  useGetLeadDocSasTokenMutation,
+  useGetDocumentCountQuery,
+  useGetDocumentsByLeadQuery,
+  useLazyGetDocumentsByLeadQuery,
+  useGetDocumentViewSasMutation,
+} from &#x27;../../store/api/documentApi&#x27;;
+import { MAX_DOCUMENT_COUNT } from &#x27;../../constants/document&#x27;;
+import {
+  convertApiDocumentToAsset,
+  type ExistingDocumentAsset,
+  type ApiDocument,
+} from &#x27;../../types/document&#x27;;
+import type {
+  DocumentAsset,
+  DocumentSource,
+  DocumentUploadScreenProps,
+} from &#x27;../../types/document&#x27;;
+import type { HomeStackParamList } from &#x27;../../navigation/types&#x27;;
+import { useDatabase } from &#x27;../../hooks/useDatabase&#x27;;
+import { DocumentSyncService } from &#x27;../../services/DocumentSyncService&#x27;;
+
+type DocumentUploadScreenNavigation &#x3D; NativeStackNavigationProp&lt;
+  HomeStackParamList,
+  &#x27;DocumentUpload&#x27;
+&gt;;
+
+interface DocumentUploadState {
+  selectedDocuments: DocumentAsset[];
+  isCompressing: boolean;
+  compressingDocument: string | null;
+  showPickerModal: boolean;
+  showOfflineBanner: boolean;
+  persistedState: boolean;
+}
+
+/**
+ * Document Source Selection Modal
+ */
+const DocumentSourceModal: React.FC&lt;{
+  visible: boolean;
+  onDismiss: () &#x3D;&gt; void;
+  onSelectSource: (source: DocumentSource) &#x3D;&gt; void;
+  permissionError: string | null;
+}&gt; &#x3D; ({ visible, onDismiss, onSelectSource, permissionError }) &#x3D;&gt; {
+  const sources &#x3D; [
+    {
+      id: &#x27;gallery&#x27; as DocumentSource,
+      title: &#x27;Choose from Gallery&#x27;,
+      subtitle: &#x27;Select images from photo library&#x27;,
+    },
+    {
+      id: &#x27;files&#x27; as DocumentSource,
+      title: &#x27;Browse Files&#x27;,
+      subtitle: &#x27;Select PDF or image files&#x27;,
+    },
+  ];
+
+  return (
+    &lt;Portal&gt;
+      &lt;Modal
+        visible&#x3D;{visible}
+        onDismiss&#x3D;{onDismiss}
+        contentContainerStyle&#x3D;{styles.modalContainer}
+      &gt;
+        &lt;Text variant&#x3D;&quot;headlineSmall&quot; style&#x3D;{styles.modalTitle}&gt;
+          Add Document
+        &lt;/Text&gt;
+
+        {/* Error Display */}
+        {permissionError &amp;&amp; (
+          &lt;View style&#x3D;{styles.permissionErrorContainer}&gt;
+            &lt;Text style&#x3D;{styles.permissionErrorText}&gt;{permissionError}&lt;/Text&gt;
+          &lt;/View&gt;
+        )}
+
+        &lt;View style&#x3D;{styles.sourcesList}&gt;
+          {sources.map((source) &#x3D;&gt; (
+            &lt;List.Item
+              key&#x3D;{source.id}
+              title&#x3D;{source.title}
+              description&#x3D;{source.subtitle}
+              onPress&#x3D;{() &#x3D;&gt; {
+                onSelectSource(source.id);
+                onDismiss();
+              }}
+              style&#x3D;{styles.sourceItem}
+              accessible&#x3D;{true}
+              accessibilityRole&#x3D;&quot;button&quot;
+              accessibilityLabel&#x3D;{&#x60;${source.title}. ${source.subtitle}&#x60;}
+              accessibilityHint&#x3D;&quot;Double tap to select this document source&quot;
+            /&gt;
+          ))}
+        &lt;/View&gt;
+
+        &lt;View style&#x3D;{styles.modalButtonContainer}&gt;
+          &lt;Button mode&#x3D;&quot;outlined&quot; onPress&#x3D;{onDismiss}&gt;
+            Cancel
+          &lt;/Button&gt;
+        &lt;/View&gt;
+      &lt;/Modal&gt;
+    &lt;/Portal&gt;
+  );
+};
+
+/**
+ * Document Management Screen Component
+ */
+const DocumentUploadScreen: React.FC&lt;DocumentUploadScreenProps&gt; &#x3D; () &#x3D;&gt; {
+  const theme &#x3D; useTheme();
+  const navigation &#x3D; useNavigation&lt;DocumentUploadScreenNavigation&gt;();
+  const route &#x3D; useRoute();
+  const { isOnline } &#x3D; useConnectivity();
+
+  // Extract params
+  const { leadId, initialDocuments &#x3D; [] } &#x3D; route.params;
+
+  // Hooks
+  const {
+    pickDocuments,
+    isLoading: isPickerLoading,
+    error: pickerError,
+    permissionStatus,
+    requestPermission,
+    clearError: clearPickerError,
+  } &#x3D; useDocumentPicker();
+
+  // Server state hooks
+  const {
+    data: documentCountData,
+    isLoading: isCountLoading,
+    error: countError,
+    refetch: refetchServerCount,
+  } &#x3D; useGetDocumentCountQuery(leadId);
+
+  // Document count from API response
+  const documentCount &#x3D; documentCountData?.data?.count || 0;
+
+  // Existing documents from server
+  const {
+    data: existingDocumentsData,
+    isLoading: isLoadingExistingDocs,
+    error: existingDocsError,
+    refetch: refetchExistingDocs,
+  } &#x3D; useGetDocumentsByLeadQuery(leadId, {
+    refetchOnMountOrArgChange: true,
+  });
+
+  // Convert API documents to DocumentAsset format
+  const existingDocuments: ExistingDocumentAsset[] &#x3D; useMemo(() &#x3D;&gt; {
+    if (!existingDocumentsData?.data?.documents) return [];
+    return existingDocumentsData.data.documents.map(convertApiDocumentToAsset);
+  }, [existingDocumentsData]);
+
+  // Document upload hook
+  const {
+    uploadState,
+    startUpload,
+    cancelUpload: cancelCurrentUpload,
+    resetUpload,
+    canCancel,
+  } &#x3D; useDocumentUpload();
+
+  // SAS token mutations
+  const [getLeadDocSasToken, { isLoading: isGettingSasToken }] &#x3D;
+    useGetLeadDocSasTokenMutation();
+  const [getDocumentViewSas, { isLoading: isLoadingViewSas }] &#x3D;
+    useGetDocumentViewSasMutation();
+
+  // Server state verification hooks
+  const [getDocumentsByLead] &#x3D; useLazyGetDocumentsByLeadQuery();
+
+  // Local state
+  const [state, setState] &#x3D; useState&lt;DocumentUploadState&gt;({
+    selectedDocuments: initialDocuments,
+    isCompressing: false,
+    compressingDocument: null,
+    showPickerModal: false,
+    showOfflineBanner: false,
+    persistedState: false,
+  });
+
+  // Enhanced upload state
+  const [uploadErrorState, setUploadErrorState] &#x3D; useState&lt;{
+    hasError: boolean;
+    error: string | null;
+    fileName: string | null;
+    isRetrying: boolean;
+  }&gt;({
+    hasError: false,
+    error: null,
+    fileName: null,
+    isRetrying: false,
+  });
+
+  /**
+   * Update state helper
+   */
+  const updateState &#x3D; useCallback((updates: Partial&lt;DocumentUploadState&gt;) &#x3D;&gt; {
+    setState((prev) &#x3D;&gt; ({ ...prev, ...updates }));
+  }, []);
+
+  /**
+   * Calculated values
+   */
+  const remainingSlots &#x3D; useMemo(() &#x3D;&gt; {
+    const existingCount &#x3D; existingDocuments.length;
+    const selectedCount &#x3D; state.selectedDocuments.length;
+    return Math.max(0, MAX_DOCUMENT_COUNT - existingCount - selectedCount);
+  }, [existingDocuments.length, state.selectedDocuments.length]);
+
+  const canAddDocuments &#x3D; useMemo(() &#x3D;&gt; {
+    return remainingSlots &gt; 0 &amp;&amp; isOnline;
+  }, [remainingSlots, isOnline]);
+
+  const hasDocuments &#x3D; state.selectedDocuments.length &gt; 0;
+  const isProcessing &#x3D;
+    isPickerLoading ||
+    state.isCompressing ||
+    isCountLoading ||
+    uploadState.isUploading ||
+    isGettingSasToken;
+
+  /**
+   * Focus effect for state persistence and refresh
+   */
+  useFocusEffect(
+    useCallback(() &#x3D;&gt; {
+      // Only refresh on initial focus
+      if (!state.persistedState) {
+        refetchServerCount();
+        refetchExistingDocs();
+        updateState({ persistedState: true });
+      }
+
+      // Cleanup function
+      return () &#x3D;&gt; {
+        persistState();
+      };
+    }, [leadId]) // Add leadId dependency
+  );
+
+  /**
+   * Handle viewing existing document
+   */
+  const handleViewDocument &#x3D; useCallback(
+    async (document: DocumentAsset) &#x3D;&gt; {
+      if (!(&#x27;docId&#x27; in document)) {
+        Toast.show({
+          type: &#x27;error&#x27;,
+          text1: &#x27;Cannot View Document&#x27;,
+          text2: &#x27;Document information not available&#x27;,
+        });
+        return;
+      }
+
+      try {
+        console.log(&#x27;👁️ Viewing document:&#x27;, document.fileName);
+
+        Toast.show({
+          type: &#x27;info&#x27;,
+          text1: &#x27;Getting Document&#x27;,
+          text2: &#x60;Loading ${document.fileName}...&#x60;,
+        });
+
+        const viewSasResponse &#x3D; await getDocumentViewSas({
+          docId: (document as ExistingDocumentAsset).docId,
+        }).unwrap();
+
+        const sasUrl &#x3D; viewSasResponse.data.sasUrl;
+        console.log(&#x27;✅ Got view SAS URL:&#x27;, sasUrl);
+
+        // Try to open the document URL
+        const supported &#x3D; await Linking.canOpenURL(sasUrl);
+
+        if (supported) {
+          await Linking.openURL(sasUrl);
+          Toast.show({
+            type: &#x27;success&#x27;,
+            text1: &#x27;Document Opened&#x27;,
+            text2: &#x60;${document.fileName} opened in browser&#x60;,
+          });
+        } else {
+          Toast.show({
+            type: &#x27;error&#x27;,
+            text1: &#x27;Cannot Open Document&#x27;,
+            text2: &#x27;Unable to open document viewer&#x27;,
+          });
+        }
+      } catch (error: any) {
+        console.error(&#x27;❌ Error viewing document:&#x27;, error);
+        Toast.show({
+          type: &#x27;error&#x27;,
+          text1: &#x27;View Failed&#x27;,
+          text2: error.message || &#x27;Failed to load document&#x27;,
+        });
+      }
+    },
+    [getDocumentViewSas]
+  );
+
+  /**
+   * Handle adding documents
+   */
+  const handleAddDocument &#x3D; useCallback(async () &#x3D;&gt; {
+    if (!canAddDocuments || isProcessing) {
+      if (!isOnline) {
+        updateState({ showOfflineBanner: true });
+        setTimeout(() &#x3D;&gt; updateState({ showOfflineBanner: false }), 5000);
+      } else if (remainingSlots &#x3D;&#x3D;&#x3D; 0) {
+        Toast.show({
+          type: &#x27;error&#x27;,
+          text1: &#x27;Document Limit Reached&#x27;,
+          text2: &#x60;Maximum ${MAX_DOCUMENT_COUNT} documents allowed per lead&#x60;,
+        });
+      }
+      return;
+    }
+
+    updateState({ showPickerModal: true });
+  }, [canAddDocuments, isProcessing, isOnline, remainingSlots]);
+
+  /**
+   * Handle document source selection
+   */
+  const handleSelectSource &#x3D; useCallback(
+    async (source: DocumentSource) &#x3D;&gt; {
+      clearPickerError();
+
+      try {
+        const maxPickCount &#x3D; Math.min(remainingSlots, 5); // Limit picker selections
+        const pickedDocuments &#x3D; await pickDocuments(source, {
+          multiple: true,
+          maxCount: maxPickCount,
+        });
+
+        if (pickedDocuments.length &gt; 0) {
+          // Process documents (compression handled in previous sub-tasks)
+          const processedDocuments &#x3D; await handleCompressDocuments(
+            pickedDocuments
+          );
+
+          setState((prev) &#x3D;&gt; ({
+            ...prev,
+            selectedDocuments: [
+              ...prev.selectedDocuments,
+              ...processedDocuments,
+            ],
+          }));
+
+          Toast.show({
+            type: &#x27;success&#x27;,
+            text1: &#x27;Documents Added&#x27;,
+            text2: &#x60;${processedDocuments.length} document(s) added successfully&#x60;,
+          });
+
+          // Auto-persist state
+          persistState();
+        }
+      } catch (error: any) {
+        console.error(&#x27;❌ Error selecting documents:&#x27;, error);
+        Toast.show({
+          type: &#x27;error&#x27;,
+          text1: &#x27;Selection Failed&#x27;,
+          text2: error.message || &#x27;Failed to select documents&#x27;,
+        });
+      }
+    },
+    [remainingSlots, pickDocuments, clearPickerError]
+  );
+
+  const handleCompressDocuments &#x3D; useCallback(
+    async (documents: DocumentAsset[]): Promise&lt;DocumentAsset[]&gt; &#x3D;&gt; {
+      console.log(
+        &#x27;📂 Skipping compression, returning original documents:&#x27;,
+        documents
+      );
+      // Skip compression for now - just return original documents
+      return documents;
+    },
+    []
+  );
+
+  /**
+   * Handle document removal
+   */
+  const handleRemoveDocument &#x3D; useCallback((document: DocumentAsset) &#x3D;&gt; {
+    setState((prev) &#x3D;&gt; ({
+      ...prev,
+      selectedDocuments: prev.selectedDocuments.filter(
+        (d) &#x3D;&gt; d.id !&#x3D;&#x3D; document.id
+      ),
+    }));
+
+    Toast.show({
+      type: &#x27;info&#x27;,
+      text1: &#x27;Document Removed&#x27;,
+      text2: &#x60;${document.fileName} removed from selection&#x60;,
+    });
+
+    // Auto-persist state
+    persistState();
+  }, []);
+
+  /**
+   * Verify server document count before upload
+   */
+  const verifyServerDocumentCount &#x3D; useCallback(async (): Promise&lt;boolean&gt; &#x3D;&gt; {
+    console.log(&#x27;🔍 Verifying server document count before upload...&#x27;);
+
+    try {
+      // Refresh server count
+      const serverResult &#x3D; await refetchServerCount();
+
+      if (serverResult.error) {
+        throw new Error(&#x27;Failed to verify document count from server&#x27;);
+      }
+
+      const serverCount &#x3D; serverResult.data?.data.count || 0;
+      const selectedCount &#x3D; state.selectedDocuments.length;
+      const totalAfterUpload &#x3D; serverCount + selectedCount;
+
+      console.log(&#x27;📊 Server verification:&#x27;, {
+        serverCount,
+        selectedCount,
+        totalAfterUpload,
+        maxAllowed: MAX_DOCUMENT_COUNT,
+      });
+
+      if (totalAfterUpload &gt; MAX_DOCUMENT_COUNT) {
+        throw new Error(
+          &#x60;Upload would exceed limit. Server has ${serverCount} documents, uploading ${selectedCount} would total ${totalAfterUpload}/${MAX_DOCUMENT_COUNT}&#x60;
+        );
+      }
+
+      return true;
+    } catch (error: any) {
+      console.error(&#x27;❌ Server verification failed:&#x27;, error);
+      setUploadErrorState({
+        hasError: true,
+        error: error.message || &#x27;Failed to verify document count from server&#x27;,
+        fileName: null,
+        isRetrying: false,
+      });
+      return false;
+    }
+  }, [refetchServerCount, state.selectedDocuments.length]);
+
+  /**
+   * Refresh document list from server after upload
+   */
+  const refreshDocumentListFromServer &#x3D; useCallback(async (): Promise&lt;void&gt; &#x3D;&gt; {
+    console.log(&#x27;🔄 Refreshing document list from server...&#x27;);
+
+    try {
+      // Refresh existing documents list
+      await refetchExistingDocs();
+
+      // Refresh document count as well
+      await refetchServerCount();
+
+      // Invalidate cache and sync with database
+      try {
+        // We&#x27;ll get db and authToken from a different approach
+        // For now, let&#x27;s focus on the cache invalidation trigger
+        // This will be handled by the sync service integration
+
+        console.log(&#x27;📄 Triggering cache invalidation for lead:&#x27;, leadId);
+        // The actual cache invalidation will be handled in the next step
+      } catch (syncError) {
+        console.warn(&#x27;⚠️ Cache sync failed but continuing:&#x27;, syncError);
+      }
+
+      console.log(&#x27;✅ Document list refreshed from server&#x27;);
+    } catch (error: any) {
+      console.error(&#x27;❌ Failed to refresh document list:&#x27;, error);
+      Toast.show({
+        type: &#x27;warning&#x27;,
+        text1: &#x27;Sync Warning&#x27;,
+        text2: &#x27;Documents uploaded but failed to refresh list&#x27;,
+      });
+    }
+  }, [refetchExistingDocs, refetchServerCount, leadId]);
+
+  /**
+   * Enhanced document upload with server state verification
+   */
+  const handleUploadDocuments &#x3D; useCallback(async (): Promise&lt;void&gt; &#x3D;&gt; {
+    if (state.selectedDocuments.length &#x3D;&#x3D;&#x3D; 0) {
+      Toast.show({
+        type: &#x27;error&#x27;,
+        text1: &#x27;No Documents&#x27;,
+        text2: &#x27;Please select documents to upload first&#x27;,
+      });
+      return;
+    }
+
+    if (!isOnline) {
+      updateState({ showOfflineBanner: true });
+      setTimeout(() &#x3D;&gt; updateState({ showOfflineBanner: false }), 5000);
+      return;
+    }
+
+    // Clear any previous upload errors
+    setUploadErrorState({
+      hasError: false,
+      error: null,
+      fileName: null,
+      isRetrying: false,
+    });
+
+    console.log(&#x27;🚀 Starting upload process with server verification...&#x27;);
+
+    try {
+      // Step 1: Verify server document count
+      const isCountValid &#x3D; await verifyServerDocumentCount();
+      if (!isCountValid) {
+        return; // Error already handled in verifyServerDocumentCount
+      }
+
+      // Step 2: Upload documents one by one
+      let uploadedCount &#x3D; 0;
+      const totalDocuments &#x3D; state.selectedDocuments.length;
+
+      for (let i &#x3D; 0; i &lt; totalDocuments; i++) {
+        const document &#x3D; state.selectedDocuments[i];
+
+        console.log(
+          &#x60;📤 Uploading document ${i + 1}/${totalDocuments}: ${
+            document.fileName
+          }&#x60;
+        );
+
+        try {
+          // Get SAS token
+          Toast.show({
+            type: &#x27;info&#x27;,
+            text1: &#x27;Getting Upload Token&#x27;,
+            text2: &#x60;Preparing ${document.fileName}... (${
+              i + 1
+            }/${totalDocuments})&#x60;,
+          });
+
+          const sasTokenResponse &#x3D; await getLeadDocSasToken({
+            leadId,
+            docType: &#x27;GENERAL&#x27;,
+          }).unwrap();
+
+          // Start upload with progress tracking
+          const uploadResult &#x3D; await startUpload(
+            document,
+            sasTokenResponse.data.sasUrl
+          );
+
+          if (uploadResult.success) {
+            uploadedCount++;
+
+            Toast.show({
+              type: &#x27;success&#x27;,
+              text1: &#x27;Upload Successful&#x27;,
+              text2: &#x60;${document.fileName} uploaded (${uploadedCount}/${totalDocuments})&#x60;,
+            });
+
+            // Remove uploaded document from selected list
+            updateState((prev) &#x3D;&gt; ({
+              selectedDocuments: prev.selectedDocuments.filter(
+                (d) &#x3D;&gt; d.id !&#x3D;&#x3D; document.id
+              ),
+            }));
+          } else {
+            // Handle upload failure
+            throw new Error(uploadResult.error || &#x27;Upload failed&#x27;);
+          }
+
+          // Reset upload state for next document
+          resetUpload();
+        } catch (uploadError: any) {
+          console.error(&#x27;❌ Document upload failed:&#x27;, uploadError);
+
+          setUploadErrorState({
+            hasError: true,
+            error: uploadError.message || &#x27;Upload failed&#x27;,
+            fileName: document.fileName,
+            isRetrying: false,
+          });
+
+          // Stop uploading remaining documents
+          break;
+        }
+      }
+
+      // Step 3: Refresh document list and count from server after successful uploads
+      if (uploadedCount &gt; 0) {
+        console.log(
+          &#x60;✅ Successfully uploaded ${uploadedCount}/${totalDocuments} documents&#x60;
+        );
+
+        await refreshDocumentListFromServer();
+
+        if (uploadedCount &#x3D;&#x3D;&#x3D; totalDocuments) {
+          Toast.show({
+            type: &#x27;success&#x27;,
+            text1: &#x27;All Uploads Complete&#x27;,
+            text2: &#x60;Successfully uploaded ${uploadedCount} document${
+              uploadedCount &#x3D;&#x3D;&#x3D; 1 ? &#x27;&#x27; : &#x27;s&#x27;
+            }&#x60;,
+          });
+        }
+      }
+    } catch (error: any) {
+      console.error(&#x27;❌ Upload process failed:&#x27;, error);
+
+      setUploadErrorState({
+        hasError: true,
+        error: error.message || &#x27;Upload process failed&#x27;,
+        fileName: null,
+        isRetrying: false,
+      });
+    }
+  }, [
+    state.selectedDocuments,
+    isOnline,
+    leadId,
+    verifyServerDocumentCount,
+    getLeadDocSasToken,
+    startUpload,
+    resetUpload,
+    refreshDocumentListFromServer,
+    updateState,
+  ]);
+
+  /**
+   * Handle retry upload
+   */
+  const handleRetryUpload &#x3D; useCallback(async () &#x3D;&gt; {
+    console.log(&#x27;🔄 Retrying upload...&#x27;);
+
+    setUploadErrorState((prev) &#x3D;&gt; ({ ...prev, isRetrying: true }));
+
+    // Reset upload state completely
+    resetUpload();
+
+    // Wait a moment for state to reset
+    setTimeout(() &#x3D;&gt; {
+      setUploadErrorState({
+        hasError: false,
+        error: null,
+        fileName: null,
+        isRetrying: false,
+      });
+
+      // Retry the upload
+      handleUploadDocuments();
+    }, 500);
+  }, [resetUpload, handleUploadDocuments]);
+
+  /**
+   * Reset upload state completely
+   */
+  const resetUploadState &#x3D; useCallback(() &#x3D;&gt; {
+    console.log(&#x27;🔄 Resetting upload state completely&#x27;);
+
+    resetUpload();
+    setUploadErrorState({
+      hasError: false,
+      error: null,
+      fileName: null,
+      isRetrying: false,
+    });
+  }, [resetUpload]);
+
+  /**
+   * Handle refresh count
+   */
+  const handleRefreshCount &#x3D; useCallback(async () &#x3D;&gt; {
+    try {
+      const result &#x3D; await refetchServerCount();
+      if (result.error) {
+        throw new Error(&#x27;Failed to refresh count&#x27;);
+      }
+      Toast.show({
+        type: &#x27;success&#x27;,
+        text1: &#x27;Count Updated&#x27;,
+        text2: &#x27;Document count refreshed from server&#x27;,
+      });
+    } catch (error) {
+      Toast.show({
+        type: &#x27;error&#x27;,
+        text1: &#x27;Refresh Failed&#x27;,
+        text2: &#x27;Failed to refresh document count&#x27;,
+      });
+    }
+  }, [refetchServerCount]);
+
+  /**
+   * Handle permission request
+   */
+  const handleRequestPermission &#x3D; useCallback(
+    async (type: &#x27;camera&#x27; | &#x27;photoLibrary&#x27;) &#x3D;&gt; {
+      try {
+        const granted &#x3D; await requestPermission(type);
+        if (granted) {
+          Toast.show({
+            type: &#x27;success&#x27;,
+            text1: &#x27;Permission Granted&#x27;,
+            text2: &#x60;${
+              type &#x3D;&#x3D;&#x3D; &#x27;camera&#x27; ? &#x27;Camera&#x27; : &#x27;Photo library&#x27;
+            } access granted&#x60;,
+          });
+        }
+      } catch (error) {
+        console.error(&#x27;❌ Permission request failed:&#x27;, error);
+      }
+    },
+    [requestPermission]
+  );
+
+  /**
+   * Open device settings
+   */
+  const handleOpenSettings &#x3D; useCallback(() &#x3D;&gt; {
+    Alert.alert(
+      &#x27;Open Settings&#x27;,
+      &#x27;To grant permissions, go to Settings &gt; Apps &gt; Solarium &gt; Permissions&#x27;,
+      [
+        { text: &#x27;Cancel&#x27;, style: &#x27;cancel&#x27; },
+        {
+          text: &#x27;Open Settings&#x27;,
+          onPress: () &#x3D;&gt; {
+            if (Platform.OS &#x3D;&#x3D;&#x3D; &#x27;ios&#x27;) {
+              Linking.openURL(&#x27;app-settings:&#x27;);
+            } else {
+              Linking.openSettings();
+            }
+          },
+        },
+      ]
+    );
+  }, []);
+
+  /**
+   * Handle upload cancellation
+   */
+  const handleCancelUpload &#x3D; useCallback(() &#x3D;&gt; {
+    console.log(&#x27;🛑 User requested upload cancellation&#x27;);
+    cancelCurrentUpload();
+
+    Toast.show({
+      type: &#x27;info&#x27;,
+      text1: &#x27;Upload Cancelled&#x27;,
+      text2: &#x27;Document upload has been cancelled&#x27;,
+    });
+  }, [cancelCurrentUpload]);
+
+  /**
+   * Persist state for navigation
+   */
+  const persistState &#x3D; useCallback(() &#x3D;&gt; {
+    // In a real app, you might save to AsyncStorage or update navigation params
+    // For now, we&#x27;ll just log the persistence
+    console.log(&#x27;🔄 Persisting document upload state:&#x27;, {
+      documentCount: state.selectedDocuments.length,
+      leadId,
+    });
+  }, [state.selectedDocuments.length, leadId]);
+
+  /**
+   * Restore state from navigation params
+   */
+  const restoreState &#x3D; useCallback(() &#x3D;&gt; {
+    if (initialDocuments.length &gt; 0) {
+      updateState({ selectedDocuments: initialDocuments });
+      console.log(
+        &#x27;🔄 Restored document state:&#x27;,
+        initialDocuments.length,
+        &#x27;documents&#x27;
+      );
+    }
+  }, [initialDocuments]);
+
+  // Restore state on mount
+  useEffect(() &#x3D;&gt; {
+    restoreState();
+  }, [restoreState]);
+
+  /**
+   * Get accessibility labels
+   */
+  const getDocumentCountLabel &#x3D; (): string &#x3D;&gt; {
+    return &#x60;${existingDocuments.length} existing documents, ${state.selectedDocuments.length} selected for upload, ${remainingSlots} slots remaining out of ${MAX_DOCUMENT_COUNT} maximum&#x60;;
+  };
+
+  const getAddButtonLabel &#x3D; (): string &#x3D;&gt; {
+    if (!isOnline) return &#x27;Cannot add documents offline&#x27;;
+    if (remainingSlots &#x3D;&#x3D;&#x3D; 0) return &#x27;Document limit reached&#x27;;
+    return &#x60;Add documents. ${remainingSlots} slots remaining&#x60;;
+  };
+
+  return (
+    &lt;DocumentUploadErrorBoundary onReset&#x3D;{resetUploadState}&gt;
+      &lt;ScreenContainer scrollable&#x3D;{true}&gt;
+        {/* Offline Banner */}
+        &lt;Banner
+          visible&#x3D;{state.showOfflineBanner}
+          actions&#x3D;{[
+            {
+              label: &#x27;Dismiss&#x27;,
+              onPress: () &#x3D;&gt; updateState({ showOfflineBanner: false }),
+            },
+          ]}
+          style&#x3D;{styles.offlineBanner}
+        &gt;
+          Go online to add documents
+        &lt;/Banner&gt;
+
+        {/* Header */}
+        &lt;View style&#x3D;{styles.header}&gt;
+          &lt;Text variant&#x3D;&quot;headlineSmall&quot; style&#x3D;{styles.title}&gt;
+            Document Management
+          &lt;/Text&gt;
+          &lt;Text variant&#x3D;&quot;bodyMedium&quot; style&#x3D;{styles.subtitle}&gt;
+            Manage documents for this lead (max {MAX_DOCUMENT_COUNT})
+          &lt;/Text&gt;
+        &lt;/View&gt;
+
+        {/* Document Count Card */}
+        &lt;Card style&#x3D;{styles.countCard}&gt;
+          &lt;Card.Content style&#x3D;{styles.countContent}&gt;
+            &lt;View style&#x3D;{styles.countInfo}&gt;
+              &lt;View style&#x3D;{styles.countNumbers}&gt;
+                &lt;Text variant&#x3D;&quot;headlineMedium&quot; style&#x3D;{styles.countText}&gt;
+                  {isCountLoading
+                    ? &#x27;...&#x27;
+                    : existingDocuments.length + state.selectedDocuments.length}
+                &lt;/Text&gt;
+                &lt;Text variant&#x3D;&quot;bodySmall&quot; style&#x3D;{styles.countLabel}&gt;
+                  / {MAX_DOCUMENT_COUNT} documents
+                &lt;/Text&gt;
+              &lt;/View&gt;
+
+              &lt;View style&#x3D;{styles.countDetails}&gt;
+                &lt;Chip
+                  style&#x3D;{[
+                    styles.countChip,
+                    { backgroundColor: theme.colors.primaryContainer },
+                  ]}
+                  textStyle&#x3D;{styles.chipText}
+                &gt;
+                  {existingDocuments.length} uploaded
+                &lt;/Chip&gt;
+                {state.selectedDocuments.length &gt; 0 &amp;&amp; (
+                  &lt;Chip
+                    style&#x3D;{[
+                      styles.countChip,
+                      { backgroundColor: theme.colors.secondaryContainer },
+                    ]}
+                    textStyle&#x3D;{styles.chipText}
+                  &gt;
+                    {state.selectedDocuments.length} pending
+                  &lt;/Chip&gt;
+                )}
+              &lt;/View&gt;
+            &lt;/View&gt;
+
+            {/* Refresh Count Button */}
+            &lt;Button
+              mode&#x3D;&quot;outlined&quot;
+              compact
+              onPress&#x3D;{handleRefreshCount}
+              disabled&#x3D;{isCountLoading}
+              style&#x3D;{styles.refreshButton}
+              accessible&#x3D;{true}
+              accessibilityLabel&#x3D;&quot;Refresh document count from server&quot;
+              accessibilityHint&#x3D;&quot;Double tap to refresh the current document count&quot;
+            &gt;
+              {isCountLoading ? &#x27;Loading...&#x27; : &#x27;Refresh&#x27;}
+            &lt;/Button&gt;
+          &lt;/Card.Content&gt;
+        &lt;/Card&gt;
+
+        {/* Permission Error */}
+        {pickerError &amp;&amp; (
+          &lt;PermissionDeniedMessage
+            type&#x3D;&quot;camera&quot;
+            message&#x3D;{pickerError}
+            onRetry&#x3D;{() &#x3D;&gt; handleRequestPermission(&#x27;camera&#x27;)}
+            onOpenSettings&#x3D;{handleOpenSettings}
+            testID&#x3D;&quot;document-permission-error&quot;
+          /&gt;
+        )}
+
+        {/* Count Error */}
+        {countError &amp;&amp; (
+          &lt;Banner
+            visible&#x3D;{true}
+            actions&#x3D;{[
+              {
+                label: &#x27;Retry&#x27;,
+                onPress: handleRefreshCount,
+              },
+              {
+                label: &#x27;Dismiss&#x27;,
+                onPress: () &#x3D;&gt; {}, // RTK Query handles error dismissal automatically
+              },
+            ]}
+            style&#x3D;{styles.errorBanner}
+          &gt;
+            {typeof countError &#x3D;&#x3D;&#x3D; &#x27;object&#x27; &amp;&amp; &#x27;message&#x27; in countError
+              ? (countError as any).message
+              : &#x27;Failed to load document count&#x27;}
+          &lt;/Banner&gt;
+        )}
+
+        {/* Enhanced Upload Progress Display */}
+        {uploadState.isUploading &amp;&amp; (
+          &lt;Card style&#x3D;{styles.progressCard}&gt;
+            &lt;UploadProgressBar
+              progress&#x3D;{uploadState.progress.percent}
+              status&#x3D;&quot;uploading&quot;
+              fileName&#x3D;{state.selectedDocuments.find(() &#x3D;&gt; true)?.fileName}
+              loaded&#x3D;{uploadState.progress.loaded}
+              total&#x3D;{uploadState.progress.total}
+              speed&#x3D;{uploadState.progress.speed}
+            /&gt;
+            {canCancel &amp;&amp; (
+              &lt;View style&#x3D;{{ padding: 16, paddingTop: 0 }}&gt;
+                &lt;AppButton
+                  mode&#x3D;&quot;outlined&quot;
+                  onPress&#x3D;{handleCancelUpload}
+                  title&#x3D;&quot;Cancel Upload&quot;
+                /&gt;
+              &lt;/View&gt;
+            )}
+          &lt;/Card&gt;
+        )}
+
+        {/* Upload Error State */}
+        {/* {uploadErrorState.hasError &amp;&amp; (
+          &lt;UploadErrorState
+            error&#x3D;{uploadErrorState.error || &#x27;Unknown error&#x27;}
+            fileName&#x3D;{uploadErrorState.fileName || undefined}
+            onRetry&#x3D;{handleRetryUpload}
+            isRetrying&#x3D;{uploadErrorState.isRetrying}
+          /&gt;
+        )} */}
+
+        {/* Document Sections */}
+        &lt;View style&#x3D;{styles.sectionsContainer}&gt;
+          {/* Existing Documents Section */}
+          &lt;View style&#x3D;{styles.sectionContainer}&gt;
+            &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.sectionTitle}&gt;
+              Existing Documents ({existingDocuments.length})
+            &lt;/Text&gt;
+
+            {isLoadingExistingDocs ? (
+              &lt;View style&#x3D;{styles.loadingContainer}&gt;
+                &lt;ActivityIndicator size&#x3D;&quot;large&quot; /&gt;
+                &lt;Text style&#x3D;{styles.loadingText}&gt;
+                  Loading existing documents...
+                &lt;/Text&gt;
+              &lt;/View&gt;
+            ) : existingDocsError ? (
+              &lt;Banner
+                visible&#x3D;{true}
+                actions&#x3D;{[
+                  {
+                    label: &#x27;Retry&#x27;,
+                    onPress: () &#x3D;&gt; refetchExistingDocs(),
+                  },
+                ]}
+                style&#x3D;{styles.errorBanner}
+              &gt;
+                Failed to load existing documents
+              &lt;/Banner&gt;
+            ) : (
+              &lt;DocumentGrid
+                documents&#x3D;{existingDocuments}
+                onView&#x3D;{handleViewDocument}
+                loading&#x3D;{isLoadingViewSas}
+                testID&#x3D;&quot;existing-documents-grid&quot;
+                accessibilityLabel&#x3D;{&#x60;Existing documents: ${existingDocuments.length} documents&#x60;}
+                numColumns&#x3D;{2}
+                virtualized&#x3D;{false}
+              /&gt;
+            )}
+          &lt;/View&gt;
+
+          {/* Selected for Upload Section */}
+          &lt;View style&#x3D;{styles.sectionContainer}&gt;
+            &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.sectionTitle}&gt;
+              Selected for Upload ({state.selectedDocuments.length})
+            &lt;/Text&gt;
+
+            &lt;DocumentGrid
+              documents&#x3D;{state.selectedDocuments}
+              onRemove&#x3D;{handleRemoveDocument}
+              loading&#x3D;{state.isCompressing}
+              testID&#x3D;&quot;selected-documents-grid&quot;
+              accessibilityLabel&#x3D;{&#x60;Selected documents: ${state.selectedDocuments.length} documents&#x60;}
+              numColumns&#x3D;{2}
+              virtualized&#x3D;{false}
+            /&gt;
+          &lt;/View&gt;
+        &lt;/View&gt;
+
+        {/* Upload Button */}
+        &lt;View style&#x3D;{styles.uploadButtonContainer}&gt;
+          &lt;AppButton
+            mode&#x3D;&quot;contained&quot;
+            onPress&#x3D;{handleUploadDocuments}
+            disabled&#x3D;{!hasDocuments || isProcessing || !isOnline}
+            loading&#x3D;{uploadState.isUploading || isGettingSasToken}
+            fullWidth
+            style&#x3D;{styles.uploadButton}
+            title&#x3D;{
+              uploadState.isUploading
+                ? &#x60;Uploading... ${uploadState.progress.percent}%&#x60;
+                : isGettingSasToken
+                ? &#x27;Getting Upload Token...&#x27;
+                : &#x60;Upload ${state.selectedDocuments.length} Document${
+                    state.selectedDocuments.length &#x3D;&#x3D;&#x3D; 1 ? &#x27;&#x27; : &#x27;s&#x27;
+                  }&#x60;
+            }
+            accessible&#x3D;{true}
+            accessibilityLabel&#x3D;{&#x60;Upload ${state.selectedDocuments.length} documents&#x60;}
+            accessibilityHint&#x3D;&quot;Double tap to start uploading selected documents&quot;
+          /&gt;
+        &lt;/View&gt;
+
+        {/* Add Document FAB */}
+        &lt;FAB
+          onPress&#x3D;{handleAddDocument}
+          disabled&#x3D;{!canAddDocuments || isProcessing}
+          style&#x3D;{[styles.fab, !canAddDocuments &amp;&amp; styles.fabDisabled]}
+          loading&#x3D;{isProcessing}
+          accessible&#x3D;{true}
+          accessibilityLabel&#x3D;{getAddButtonLabel()}
+          accessibilityHint&#x3D;&quot;Double tap to add documents from camera, gallery, or files&quot;
+          testID&#x3D;&quot;add-document-fab&quot;
+          label&#x3D;&quot;Add Document&quot;
+        /&gt;
+
+        {/* Document Source Selection Modal */}
+        &lt;DocumentSourceModal
+          visible&#x3D;{state.showPickerModal}
+          onDismiss&#x3D;{() &#x3D;&gt; updateState({ showPickerModal: false })}
+          onSelectSource&#x3D;{handleSelectSource}
+          permissionError&#x3D;{pickerError}
+        /&gt;
+      &lt;/ScreenContainer&gt;
+    &lt;/DocumentUploadErrorBoundary&gt;
+  );
+};
+
+const styles &#x3D; StyleSheet.create({
+  header: {
+    padding: 16,
+    paddingBottom: 8,
+  },
+  title: {
+    fontWeight: &#x27;bold&#x27;,
+    marginBottom: 4,
+  },
+  subtitle: {
+    opacity: 0.7,
+  },
+  offlineBanner: {
+    margin: 0,
+  },
+  errorBanner: {
+    margin: 16,
+    marginTop: 8,
+  },
+  countCard: {
+    margin: 16,
+    marginTop: 8,
+  },
+  countContent: {
+    flexDirection: &#x27;row&#x27;,
+    alignItems: &#x27;center&#x27;,
+    justifyContent: &#x27;space-between&#x27;,
+  },
+  countInfo: {
+    flex: 1,
+  },
+  countNumbers: {
+    flexDirection: &#x27;row&#x27;,
+    alignItems: &#x27;baseline&#x27;,
+    marginBottom: 8,
+  },
+  countText: {
+    fontWeight: &#x27;bold&#x27;,
+    marginRight: 4,
+  },
+  countLabel: {
+    opacity: 0.7,
+  },
+  countDetails: {
+    flexDirection: &#x27;row&#x27;,
+    gap: 12,
+    alignItems: &#x27;center&#x27;,
+    flexWrap: &#x27;wrap&#x27;,
+  },
+  countChip: {
+    height: 32,
+    minHeight: 32,
+    paddingHorizontal: 12,
+    justifyContent: &#x27;center&#x27;,
+  },
+  chipText: {
+    fontSize: 12,
+    lineHeight: 16,
+    textAlignVertical: &#x27;center&#x27;,
+  },
+  refreshButton: {
+    alignSelf: &#x27;flex-start&#x27;,
+  },
+  progressCard: {
+    margin: 16,
+    marginTop: 8,
+  },
+  sectionsContainer: {
+    // paddingHorizontal: 16,
+    paddingBottom: 100, // Space for FAB and upload button
+  },
+  sectionContainer: {
+    marginBottom: 24,
+  },
+  sectionTitle: {
+    fontWeight: &#x27;600&#x27;,
+    marginBottom: 12,
+    paddingHorizontal: 4,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    paddingVertical: 32,
+  },
+  loadingText: {
+    marginTop: 8,
+    opacity: 0.7,
+  },
+  uploadButtonContainer: {
+    padding: 16,
+    paddingTop: 8,
+  },
+  uploadButton: {
+    borderRadius: 25,
+  },
+  fab: {
+    position: &#x27;absolute&#x27;,
+    right: 16,
+    bottom: 100, // Above upload button
+  },
+  fabDisabled: {
+    opacity: 0.6,
+  },
+  modalContainer: {
+    backgroundColor: &#x27;white&#x27;,
+    margin: 20,
+    borderRadius: 12,
+    padding: 0,
+    maxHeight: &#x27;80%&#x27;,
+  },
+  modalTitle: {
+    padding: 20,
+    paddingBottom: 8,
+    fontWeight: &#x27;bold&#x27;,
+  },
+  sourcesList: {
+    paddingHorizontal: 8,
+  },
+  sourceItem: {
+    borderRadius: 8,
+    marginVertical: 2,
+  },
+  modalButtonContainer: {
+    padding: 20,
+    paddingTop: 16,
+    alignItems: &#x27;center&#x27;,
+  },
+  permissionErrorContainer: {
+    backgroundColor: &#x27;#ffebee&#x27;,
+    margin: 16,
+    padding: 12,
+    borderRadius: 8,
+  },
+  permissionErrorText: {
+    color: &#x27;#d32f2f&#x27;,
+    fontSize: 14,
+    textAlign: &#x27;center&#x27;,
+  },
+});
+
+export default DocumentUploadScreen;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'DocumentUploadState-1.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

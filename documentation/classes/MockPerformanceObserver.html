@@ -1,0 +1,1130 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >MockPerformanceObserver</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/services/PerformanceObserver.ts</code>
+        </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#disconnect" >disconnect</a>
+                            </li>
+                            <li>
+                                <a href="#observe" >observe</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(callback: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/services/PerformanceObserver.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>callback</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="disconnect"></a>
+                    <span class="name">
+                        <span ><b>disconnect</b></span>
+                        <a href="#disconnect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>disconnect()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="21"
+                                    class="link-to-prism">src/services/PerformanceObserver.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="observe"></a>
+                    <span class="name">
+                        <span ><b>observe</b></span>
+                        <a href="#observe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>observe(options: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">src/services/PerformanceObserver.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">const performance &#x3D; {
+  now: () &#x3D;&gt; Date.now(),
+  mark: (name: string) &#x3D;&gt; {},
+  measure: (name: string, startMark?: string, endMark?: string) &#x3D;&gt; {},
+  getEntriesByName: (name: string) &#x3D;&gt; [],
+  getEntriesByType: (type: string) &#x3D;&gt; [],
+  clearMarks: (name?: string) &#x3D;&gt; {},
+  clearMeasures: (name?: string) &#x3D;&gt; {},
+};
+
+class MockPerformanceObserver {
+  constructor(callback: any) {}
+  observe(options: any) {}
+  disconnect() {}
+}
+
+const RNPerformanceObserver &#x3D; MockPerformanceObserver;
+import { Platform, AppState, AppStateStatus } from &#x27;react-native&#x27;;
+import TelemetryService from &#x27;./TelemetryService&#x27;;
+import { PerformanceMonitor } from &#x27;../utils/PerformanceMonitor&#x27;;
+import { Logger } from &#x27;../utils/Logger&#x27;;
+import { generateUUID } from &#x27;../utils/uuid&#x27;;
+import {
+  PerformanceMetric,
+  MemoryMetric,
+  NavigationMetric,
+  ColdStartMetric,
+  ScreenRenderMetric,
+  PerformanceReport,
+  BudgetViolation,
+  PerformanceObserverConfig,
+  PerformanceMark,
+  PerformanceBudget,
+} from &#x27;../types/performance&#x27;;
+
+class PerformanceObserverService {
+  private observer: RNPerformanceObserver | null &#x3D; null;
+  private config: PerformanceObserverConfig;
+  private sessionId: string;
+  private isInitialized &#x3D; false;
+  private coldStartTimestamp: number | null &#x3D; null;
+  private appLaunchTimestamp: number;
+  private metricsQueue: PerformanceMetric[] &#x3D; [];
+  private memoryTrackingInterval: NodeJS.Timer | null &#x3D; null;
+  private performanceMarks: Map&lt;string, PerformanceMark&gt; &#x3D; new Map();
+  private currentScreenName: string | null &#x3D; null;
+  private lastScreenTransitionTime: number | null &#x3D; null;
+
+  constructor() {
+    this.sessionId &#x3D; generateUUID();
+    this.appLaunchTimestamp &#x3D; Date.now();
+    this.config &#x3D; this.getDefaultConfig();
+    this.setupAppStateListener();
+  }
+
+  /**
+   * Initialize Performance Observer with configuration
+   */
+  public initialize(config?: Partial&lt;PerformanceObserverConfig&gt;): void {
+    try {
+      if (this.isInitialized) {
+        Logger.warn(&#x27;PerformanceObserver already initialized&#x27;);
+        return;
+      }
+
+      this.config &#x3D; { ...this.config, ...config };
+
+      // Initialize react-native-performance observer
+      this.observer &#x3D; new RNPerformanceObserver((list) &#x3D;&gt; {
+        this.handlePerformanceEntries(list.getEntries());
+      });
+
+      // Observe all performance entry types
+      this.observer.observe({
+        entryTypes: [&#x27;measure&#x27;, &#x27;navigation&#x27;, &#x27;paint&#x27;, &#x27;mark&#x27;],
+      });
+
+      // Start cold start measurement
+      if (this.config.enableColdStartTracking) {
+        this.startColdStartMeasurement();
+      }
+
+      // Start memory tracking
+      if (this.config.enableMemoryTracking) {
+        this.startMemoryTracking();
+      }
+
+      this.isInitialized &#x3D; true;
+      Logger.info(&#x27;PerformanceObserver initialized successfully&#x27;);
+    } catch (error) {
+      Logger.error(&#x27;Failed to initialize PerformanceObserver:&#x27;, error);
+    }
+  }
+
+  /**
+   * Start cold start measurement
+   */
+  public startColdStartMeasurement(): void {
+    if (!this.config.enableColdStartTracking) return;
+
+    try {
+      this.coldStartTimestamp &#x3D; performance.now();
+      performance.mark(&#x27;cold-start-begin&#x27;);
+
+      // Mark native initialization
+      performance.mark(&#x27;native-init-begin&#x27;);
+
+      Logger.info(&#x27;Cold start measurement started&#x27;);
+    } catch (error) {
+      Logger.error(&#x27;Failed to start cold start measurement:&#x27;, error);
+    }
+  }
+
+  /**
+   * End cold start measurement
+   */
+  public endColdStartMeasurement(): ColdStartMetric | null {
+    if (!this.config.enableColdStartTracking || !this.coldStartTimestamp)
+      return null;
+
+    try {
+      const endTime &#x3D; performance.now();
+      performance.mark(&#x27;cold-start-end&#x27;);
+      performance.measure(
+        &#x27;cold-start-duration&#x27;,
+        &#x27;cold-start-begin&#x27;,
+        &#x27;cold-start-end&#x27;
+      );
+
+      const coldStartMetric: ColdStartMetric &#x3D; {
+        appLaunchTime: this.appLaunchTimestamp,
+        bundleLoadTime: this.getBundleLoadTime(),
+        nativeInitTime: this.getNativeInitTime(),
+        jsInitTime: this.getJsInitTime(),
+        firstScreenRenderTime: endTime,
+        totalColdStartTime: endTime - this.coldStartTimestamp,
+        startupType: this.getStartupType(),
+        timestamp: Date.now(),
+        deviceInfo: {
+          platform: Platform.OS as &#x27;ios&#x27; | &#x27;android&#x27;,
+          osVersion: Platform.Version.toString(),
+          deviceModel: this.getDeviceModel(),
+          memoryTotal: this.getTotalMemory(),
+        },
+      };
+
+      // Send to telemetry
+      this.sendColdStartMetric(coldStartMetric);
+
+      // Check budget violation
+      this.checkBudgetViolation(
+        &#x27;coldStart&#x27;,
+        coldStartMetric.totalColdStartTime
+      );
+
+      Logger.info(
+        &#x27;Cold start measurement completed:&#x27;,
+        coldStartMetric.totalColdStartTime + &#x27;ms&#x27;
+      );
+      return coldStartMetric;
+    } catch (error) {
+      Logger.error(&#x27;Failed to end cold start measurement:&#x27;, error);
+      return null;
+    }
+  }
+
+  /**
+   * Measure screen transition
+   */
+  public measureScreenTransition(fromScreen: string, toScreen: string): void {
+    if (!this.config.enableNavigationTracking) return;
+
+    try {
+      const startTime &#x3D; performance.now();
+      const markName &#x3D; &#x60;navigation-${fromScreen}-to-${toScreen}&#x60;;
+
+      performance.mark(&#x60;${markName}-start&#x60;);
+
+      // Store transition info
+      this.performanceMarks.set(markName, {
+        name: markName,
+        startTime,
+        metadata: { fromScreen, toScreen },
+      });
+
+      this.currentScreenName &#x3D; toScreen;
+      this.lastScreenTransitionTime &#x3D; startTime;
+
+      // Set a timeout to complete the measurement
+      setTimeout(() &#x3D;&gt; {
+        this.completeScreenTransition(markName, fromScreen, toScreen);
+      }, 100); // Allow time for screen to render
+    } catch (error) {
+      Logger.error(&#x27;Failed to measure screen transition:&#x27;, error);
+    }
+  }
+
+  /**
+   * Mark screen render completion
+   */
+  public markScreenRenderComplete(
+    screenName: string,
+    componentCount: number &#x3D; 0
+  ): void {
+    if (!this.config.enableScreenRenderTracking) return;
+
+    try {
+      const endTime &#x3D; performance.now();
+      const startTime &#x3D; this.lastScreenTransitionTime || endTime;
+
+      performance.mark(&#x60;${screenName}-render-complete&#x60;);
+
+      const renderMetric: ScreenRenderMetric &#x3D; {
+        screenName,
+        renderStartTime: startTime,
+        renderEndTime: endTime,
+        renderDuration: endTime - startTime,
+        componentCount,
+        isInitialRender: this.lastScreenTransitionTime &#x3D;&#x3D;&#x3D; null,
+        timestamp: Date.now(),
+        success: true,
+      };
+
+      // Send to telemetry
+      this.sendScreenRenderMetric(renderMetric);
+
+      // Check budget violation
+      this.checkBudgetViolation(&#x27;screenRender&#x27;, renderMetric.renderDuration);
+    } catch (error) {
+      Logger.error(&#x27;Failed to mark screen render complete:&#x27;, error);
+    }
+  }
+
+  /**
+   * Get current memory usage
+   */
+  public async getMemoryUsage(): Promise&lt;MemoryMetric&gt; {
+    try {
+      const memoryInfo &#x3D; await PerformanceMonitor.getMemorySnapshot();
+
+      const memoryMetric: MemoryMetric &#x3D; {
+        timestamp: Date.now(),
+        totalMemory: memoryInfo.totalMemory || 0,
+        usedMemory: memoryInfo.usedMemory || 0,
+        availableMemory: memoryInfo.availableMemory || 0,
+        jsHeapSize: memoryInfo.jsHeapSize || 0,
+        jsHeapUsed: memoryInfo.jsHeapUsed || 0,
+        nativeHeapSize: memoryInfo.nativeHeapSize || 0,
+        nativeHeapUsed: memoryInfo.nativeHeapUsed || 0,
+        memoryPressure: this.getMemoryPressure(memoryInfo.usedMemory || 0),
+        screenName: this.currentScreenName || &#x27;unknown&#x27;,
+        sessionId: this.sessionId,
+        platform: Platform.OS as &#x27;ios&#x27; | &#x27;android&#x27;,
+      };
+
+      return memoryMetric;
+    } catch (error) {
+      Logger.error(&#x27;Failed to get memory usage:&#x27;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Create custom performance mark
+   */
+  public mark(name: string, metadata?: Record&lt;string, any&gt;): void {
+    try {
+      const startTime &#x3D; performance.now();
+      performance.mark(name);
+
+      this.performanceMarks.set(name, {
+        name,
+        startTime,
+        metadata,
+      });
+    } catch (error) {
+      Logger.error(&#x27;Failed to create performance mark:&#x27;, error);
+    }
+  }
+
+  /**
+   * Measure duration between two marks
+   */
+  public measure(
+    name: string,
+    startMark: string,
+    endMark?: string
+  ): PerformanceMetric | null {
+    try {
+      const endTime &#x3D; performance.now();
+      const startMarkData &#x3D; this.performanceMarks.get(startMark);
+
+      if (!startMarkData) {
+        Logger.warn(&#x60;Start mark ${startMark} not found&#x60;);
+        return null;
+      }
+
+      const duration &#x3D; endTime - startMarkData.startTime;
+
+      performance.mark(endMark || &#x60;${name}-end&#x60;);
+      performance.measure(name, startMark, endMark || &#x60;${name}-end&#x60;);
+
+      const metric: PerformanceMetric &#x3D; {
+        name,
+        startTime: startMarkData.startTime,
+        endTime,
+        duration,
+        metricType: &#x27;custom&#x27;,
+        additionalData: startMarkData.metadata,
+        timestamp: Date.now(),
+        sessionId: this.sessionId,
+      };
+
+      // Send to telemetry
+      this.sendPerformanceMetric(metric);
+
+      return metric;
+    } catch (error) {
+      Logger.error(&#x27;Failed to measure performance:&#x27;, error);
+      return null;
+    }
+  }
+
+  /**
+   * Generate performance report
+   */
+  public generateReport(): PerformanceReport {
+    const report: PerformanceReport &#x3D; {
+      timestamp: Date.now(),
+      sessionId: this.sessionId,
+      metrics: {
+        navigation: [],
+        screenRender: [],
+        memory: [],
+        custom: this.metricsQueue,
+      },
+      budgetViolations: [],
+      summary: {
+        totalViolations: 0,
+        averageNavigationTime: 0,
+        averageRenderTime: 0,
+        peakMemoryUsage: 0,
+      },
+    };
+
+    return report;
+  }
+
+  /**
+   * Flush all metrics to telemetry
+   */
+  public async flush(): Promise&lt;void&gt; {
+    try {
+      await TelemetryService.flush();
+      this.metricsQueue &#x3D; [];
+      Logger.info(&#x27;Performance metrics flushed&#x27;);
+    } catch (error) {
+      Logger.error(&#x27;Failed to flush performance metrics:&#x27;, error);
+    }
+  }
+
+  /**
+   * Enable or disable performance tracking
+   */
+  public setEnabled(enabled: boolean): void {
+    if (enabled &amp;&amp; !this.isInitialized) {
+      this.initialize();
+    } else if (!enabled &amp;&amp; this.isInitialized) {
+      this.cleanup();
+    }
+  }
+
+  /**
+   * Get current configuration
+   */
+  public getConfig(): PerformanceObserverConfig {
+    return { ...this.config };
+  }
+
+  /**
+   * Update configuration
+   */
+  public updateConfig(newConfig: Partial&lt;PerformanceObserverConfig&gt;): void {
+    this.config &#x3D; { ...this.config, ...newConfig };
+
+    // Restart memory tracking if interval changed
+    if (newConfig.memoryTrackingInterval &amp;&amp; this.memoryTrackingInterval) {
+      this.stopMemoryTracking();
+      this.startMemoryTracking();
+    }
+  }
+
+  // Private methods
+
+  private getDefaultConfig(): PerformanceObserverConfig {
+    return {
+      enableColdStartTracking: true,
+      enableNavigationTracking: true,
+      enableMemoryTracking: true,
+      enableScreenRenderTracking: true,
+      samplingRate: 1.0, // 100% sampling in development
+      memoryTrackingInterval: 10000, // 10 seconds
+      maxMetricsQueueSize: 100,
+      budget: {
+        coldStart: { maxDuration: 3000, target: 2000 },
+        navigation: { maxDuration: 300, target: 200 },
+        screenRender: { maxDuration: 500, target: 300 },
+        memory: { maxUsage: 157286400, target: 104857600 }, // 150MB max, 100MB target
+        apiCall: { maxDuration: 5000, target: 3000 },
+      },
+    };
+  }
+
+  private handlePerformanceEntries(entries: any[]): void {
+    entries.forEach((entry) &#x3D;&gt; {
+      try {
+        const metric: PerformanceMetric &#x3D; {
+          name: entry.name,
+          startTime: entry.startTime,
+          endTime: entry.startTime + entry.duration,
+          duration: entry.duration,
+          metricType: this.getMetricType(entry.name),
+          timestamp: Date.now(),
+          sessionId: this.sessionId,
+        };
+
+        this.addToQueue(metric);
+      } catch (error) {
+        Logger.error(&#x27;Failed to handle performance entry:&#x27;, error);
+      }
+    });
+  }
+
+  private completeScreenTransition(
+    markName: string,
+    fromScreen: string,
+    toScreen: string
+  ): void {
+    try {
+      const endTime &#x3D; performance.now();
+      const startData &#x3D; this.performanceMarks.get(markName);
+
+      if (!startData) return;
+
+      performance.mark(&#x60;${markName}-end&#x60;);
+      performance.measure(
+        &#x60;${markName}-duration&#x60;,
+        &#x60;${markName}-start&#x60;,
+        &#x60;${markName}-end&#x60;
+      );
+
+      const navigationMetric: NavigationMetric &#x3D; {
+        fromScreen,
+        toScreen,
+        navigationDuration: endTime - startData.startTime,
+        renderDuration: 0, // Will be updated when render completes
+        totalDuration: endTime - startData.startTime,
+        timestamp: Date.now(),
+        success: true,
+      };
+
+      // Send to telemetry
+      this.sendNavigationMetric(navigationMetric);
+
+      // Check budget violation
+      this.checkBudgetViolation(&#x27;navigation&#x27;, navigationMetric.totalDuration);
+    } catch (error) {
+      Logger.error(&#x27;Failed to complete screen transition:&#x27;, error);
+    }
+  }
+
+  private startMemoryTracking(): void {
+    if (this.memoryTrackingInterval) return;
+
+    this.memoryTrackingInterval &#x3D; setInterval(async () &#x3D;&gt; {
+      try {
+        const memoryMetric &#x3D; await this.getMemoryUsage();
+        await TelemetryService.trackMemoryMetric(memoryMetric);
+
+        // Check memory budget
+        this.checkBudgetViolation(&#x27;memory&#x27;, memoryMetric.usedMemory);
+      } catch (error) {
+        Logger.error(&#x27;Error in memory tracking:&#x27;, error);
+      }
+    }, this.config.memoryTrackingInterval);
+  }
+
+  private stopMemoryTracking(): void {
+    if (this.memoryTrackingInterval) {
+      clearInterval(this.memoryTrackingInterval);
+      this.memoryTrackingInterval &#x3D; null;
+    }
+  }
+
+  private checkBudgetViolation(metricType: string, value: number): void {
+    const budget &#x3D; this.config.budget;
+    let budgetValue: number;
+    let targetValue: number;
+
+    switch (metricType) {
+      case &#x27;coldStart&#x27;:
+        budgetValue &#x3D; budget.coldStart.maxDuration;
+        targetValue &#x3D; budget.coldStart.target;
+        break;
+      case &#x27;navigation&#x27;:
+        budgetValue &#x3D; budget.navigation.maxDuration;
+        targetValue &#x3D; budget.navigation.target;
+        break;
+      case &#x27;screenRender&#x27;:
+        budgetValue &#x3D; budget.screenRender.maxDuration;
+        targetValue &#x3D; budget.screenRender.target;
+        break;
+      case &#x27;memory&#x27;:
+        budgetValue &#x3D; budget.memory.maxUsage;
+        targetValue &#x3D; budget.memory.target;
+        break;
+      default:
+        return;
+    }
+
+    if (value &gt; budgetValue) {
+      const violation: BudgetViolation &#x3D; {
+        metricType,
+        metricName: metricType,
+        actualValue: value,
+        budgetValue,
+        severity: &#x27;error&#x27;,
+        timestamp: Date.now(),
+        screenName: this.currentScreenName || undefined,
+      };
+
+      this.handleBudgetViolation(violation);
+    } else if (value &gt; targetValue) {
+      const violation: BudgetViolation &#x3D; {
+        metricType,
+        metricName: metricType,
+        actualValue: value,
+        budgetValue: targetValue,
+        severity: &#x27;warning&#x27;,
+        timestamp: Date.now(),
+        screenName: this.currentScreenName || undefined,
+      };
+
+      this.handleBudgetViolation(violation);
+    }
+  }
+
+  private handleBudgetViolation(violation: BudgetViolation): void {
+    Logger.warn(&#x60;Performance budget ${violation.severity}:&#x60;, violation);
+
+    // Send violation to telemetry
+    TelemetryService.trackPerformanceMetric({
+      name: &#x27;budget_violation&#x27;,
+      startTime: violation.timestamp,
+      endTime: violation.timestamp,
+      duration: violation.actualValue,
+      metricType: &#x27;custom&#x27;,
+      timestamp: violation.timestamp,
+      sessionId: this.sessionId,
+      additionalData: violation,
+    });
+  }
+
+  private addToQueue(metric: PerformanceMetric): void {
+    this.metricsQueue.push(metric);
+
+    if (this.metricsQueue.length &gt;&#x3D; this.config.maxMetricsQueueSize) {
+      // Send oldest metrics
+      const metricsToSend &#x3D; this.metricsQueue.splice(
+        0,
+        this.config.maxMetricsQueueSize / 2
+      );
+      metricsToSend.forEach((m) &#x3D;&gt; this.sendPerformanceMetric(m));
+    }
+  }
+
+  private async sendPerformanceMetric(
+    metric: PerformanceMetric
+  ): Promise&lt;void&gt; {
+    try {
+      await TelemetryService.trackPerformanceMetric(metric);
+    } catch (error) {
+      Logger.error(&#x27;Failed to send performance metric:&#x27;, error);
+    }
+  }
+
+  private async sendNavigationMetric(metric: NavigationMetric): Promise&lt;void&gt; {
+    try {
+      await TelemetryService.trackUserInteractionMetric({
+        action: &#x27;navigation&#x27;,
+        screenName: metric.toScreen,
+        duration: metric.totalDuration,
+        success: metric.success,
+        errorMessage: metric.error,
+        timestamp: new Date(),
+        sessionId: this.sessionId,
+        version: &#x27;1.0.0&#x27;,
+        platform: Platform.OS as &#x27;ios&#x27; | &#x27;android&#x27;,
+        deviceId: &#x27;device-id&#x27;,
+        additionalData: metric,
+      });
+    } catch (error) {
+      Logger.error(&#x27;Failed to send navigation metric:&#x27;, error);
+    }
+  }
+
+  private async sendColdStartMetric(metric: ColdStartMetric): Promise&lt;void&gt; {
+    try {
+      await TelemetryService.trackAppStartMetric({
+        startupDuration: metric.totalColdStartTime,
+        startupType: metric.startupType,
+        bundleLoadTime: metric.bundleLoadTime,
+        jsLoadTime: metric.jsInitTime,
+        nativeInitTime: metric.nativeInitTime,
+        timestamp: new Date(),
+        sessionId: this.sessionId,
+        version: &#x27;1.0.0&#x27;,
+        platform: Platform.OS as &#x27;ios&#x27; | &#x27;android&#x27;,
+        deviceId: &#x27;device-id&#x27;,
+        additionalData: metric,
+      });
+    } catch (error) {
+      Logger.error(&#x27;Failed to send cold start metric:&#x27;, error);
+    }
+  }
+
+  private async sendScreenRenderMetric(
+    metric: ScreenRenderMetric
+  ): Promise&lt;void&gt; {
+    try {
+      await TelemetryService.trackPerformanceMetric({
+        name: &#x27;screen_render&#x27;,
+        startTime: metric.renderStartTime,
+        endTime: metric.renderEndTime,
+        duration: metric.renderDuration,
+        metricType: &#x27;screen_render&#x27;,
+        screenName: metric.screenName,
+        timestamp: Date.now(),
+        sessionId: this.sessionId,
+        additionalData: metric,
+      });
+    } catch (error) {
+      Logger.error(&#x27;Failed to send screen render metric:&#x27;, error);
+    }
+  }
+
+  private getMetricType(entryName: string): PerformanceMetric[&#x27;metricType&#x27;] {
+    if (entryName.includes(&#x27;cold-start&#x27;)) return &#x27;cold_start&#x27;;
+    if (entryName.includes(&#x27;navigation&#x27;)) return &#x27;navigation&#x27;;
+    if (entryName.includes(&#x27;render&#x27;)) return &#x27;screen_render&#x27;;
+    return &#x27;custom&#x27;;
+  }
+
+  private getMemoryPressure(
+    usedMemory: number
+  ): MemoryMetric[&#x27;memoryPressure&#x27;] {
+    const budget &#x3D; this.config.budget.memory;
+
+    if (usedMemory &gt; budget.maxUsage) return &#x27;critical&#x27;;
+    if (usedMemory &gt; budget.target) return &#x27;high&#x27;;
+    if (usedMemory &gt; budget.target * 0.8) return &#x27;moderate&#x27;;
+    return &#x27;low&#x27;;
+  }
+
+  private getBundleLoadTime(): number {
+    // Estimate bundle load time - in production, this would be more sophisticated
+    return performance.now() * 0.3; // Rough estimate
+  }
+
+  private getNativeInitTime(): number {
+    // Estimate native init time
+    return performance.now() * 0.2; // Rough estimate
+  }
+
+  private getJsInitTime(): number {
+    // Estimate JS init time
+    return performance.now() * 0.5; // Rough estimate
+  }
+
+  private getStartupType(): ColdStartMetric[&#x27;startupType&#x27;] {
+    // In production, this would detect actual startup type
+    return &#x27;cold&#x27;;
+  }
+
+  private getDeviceModel(): string {
+    // Get device model - simplified for this implementation
+    return Platform.OS &#x3D;&#x3D;&#x3D; &#x27;ios&#x27; ? &#x27;iPhone&#x27; : &#x27;Android Device&#x27;;
+  }
+
+  private getTotalMemory(): number {
+    // Get total device memory - simplified for this implementation
+    return Platform.OS &#x3D;&#x3D;&#x3D; &#x27;ios&#x27; ? 4096 : 3072; // MB
+  }
+
+  private setupAppStateListener(): void {
+    AppState.addEventListener(&#x27;change&#x27;, (nextAppState: AppStateStatus) &#x3D;&gt; {
+      if (nextAppState &#x3D;&#x3D;&#x3D; &#x27;active&#x27; &amp;&amp; this.coldStartTimestamp &#x3D;&#x3D;&#x3D; null) {
+        // App came back from background, start warm start measurement
+        this.startColdStartMeasurement();
+      }
+    });
+  }
+
+  private cleanup(): void {
+    if (this.observer) {
+      this.observer.disconnect();
+      this.observer &#x3D; null;
+    }
+
+    this.stopMemoryTracking();
+    this.isInitialized &#x3D; false;
+    this.metricsQueue &#x3D; [];
+    this.performanceMarks.clear();
+  }
+}
+
+export default new PerformanceObserverService();
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'MockPerformanceObserver.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

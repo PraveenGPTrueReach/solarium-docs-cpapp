@@ -1,0 +1,1709 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >CommissionDao</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/database/dao/CommissionDao.ts</code>
+        </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#clearAll" >clearAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#executeSql" >executeSql</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByDateRange" >findByDateRange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findById" >findById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByStatus" >findByStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getCount" >getCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#getInstance" >getInstance</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getKPIStats" >getKPIStats</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapRowToEntity" >mapRowToEntity</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#performanceTest" >performanceTest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#resetInstance" >resetInstance</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#upsertMany" >upsertMany</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(db: SQLiteDatabase)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/database/dao/CommissionDao.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>db</td>
+                                                  
+                                                        <td>
+                                                                    <code>SQLiteDatabase</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearAll"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>clearAll</b></span>
+                        <a href="#clearAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearAll()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="357"
+                                    class="link-to-prism">src/database/dao/CommissionDao.ts:357</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Clear all commissions (for testing)</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="executeSql"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>executeSql</b></span>
+                        <a href="#executeSql"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>executeSql(query: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/database/dao/CommissionDao.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Helper function to promisify SQLite operations</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>query</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>[]</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll(limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, offset: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="280"
+                                    class="link-to-prism">src/database/dao/CommissionDao.ts:280</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get all commissions with pagination</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>25</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>offset</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>0</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Commission.html" target="_self" >Promise&lt;Commission[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByDateRange"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findByDateRange</b></span>
+                        <a href="#findByDateRange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByDateRange(startDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, endDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/database/dao/CommissionDao.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Find commissions by date range (as required in specifications)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>startDate</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>endDate</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Commission.html" target="_self" >Promise&lt;Commission[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findById"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findById</b></span>
+                        <a href="#findById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="317"
+                                    class="link-to-prism">src/database/dao/CommissionDao.ts:317</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get commission by ID</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Commission.html" target="_self" >Promise&lt;Commission | null&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByStatus"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findByStatus</b></span>
+                        <a href="#findByStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByStatus(status: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/database/dao/CommissionDao.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Find commissions by status (as required in specifications)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>status</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Commission.html" target="_self" >Promise&lt;Commission[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCount"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getCount</b></span>
+                        <a href="#getCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCount()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="341"
+                                    class="link-to-prism">src/database/dao/CommissionDao.ts:341</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get commission count</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInstance"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>getInstance</b></span>
+                        <a href="#getInstance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getInstance(db: SQLiteDatabase)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="23"
+                                    class="link-to-prism">src/database/dao/CommissionDao.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get singleton instance</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>db</td>
+                                            <td>
+                                                        <code>SQLiteDatabase</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/CommissionDao.html" target="_self" >CommissionDao</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getKPIStats"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getKPIStats</b></span>
+                        <a href="#getKPIStats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getKPIStats(filters: <a href="../interfaces/CommissionFilters.html" target="_self">CommissionFilters</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/database/dao/CommissionDao.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get KPI statistics with filters (as required in specifications)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filters</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CommissionFilters.html" target="_self" >CommissionFilters</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>{}</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;CommissionKPIStats&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapRowToEntity"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapRowToEntity</b></span>
+                        <a href="#mapRowToEntity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapRowToEntity(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="374"
+                                    class="link-to-prism">src/database/dao/CommissionDao.ts:374</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Map database row to Commission entity</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Commission.html" target="_self" >Commission</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="performanceTest"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>performanceTest</b></span>
+                        <a href="#performanceTest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>performanceTest(count: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="394"
+                                    class="link-to-prism">src/database/dao/CommissionDao.ts:394</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Performance test method for benchmarking</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>count</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>50</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetInstance"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>resetInstance</b></span>
+                        <a href="#resetInstance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetInstance()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="34"
+                                    class="link-to-prism">src/database/dao/CommissionDao.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Reset singleton instance (for testing)</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="upsertMany"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>upsertMany</b></span>
+                        <a href="#upsertMany"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>upsertMany(commissions: <a href="../interfaces/Commission.html" target="_self">Commission[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="213"
+                                    class="link-to-prism">src/database/dao/CommissionDao.ts:213</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Upsert multiple commissions (for API sync)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>commissions</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Commission.html" target="_self" >Commission[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { SQLiteDatabase } from &#x27;react-native-sqlite-storage&#x27;;
+import type {
+  Commission,
+  CommissionFilters,
+  CommissionKPIStats,
+  CreateCommissionRequest,
+  UpdateCommissionRequest,
+} from &#x27;../models/Commission&#x27;;
+
+// Singleton instance
+let instance: CommissionDao | null &#x3D; null;
+
+export class CommissionDao {
+  constructor(private db: SQLiteDatabase) {}
+
+  /**
+   * Get singleton instance
+   */
+  static getInstance(db: SQLiteDatabase): CommissionDao {
+    if (!instance) {
+      instance &#x3D; new CommissionDao(db);
+      console.log(&#x27;✅ CommissionDao instance created&#x27;);
+    }
+    return instance;
+  }
+
+  /**
+   * Reset singleton instance (for testing)
+   */
+  static resetInstance(): void {
+    instance &#x3D; null;
+    console.log(&#x27;🔄 CommissionDao instance reset&#x27;);
+  }
+
+  /**
+   * Helper function to promisify SQLite operations
+   */
+  private executeSql(query: string, params: any[] &#x3D; []): Promise&lt;any&gt; {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.db.executeSql(
+        query,
+        params,
+        (result) &#x3D;&gt; {
+          console.log(
+            &#x60;✅ CommissionDao SQL Success: ${query.substring(0, 50)}...&#x60;
+          );
+          resolve(result);
+        },
+        (error) &#x3D;&gt; {
+          console.error(
+            &#x60;❌ CommissionDao SQL Error: ${query.substring(0, 50)}...&#x60;,
+            error
+          );
+          reject(error);
+        }
+      );
+    });
+  }
+
+  /**
+   * Find commissions by date range (as required in specifications)
+   */
+  async findByDateRange(
+    startDate: string,
+    endDate: string
+  ): Promise&lt;Commission[]&gt; {
+    console.log(&#x60;🔍 Finding commissions between ${startDate} and ${endDate}&#x60;);
+
+    const startTime &#x3D; Date.now();
+
+    try {
+      const query &#x3D; &#x60;
+        SELECT * FROM commissions
+        WHERE created_at &gt;&#x3D; ? AND created_at &lt;&#x3D; ?
+        ORDER BY created_at DESC;
+      &#x60;;
+
+      const result &#x3D; await this.executeSql(query, [startDate, endDate]);
+      const commissions: Commission[] &#x3D; [];
+
+      for (let i &#x3D; 0; i &lt; result.rows.length; i++) {
+        const row &#x3D; result.rows.item(i);
+        commissions.push(this.mapRowToEntity(row));
+      }
+
+      const duration &#x3D; Date.now() - startTime;
+      console.log(
+        &#x60;✅ Retrieved ${commissions.length} commissions by date range in ${duration}ms&#x60;
+      );
+
+      return commissions;
+    } catch (error) {
+      console.error(&#x27;❌ Error finding commissions by date range:&#x27;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Find commissions by status (as required in specifications)
+   */
+  async findByStatus(status: string): Promise&lt;Commission[]&gt; {
+    console.log(&#x60;🔍 Finding commissions with status: ${status}&#x60;);
+
+    const startTime &#x3D; Date.now();
+
+    try {
+      const query &#x3D; &#x60;
+        SELECT * FROM commissions
+        WHERE status &#x3D; ?
+        ORDER BY created_at DESC;
+      &#x60;;
+
+      const result &#x3D; await this.executeSql(query, [status]);
+      const commissions: Commission[] &#x3D; [];
+
+      for (let i &#x3D; 0; i &lt; result.rows.length; i++) {
+        const row &#x3D; result.rows.item(i);
+        commissions.push(this.mapRowToEntity(row));
+      }
+
+      const duration &#x3D; Date.now() - startTime;
+      console.log(
+        &#x60;✅ Retrieved ${commissions.length} commissions by status in ${duration}ms&#x60;
+      );
+
+      return commissions;
+    } catch (error) {
+      console.error(&#x60;❌ Error finding commissions by status ${status}:&#x60;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Get KPI statistics with filters (as required in specifications)
+   */
+  async getKPIStats(
+    filters: CommissionFilters &#x3D; {}
+  ): Promise&lt;CommissionKPIStats&gt; {
+    console.log(&#x27;📊 Getting commission KPI stats with filters:&#x27;, filters);
+
+    const startTime &#x3D; Date.now();
+
+    try {
+      // Build WHERE clause based on filters
+      let whereClause &#x3D; &#x27;1&#x3D;1&#x27;;
+      const params: any[] &#x3D; [];
+
+      if (filters.dateRange) {
+        whereClause +&#x3D; &#x27; AND created_at &gt;&#x3D; ? AND created_at &lt;&#x3D; ?&#x27;;
+        params.push(filters.dateRange.startDate, filters.dateRange.endDate);
+      }
+
+      if (filters.status) {
+        whereClause +&#x3D; &#x27; AND status &#x3D; ?&#x27;;
+        params.push(filters.status);
+      }
+
+      if (filters.cp_id) {
+        whereClause +&#x3D; &#x27; AND cp_id &#x3D; ?&#x27;;
+        params.push(filters.cp_id);
+      }
+
+      if (filters.lead_id) {
+        whereClause +&#x3D; &#x27; AND lead_id &#x3D; ?&#x27;;
+        params.push(filters.lead_id);
+      }
+
+      const query &#x3D; &#x60;
+        SELECT 
+          COUNT(*) as total_count,
+          SUM(amount) as total_commission,
+          SUM(CASE WHEN status &#x3D; &#x27;paid&#x27; THEN amount ELSE 0 END) as paid_commission,
+          SUM(CASE WHEN status &#x3D; &#x27;pending&#x27; THEN amount ELSE 0 END) as pending_commission,
+          SUM(CASE WHEN status &#x3D; &#x27;approved&#x27; THEN amount ELSE 0 END) as approved_commission,
+          COUNT(CASE WHEN status &#x3D; &#x27;paid&#x27; THEN 1 END) as paid_count,
+          COUNT(CASE WHEN status &#x3D; &#x27;pending&#x27; THEN 1 END) as pending_count,
+          COUNT(CASE WHEN status &#x3D; &#x27;approved&#x27; THEN 1 END) as approved_count
+        FROM commissions
+        WHERE ${whereClause};
+      &#x60;;
+
+      const result &#x3D; await this.executeSql(query, params);
+      const row &#x3D; result.rows.item(0);
+
+      const stats: CommissionKPIStats &#x3D; {
+        totalCommission: row.total_commission || 0,
+        paidCommission: row.paid_commission || 0,
+        pendingCommission: row.pending_commission || 0,
+        approvedCommission: row.approved_commission || 0,
+        totalCount: row.total_count || 0,
+        paidCount: row.paid_count || 0,
+        pendingCount: row.pending_count || 0,
+        approvedCount: row.approved_count || 0,
+      };
+
+      const duration &#x3D; Date.now() - startTime;
+      console.log(&#x60;✅ Retrieved KPI stats in ${duration}ms:&#x60;, stats);
+
+      return stats;
+    } catch (error) {
+      console.error(&#x27;❌ Error getting KPI stats:&#x27;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Upsert multiple commissions (for API sync)
+   */
+  async upsertMany(commissions: Commission[]): Promise&lt;void&gt; {
+    if (!commissions || commissions.length &#x3D;&#x3D;&#x3D; 0) {
+      console.log(&#x27;⚠️ No commissions to upsert&#x27;);
+      return;
+    }
+
+    const startTime &#x3D; Date.now();
+    console.log(&#x60;🔄 Upserting ${commissions.length} commissions&#x60;);
+
+    try {
+      // Begin transaction
+      await this.executeSql(&#x27;BEGIN TRANSACTION;&#x27;);
+
+      // Insert each commission individually for better error handling
+      for (const commission of commissions) {
+        await this.executeSql(
+          &#x60;
+          INSERT OR REPLACE INTO commissions (
+            id, cp_id, lead_id, customer_id, amount, status, created_at, updated_at,
+            payment_date, description, sync_status, local_changes
+          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+          &#x60;,
+          [
+            commission.id,
+            commission.cp_id,
+            commission.lead_id || null,
+            commission.customer_id || null,
+            commission.amount,
+            commission.status,
+            commission.created_at,
+            commission.updated_at,
+            commission.payment_date || null,
+            commission.description || null,
+            commission.sync_status || &#x27;synced&#x27;,
+            commission.local_changes || &#x27;{}&#x27;,
+          ]
+        );
+      }
+
+      // Commit transaction
+      await this.executeSql(&#x27;COMMIT;&#x27;);
+
+      const duration &#x3D; Date.now() - startTime;
+      console.log(
+        &#x60;✅ Upserted ${commissions.length} commissions in ${duration}ms&#x60;
+      );
+
+      // Performance check
+      if (duration &gt; 200) {
+        console.warn(
+          &#x60;⚠️ Upsert performance warning: ${duration}ms for ${commissions.length} commissions (target: ≤200ms)&#x60;
+        );
+      }
+    } catch (error) {
+      console.error(&#x27;❌ Error upserting commissions:&#x27;, error);
+      try {
+        await this.executeSql(&#x27;ROLLBACK;&#x27;);
+      } catch (rollbackError) {
+        console.error(&#x27;❌ Rollback failed:&#x27;, rollbackError);
+      }
+      throw error;
+    }
+  }
+
+  /**
+   * Get all commissions with pagination
+   */
+  async findAll(limit: number &#x3D; 25, offset: number &#x3D; 0): Promise&lt;Commission[]&gt; {
+    console.log(
+      &#x60;🔍 Finding all commissions (limit: ${limit}, offset: ${offset})&#x60;
+    );
+
+    const startTime &#x3D; Date.now();
+
+    try {
+      const query &#x3D; &#x60;
+        SELECT * FROM commissions
+        ORDER BY created_at DESC
+        LIMIT ? OFFSET ?;
+      &#x60;;
+
+      const result &#x3D; await this.executeSql(query, [limit, offset]);
+      const commissions: Commission[] &#x3D; [];
+
+      for (let i &#x3D; 0; i &lt; result.rows.length; i++) {
+        const row &#x3D; result.rows.item(i);
+        commissions.push(this.mapRowToEntity(row));
+      }
+
+      const duration &#x3D; Date.now() - startTime;
+      console.log(
+        &#x60;✅ Retrieved ${commissions.length} commissions in ${duration}ms&#x60;
+      );
+
+      return commissions;
+    } catch (error) {
+      console.error(&#x27;❌ Error finding all commissions:&#x27;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Get commission by ID
+   */
+  async findById(id: string): Promise&lt;Commission | null&gt; {
+    console.log(&#x60;🔍 Finding commission by ID: ${id}&#x60;);
+
+    try {
+      const query &#x3D; &#x27;SELECT * FROM commissions WHERE id &#x3D; ? LIMIT 1;&#x27;;
+      const result &#x3D; await this.executeSql(query, [id]);
+
+      if (result.rows.length &gt; 0) {
+        const commission &#x3D; this.mapRowToEntity(result.rows.item(0));
+        console.log(&#x60;✅ Found commission: ${id}&#x60;);
+        return commission;
+      }
+
+      console.log(&#x60;⚠️ Commission not found: ${id}&#x60;);
+      return null;
+    } catch (error) {
+      console.error(&#x60;❌ Error finding commission ${id}:&#x60;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Get commission count
+   */
+  async getCount(): Promise&lt;number&gt; {
+    try {
+      const query &#x3D; &#x27;SELECT COUNT(*) as count FROM commissions;&#x27;;
+      const result &#x3D; await this.executeSql(query);
+      const count &#x3D; result.rows.item(0).count;
+      console.log(&#x60;📊 Total commissions count: ${count}&#x60;);
+      return count;
+    } catch (error) {
+      console.error(&#x27;❌ Error getting commission count:&#x27;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Clear all commissions (for testing)
+   */
+  async clearAll(): Promise&lt;number&gt; {
+    console.log(&#x27;🗑️ Clearing all commissions&#x27;);
+
+    try {
+      const query &#x3D; &#x27;DELETE FROM commissions;&#x27;;
+      const result &#x3D; await this.executeSql(query);
+      console.log(&#x60;✅ Cleared ${result.rowsAffected} commissions&#x60;);
+      return result.rowsAffected;
+    } catch (error) {
+      console.error(&#x27;❌ Error clearing commissions:&#x27;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Map database row to Commission entity
+   */
+  private mapRowToEntity(row: any): Commission {
+    return {
+      id: row.id,
+      cp_id: row.cp_id,
+      lead_id: row.lead_id,
+      customer_id: row.customer_id,
+      amount: row.amount,
+      status: row.status,
+      created_at: row.created_at,
+      updated_at: row.updated_at,
+      payment_date: row.payment_date,
+      description: row.description,
+      sync_status: row.sync_status || &#x27;synced&#x27;,
+      local_changes: row.local_changes || &#x27;{}&#x27;,
+    };
+  }
+
+  /**
+   * Performance test method for benchmarking
+   */
+  async performanceTest(count: number &#x3D; 50): Promise&lt;{
+    insertTime: number;
+    selectTime: number;
+    kpiTime: number;
+    averageInsertTime: number;
+  }&gt; {
+    console.log(&#x60;🧪 Running commission performance test with ${count} records&#x60;);
+
+    // Generate test data
+    const testCommissions: Commission[] &#x3D; Array.from(
+      { length: count },
+      (_, i) &#x3D;&gt; ({
+        id: &#x60;TEST-COMM-${i.toString().padStart(3, &#x27;0&#x27;)}&#x60;,
+        cp_id: &#x27;TEST-CP-001&#x27;,
+        lead_id: &#x60;TEST-LEAD-${i}&#x60;,
+        amount: Math.floor(Math.random() * 50000) + 10000,
+        status: [&#x27;pending&#x27;, &#x27;paid&#x27;, &#x27;approved&#x27;][
+          Math.floor(Math.random() * 3)
+        ] as any,
+        created_at: new Date(
+          Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000
+        ).toISOString(),
+        updated_at: new Date().toISOString(),
+        sync_status: &#x27;synced&#x27; as const,
+        local_changes: &#x27;{}&#x27;,
+      })
+    );
+
+    // Test insert performance
+    const insertStart &#x3D; Date.now();
+    await this.upsertMany(testCommissions);
+    const insertTime &#x3D; Date.now() - insertStart;
+
+    // Test select performance
+    const selectStart &#x3D; Date.now();
+    const retrievedCommissions &#x3D; await this.findAll(count);
+    const selectTime &#x3D; Date.now() - selectStart;
+
+    // Test KPI performance
+    const kpiStart &#x3D; Date.now();
+    await this.getKPIStats();
+    const kpiTime &#x3D; Date.now() - kpiStart;
+
+    // Clean up test data
+    await this.executeSql(
+      &#x27;DELETE FROM commissions WHERE id LIKE &quot;TEST-COMM-%&quot;;&#x27;
+    );
+
+    const averageInsertTime &#x3D; insertTime / count;
+
+    console.log(&#x60;📊 Commission performance test results:&#x60;, {
+      totalCommissions: count,
+      insertTime: &#x60;${insertTime}ms&#x60;,
+      selectTime: &#x60;${selectTime}ms&#x60;,
+      kpiTime: &#x60;${kpiTime}ms&#x60;,
+      averageInsertTime: &#x60;${averageInsertTime.toFixed(2)}ms per commission&#x60;,
+      retrievedCount: retrievedCommissions.filter((c) &#x3D;&gt;
+        c.id.startsWith(&#x27;TEST-COMM-&#x27;)
+      ).length,
+    });
+
+    return {
+      insertTime,
+      selectTime,
+      kpiTime,
+      averageInsertTime,
+    };
+  }
+}
+
+/**
+ * Export singleton getter function (following existing pattern)
+ */
+export const getInstance &#x3D; CommissionDao.getInstance;
+export const resetInstance &#x3D; CommissionDao.resetInstance;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'CommissionDao.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

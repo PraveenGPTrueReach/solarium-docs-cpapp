@@ -1,0 +1,803 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  LeadInfoTabProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/components/leads/LeadInfoTab.tsx</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#error" 
+>
+                                            error
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#lead" 
+>
+                                            lead
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#loading" 
+>
+                                            loading
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#onRetry" 
+>
+                                            onRetry
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="error"></a>
+                                        <span class="name "><b>error</b>
+                                            <a href="#error">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>error:     <code></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="lead"></a>
+                                        <span class="name "><b>lead</b>
+                                            <a href="#lead">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>lead:         <code><a href="../interfaces/Lead.html" target="_self" >Lead</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/Lead.html" target="_self" >Lead</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="loading"></a>
+                                        <span class="name "><b>loading</b>
+                                            <a href="#loading">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>loading:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="onRetry"></a>
+                                        <span class="name "><b>onRetry</b>
+                                            <a href="#onRetry">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>onRetry:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React, { useCallback } from &#x27;react&#x27;;
+import { View, StyleSheet, Linking, Alert } from &#x27;react-native&#x27;;
+import {
+  List,
+  Divider,
+  Button,
+  Banner,
+  Text,
+  Card,
+  IconButton,
+  ActivityIndicator,
+} from &#x27;react-native-paper&#x27;;
+import { ScrollView } from &#x27;react-native&#x27;;
+import type { Lead } from &#x27;@types/lead&#x27;;
+import { STRINGS } from &#x27;@constants/strings&#x27;;
+
+export interface LeadInfoTabProps {
+  lead?: Lead;
+  loading: boolean;
+  error?: unknown;
+  onRetry: () &#x3D;&gt; void;
+}
+
+/**
+ * Skeleton Loader Component
+ */
+const InfoSkeleton: React.FC &#x3D; () &#x3D;&gt; (
+  &lt;View style&#x3D;{styles.skeletonContainer}&gt;
+    &lt;ActivityIndicator size&#x3D;&quot;large&quot; style&#x3D;{styles.loader} /&gt;
+    &lt;Text variant&#x3D;&quot;bodyMedium&quot; style&#x3D;{styles.loadingText}&gt;
+      {STRINGS.LEAD_INFO.LOADING_LEAD}
+    &lt;/Text&gt;
+    {/* Skeleton rows */}
+    {Array.from({ length: 8 }).map((_, index) &#x3D;&gt; (
+      &lt;View key&#x3D;{index} style&#x3D;{styles.skeletonRow}&gt;
+        &lt;View style&#x3D;{[styles.skeletonText, { width: &#x27;30%&#x27; }]} /&gt;
+        &lt;View style&#x3D;{[styles.skeletonText, { width: &#x27;60%&#x27; }]} /&gt;
+      &lt;/View&gt;
+    ))}
+  &lt;/View&gt;
+);
+
+/**
+ * Error State Component
+ */
+const ErrorState: React.FC&lt;{ error: unknown; onRetry: () &#x3D;&gt; void }&gt; &#x3D; ({
+  error,
+  onRetry,
+}) &#x3D;&gt; {
+  const getErrorMessage &#x3D; (err: unknown): string &#x3D;&gt; {
+    if (err &#x3D;&#x3D;&#x3D; &#x27;cache-miss&#x27;) return STRINGS.ERRORS.CACHE_MISS;
+    if (err instanceof Error) return err.message;
+    return STRINGS.ERRORS.UNKNOWN_ERROR;
+  };
+
+  return (
+    &lt;View style&#x3D;{styles.errorContainer}&gt;
+      &lt;Banner
+        visible&#x3D;{true}
+        actions&#x3D;{[
+          {
+            label: STRINGS.LEAD_INFO.RETRY_BUTTON,
+            onPress: onRetry,
+          },
+        ]}
+        // icon&#x3D;&quot;alert-circle&quot;
+        style&#x3D;{styles.errorBanner}
+      &gt;
+        &lt;View&gt;
+          &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.errorTitle}&gt;
+            {STRINGS.LEAD_INFO.LOAD_ERROR_TITLE}
+          &lt;/Text&gt;
+        &lt;/View&gt;
+        &lt;View&gt;
+          &lt;Text variant&#x3D;&quot;bodyMedium&quot; style&#x3D;{styles.errorMessage}&gt;
+            {getErrorMessage(error)}
+          &lt;/Text&gt;
+        &lt;/View&gt;
+      &lt;/Banner&gt;
+    &lt;/View&gt;
+  );
+};
+
+/**
+ * Phone Action Buttons Component
+ */
+const PhoneActions: React.FC&lt;{ phone: string }&gt; &#x3D; ({ phone }) &#x3D;&gt; {
+  const handleCall &#x3D; useCallback(async () &#x3D;&gt; {
+    try {
+      const phoneUrl &#x3D; &#x60;tel:${phone}&#x60;;
+      const canOpen &#x3D; await Linking.canOpenURL(phoneUrl);
+
+      if (canOpen) {
+        await Linking.openURL(phoneUrl);
+      } else {
+        Alert.alert(&#x27;Error&#x27;, &#x27;Unable to make phone calls on this device&#x27;);
+      }
+    } catch (error) {
+      console.error(&#x27;Error opening phone dialer:&#x27;, error);
+      Alert.alert(&#x27;Error&#x27;, &#x27;Unable to open phone dialer&#x27;);
+    }
+  }, [phone]);
+
+  const handleSMS &#x3D; useCallback(async () &#x3D;&gt; {
+    try {
+      const smsUrl &#x3D; &#x60;sms:${phone}&#x60;;
+      const canOpen &#x3D; await Linking.canOpenURL(smsUrl);
+
+      if (canOpen) {
+        await Linking.openURL(smsUrl);
+      } else {
+        Alert.alert(&#x27;Error&#x27;, &#x27;Unable to send SMS on this device&#x27;);
+      }
+    } catch (error) {
+      console.error(&#x27;Error opening SMS:&#x27;, error);
+      Alert.alert(&#x27;Error&#x27;, &#x27;Unable to open SMS&#x27;);
+    }
+  }, [phone]);
+
+  return (
+    &lt;View style&#x3D;{styles.phoneActions}&gt;
+      &lt;IconButton
+        icon&#x3D;&quot;phone&quot;
+        mode&#x3D;&quot;contained&quot;
+        size&#x3D;{20}
+        onPress&#x3D;{handleCall}
+        style&#x3D;{styles.actionButton}
+        iconColor&#x3D;&quot;#FFFFFF&quot;
+        containerColor&#x3D;&quot;#004C89&quot;
+        accessibilityLabel&#x3D;{&#x60;${STRINGS.LEAD_INFO.CALL} ${phone}&#x60;}
+      /&gt;
+      &lt;IconButton
+        icon&#x3D;&quot;message-text&quot;
+        mode&#x3D;&quot;contained&quot;
+        size&#x3D;{20}
+        onPress&#x3D;{handleSMS}
+        style&#x3D;{styles.actionButton}
+        iconColor&#x3D;&quot;#FFFFFF&quot;
+        containerColor&#x3D;&quot;#34C759&quot;
+        accessibilityLabel&#x3D;{&#x60;${STRINGS.LEAD_INFO.SMS} ${phone}&#x60;}
+      /&gt;
+    &lt;/View&gt;
+  );
+};
+
+/**
+ * Info Row Component
+ */
+const InfoRow: React.FC&lt;{
+  label: string;
+  value: string | null | undefined;
+  showPhoneActions?: boolean;
+}&gt; &#x3D; ({ label, value, showPhoneActions &#x3D; false }) &#x3D;&gt; {
+  const displayValue &#x3D; value || STRINGS.LEAD_INFO.NOT_PROVIDED;
+  const hasValue &#x3D; Boolean(value);
+
+  // Move component creation outside the render prop
+  const renderRight &#x3D; useCallback(() &#x3D;&gt; {
+    if (showPhoneActions &amp;&amp; hasValue) {
+      return &lt;PhoneActions phone&#x3D;{value!} /&gt;;
+    }
+    return null;
+  }, [showPhoneActions, hasValue, value]);
+
+  return (
+    &lt;&gt;
+      &lt;List.Item
+        title&#x3D;{label}
+        description&#x3D;{displayValue}
+        titleStyle&#x3D;{styles.infoLabel}
+        descriptionStyle&#x3D;{[
+          styles.infoValue,
+          !hasValue &amp;&amp; styles.infoValueEmpty,
+        ]}
+        // right&#x3D;{showPhoneActions &amp;&amp; hasValue ? renderRight : undefined}
+        style&#x3D;{styles.infoRow}
+        accessibilityLabel&#x3D;{&#x60;${label}: ${displayValue}&#x60;}
+        accessibilityRole&#x3D;&quot;text&quot;
+      /&gt;
+      &lt;Divider style&#x3D;{styles.divider} /&gt;
+    &lt;/&gt;
+  );
+};
+
+/**
+ * Lead Info Tab Component
+ */
+export const LeadInfoTab: React.FC&lt;LeadInfoTabProps&gt; &#x3D; ({
+  lead,
+  loading,
+  error,
+  onRetry,
+}) &#x3D;&gt; {
+  // Loading state
+  if (loading) {
+    return &lt;InfoSkeleton /&gt;;
+  }
+
+  // Error state
+  if (error) {
+    return &lt;ErrorState error&#x3D;{error} onRetry&#x3D;{onRetry} /&gt;;
+  }
+
+  // No data state
+  if (!lead) {
+    return (
+      &lt;View style&#x3D;{styles.noDataContainer}&gt;
+        &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.noDataText}&gt;
+          No lead data available
+        &lt;/Text&gt;
+        &lt;Button mode&#x3D;&quot;outlined&quot; onPress&#x3D;{onRetry} style&#x3D;{styles.retryButton}&gt;
+          {STRINGS.LEAD_INFO.RETRY_BUTTON}
+        &lt;/Button&gt;
+      &lt;/View&gt;
+    );
+  }
+
+  // Format next follow-up date
+  const formatFollowUpDate &#x3D; (date: string | null | undefined): string &#x3D;&gt; {
+    if (!date) return STRINGS.LEAD_INFO.NOT_PROVIDED;
+
+    try {
+      const followUpDate &#x3D; new Date(date);
+      return followUpDate.toLocaleDateString(&#x27;en-US&#x27;, {
+        weekday: &#x27;short&#x27;,
+        year: &#x27;numeric&#x27;,
+        month: &#x27;short&#x27;,
+        day: &#x27;numeric&#x27;,
+      });
+    } catch {
+      return date;
+    }
+  };
+  console.log(&#x27;lead in info tab&#x27;, lead);
+  return (
+    &lt;ScrollView style&#x3D;{styles.container} showsVerticalScrollIndicator&#x3D;{false}&gt;
+      &lt;Card style&#x3D;{styles.infoCard}&gt;
+        &lt;Card.Content style&#x3D;{styles.cardContent}&gt;
+          &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.sectionTitle}&gt;
+            Contact Information
+          &lt;/Text&gt;
+
+          &lt;View style&#x3D;{styles.infoSection}&gt;
+            &lt;InfoRow
+              label&#x3D;{STRINGS.LEAD_INFO.CUSTOMER_NAME}
+              value&#x3D;{lead.customerName}
+            /&gt;
+            &lt;InfoRow
+              label&#x3D;{STRINGS.LEAD_INFO.PHONE}
+              value&#x3D;{lead.phone}
+              showPhoneActions&#x3D;{true}
+            /&gt;
+            &lt;InfoRow label&#x3D;{STRINGS.LEAD_INFO.EMAIL} value&#x3D;{lead.email} /&gt;
+          &lt;/View&gt;
+
+          &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.sectionTitle}&gt;
+            Address Information
+          &lt;/Text&gt;
+
+          &lt;View style&#x3D;{styles.infoSection}&gt;
+            &lt;InfoRow label&#x3D;{STRINGS.LEAD_INFO.CITY} value&#x3D;{lead.city} /&gt;
+            &lt;InfoRow label&#x3D;{STRINGS.LEAD_INFO.STATE} value&#x3D;{lead.state} /&gt;
+            &lt;InfoRow label&#x3D;{STRINGS.LEAD_INFO.PIN_CODE} value&#x3D;{lead.pinCode} /&gt;
+          &lt;/View&gt;
+
+          &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.sectionTitle}&gt;
+            Lead Status
+          &lt;/Text&gt;
+
+          &lt;View style&#x3D;{styles.infoSection}&gt;
+            &lt;InfoRow
+              label&#x3D;{STRINGS.LEAD_INFO.CURRENT_STATUS}
+              value&#x3D;{lead.status}
+            /&gt;
+            &lt;InfoRow
+              label&#x3D;{STRINGS.LEAD_INFO.NEXT_FOLLOWUP}
+              value&#x3D;{formatFollowUpDate(lead.nextFollowUpDate)}
+            /&gt;
+          &lt;/View&gt;
+        &lt;/Card.Content&gt;
+      &lt;/Card&gt;
+    &lt;/ScrollView&gt;
+  );
+};
+
+const styles &#x3D; StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: &#x27;#F2F2F7&#x27;,
+  },
+  infoCard: {
+    marginBottom: 16,
+    elevation: 2,
+  },
+  cardContent: {
+    paddingVertical: 16,
+  },
+  sectionTitle: {
+    marginBottom: 12,
+    marginTop: 8,
+    color: &#x27;#004C89&#x27;,
+    fontWeight: &#x27;bold&#x27;,
+  },
+  infoSection: {
+    marginBottom: 16,
+  },
+  infoRow: {
+    paddingHorizontal: 0,
+    paddingVertical: 8,
+  },
+  infoLabel: {
+    fontSize: 14,
+    fontWeight: &#x27;600&#x27;,
+    color: &#x27;#666666&#x27;,
+  },
+  infoValue: {
+    fontSize: 16,
+    color: &#x27;#000000&#x27;,
+    marginTop: 4,
+  },
+  infoValueEmpty: {
+    color: &#x27;#999999&#x27;,
+    fontStyle: &#x27;italic&#x27;,
+  },
+  divider: {
+    marginVertical: 4,
+    backgroundColor: &#x27;#E5E5EA&#x27;,
+  },
+  phoneActions: {
+    flexDirection: &#x27;row&#x27;,
+    alignItems: &#x27;center&#x27;,
+    gap: 8,
+  },
+  actionButton: {
+    margin: 0,
+  },
+
+  // Loading state
+  skeletonContainer: {
+    flex: 1,
+    padding: 16,
+  },
+  loader: {
+    marginVertical: 20,
+  },
+  loadingText: {
+    textAlign: &#x27;center&#x27;,
+    color: &#x27;#666666&#x27;,
+    marginBottom: 20,
+  },
+  skeletonRow: {
+    flexDirection: &#x27;row&#x27;,
+    justifyContent: &#x27;space-between&#x27;,
+    alignItems: &#x27;center&#x27;,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: &#x27;#E5E5EA&#x27;,
+  },
+  skeletonText: {
+    height: 16,
+    backgroundColor: &#x27;#E5E5EA&#x27;,
+    borderRadius: 8,
+  },
+
+  // Error state
+  errorContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    padding: 16,
+  },
+  errorBanner: {
+    marginBottom: 20,
+  },
+  errorTitle: {
+    color: &#x27;#FF3B30&#x27;,
+    marginBottom: 4,
+  },
+  errorMessage: {
+    color: &#x27;#666666&#x27;,
+  },
+
+  // No data state
+  noDataContainer: {
+    flex: 1,
+    justifyContent: &#x27;center&#x27;,
+    alignItems: &#x27;center&#x27;,
+    padding: 16,
+  },
+  noDataText: {
+    color: &#x27;#666666&#x27;,
+    marginBottom: 16,
+    textAlign: &#x27;center&#x27;,
+  },
+  retryButton: {
+    marginTop: 8,
+  },
+});
+
+export default LeadInfoTab;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'LeadInfoTabProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

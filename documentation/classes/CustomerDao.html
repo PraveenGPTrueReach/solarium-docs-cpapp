@@ -1,0 +1,3673 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >CustomerDao</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/database/dao/CustomerDao.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Customer DAO implementation</p>
+
+            </p>
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../classes/BaseDao.html" target="_self" >BaseDao</a></code>
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#tableName" >tableName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#db" >db</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#advancedSearch" >advancedSearch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#buildUpsertQuery" >buildUpsertQuery</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#bulkUpdateKycStatus" >bulkUpdateKycStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#countWithFilters" >countWithFilters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByCity" >findByCity</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByEmail" >findByEmail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByKycStatus" >findByKycStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByLocation" >findByLocation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByPhone" >findByPhone</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByState" >findByState</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findPendingSync" >findPendingSync</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getFilterOptions" >getFilterOptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getKycStatistics" >getKycStatistics</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getRecentCustomers" >getRecentCustomers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getUniqueCities" >getUniqueCities</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getUniqueStates" >getUniqueStates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#isEmailRegistered" >isEmailRegistered</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#isPhoneRegistered" >isPhoneRegistered</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#search" >search</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#searchWithFilters" >searchWithFilters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateKycStatus" >updateKycStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#addTimestamps" >addTimestamps</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#count" >count</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteAll" >deleteAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findById" >findById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#generateId" >generateId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#getTableName" >getTableName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#upsertAll" >upsertAll</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(db: SQLiteDatabase)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/database/dao/CustomerDao.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>db</td>
+                                                  
+                                                        <td>
+                                                                    <code>SQLiteDatabase</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tableName"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>tableName</b></span>
+                        <a href="#tableName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;customers&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/BaseDao.html" target="_self" >BaseDao</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseDao.html#source" target="_self" >BaseDao:18</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="db"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>db</b></span>
+                        <a href="#db"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>SQLiteDatabase</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/BaseDao.html" target="_self" >BaseDao</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseDao.html#source" target="_self" >BaseDao:12</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="advancedSearch"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>advancedSearch</b></span>
+                        <a href="#advancedSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>advancedSearch(criteria: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="143"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:143</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Advanced search customers by multiple criteria</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>criteria</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Search criteria</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Customer.html" target="_self" >Promise&lt;Customer[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;Customer[]&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildUpsertQuery"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>buildUpsertQuery</b></span>
+                        <a href="#buildUpsertQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>buildUpsertQuery(record: <a href="../interfaces/Customer.html" target="_self">Partial&lt;Customer&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseDao.html" target="_self" >BaseDao</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseDao.html#source" target="_self" >BaseDao:27</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Build upsert query for customer records</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>record</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Customer.html" target="_self" >Partial&lt;Customer&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>literal type</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bulkUpdateKycStatus"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>bulkUpdateKycStatus</b></span>
+                        <a href="#bulkUpdateKycStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>bulkUpdateKycStatus(customerIds: string[], kycStatus: <a href="../interfaces/Customer.html" target="_self">Customer</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="549"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:549</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Bulk update KYC status for multiple customers</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>customerIds</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Array of customer IDs</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>kycStatus</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Customer.html" target="_self" >Customer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>New KYC status</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise<number> - Number of updated customers</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countWithFilters"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>countWithFilters</b></span>
+                        <a href="#countWithFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>countWithFilters(searchTerm: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, filters: <a href="../interfaces/CustomerFilters.html" target="_self">CustomerFilters</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="316"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:316</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Optimized count query for search results (useful for pagination)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>searchTerm</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;&#x27;</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>Text to search</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>filters</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CustomerFilters.html" target="_self" >CustomerFilters</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>{}</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>Filter criteria</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise<number></p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(customerRequest: <a href="../interfaces/CreateCustomerRequest.html" target="_self">CreateCustomerRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="362"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:362</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Create a new customer</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>customerRequest</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CreateCustomerRequest.html" target="_self" >CreateCustomerRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Customer creation data</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise<string> - Created customer ID</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByCity"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findByCity</b></span>
+                        <a href="#findByCity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByCity(city: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Find customers by city</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>city</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>City name</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Customer.html" target="_self" >Promise&lt;Customer[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;Customer[]&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByEmail"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findByEmail</b></span>
+                        <a href="#findByEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByEmail(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Find customer by email</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>email</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Email address</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Customer.html" target="_self" >Promise&lt;Customer | undefined&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;Customer | undefined&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByKycStatus"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findByKycStatus</b></span>
+                        <a href="#findByKycStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByKycStatus(kycStatus: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Find customers by KYC status</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>kycStatus</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>KYC status</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Customer.html" target="_self" >Promise&lt;Customer[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;Customer[]&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByLocation"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findByLocation</b></span>
+                        <a href="#findByLocation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByLocation(city?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, state?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="469"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:469</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get customers by location (city/state combination)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>city</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>City name</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>state</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>State name</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Customer.html" target="_self" >Promise&lt;Customer[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;Customer[]&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByPhone"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findByPhone</b></span>
+                        <a href="#findByPhone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByPhone(phone: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Find customer by phone number</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>phone</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Phone number</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Customer.html" target="_self" >Promise&lt;Customer | undefined&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;Customer | undefined&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByState"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findByState</b></span>
+                        <a href="#findByState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByState(state: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Find customers by state</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>state</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>State name</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Customer.html" target="_self" >Promise&lt;Customer[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;Customer[]&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findPendingSync"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findPendingSync</b></span>
+                        <a href="#findPendingSync"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findPendingSync()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Find customers pending sync</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Customer.html" target="_self" >Promise&lt;Customer[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;Customer[]&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFilterOptions"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getFilterOptions</b></span>
+                        <a href="#getFilterOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getFilterOptions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="277"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:277</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get available filter options for UI dropdowns</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;{cities: string[], states: string[], kycStatuses: string[]}&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getKycStatistics"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getKycStatistics</b></span>
+                        <a href="#getKycStatistics"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getKycStatistics()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="426"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:426</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get customer statistics by KYC status</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;{total: number, pending: number, approved: number, rejected: number}&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRecentCustomers"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getRecentCustomers</b></span>
+                        <a href="#getRecentCustomers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getRecentCustomers(days: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="632"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:632</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get recently added customers</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>days</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>7</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>Number of days to look back</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Customer.html" target="_self" >Promise&lt;Customer[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;Customer[]&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUniqueCities"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getUniqueCities</b></span>
+                        <a href="#getUniqueCities"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUniqueCities()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="495"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:495</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get unique cities from customers</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;string[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;string[]&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUniqueStates"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getUniqueStates</b></span>
+                        <a href="#getUniqueStates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUniqueStates()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="521"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:521</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get unique states from customers</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;string[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;string[]&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEmailRegistered"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>isEmailRegistered</b></span>
+                        <a href="#isEmailRegistered"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isEmailRegistered(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, excludeId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="619"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:619</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Check if email is already registered</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>email</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Email to check</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>excludeId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Customer ID to exclude from check (for updates)</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise<boolean></p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isPhoneRegistered"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>isPhoneRegistered</b></span>
+                        <a href="#isPhoneRegistered"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isPhoneRegistered(phone: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, excludeId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="605"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:605</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Check if phone number is already registered</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>phone</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Phone number to check</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>excludeId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Customer ID to exclude from check (for updates)</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise<boolean></p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="search"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>search</b></span>
+                        <a href="#search"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>search(searchTerm: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Search customers by name or phone</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>searchTerm</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Search term</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Customer.html" target="_self" >Promise&lt;Customer[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;Customer[]&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchWithFilters"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>searchWithFilters</b></span>
+                        <a href="#searchWithFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>searchWithFilters(searchTerm: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, filters: <a href="../interfaces/CustomerFilters.html" target="_self">CustomerFilters</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="199"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:199</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Enhanced search with filters (NEW METHOD for Sub-task 3)
+Optimized search combining text search with multiple filters</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>searchTerm</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;&#x27;</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>Text to search in name, phone, email</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>filters</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CustomerFilters.html" target="_self" >CustomerFilters</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>{}</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>Filter criteria for KYC status, location, etc.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Customer.html" target="_self" >Promise&lt;Customer[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;Customer[]&gt;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(updateRequest: <a href="../interfaces/UpdateCustomerRequest.html" target="_self">UpdateCustomerRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="381"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:381</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Update an existing customer</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>updateRequest</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UpdateCustomerRequest.html" target="_self" >UpdateCustomerRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Customer update data</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise<void></p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateKycStatus"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>updateKycStatus</b></span>
+                        <a href="#updateKycStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateKycStatus(customerId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, kycStatus: <a href="../interfaces/Customer.html" target="_self">Customer</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="403"
+                                    class="link-to-prism">src/database/dao/CustomerDao.ts:403</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Update customer KYC status</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>customerId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Customer ID</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>kycStatus</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Customer.html" target="_self" >Customer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>New KYC status</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise<void></p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addTimestamps"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>addTimestamps</b></span>
+                        <a href="#addTimestamps"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addTimestamps(record: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, isUpdate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseDao.html" target="_self" >BaseDao</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseDao.html#source" target="_self" >BaseDao:226</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Add timestamps to record for insert/update operations</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>record</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>Record to add timestamps to</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>isUpdate</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>Whether this is an update operation</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Record with timestamps</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="count"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>count</b></span>
+                        <a href="#count"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>count(whereClause?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params?: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseDao.html" target="_self" >BaseDao</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseDao.html#source" target="_self" >BaseDao:183</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get record count</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>whereClause</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Optional WHERE clause</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Parameters for the WHERE clause</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise<number> - Number of records</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteAll"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>deleteAll</b></span>
+                        <a href="#deleteAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteAll(whereClause?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params?: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseDao.html" target="_self" >BaseDao</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseDao.html#source" target="_self" >BaseDao:147</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Delete all records from the table</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>whereClause</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Optional WHERE clause</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Parameters for the WHERE clause</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise<number> - Number of deleted records</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll(whereClause?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params?: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseDao.html" target="_self" >BaseDao</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseDao.html#source" target="_self" >BaseDao:32</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Find all records in the table</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>whereClause</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Optional WHERE clause</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Parameters for the WHERE clause</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;T[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;T[]&gt; - Array of records</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findById"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findById</b></span>
+                        <a href="#findById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseDao.html" target="_self" >BaseDao</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseDao.html#source" target="_self" >BaseDao:66</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Find a record by ID</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Record ID</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;T | undefined&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise&lt;T | undefined&gt; - Record or undefined if not found</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateId"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>generateId</b></span>
+                        <a href="#generateId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateId()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseDao.html" target="_self" >BaseDao</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseDao.html#source" target="_self" >BaseDao:241</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Generate UUID for new records</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>string - UUID</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTableName"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>getTableName</b></span>
+                        <a href="#getTableName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTableName()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseDao.html" target="_self" >BaseDao</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseDao.html#source" target="_self" >BaseDao:22</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get table name for the entity</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="upsertAll"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>upsertAll</b></span>
+                        <a href="#upsertAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>upsertAll(records: Partial<T>[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseDao.html" target="_self" >BaseDao</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseDao.html#source" target="_self" >BaseDao:96</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Insert or update multiple records in a single transaction</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>records</td>
+                                            <td>
+                                                        <code>Partial&lt;T&gt;[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Array of records to upsert</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise<void></p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BaseDao } from &#x27;./BaseDao&#x27;;
+import type {
+  Customer,
+  CreateCustomerRequest,
+  UpdateCustomerRequest,
+} from &#x27;../models/Customer&#x27;;
+import type { SQLiteDatabase } from &#x27;../database&#x27;;
+import type { CustomerFilters } from &#x27;../../store/slices/customerSlice&#x27;;
+
+/**
+ * Customer DAO implementation
+ */
+export class CustomerDao extends BaseDao&lt;Customer&gt; {
+  protected tableName &#x3D; &#x27;customers&#x27;;
+
+  constructor(db: SQLiteDatabase) {
+    super(db);
+  }
+
+  /**
+   * Build upsert query for customer records
+   */
+  protected buildUpsertQuery(record: Partial&lt;Customer&gt;): {
+    sql: string;
+    params: any[];
+  } {
+    // Add default values
+    const customerRecord &#x3D; {
+      ...record,
+      sync_status: record.sync_status || &#x27;pending&#x27;,
+      local_changes: record.local_changes || &#x27;{}&#x27;,
+      kyc_status: record.kyc_status || &#x27;pending&#x27;,
+    };
+
+    // Add timestamps
+    this.addTimestamps(customerRecord, !!record.id);
+
+    // Generate ID if not provided
+    if (!customerRecord.id) {
+      customerRecord.id &#x3D; this.generateId();
+    }
+
+    const sql &#x3D; &#x60;
+      INSERT OR REPLACE INTO customers (
+        id, name, phone, email, address, city, state, pincode,
+        created_at, updated_at, kyc_status, sync_status, local_changes
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    &#x60;;
+
+    const params &#x3D; [
+      customerRecord.id,
+      customerRecord.name,
+      customerRecord.phone,
+      customerRecord.email || null,
+      customerRecord.address || null,
+      customerRecord.city || null,
+      customerRecord.state || null,
+      customerRecord.pincode || null,
+      customerRecord.created_at,
+      customerRecord.updated_at,
+      customerRecord.kyc_status,
+      customerRecord.sync_status,
+      customerRecord.local_changes,
+    ];
+
+    return { sql, params };
+  }
+
+  /**
+   * Find customer by phone number
+   * @param phone - Phone number
+   * @returns Promise&lt;Customer | undefined&gt;
+   */
+  async findByPhone(phone: string): Promise&lt;Customer | undefined&gt; {
+    const customers &#x3D; await this.findAll(&#x27;phone &#x3D; ?&#x27;, [phone]);
+    return customers.length &gt; 0 ? customers[0] : undefined;
+  }
+
+  /**
+   * Find customer by email
+   * @param email - Email address
+   * @returns Promise&lt;Customer | undefined&gt;
+   */
+  async findByEmail(email: string): Promise&lt;Customer | undefined&gt; {
+    const customers &#x3D; await this.findAll(&#x27;email &#x3D; ?&#x27;, [email]);
+    return customers.length &gt; 0 ? customers[0] : undefined;
+  }
+
+  /**
+   * Find customers by KYC status
+   * @param kycStatus - KYC status
+   * @returns Promise&lt;Customer[]&gt;
+   */
+  async findByKycStatus(kycStatus: string): Promise&lt;Customer[]&gt; {
+    return this.findAll(&#x27;kyc_status &#x3D; ?&#x27;, [kycStatus]);
+  }
+
+  /**
+   * Find customers by city
+   * @param city - City name
+   * @returns Promise&lt;Customer[]&gt;
+   */
+  async findByCity(city: string): Promise&lt;Customer[]&gt; {
+    return this.findAll(&#x27;city &#x3D; ?&#x27;, [city]);
+  }
+
+  /**
+   * Find customers by state
+   * @param state - State name
+   * @returns Promise&lt;Customer[]&gt;
+   */
+  async findByState(state: string): Promise&lt;Customer[]&gt; {
+    return this.findAll(&#x27;state &#x3D; ?&#x27;, [state]);
+  }
+
+  /**
+   * Find customers pending sync
+   * @returns Promise&lt;Customer[]&gt;
+   */
+  async findPendingSync(): Promise&lt;Customer[]&gt; {
+    return this.findAll(&#x27;sync_status &#x3D; ?&#x27;, [&#x27;pending&#x27;]);
+  }
+
+  /**
+   * Search customers by name or phone
+   * @param searchTerm - Search term
+   * @returns Promise&lt;Customer[]&gt;
+   */
+  async search(searchTerm: string): Promise&lt;Customer[]&gt; {
+    const term &#x3D; &#x60;%${searchTerm}%&#x60;;
+    return this.findAll(&#x27;name LIKE ? OR phone LIKE ?&#x27;, [term, term]);
+  }
+
+  /**
+   * Advanced search customers by multiple criteria
+   * @param criteria - Search criteria
+   * @returns Promise&lt;Customer[]&gt;
+   */
+  async advancedSearch(criteria: {
+    name?: string;
+    phone?: string;
+    email?: string;
+    city?: string;
+    state?: string;
+    kycStatus?: string;
+  }): Promise&lt;Customer[]&gt; {
+    const conditions: string[] &#x3D; [];
+    const params: any[] &#x3D; [];
+
+    if (criteria.name) {
+      conditions.push(&#x27;name LIKE ?&#x27;);
+      params.push(&#x60;%${criteria.name}%&#x60;);
+    }
+
+    if (criteria.phone) {
+      conditions.push(&#x27;phone LIKE ?&#x27;);
+      params.push(&#x60;%${criteria.phone}%&#x60;);
+    }
+
+    if (criteria.email) {
+      conditions.push(&#x27;email LIKE ?&#x27;);
+      params.push(&#x60;%${criteria.email}%&#x60;);
+    }
+
+    if (criteria.city) {
+      conditions.push(&#x27;city &#x3D; ?&#x27;);
+      params.push(criteria.city);
+    }
+
+    if (criteria.state) {
+      conditions.push(&#x27;state &#x3D; ?&#x27;);
+      params.push(criteria.state);
+    }
+
+    if (criteria.kycStatus) {
+      conditions.push(&#x27;kyc_status &#x3D; ?&#x27;);
+      params.push(criteria.kycStatus);
+    }
+
+    if (conditions.length &#x3D;&#x3D;&#x3D; 0) {
+      return this.findAll();
+    }
+
+    const whereClause &#x3D; conditions.join(&#x27; AND &#x27;);
+    return this.findAll(whereClause, params);
+  }
+
+  /**
+   * Enhanced search with filters (NEW METHOD for Sub-task 3)
+   * Optimized search combining text search with multiple filters
+   * @param searchTerm - Text to search in name, phone, email
+   * @param filters - Filter criteria for KYC status, location, etc.
+   * @returns Promise&lt;Customer[]&gt;
+   */
+  async searchWithFilters(
+    searchTerm: string &#x3D; &#x27;&#x27;,
+    filters: CustomerFilters &#x3D; {}
+  ): Promise&lt;Customer[]&gt; {
+    console.log(&#x27;🔍 CustomerDao.searchWithFilters:&#x27;, { searchTerm, filters });
+
+    const conditions: string[] &#x3D; [];
+    const params: any[] &#x3D; [];
+
+    // Text search across multiple fields (if provided)
+    if (searchTerm &amp;&amp; searchTerm.trim()) {
+      const trimmedTerm &#x3D; searchTerm.trim();
+      conditions.push(
+        &#x27;(name LIKE ? COLLATE NOCASE OR phone LIKE ? OR email LIKE ? COLLATE NOCASE)&#x27;
+      );
+      const searchPattern &#x3D; &#x60;%${trimmedTerm}%&#x60;;
+      params.push(searchPattern, searchPattern, searchPattern);
+    }
+
+    // KYC status filter
+    if (filters.kycStatus) {
+      conditions.push(&#x27;kyc_status &#x3D; ?&#x27;);
+      params.push(filters.kycStatus);
+    }
+
+    // City filter
+    if (filters.city) {
+      conditions.push(&#x27;city &#x3D; ?&#x27;);
+      params.push(filters.city);
+    }
+
+    // State filter
+    if (filters.state) {
+      conditions.push(&#x27;state &#x3D; ?&#x27;);
+      params.push(filters.state);
+    }
+
+    // Sync status filter (if provided)
+    if (filters.status) {
+      conditions.push(&#x27;sync_status &#x3D; ?&#x27;);
+      params.push(filters.status);
+    }
+
+    // Build final query
+    let whereClause &#x3D; &#x27;&#x27;;
+    if (conditions.length &gt; 0) {
+      whereClause &#x3D; conditions.join(&#x27; AND &#x27;);
+    }
+
+    // Add ordering for consistent results
+    const orderBy &#x3D; &#x27;ORDER BY name COLLATE NOCASE ASC, created_at DESC&#x27;;
+    const fullWhereClause &#x3D; whereClause
+      ? &#x60;${whereClause} ${orderBy}&#x60;
+      : orderBy.substring(9); // Remove &quot;ORDER BY&quot; if no WHERE clause
+
+    console.log(&#x27;🔍 Search query conditions:&#x27;, whereClause || &#x27;none&#x27;);
+    console.log(&#x27;🔍 Search query params:&#x27;, params);
+
+    const startTime &#x3D; Date.now();
+    const results &#x3D; await this.findAll(fullWhereClause, params);
+    const duration &#x3D; Date.now() - startTime;
+
+    console.log(&#x60;✅ Found ${results.length} customers in ${duration}ms&#x60;);
+
+    // Performance warning for slow queries
+    if (duration &gt; 100) {
+      console.warn(
+        &#x60;⚠️ Slow customer search: ${duration}ms (consider adding indexes)&#x60;
+      );
+    }
+
+    return results;
+  }
+
+  /**
+   * Get available filter options for UI dropdowns
+   * @returns Promise&lt;{cities: string[], states: string[], kycStatuses: string[]}&gt;
+   */
+  async getFilterOptions(): Promise&lt;{
+    cities: string[];
+    states: string[];
+    kycStatuses: string[];
+  }&gt; {
+    console.log(&#x27;🔧 Getting filter options...&#x27;);
+
+    const startTime &#x3D; Date.now();
+
+    try {
+      // Get all in parallel for better performance
+      const [cities, states] &#x3D; await Promise.all([
+        this.getUniqueCities(),
+        this.getUniqueStates(),
+      ]);
+
+      // KYC statuses are predefined
+      const kycStatuses &#x3D; [&#x27;pending&#x27;, &#x27;submitted&#x27;, &#x27;approved&#x27;, &#x27;rejected&#x27;];
+
+      const duration &#x3D; Date.now() - startTime;
+      console.log(&#x60;✅ Retrieved filter options in ${duration}ms&#x60;);
+
+      return {
+        cities: cities.filter(Boolean), // Remove null/empty values
+        states: states.filter(Boolean), // Remove null/empty values
+        kycStatuses,
+      };
+    } catch (error) {
+      console.error(&#x27;❌ Error getting filter options:&#x27;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Optimized count query for search results (useful for pagination)
+   * @param searchTerm - Text to search
+   * @param filters - Filter criteria
+   * @returns Promise&lt;number&gt;
+   */
+  async countWithFilters(
+    searchTerm: string &#x3D; &#x27;&#x27;,
+    filters: CustomerFilters &#x3D; {}
+  ): Promise&lt;number&gt; {
+    const conditions: string[] &#x3D; [];
+    const params: any[] &#x3D; [];
+
+    // Same logic as searchWithFilters but for count
+    if (searchTerm &amp;&amp; searchTerm.trim()) {
+      const trimmedTerm &#x3D; searchTerm.trim();
+      conditions.push(
+        &#x27;(name LIKE ? COLLATE NOCASE OR phone LIKE ? OR email LIKE ? COLLATE NOCASE)&#x27;
+      );
+      const searchPattern &#x3D; &#x60;%${trimmedTerm}%&#x60;;
+      params.push(searchPattern, searchPattern, searchPattern);
+    }
+
+    if (filters.kycStatus) {
+      conditions.push(&#x27;kyc_status &#x3D; ?&#x27;);
+      params.push(filters.kycStatus);
+    }
+
+    if (filters.city) {
+      conditions.push(&#x27;city &#x3D; ?&#x27;);
+      params.push(filters.city);
+    }
+
+    if (filters.state) {
+      conditions.push(&#x27;state &#x3D; ?&#x27;);
+      params.push(filters.state);
+    }
+
+    if (filters.status) {
+      conditions.push(&#x27;sync_status &#x3D; ?&#x27;);
+      params.push(filters.status);
+    }
+
+    const whereClause &#x3D; conditions.length &gt; 0 ? conditions.join(&#x27; AND &#x27;) : &#x27;&#x27;;
+    return this.count(whereClause, params);
+  }
+
+  /**
+   * Create a new customer
+   * @param customerRequest - Customer creation data
+   * @returns Promise&lt;string&gt; - Created customer ID
+   */
+  async create(customerRequest: CreateCustomerRequest): Promise&lt;string&gt; {
+    const id &#x3D; customerRequest.id || this.generateId();
+    const customer: Partial&lt;Customer&gt; &#x3D; {
+      ...customerRequest,
+      id,
+      sync_status: &#x27;pending&#x27;,
+      local_changes: &#x27;{}&#x27;,
+      kyc_status: &#x27;pending&#x27;,
+    };
+
+    await this.upsertAll([customer]);
+    return id;
+  }
+
+  /**
+   * Update an existing customer
+   * @param updateRequest - Customer update data
+   * @returns Promise&lt;void&gt;
+   */
+  async update(updateRequest: UpdateCustomerRequest): Promise&lt;void&gt; {
+    const existingCustomer &#x3D; await this.findById(updateRequest.id);
+    if (!existingCustomer) {
+      throw new Error(&#x60;Customer with ID ${updateRequest.id} not found&#x60;);
+    }
+
+    const updatedCustomer: Partial&lt;Customer&gt; &#x3D; {
+      ...existingCustomer,
+      ...updateRequest,
+      sync_status: &#x27;pending&#x27;,
+      local_changes: JSON.stringify(updateRequest),
+    };
+
+    await this.upsertAll([updatedCustomer]);
+  }
+
+  /**
+   * Update customer KYC status
+   * @param customerId - Customer ID
+   * @param kycStatus - New KYC status
+   * @returns Promise&lt;void&gt;
+   */
+  async updateKycStatus(
+    customerId: string,
+    kycStatus: Customer[&#x27;kyc_status&#x27;]
+  ): Promise&lt;void&gt; {
+    const existingCustomer &#x3D; await this.findById(customerId);
+    if (!existingCustomer) {
+      throw new Error(&#x60;Customer with ID ${customerId} not found&#x60;);
+    }
+
+    const updatedCustomer: Partial&lt;Customer&gt; &#x3D; {
+      ...existingCustomer,
+      kyc_status: kycStatus,
+      sync_status: &#x27;pending&#x27;,
+      local_changes: JSON.stringify({ kyc_status: kycStatus }),
+    };
+
+    await this.upsertAll([updatedCustomer]);
+  }
+
+  /**
+   * Get customer statistics by KYC status
+   * @returns Promise&lt;{total: number, pending: number, approved: number, rejected: number}&gt;
+   */
+  async getKycStatistics(): Promise&lt;{
+    total: number;
+    pending: number;
+    approved: number;
+    rejected: number;
+    submitted: number;
+  }&gt; {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.db.transaction((tx) &#x3D;&gt; {
+        tx.executeSql(
+          &#x60;SELECT
+            COUNT(*) as total,
+            SUM(CASE WHEN kyc_status &#x3D; &#x27;pending&#x27; THEN 1 ELSE 0 END) as pending,
+            SUM(CASE WHEN kyc_status &#x3D; &#x27;submitted&#x27; THEN 1 ELSE 0 END) as submitted,
+            SUM(CASE WHEN kyc_status &#x3D; &#x27;approved&#x27; THEN 1 ELSE 0 END) as approved,
+            SUM(CASE WHEN kyc_status &#x3D; &#x27;rejected&#x27; THEN 1 ELSE 0 END) as rejected
+          FROM customers&#x60;,
+          [],
+          (_, result) &#x3D;&gt; {
+            const stats &#x3D; result.rows.item(0);
+            resolve({
+              total: stats.total || 0,
+              pending: stats.pending || 0,
+              submitted: stats.submitted || 0,
+              approved: stats.approved || 0,
+              rejected: stats.rejected || 0,
+            });
+          },
+          (_, error) &#x3D;&gt; {
+            console.error(&#x27;Failed to get customer KYC statistics:&#x27;, error);
+            reject(new Error(&#x60;Statistics query failed: ${error.message}&#x60;));
+          }
+        );
+      });
+    });
+  }
+
+  /**
+   * Get customers by location (city/state combination)
+   * @param city - City name
+   * @param state - State name
+   * @returns Promise&lt;Customer[]&gt;
+   */
+  async findByLocation(city?: string, state?: string): Promise&lt;Customer[]&gt; {
+    const conditions: string[] &#x3D; [];
+    const params: any[] &#x3D; [];
+
+    if (city) {
+      conditions.push(&#x27;city &#x3D; ?&#x27;);
+      params.push(city);
+    }
+
+    if (state) {
+      conditions.push(&#x27;state &#x3D; ?&#x27;);
+      params.push(state);
+    }
+
+    if (conditions.length &#x3D;&#x3D;&#x3D; 0) {
+      return this.findAll();
+    }
+
+    const whereClause &#x3D; conditions.join(&#x27; AND &#x27;);
+    return this.findAll(whereClause, params);
+  }
+
+  /**
+   * Get unique cities from customers
+   * @returns Promise&lt;string[]&gt;
+   */
+  async getUniqueCities(): Promise&lt;string[]&gt; {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.db.transaction((tx) &#x3D;&gt; {
+        tx.executeSql(
+          &#x27;SELECT DISTINCT city FROM customers WHERE city IS NOT NULL AND city !&#x3D; &quot;&quot; ORDER BY city&#x27;,
+          [],
+          (_, result) &#x3D;&gt; {
+            const cities: string[] &#x3D; [];
+            for (let i &#x3D; 0; i &lt; result.rows.length; i++) {
+              cities.push(result.rows.item(i).city);
+            }
+            resolve(cities);
+          },
+          (_, error) &#x3D;&gt; {
+            console.error(&#x27;Failed to get unique cities:&#x27;, error);
+            reject(new Error(&#x60;Query failed: ${error.message}&#x60;));
+          }
+        );
+      });
+    });
+  }
+
+  /**
+   * Get unique states from customers
+   * @returns Promise&lt;string[]&gt;
+   */
+  async getUniqueStates(): Promise&lt;string[]&gt; {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.db.transaction((tx) &#x3D;&gt; {
+        tx.executeSql(
+          &#x27;SELECT DISTINCT state FROM customers WHERE state IS NOT NULL AND state !&#x3D; &quot;&quot; ORDER BY state&#x27;,
+          [],
+          (_, result) &#x3D;&gt; {
+            const states: string[] &#x3D; [];
+            for (let i &#x3D; 0; i &lt; result.rows.length; i++) {
+              states.push(result.rows.item(i).state);
+            }
+            resolve(states);
+          },
+          (_, error) &#x3D;&gt; {
+            console.error(&#x27;Failed to get unique states:&#x27;, error);
+            reject(new Error(&#x60;Query failed: ${error.message}&#x60;));
+          }
+        );
+      });
+    });
+  }
+
+  /**
+   * Bulk update KYC status for multiple customers
+   * @param customerIds - Array of customer IDs
+   * @param kycStatus - New KYC status
+   * @returns Promise&lt;number&gt; - Number of updated customers
+   */
+  async bulkUpdateKycStatus(
+    customerIds: string[],
+    kycStatus: Customer[&#x27;kyc_status&#x27;]
+  ): Promise&lt;number&gt; {
+    if (customerIds.length &#x3D;&#x3D;&#x3D; 0) {
+      return 0;
+    }
+
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.db.transaction(
+        (tx) &#x3D;&gt; {
+          const placeholders &#x3D; customerIds.map(() &#x3D;&gt; &#x27;?&#x27;).join(&#x27;,&#x27;);
+          const now &#x3D; new Date().toISOString();
+
+          tx.executeSql(
+            &#x60;UPDATE customers
+             SET kyc_status &#x3D; ?, updated_at &#x3D; ?, sync_status &#x3D; &#x27;pending&#x27;,
+                 local_changes &#x3D; ?
+             WHERE id IN (${placeholders})&#x60;,
+            [
+              kycStatus,
+              now,
+              JSON.stringify({ kyc_status: kycStatus }),
+              ...customerIds,
+            ],
+            (_, result) &#x3D;&gt; {
+              console.log(
+                &#x60;Bulk updated ${result.rowsAffected} customers KYC status to ${kycStatus}&#x60;
+              );
+            },
+            (_, error) &#x3D;&gt; {
+              console.error(&#x27;Failed to bulk update KYC status:&#x27;, error);
+              throw new Error(&#x60;Bulk update failed: ${error.message}&#x60;);
+            }
+          );
+        },
+        (error) &#x3D;&gt; {
+          console.error(&#x27;Transaction failed for bulk KYC update:&#x27;, error);
+          reject(new Error(&#x60;Transaction failed: ${error.message}&#x60;));
+        },
+        () &#x3D;&gt; {
+          console.log(
+            &#x60;Successfully bulk updated KYC status for ${customerIds.length} customers&#x60;
+          );
+          resolve(customerIds.length);
+        }
+      );
+    });
+  }
+
+  /**
+   * Check if phone number is already registered
+   * @param phone - Phone number to check
+   * @param excludeId - Customer ID to exclude from check (for updates)
+   * @returns Promise&lt;boolean&gt;
+   */
+  async isPhoneRegistered(phone: string, excludeId?: string): Promise&lt;boolean&gt; {
+    const whereClause &#x3D; excludeId ? &#x27;phone &#x3D; ? AND id !&#x3D; ?&#x27; : &#x27;phone &#x3D; ?&#x27;;
+    const params &#x3D; excludeId ? [phone, excludeId] : [phone];
+
+    const count &#x3D; await this.count(whereClause, params);
+    return count &gt; 0;
+  }
+
+  /**
+   * Check if email is already registered
+   * @param email - Email to check
+   * @param excludeId - Customer ID to exclude from check (for updates)
+   * @returns Promise&lt;boolean&gt;
+   */
+  async isEmailRegistered(email: string, excludeId?: string): Promise&lt;boolean&gt; {
+    const whereClause &#x3D; excludeId ? &#x27;email &#x3D; ? AND id !&#x3D; ?&#x27; : &#x27;email &#x3D; ?&#x27;;
+    const params &#x3D; excludeId ? [email, excludeId] : [email];
+
+    const count &#x3D; await this.count(whereClause, params);
+    return count &gt; 0;
+  }
+
+  /**
+   * Get recently added customers
+   * @param days - Number of days to look back
+   * @returns Promise&lt;Customer[]&gt;
+   */
+  async getRecentCustomers(days: number &#x3D; 7): Promise&lt;Customer[]&gt; {
+    const cutoffDate &#x3D; new Date();
+    cutoffDate.setDate(cutoffDate.getDate() - days);
+    const cutoffIso &#x3D; cutoffDate.toISOString();
+
+    return this.findAll(&#x27;created_at &gt;&#x3D; ? ORDER BY created_at DESC&#x27;, [
+      cutoffIso,
+    ]);
+  }
+}
+
+// Singleton instance
+let customerDaoInstance: CustomerDao | null &#x3D; null;
+
+/**
+ * Get singleton instance of CustomerDao
+ * @param db - Database instance
+ * @returns CustomerDao instance
+ */
+export function getInstance(db: SQLiteDatabase): CustomerDao {
+  if (!customerDaoInstance) {
+    customerDaoInstance &#x3D; new CustomerDao(db);
+  }
+  return customerDaoInstance;
+}
+
+/**
+ * Reset singleton instance (for testing)
+ */
+export function resetInstance(): void {
+  customerDaoInstance &#x3D; null;
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'CustomerDao.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

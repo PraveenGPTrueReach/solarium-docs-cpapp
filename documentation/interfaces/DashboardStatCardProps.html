@@ -1,0 +1,659 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  DashboardStatCardProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/components/dashboard/DashboardStatCard.tsx</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#hasCache" 
+>
+                                            hasCache
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#isOffline" 
+>
+                                            isOffline
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#testID" 
+>
+                                            testID
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#title" 
+>
+                                            title
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#value" 
+>
+                                            value
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="hasCache"></a>
+                                        <span class="name "><b>hasCache</b>
+                                            <a href="#hasCache">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>hasCache:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Whether data has been cached (affects empty state messaging)</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="isOffline"></a>
+                                        <span class="name "><b>isOffline</b>
+                                            <a href="#isOffline">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>isOffline:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Whether the app is offline (affects empty state display)</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="testID"></a>
+                                        <span class="name "><b>testID</b>
+                                            <a href="#testID">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>testID:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Test ID for testing purposes</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="title"></a>
+                                        <span class="name "><b>title</b>
+                                            <a href="#title">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>title:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Display title for the metric</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="value"></a>
+                                        <span class="name "><b>value</b>
+                                            <a href="#value">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>value:     <code>number | undefined</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>number | undefined</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Numeric value to display (undefined shows 0, except in offline no-cache state)</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React from &#x27;react&#x27;;
+import { View, Text, StyleSheet, Platform } from &#x27;react-native&#x27;;
+import { useTheme } from &#x27;react-native-paper&#x27;;
+import type { MD3Theme } from &#x27;react-native-paper&#x27;;
+
+export interface DashboardStatCardProps {
+  /** Display title for the metric */
+  title: string;
+  /** Numeric value to display (undefined shows 0, except in offline no-cache state) */
+  value: number | undefined;
+  /** Test ID for testing purposes */
+  testID?: string;
+  /** Whether the app is offline (affects empty state display) */
+  isOffline?: boolean;
+  /** Whether data has been cached (affects empty state messaging) */
+  hasCache?: boolean;
+}
+
+/**
+ * Individual dashboard statistic card with live data binding
+ *
+ * States:
+ * 1. Normal: Shows value or 0 if undefined
+ * 2. Offline + no cache: Shows &quot;–&quot; with &quot;No data yet&quot;
+ */
+const DashboardStatCard: React.FC&lt;DashboardStatCardProps&gt; &#x3D; React.memo(
+  ({ title, value, testID, isOffline &#x3D; false, hasCache &#x3D; false }) &#x3D;&gt; {
+    const theme &#x3D; useTheme();
+    const styles &#x3D; createStyles(theme);
+
+    // Determine display state
+    const isEmpty &#x3D; isOffline &amp;&amp; !hasCache;
+    const displayValue &#x3D; value ?? 0; // Show 0 if undefined
+
+    // Get display value
+    const getDisplayValue &#x3D; (): string &#x3D;&gt; {
+      if (isEmpty) {
+        return &#x27;–&#x27;; // Em-dash for offline + no cache
+      } else {
+        return displayValue.toString(); // Always show number (0 if undefined)
+      }
+    };
+
+    // Get subtitle for empty state
+    const getSubtitle &#x3D; (): string | null &#x3D;&gt; {
+      if (isEmpty) {
+        return &#x27;No data yet&#x27;;
+      }
+      return null;
+    };
+
+    // Create accessibility label
+    const getAccessibilityLabel &#x3D; (): string &#x3D;&gt; {
+      if (isEmpty) {
+        return &#x60;${title}, no data available&#x60;;
+      } else {
+        return &#x60;${title}, ${displayValue}&#x60;;
+      }
+    };
+
+    return (
+      &lt;View
+        style&#x3D;{styles.container}
+        testID&#x3D;{testID}
+        accessibilityLabel&#x3D;{getAccessibilityLabel()}
+        // WCAG 4.1.3: Live regions for announcing value changes
+        {...(Platform.OS &#x3D;&#x3D;&#x3D; &#x27;android&#x27; &amp;&amp; {
+          accessibilityLiveRegion: &#x27;polite&#x27; as const,
+        })}
+        {...(Platform.OS &#x3D;&#x3D;&#x3D; &#x27;ios&#x27; &amp;&amp; {
+          accessibilityRole: &#x27;status&#x27; as const,
+          importantForAccessibility: &#x27;yes&#x27; as const,
+        })}
+        // Web accessibility
+        {...(Platform.OS &#x3D;&#x3D;&#x3D; &#x27;web&#x27; &amp;&amp; {
+          &#x27;aria-live&#x27;: &#x27;polite&#x27;,
+          role: &#x27;status&#x27;,
+        })}
+      &gt;
+        {/* Title */}
+        &lt;Text
+          style&#x3D;{styles.title}
+          numberOfLines&#x3D;{2}
+          adjustsFontSizeToFit
+          allowFontScaling&#x3D;{true} // Respect Dynamic Type
+        &gt;
+          {title}
+        &lt;/Text&gt;
+
+        {/* Value Container */}
+        &lt;View style&#x3D;{styles.valueContainer}&gt;
+          &lt;Text
+            style&#x3D;{[styles.value, isEmpty &amp;&amp; styles.emptyValue]}
+            numberOfLines&#x3D;{1}
+            adjustsFontSizeToFit
+            allowFontScaling&#x3D;{true} // Respect Dynamic Type
+            testID&#x3D;{&#x60;${testID}-value&#x60;}
+          &gt;
+            {getDisplayValue()}
+          &lt;/Text&gt;
+
+          {/* Subtitle for empty state */}
+          {getSubtitle() &amp;&amp; (
+            &lt;Text
+              style&#x3D;{styles.subtitle}
+              numberOfLines&#x3D;{1}
+              allowFontScaling&#x3D;{true}
+              testID&#x3D;{&#x60;${testID}-subtitle&#x60;}
+            &gt;
+              {getSubtitle()}
+            &lt;/Text&gt;
+          )}
+        &lt;/View&gt;
+      &lt;/View&gt;
+    );
+  }
+);
+
+/**
+ * Create theme-aware styles
+ */
+const createStyles &#x3D; (theme: MD3Theme) &#x3D;&gt;
+  StyleSheet.create({
+    container: {
+      backgroundColor: theme.colors.surface,
+      borderRadius: 12,
+      padding: 16,
+      minHeight: 100,
+      justifyContent: &#x27;space-between&#x27;,
+      elevation: 2, // Android shadow
+      shadowColor: theme.colors.shadow, // iOS shadow
+      shadowOffset: { width: 0, height: 1 },
+      shadowOpacity: 0.2,
+      shadowRadius: 2,
+      borderWidth: 1,
+      borderColor: theme.colors.outline,
+    },
+    title: {
+      fontSize: 14,
+      lineHeight: 20,
+      color: theme.colors.onSurfaceVariant,
+      fontWeight: &#x27;500&#x27;,
+      textAlign: &#x27;left&#x27;,
+      marginBottom: 8,
+    },
+    valueContainer: {
+      flex: 1,
+      justifyContent: &#x27;center&#x27;,
+      alignItems: &#x27;center&#x27;,
+      minHeight: 40,
+    },
+    value: {
+      fontSize: 28,
+      lineHeight: 32,
+      fontWeight: &#x27;bold&#x27;,
+      color: theme.colors.onSurface,
+      textAlign: &#x27;center&#x27;,
+    },
+    emptyValue: {
+      color: theme.colors.onSurfaceVariant,
+      fontSize: 32,
+    },
+    subtitle: {
+      fontSize: 12,
+      lineHeight: 16,
+      color: theme.colors.onSurfaceVariant,
+      textAlign: &#x27;center&#x27;,
+      marginTop: 4,
+      fontStyle: &#x27;italic&#x27;,
+    },
+  });
+
+DashboardStatCard.displayName &#x3D; &#x27;DashboardStatCard&#x27;;
+
+export default DashboardStatCard;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'DashboardStatCardProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

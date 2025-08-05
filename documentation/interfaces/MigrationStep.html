@@ -1,0 +1,640 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  MigrationStep</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/database/migrations.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Migration step interface</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#description" 
+>
+                                            description
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#migrate" 
+>
+                                            migrate
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#validate" 
+>
+                                            validate
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#version" 
+>
+                                            version
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="description"></a>
+                                        <span class="name "><b>description</b>
+                                            <a href="#description">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>description:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="migrate"></a>
+                                        <span class="name "><b>migrate</b>
+                                            <a href="#migrate">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>migrate:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="validate"></a>
+                                        <span class="name "><b>validate</b>
+                                            <a href="#validate">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>validate:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="version"></a>
+                                        <span class="name "><b>version</b>
+                                            <a href="#version">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>version:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { SQLiteDatabase } from &#x27;react-native-sqlite-storage&#x27;;
+import { CURRENT_SCHEMA_VERSION } from &#x27;./schema&#x27;;
+import {
+  migrateTo2_addPageNumber,
+  validateV2Migration,
+} from &#x27;./migrations/steps/v2_add_page_to_leads&#x27;;
+import {
+  migrateTo3_addDocumentsTable,
+  validateV3Migration,
+} from &#x27;./migrations/steps/v3_add_documents_table&#x27;;
+import {
+  migrateTo4_enhanceCustomerAndDocuments,
+  validateV4Migration,
+} from &#x27;./migrations/steps/v4_enhance_customer_and_documents&#x27;;
+import { executeSqlPromise } from &#x27;./utils/sqliteHelpers&#x27;;
+import {
+  migrateTo5_fixDocumentsConstraints,
+  validateV5Migration,
+} from &#x27;./migrations/steps/v5_fix_documents_constraints&#x27;;
+import {
+  migrateTo6_addCommissionsTable,
+  validateV6Migration,
+} from &#x27;./migrations/steps/v6_add_commissions_table&#x27;;
+import {
+  migrateTo1_createInitialTables,
+  validateV1Migration,
+} from &#x27;./migrations/steps/v1_create_initial_tables&#x27;;
+
+/**
+ * Migration step interface
+ */
+interface MigrationStep {
+  version: number;
+  description: string;
+  migrate: (db: SQLiteDatabase) &#x3D;&gt; Promise&lt;void&gt;;
+  validate?: (db: SQLiteDatabase) &#x3D;&gt; Promise&lt;boolean&gt;;
+}
+
+/**
+ * All migration steps in order
+ */
+const MIGRATION_STEPS: MigrationStep[] &#x3D; [
+  {
+    version: 1,
+    description: &#x27;Create initial database tables (leads, customers)&#x27;,
+    migrate: migrateTo1_createInitialTables,
+    validate: validateV1Migration,
+  },
+  {
+    version: 2,
+    description: &#x27;Add page_number column to leads table for pagination support&#x27;,
+    migrate: migrateTo2_addPageNumber,
+    validate: validateV2Migration,
+  },
+  {
+    version: 3,
+    description:
+      &#x27;Add documents table for document metadata persistence and offline viewing&#x27;,
+    migrate: migrateTo3_addDocumentsTable,
+    validate: validateV3Migration,
+  },
+  {
+    version: 4,
+    description:
+      &#x27;Enhance customers table with KYC fields and add customer documents support&#x27;,
+    migrate: migrateTo4_enhanceCustomerAndDocuments,
+    validate: validateV4Migration,
+  },
+  {
+    version: 5,
+    description: &#x27;Fix documents table constraints to allow KYC documents&#x27;,
+    migrate: migrateTo5_fixDocumentsConstraints,
+    validate: validateV5Migration,
+  },
+  {
+    version: 6,
+    description:
+      &#x27;Add commissions table with performance indexes for commission/earnings tracking&#x27;,
+    migrate: migrateTo6_addCommissionsTable,
+    validate: validateV6Migration,
+  },
+];
+
+/**
+ * Get current schema version from database
+ * @param db - SQLite database instance
+ * @returns Promise&lt;number&gt; - Current schema version
+ */
+export async function getCurrentSchemaVersion(
+  db: SQLiteDatabase
+): Promise&lt;number&gt; {
+  try {
+    const result &#x3D; await executeSqlPromise(db, &#x27;PRAGMA user_version;&#x27;);
+    return result.rows.item(0).user_version;
+  } catch (error) {
+    console.error(&#x27;Error getting schema version:&#x27;, error);
+    return 0;
+  }
+}
+
+/**
+ * Set schema version in database
+ * @param db - SQLite database instance
+ * @param version - Version number to set
+ */
+export async function setSchemaVersion(
+  db: SQLiteDatabase,
+  version: number
+): Promise&lt;void&gt; {
+  await executeSqlPromise(db, &#x60;PRAGMA user_version &#x3D; ${version};&#x60;);
+}
+
+/**
+ * Run all pending migrations
+ * @param db - SQLite database instance
+ * @returns Promise&lt;void&gt;
+ */
+export async function runMigrations(db: SQLiteDatabase): Promise&lt;void&gt; {
+  const currentVersion &#x3D; await getCurrentSchemaVersion(db);
+
+  console.log(
+    &#x60;🔍 Database schema version: ${currentVersion} (target: ${CURRENT_SCHEMA_VERSION})&#x60;
+  );
+
+  if (currentVersion &gt;&#x3D; CURRENT_SCHEMA_VERSION) {
+    console.log(&#x27;✅ Database schema is up to date&#x27;);
+    return;
+  }
+
+  console.log(
+    &#x60;🔄 Running migrations from v${currentVersion} to v${CURRENT_SCHEMA_VERSION}&#x60;
+  );
+
+  // Find migrations to run
+  const migrationsToRun &#x3D; MIGRATION_STEPS.filter(
+    (step) &#x3D;&gt;
+      step.version &gt; currentVersion &amp;&amp; step.version &lt;&#x3D; CURRENT_SCHEMA_VERSION
+  ).sort((a, b) &#x3D;&gt; a.version - b.version);
+
+  if (migrationsToRun.length &#x3D;&#x3D;&#x3D; 0) {
+    console.log(&#x27;⚠️ No migrations found to run&#x27;);
+    return;
+  }
+
+  console.log(
+    &#x60;📋 Found ${migrationsToRun.length} migration(s) to run:&#x60;,
+    migrationsToRun.map((m) &#x3D;&gt; &#x60;v${m.version}: ${m.description}&#x60;)
+  );
+
+  // Run each migration
+  for (const migration of migrationsToRun) {
+    console.log(
+      &#x60;🔄 Running migration v${migration.version}: ${migration.description}&#x60;
+    );
+
+    const startTime &#x3D; Date.now();
+
+    try {
+      await migration.migrate(db);
+
+      // Validate migration if validator provided
+      if (migration.validate) {
+        const isValid &#x3D; await migration.validate(db);
+        if (!isValid) {
+          throw new Error(&#x60;Migration v${migration.version} validation failed&#x60;);
+        }
+      }
+
+      // Update schema version
+      await setSchemaVersion(db, migration.version);
+
+      const duration &#x3D; Date.now() - startTime;
+      console.log(
+        &#x60;✅ Migration v${migration.version} completed in ${duration}ms&#x60;
+      );
+    } catch (error) {
+      console.error(&#x60;❌ Migration v${migration.version} failed:&#x60;, error);
+      throw new Error(&#x60;Migration v${migration.version} failed: ${error}&#x60;);
+    }
+  }
+
+  console.log(
+    &#x60;✅ All migrations completed successfully. Database is now at v${CURRENT_SCHEMA_VERSION}&#x60;
+  );
+}
+
+/**
+ * Check if migrations are needed
+ * @param db - SQLite database instance
+ * @returns Promise&lt;boolean&gt;
+ */
+export async function needsMigrations(db: SQLiteDatabase): Promise&lt;boolean&gt; {
+  const currentVersion &#x3D; await getCurrentSchemaVersion(db);
+  return currentVersion &lt; CURRENT_SCHEMA_VERSION;
+}
+
+/**
+ * Get pending migrations info
+ * @param db - SQLite database instance
+ * @returns Promise&lt;MigrationStep[]&gt;
+ */
+export async function getPendingMigrations(
+  db: SQLiteDatabase
+): Promise&lt;MigrationStep[]&gt; {
+  const currentVersion &#x3D; await getCurrentSchemaVersion(db);
+
+  return MIGRATION_STEPS.filter(
+    (step) &#x3D;&gt;
+      step.version &gt; currentVersion &amp;&amp; step.version &lt;&#x3D; CURRENT_SCHEMA_VERSION
+  ).sort((a, b) &#x3D;&gt; a.version - b.version);
+}
+
+/**
+ * Legacy migration support - for backwards compatibility
+ * This can be removed in future versions
+ */
+export async function runLegacyMigrations(db: SQLiteDatabase): Promise&lt;void&gt; {
+  console.log(&#x27;🔄 Running legacy migration compatibility check&#x27;);
+
+  // Check if this is a completely new database
+  const currentVersion &#x3D; await getCurrentSchemaVersion(db);
+  if (currentVersion &#x3D;&#x3D;&#x3D; 0) {
+    console.log(&#x27;📝 New database detected, setting initial schema version&#x27;);
+    await setSchemaVersion(db, CURRENT_SCHEMA_VERSION);
+    return;
+  }
+
+  // Run standard migrations
+  await runMigrations(db);
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'MigrationStep.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

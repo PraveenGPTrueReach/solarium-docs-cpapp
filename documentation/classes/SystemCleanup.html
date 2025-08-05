@@ -1,0 +1,1028 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >SystemCleanup</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/utils/SystemCleanup.ts</code>
+        </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#checkSystemHealth" >checkSystemHealth</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#cleanupComponent" >cleanupComponent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#clearSyncRelatedStorage" >clearSyncRelatedStorage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#forceGarbageCollection" >forceGarbageCollection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#generateDiagnosticReport" >generateDiagnosticReport</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#performFullCleanup" >performFullCleanup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#performSyncCleanup" >performSyncCleanup</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkSystemHealth"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>checkSystemHealth</b></span>
+                        <a href="#checkSystemHealth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkSystemHealth()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="168"
+                                    class="link-to-prism">src/utils/SystemCleanup.ts:168</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Check system health and recommend cleanup</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>literal type</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cleanupComponent"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>cleanupComponent</b></span>
+                        <a href="#cleanupComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>cleanupComponent(componentName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, cleanupFn: () => void, report: <a href="../interfaces/CleanupReport.html" target="_self">Partial&lt;CleanupReport&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="335"
+                                    class="link-to-prism">src/utils/SystemCleanup.ts:335</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Helper method to cleanup individual components</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>componentName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>cleanupFn</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>report</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CleanupReport.html" target="_self" >Partial&lt;CleanupReport&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearSyncRelatedStorage"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>clearSyncRelatedStorage</b></span>
+                        <a href="#clearSyncRelatedStorage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearSyncRelatedStorage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="356"
+                                    class="link-to-prism">src/utils/SystemCleanup.ts:356</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Clear sync-related AsyncStorage data</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forceGarbageCollection"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>forceGarbageCollection</b></span>
+                        <a href="#forceGarbageCollection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>forceGarbageCollection()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="378"
+                                    class="link-to-prism">src/utils/SystemCleanup.ts:378</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Force garbage collection if available</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateDiagnosticReport"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>generateDiagnosticReport</b></span>
+                        <a href="#generateDiagnosticReport"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateDiagnosticReport()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="240"
+                                    class="link-to-prism">src/utils/SystemCleanup.ts:240</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Generate system diagnostic report</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="performFullCleanup"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>performFullCleanup</b></span>
+                        <a href="#performFullCleanup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>performFullCleanup()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="26"
+                                    class="link-to-prism">src/utils/SystemCleanup.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Perform complete system cleanup
+Cleans up all singletons and cached data</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/CleanupReport.html" target="_self" >Promise&lt;CleanupReport&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="performSyncCleanup"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>performSyncCleanup</b></span>
+                        <a href="#performSyncCleanup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>performSyncCleanup()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">src/utils/SystemCleanup.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cleanup only sync-related components (lighter cleanup)</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/CleanupReport.html" target="_self" >Promise&lt;Partial&lt;CleanupReport&gt;&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SyncScheduler } from &#x27;../sync/SyncScheduler&#x27;;
+import { AppStateManager } from &#x27;./AppStateManager&#x27;;
+import { PerformanceMonitor } from &#x27;./PerformanceMonitor&#x27;;
+import { Logger } from &#x27;./Logger&#x27;;
+import AsyncStorage from &#x27;@react-native-async-storage/async-storage&#x27;;
+
+/**
+ * System cleanup utilities
+ * Provides centralized cleanup for all sync system components
+ */
+
+export interface CleanupReport {
+  timestamp: number;
+  componentsCleanedUp: string[];
+  errors: string[];
+  totalDuration: number;
+  memoryBefore?: number;
+  memoryAfter?: number;
+}
+
+export class SystemCleanup {
+  /**
+   * Perform complete system cleanup
+   * Cleans up all singletons and cached data
+   */
+  public static async performFullCleanup(): Promise&lt;CleanupReport&gt; {
+    const startTime &#x3D; Date.now();
+    const report: CleanupReport &#x3D; {
+      timestamp: startTime,
+      componentsCleanedUp: [],
+      errors: [],
+      totalDuration: 0,
+    };
+
+    // Get initial memory if available
+    if (global.performance?.memory) {
+      report.memoryBefore &#x3D; global.performance.memory.usedJSHeapSize;
+    }
+
+    console.log(&#x27;SystemCleanup: Starting full system cleanup&#x27;);
+
+    try {
+      // 1. Cleanup SyncScheduler
+      await this.cleanupComponent(
+        &#x27;SyncScheduler&#x27;,
+        () &#x3D;&gt; {
+          const scheduler &#x3D; SyncScheduler.getInstance();
+          scheduler.cleanup();
+        },
+        report
+      );
+
+      // 2. Cleanup AppStateManager
+      await this.cleanupComponent(
+        &#x27;AppStateManager&#x27;,
+        () &#x3D;&gt; {
+          const appStateManager &#x3D; AppStateManager.getInstance();
+          appStateManager.cleanup();
+        },
+        report
+      );
+
+      // 3. Cleanup PerformanceMonitor
+      await this.cleanupComponent(
+        &#x27;PerformanceMonitor&#x27;,
+        () &#x3D;&gt; {
+          const performanceMonitor &#x3D; PerformanceMonitor.getInstance();
+          performanceMonitor.cleanup();
+        },
+        report
+      );
+
+      // 4. Cleanup Logger
+      await this.cleanupComponent(
+        &#x27;Logger&#x27;,
+        () &#x3D;&gt; {
+          const logger &#x3D; Logger.getInstance();
+          logger.cleanup();
+        },
+        report
+      );
+
+      // 5. Clear AsyncStorage sync-related data
+      await this.cleanupComponent(
+        &#x27;AsyncStorage&#x27;,
+        async () &#x3D;&gt; {
+          await this.clearSyncRelatedStorage();
+        },
+        report
+      );
+
+      // 6. Force garbage collection if available
+      await this.cleanupComponent(
+        &#x27;GarbageCollection&#x27;,
+        () &#x3D;&gt; {
+          this.forceGarbageCollection();
+        },
+        report
+      );
+    } catch (error) {
+      const errorMessage &#x3D;
+        error instanceof Error ? error.message : &#x27;Unknown error&#x27;;
+      report.errors.push(&#x60;Global cleanup error: ${errorMessage}&#x60;);
+      console.error(&#x27;SystemCleanup: Global cleanup error&#x27;, error);
+    }
+
+    // Calculate final metrics
+    report.totalDuration &#x3D; Date.now() - startTime;
+
+    if (global.performance?.memory) {
+      report.memoryAfter &#x3D; global.performance.memory.usedJSHeapSize;
+    }
+
+    console.log(&#x27;SystemCleanup: Full cleanup completed&#x27;, {
+      duration: report.totalDuration,
+      components: report.componentsCleanedUp.length,
+      errors: report.errors.length,
+    });
+
+    return report;
+  }
+
+  /**
+   * Cleanup only sync-related components (lighter cleanup)
+   */
+  public static async performSyncCleanup(): Promise&lt;Partial&lt;CleanupReport&gt;&gt; {
+    const startTime &#x3D; Date.now();
+    const report: Partial&lt;CleanupReport&gt; &#x3D; {
+      timestamp: startTime,
+      componentsCleanedUp: [],
+      errors: [],
+    };
+
+    console.log(&#x27;SystemCleanup: Starting sync cleanup&#x27;);
+
+    try {
+      // Cleanup only scheduler and performance monitor
+      await this.cleanupComponent(
+        &#x27;SyncScheduler&#x27;,
+        () &#x3D;&gt; {
+          const scheduler &#x3D; SyncScheduler.getInstance();
+          scheduler.stop(); // Stop but don&#x27;t fully cleanup
+        },
+        report
+      );
+
+      await this.cleanupComponent(
+        &#x27;PerformanceMonitor&#x27;,
+        () &#x3D;&gt; {
+          const performanceMonitor &#x3D; PerformanceMonitor.getInstance();
+          performanceMonitor.clearData(); // Clear data but keep instance
+        },
+        report
+      );
+    } catch (error) {
+      const errorMessage &#x3D;
+        error instanceof Error ? error.message : &#x27;Unknown error&#x27;;
+      report.errors!.push(&#x60;Sync cleanup error: ${errorMessage}&#x60;);
+    }
+
+    report.totalDuration &#x3D; Date.now() - startTime;
+    return report;
+  }
+
+  /**
+   * Check system health and recommend cleanup
+   */
+  public static checkSystemHealth(): {
+    needsCleanup: boolean;
+    reasons: string[];
+    recommendations: string[];
+  } {
+    const reasons: string[] &#x3D; [];
+    const recommendations: string[] &#x3D; [];
+
+    try {
+      // Check performance monitor
+      const performanceMonitor &#x3D; PerformanceMonitor.getInstance();
+      const summary &#x3D; performanceMonitor.getPerformanceSummary();
+      const memoryCheck &#x3D; performanceMonitor.checkForMemoryLeaks();
+
+      if (memoryCheck.hasLeak) {
+        reasons.push(&#x27;Potential memory leak detected&#x27;);
+        recommendations.push(&#x27;Perform full system cleanup&#x27;);
+      }
+
+      if (summary.syncHistory.length &gt; 40) {
+        reasons.push(&#x27;Large sync history consuming memory&#x27;);
+        recommendations.push(&#x27;Clear performance data&#x27;);
+      }
+
+      if (summary.syncSuccessRate &lt; 70) {
+        reasons.push(&#x27;Poor sync success rate&#x27;);
+        recommendations.push(
+          &#x27;Review sync configuration and network connectivity&#x27;
+        );
+      }
+
+      // Check logger
+      const logger &#x3D; Logger.getInstance();
+      const recentLogs &#x3D; logger.getRecentLogs();
+      const errorLogs &#x3D; logger.getLogsByLevel(&#x27;error&#x27;);
+
+      if (errorLogs.length &gt; 10) {
+        reasons.push(&#x27;High error count in logs&#x27;);
+        recommendations.push(&#x27;Clear error logs and investigate issues&#x27;);
+      }
+
+      if (recentLogs.length &gt; 150) {
+        reasons.push(&#x27;Large log history&#x27;);
+        recommendations.push(&#x27;Clear log history&#x27;);
+      }
+
+      // Check memory usage
+      if (global.performance?.memory) {
+        const memory &#x3D; global.performance.memory;
+        const usagePercent &#x3D;
+          (memory.usedJSHeapSize / memory.totalJSHeapSize) * 100;
+
+        if (usagePercent &gt; 80) {
+          reasons.push(&#x27;High memory usage detected&#x27;);
+          recommendations.push(&#x27;Perform garbage collection and cleanup&#x27;);
+        }
+      }
+    } catch (error) {
+      reasons.push(&#x27;Unable to check system health&#x27;);
+      recommendations.push(&#x27;Perform full system cleanup&#x27;);
+    }
+
+    return {
+      needsCleanup: reasons.length &gt; 0,
+      reasons,
+      recommendations,
+    };
+  }
+
+  /**
+   * Generate system diagnostic report
+   */
+  public static generateDiagnosticReport(): string {
+    const lines: string[] &#x3D; [];
+
+    lines.push(&#x27;&#x3D;&#x3D;&#x3D; SYSTEM DIAGNOSTIC REPORT &#x3D;&#x3D;&#x3D;&#x27;);
+    lines.push(&#x60;Generated: ${new Date().toISOString()}&#x60;);
+    lines.push(&#x27;&#x27;);
+
+    try {
+      // System health check
+      const health &#x3D; this.checkSystemHealth();
+      lines.push(&#x27;--- System Health ---&#x27;);
+      lines.push(&#x60;Needs Cleanup: ${health.needsCleanup ? &#x27;YES&#x27; : &#x27;NO&#x27;}&#x60;);
+
+      if (health.reasons.length &gt; 0) {
+        lines.push(&#x27;Reasons:&#x27;);
+        health.reasons.forEach((reason) &#x3D;&gt; lines.push(&#x60;  - ${reason}&#x60;));
+      }
+
+      if (health.recommendations.length &gt; 0) {
+        lines.push(&#x27;Recommendations:&#x27;);
+        health.recommendations.forEach((rec) &#x3D;&gt; lines.push(&#x60;  - ${rec}&#x60;));
+      }
+      lines.push(&#x27;&#x27;);
+
+      // Component status
+      lines.push(&#x27;--- Component Status ---&#x27;);
+
+      // Scheduler status
+      try {
+        const scheduler &#x3D; SyncScheduler.getInstance();
+        const status &#x3D; scheduler.getStatus();
+        lines.push(&#x60;Scheduler: ${status.isRunning ? &#x27;RUNNING&#x27; : &#x27;STOPPED&#x27;}&#x60;);
+        lines.push(&#x60;  - Paused: ${status.isPaused}&#x60;);
+        lines.push(&#x60;  - App Active: ${status.isAppActive}&#x60;);
+        if (status.performance) {
+          lines.push(
+            &#x60;  - Avg Sync Duration: ${status.performance.averageSyncDuration.toFixed(
+              2
+            )}ms&#x60;
+          );
+          lines.push(
+            &#x60;  - Success Rate: ${status.performance.syncSuccessRate.toFixed(
+              1
+            )}%&#x60;
+          );
+        }
+      } catch (error) {
+        lines.push(&#x27;Scheduler: ERROR - &#x27; + (error as Error).message);
+      }
+
+      // Performance monitor status
+      try {
+        const performanceMonitor &#x3D; PerformanceMonitor.getInstance();
+        const summary &#x3D; performanceMonitor.getPerformanceSummary();
+        const memoryCheck &#x3D; performanceMonitor.checkForMemoryLeaks();
+
+        lines.push(&#x60;Performance Monitor: ACTIVE&#x60;);
+        lines.push(&#x60;  - Sync History: ${summary.syncHistory.length} entries&#x60;);
+        lines.push(&#x60;  - Memory Trend: ${memoryCheck.trend}&#x60;);
+        lines.push(&#x60;  - Potential Leak: ${memoryCheck.hasLeak ? &#x27;YES&#x27; : &#x27;NO&#x27;}&#x60;);
+      } catch (error) {
+        lines.push(&#x27;Performance Monitor: ERROR - &#x27; + (error as Error).message);
+      }
+
+      // Memory status
+      if (global.performance?.memory) {
+        const memory &#x3D; global.performance.memory;
+        lines.push(&#x60;Memory Usage:&#x60;);
+        lines.push(
+          &#x60;  - Used: ${(memory.usedJSHeapSize / 1024 / 1024).toFixed(2)} MB&#x60;
+        );
+        lines.push(
+          &#x60;  - Total: ${(memory.totalJSHeapSize / 1024 / 1024).toFixed(2)} MB&#x60;
+        );
+        lines.push(
+          &#x60;  - Usage: ${(
+            (memory.usedJSHeapSize / memory.totalJSHeapSize) *
+            100
+          ).toFixed(1)}%&#x60;
+        );
+      }
+    } catch (error) {
+      lines.push(&#x27;ERROR: Unable to generate complete diagnostic report&#x27;);
+      lines.push(&#x60;Error: ${(error as Error).message}&#x60;);
+    }
+
+    lines.push(&#x27;&#x27;);
+    lines.push(&#x27;&#x3D;&#x3D;&#x3D; END DIAGNOSTIC REPORT &#x3D;&#x3D;&#x3D;&#x27;);
+
+    return lines.join(&#x27;\n&#x27;);
+  }
+
+  /**
+   * Helper method to cleanup individual components
+   */
+  private static async cleanupComponent(
+    componentName: string,
+    cleanupFn: () &#x3D;&gt; void | Promise&lt;void&gt;,
+    report: Partial&lt;CleanupReport&gt;
+  ): Promise&lt;void&gt; {
+    try {
+      console.log(&#x60;SystemCleanup: Cleaning up ${componentName}&#x60;);
+      await cleanupFn();
+      report.componentsCleanedUp!.push(componentName);
+      console.log(&#x60;SystemCleanup: ${componentName} cleanup completed&#x60;);
+    } catch (error) {
+      const errorMessage &#x3D;
+        error instanceof Error ? error.message : &#x27;Unknown error&#x27;;
+      report.errors!.push(&#x60;${componentName}: ${errorMessage}&#x60;);
+      console.error(&#x60;SystemCleanup: ${componentName} cleanup failed&#x60;, error);
+    }
+  }
+
+  /**
+   * Clear sync-related AsyncStorage data
+   */
+  private static async clearSyncRelatedStorage(): Promise&lt;void&gt; {
+    const keysToRemove &#x3D; [
+      &#x27;@AppState/lifecycle&#x27;,
+      &#x27;persist:root&#x27;, // If we want to clear all persisted data
+    ];
+
+    for (const key of keysToRemove) {
+      try {
+        await AsyncStorage.removeItem(key);
+        console.log(&#x60;SystemCleanup: Cleared AsyncStorage key: ${key}&#x60;);
+      } catch (error) {
+        console.warn(
+          &#x60;SystemCleanup: Failed to clear AsyncStorage key ${key}:&#x60;,
+          error
+        );
+      }
+    }
+  }
+
+  /**
+   * Force garbage collection if available
+   */
+  private static forceGarbageCollection(): void {
+    // Force garbage collection if available (mainly for debugging)
+    if (global.gc) {
+      global.gc();
+      console.log(&#x27;SystemCleanup: Forced garbage collection&#x27;);
+    } else {
+      console.log(&#x27;SystemCleanup: Garbage collection not available&#x27;);
+    }
+  }
+}
+
+export default SystemCleanup;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'SystemCleanup.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

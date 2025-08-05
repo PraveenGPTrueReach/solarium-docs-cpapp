@@ -1,0 +1,735 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  ProgressProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/components/documents/UploadProgressBar.tsx</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#fileName" 
+>
+                                            fileName
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#loaded" 
+>
+                                            loaded
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#progress" 
+>
+                                            progress
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#speed" 
+>
+                                            speed
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#status" 
+>
+                                            status
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#total" 
+>
+                                            total
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="fileName"></a>
+                                        <span class="name "><b>fileName</b>
+                                            <a href="#fileName">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>fileName:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Current file name being uploaded</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="loaded"></a>
+                                        <span class="name "><b>loaded</b>
+                                            <a href="#loaded">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>loaded:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Bytes loaded</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="progress"></a>
+                                        <span class="name "><b>progress</b>
+                                            <a href="#progress">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>progress:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Progress percentage (0-100)</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="speed"></a>
+                                        <span class="name "><b>speed</b>
+                                            <a href="#speed">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>speed:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Upload speed in bytes/sec</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="status"></a>
+                                        <span class="name "><b>status</b>
+                                            <a href="#status">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>status:     <code>&quot;idle&quot; | &quot;uploading&quot; | &quot;success&quot; | &quot;error&quot;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>&quot;idle&quot; | &quot;uploading&quot; | &quot;success&quot; | &quot;error&quot;</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Upload status</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="total"></a>
+                                        <span class="name "><b>total</b>
+                                            <a href="#total">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>total:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Total bytes</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React, { useEffect, useRef } from &#x27;react&#x27;;
+import { View, StyleSheet, Animated } from &#x27;react-native&#x27;;
+import { Text, useTheme } from &#x27;react-native-paper&#x27;;
+import type { MD3Theme } from &#x27;react-native-paper&#x27;;
+
+export interface ProgressProps {
+  /** Progress percentage (0-100) */
+  progress: number;
+  /** Upload status */
+  status: &#x27;idle&#x27; | &#x27;uploading&#x27; | &#x27;success&#x27; | &#x27;error&#x27;;
+  /** Current file name being uploaded */
+  fileName?: string;
+  /** Bytes loaded */
+  loaded?: number;
+  /** Total bytes */
+  total?: number;
+  /** Upload speed in bytes/sec */
+  speed?: number;
+}
+
+/**
+ * UploadProgressBar Component
+ * Smooth animated progress bar with status indicators
+ */
+export const UploadProgressBar: React.FC&lt;ProgressProps&gt; &#x3D; ({
+  progress,
+  status,
+  fileName,
+  loaded &#x3D; 0,
+  total &#x3D; 0,
+  speed &#x3D; 0,
+}) &#x3D;&gt; {
+  const theme &#x3D; useTheme();
+  const animatedProgress &#x3D; useRef(new Animated.Value(0)).current;
+  const styles &#x3D; createStyles(theme);
+
+  // Animate progress updates
+  useEffect(() &#x3D;&gt; {
+    Animated.timing(animatedProgress, {
+      toValue: progress,
+      duration: 200, // Smooth animation
+      useNativeDriver: false,
+    }).start();
+  }, [progress, animatedProgress]);
+
+  // Get progress bar color based on status
+  const getProgressColor &#x3D; (): string &#x3D;&gt; {
+    switch (status) {
+      case &#x27;uploading&#x27;:
+        return theme.colors.primary;
+      case &#x27;success&#x27;:
+        return &#x27;#4CAF50&#x27;;
+      case &#x27;error&#x27;:
+        return theme.colors.error;
+      default:
+        return theme.colors.outline;
+    }
+  };
+
+  // Format bytes for display
+  const formatBytes &#x3D; (bytes: number): string &#x3D;&gt; {
+    if (bytes &#x3D;&#x3D;&#x3D; 0) return &#x27;0 B&#x27;;
+    const k &#x3D; 1024;
+    const sizes &#x3D; [&#x27;B&#x27;, &#x27;KB&#x27;, &#x27;MB&#x27;, &#x27;GB&#x27;];
+    const i &#x3D; Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + &#x27; &#x27; + sizes[i];
+  };
+
+  // Format upload speed
+  const formatSpeed &#x3D; (bytesPerSecond: number): string &#x3D;&gt; {
+    if (bytesPerSecond &#x3D;&#x3D;&#x3D; 0) return &#x27;&#x27;;
+    return &#x60;${formatBytes(bytesPerSecond)}/s&#x60;;
+  };
+
+  // Calculate ETA
+  const getETA &#x3D; (): string &#x3D;&gt; {
+    if (speed &#x3D;&#x3D;&#x3D; 0 || progress &gt;&#x3D; 100) return &#x27;&#x27;;
+    const remainingBytes &#x3D; total - loaded;
+    const etaSeconds &#x3D; Math.round(remainingBytes / speed);
+
+    if (etaSeconds &lt; 60) return &#x60;${etaSeconds}s remaining&#x60;;
+    const minutes &#x3D; Math.floor(etaSeconds / 60);
+    const seconds &#x3D; etaSeconds % 60;
+    return &#x60;${minutes}m ${seconds}s remaining&#x60;;
+  };
+
+  return (
+    &lt;View style&#x3D;{styles.container}&gt;
+      {/* File name and status */}
+      &lt;View style&#x3D;{styles.header}&gt;
+        &lt;Text variant&#x3D;&quot;bodyMedium&quot; style&#x3D;{styles.fileName} numberOfLines&#x3D;{1}&gt;
+          {fileName || &#x27;Uploading document...&#x27;}
+        &lt;/Text&gt;
+        &lt;Text variant&#x3D;&quot;bodySmall&quot; style&#x3D;{styles.progressText}&gt;
+          {Math.round(progress)}%
+        &lt;/Text&gt;
+      &lt;/View&gt;
+
+      {/* Progress bar container */}
+      &lt;View style&#x3D;{styles.progressBarContainer}&gt;
+        &lt;Animated.View
+          style&#x3D;{[
+            styles.progressBar,
+            {
+              width: animatedProgress.interpolate({
+                inputRange: [0, 100],
+                outputRange: [&#x27;0%&#x27;, &#x27;100%&#x27;],
+                extrapolate: &#x27;clamp&#x27;,
+              }),
+              backgroundColor: getProgressColor(),
+            },
+          ]}
+        /&gt;
+      &lt;/View&gt;
+
+      {/* Upload details */}
+      {status &#x3D;&#x3D;&#x3D; &#x27;uploading&#x27; &amp;&amp; (
+        &lt;View style&#x3D;{styles.details}&gt;
+          &lt;Text variant&#x3D;&quot;bodySmall&quot; style&#x3D;{styles.detailText}&gt;
+            {formatBytes(loaded)} / {formatBytes(total)}
+          &lt;/Text&gt;
+          {speed &gt; 0 &amp;&amp; (
+            &lt;Text variant&#x3D;&quot;bodySmall&quot; style&#x3D;{styles.detailText}&gt;
+              {formatSpeed(speed)} • {getETA()}
+            &lt;/Text&gt;
+          )}
+        &lt;/View&gt;
+      )}
+
+      {/* Status indicator */}
+      {status &#x3D;&#x3D;&#x3D; &#x27;success&#x27; &amp;&amp; (
+        &lt;Text
+          variant&#x3D;&quot;bodySmall&quot;
+          style&#x3D;{[styles.statusText, styles.successText]}
+        &gt;
+          ✅ Upload completed successfully
+        &lt;/Text&gt;
+      )}
+
+      {status &#x3D;&#x3D;&#x3D; &#x27;error&#x27; &amp;&amp; (
+        &lt;Text variant&#x3D;&quot;bodySmall&quot; style&#x3D;{[styles.statusText, styles.errorText]}&gt;
+          ❌ Upload failed
+        &lt;/Text&gt;
+      )}
+    &lt;/View&gt;
+  );
+};
+
+const createStyles &#x3D; (theme: MD3Theme) &#x3D;&gt;
+  StyleSheet.create({
+    container: {
+      padding: 16,
+    },
+    header: {
+      flexDirection: &#x27;row&#x27;,
+      justifyContent: &#x27;space-between&#x27;,
+      alignItems: &#x27;center&#x27;,
+      marginBottom: 8,
+    },
+    fileName: {
+      flex: 1,
+      fontWeight: &#x27;500&#x27;,
+      marginRight: 8,
+    },
+    progressText: {
+      fontWeight: &#x27;600&#x27;,
+      color: theme.colors.primary,
+    },
+    progressBarContainer: {
+      height: 8,
+      backgroundColor: theme.colors.surfaceVariant,
+      borderRadius: 4,
+      overflow: &#x27;hidden&#x27;,
+      marginBottom: 8,
+    },
+    progressBar: {
+      height: &#x27;100%&#x27;,
+      borderRadius: 4,
+    },
+    details: {
+      flexDirection: &#x27;row&#x27;,
+      justifyContent: &#x27;space-between&#x27;,
+      marginBottom: 4,
+    },
+    detailText: {
+      color: theme.colors.onSurfaceVariant,
+    },
+    statusText: {
+      textAlign: &#x27;center&#x27;,
+      marginTop: 4,
+    },
+    successText: {
+      color: &#x27;#4CAF50&#x27;,
+    },
+    errorText: {
+      color: theme.colors.error,
+    },
+  });
+
+export default UploadProgressBar;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProgressProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

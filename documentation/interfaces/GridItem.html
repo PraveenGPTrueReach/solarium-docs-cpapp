@@ -1,0 +1,545 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  GridItem</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/components/documents/DocumentGrid.tsx</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#index" 
+>
+                                            index
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#item" 
+>
+                                            item
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="index"></a>
+                                        <span class="name "><b>index</b>
+                                            <a href="#index">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>index:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="item"></a>
+                                        <span class="name "><b>item</b>
+                                            <a href="#item">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>item:         <code><a href="../interfaces/DocumentAsset.html" target="_self" >DocumentAsset</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/DocumentAsset.html" target="_self" >DocumentAsset</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React, { useCallback, useMemo, useRef } from &#x27;react&#x27;;
+import { View, StyleSheet, Dimensions, Text, Platform } from &#x27;react-native&#x27;;
+import { FlashList } from &#x27;@shopify/flash-list&#x27;;
+import { useTheme, ActivityIndicator } from &#x27;react-native-paper&#x27;;
+import type { MD3Theme } from &#x27;react-native-paper&#x27;;
+import { DocumentThumbnail } from &#x27;./DocumentThumbnail&#x27;;
+import type { DocumentAsset } from &#x27;../../types/document&#x27;;
+
+const { width: screenWidth } &#x3D; Dimensions.get(&#x27;window&#x27;);
+
+export interface DocumentGridProps {
+  /** Documents to display */
+  documents: DocumentAsset[];
+  /** Callback when remove button is pressed */
+  onRemove?: (document: DocumentAsset) &#x3D;&gt; void;
+  /** Callback when document is viewed (for read-only documents) */
+  onView?: (document: DocumentAsset) &#x3D;&gt; void;
+  /** Loading state */
+  loading?: boolean;
+  /** Test ID for testing */
+  testID?: string;
+  /** Number of columns (default: 2) */
+  numColumns?: number;
+  /** Enable virtualization for large lists */
+  virtualized?: boolean;
+  /** Accessibility label for the grid */
+  accessibilityLabel?: string;
+}
+
+interface GridItem {
+  item: DocumentAsset;
+  index: number;
+}
+
+/**
+ * DocumentGrid Component
+ * Optimized grid layout for document thumbnails
+ */
+export const DocumentGrid: React.FC&lt;DocumentGridProps&gt; &#x3D; ({
+  documents,
+  onRemove,
+  loading &#x3D; false,
+  testID &#x3D; &#x27;document-grid&#x27;,
+  numColumns &#x3D; 2,
+  virtualized &#x3D; true,
+  accessibilityLabel,
+  onView,
+}) &#x3D;&gt; {
+  const theme &#x3D; useTheme();
+  const styles &#x3D; createStyles(theme, numColumns);
+  const flashListRef &#x3D; useRef&lt;FlashList&lt;DocumentAsset&gt;&gt;(null);
+
+  // Calculate item dimensions
+  const itemWidth &#x3D; useMemo(() &#x3D;&gt; {
+    const padding &#x3D; 24; // Container padding
+    const spacing &#x3D; 8; // Item spacing
+    const totalSpacing &#x3D; padding * 2 + spacing * (numColumns - 1);
+    return (screenWidth - totalSpacing) / numColumns;
+  }, [numColumns]);
+
+  // Memoized render item
+  const renderItem &#x3D; useCallback(
+    ({ item, index }: { item: DocumentAsset; index: number }) &#x3D;&gt; {
+      const isReadOnly &#x3D; &#x27;isExisting&#x27; in item &amp;&amp; (item as any).isExisting;
+
+      return (
+        &lt;View style&#x3D;{[styles.itemContainer, { width: itemWidth }]}&gt;
+          &lt;DocumentThumbnail
+            document&#x3D;{item}
+            onRemove&#x3D;{onRemove}
+            onView&#x3D;{onView}
+            isReadOnly&#x3D;{isReadOnly}
+            testID&#x3D;{&#x60;${testID}-item-${index}&#x60;}
+            loading&#x3D;{loading}
+            index&#x3D;{index}
+          /&gt;
+        &lt;/View&gt;
+      );
+    },
+    [itemWidth, onRemove, onView, loading, testID, styles.itemContainer]
+  );
+
+  // Memoized key extractor
+  const keyExtractor &#x3D; useCallback((item: DocumentAsset) &#x3D;&gt; item.id, []);
+
+  // Get estimated item size for FlashList
+  const getItemLayout &#x3D; useCallback(
+    (data: DocumentAsset[] | null | undefined, index: number) &#x3D;&gt; {
+      const itemHeight &#x3D; 120 + 8; // Item height + margin
+      return {
+        length: itemHeight,
+        offset: itemHeight * Math.floor(index / numColumns),
+        index,
+      };
+    },
+    [numColumns]
+  );
+
+  // Empty state
+  const renderEmptyState &#x3D; useCallback(() &#x3D;&gt; {
+    if (loading) {
+      return (
+        &lt;View style&#x3D;{styles.emptyContainer}&gt;
+          &lt;ActivityIndicator size&#x3D;&quot;large&quot; /&gt;
+          &lt;Text style&#x3D;{styles.emptyText}&gt;Loading documents...&lt;/Text&gt;
+        &lt;/View&gt;
+      );
+    }
+
+    return (
+      &lt;View style&#x3D;{styles.emptyContainer}&gt;
+        &lt;Text style&#x3D;{styles.emptyText}&gt;No documents added yet&lt;/Text&gt;
+        &lt;Text style&#x3D;{styles.emptySubtext}&gt;
+          Add documents using the camera, gallery, or file picker
+        &lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }, [loading, styles.emptyContainer, styles.emptyText, styles.emptySubtext]);
+
+  // Loading overlay
+  const renderLoadingOverlay &#x3D; useCallback(() &#x3D;&gt; {
+    if (!loading) return null;
+
+    return (
+      &lt;View style&#x3D;{styles.loadingOverlay}&gt;
+        &lt;ActivityIndicator size&#x3D;&quot;large&quot; color&#x3D;{theme.colors.primary} /&gt;
+      &lt;/View&gt;
+    );
+  }, [loading, styles.loadingOverlay, theme.colors.primary]);
+
+  // Use virtualization for large lists
+  const shouldUseVirtualization &#x3D; virtualized &amp;&amp; documents.length &gt; 20;
+
+  // Accessibility props
+  const accessibilityProps &#x3D; {
+    accessible: true,
+    accessibilityLabel:
+      accessibilityLabel || &#x60;Document grid with ${documents.length} documents&#x60;,
+    accessibilityRole: &#x27;grid&#x27; as const,
+    ...(Platform.OS &#x3D;&#x3D;&#x3D; &#x27;android&#x27; &amp;&amp; {
+      accessibilityLiveRegion: &#x27;polite&#x27; as const,
+    }),
+    ...(Platform.OS &#x3D;&#x3D;&#x3D; &#x27;ios&#x27; &amp;&amp; {
+      accessibilityTraits: &#x27;updatesFrequently&#x27; as const,
+    }),
+  };
+
+  if (documents.length &#x3D;&#x3D;&#x3D; 0) {
+    return (
+      &lt;View style&#x3D;{styles.container} testID&#x3D;{testID} {...accessibilityProps}&gt;
+        {renderEmptyState()}
+      &lt;/View&gt;
+    );
+  }
+
+  return (
+    &lt;View style&#x3D;{styles.container} testID&#x3D;{testID} {...accessibilityProps}&gt;
+      &lt;FlashList
+        ref&#x3D;{flashListRef}
+        data&#x3D;{documents}
+        renderItem&#x3D;{renderItem}
+        keyExtractor&#x3D;{keyExtractor}
+        numColumns&#x3D;{numColumns}
+        contentContainerStyle&#x3D;{styles.contentContainer}
+        showsVerticalScrollIndicator&#x3D;{false}
+        estimatedItemSize&#x3D;{148} // 140 + 8 margin
+        // Performance optimizations
+        removeClippedSubviews&#x3D;{shouldUseVirtualization}
+        maxToRenderPerBatch&#x3D;{shouldUseVirtualization ? 10 : documents.length}
+        windowSize&#x3D;{shouldUseVirtualization ? 10 : documents.length}
+        initialNumToRender&#x3D;{shouldUseVirtualization ? 6 : documents.length}
+        getItemLayout&#x3D;{shouldUseVirtualization ? getItemLayout : undefined}
+        // Accessibility
+        accessibilityLabel&#x3D;{&#x60;Grid of ${documents.length} documents&#x60;}
+        testID&#x3D;{&#x60;${testID}-flashlist&#x60;}
+      /&gt;
+      {renderLoadingOverlay()}
+    &lt;/View&gt;
+  );
+};
+
+/**
+ * Create theme-aware styles
+ */
+const createStyles &#x3D; (theme: MD3Theme, numColumns: number) &#x3D;&gt;
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: theme.colors.background,
+    },
+    contentContainer: {
+      padding: 0,
+    },
+    itemContainer: {
+      marginHorizontal: 8,
+      marginVertical: 8,
+    },
+    emptyContainer: {
+      flex: 1,
+      justifyContent: &#x27;center&#x27;,
+      alignItems: &#x27;center&#x27;,
+      paddingHorizontal: 32,
+      paddingVertical: 64,
+    },
+    emptyText: {
+      fontSize: 18,
+      fontWeight: &#x27;500&#x27;,
+      color: theme.colors.onSurface,
+      textAlign: &#x27;center&#x27;,
+      marginBottom: 8,
+    },
+    emptySubtext: {
+      fontSize: 14,
+      color: theme.colors.onSurfaceVariant,
+      textAlign: &#x27;center&#x27;,
+      lineHeight: 20,
+    },
+    loadingOverlay: {
+      ...StyleSheet.absoluteFillObject,
+      backgroundColor: theme.colors.background + &#x27;80&#x27;,
+      justifyContent: &#x27;center&#x27;,
+      alignItems: &#x27;center&#x27;,
+    },
+  });
+
+DocumentGrid.displayName &#x3D; &#x27;DocumentGrid&#x27;;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'GridItem.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

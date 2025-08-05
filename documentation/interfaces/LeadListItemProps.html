@@ -1,0 +1,878 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  LeadListItemProps</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/screens/leads/LeadListItem.tsx</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#isOffline" 
+>
+                                            isOffline
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#lead" 
+>
+                                            lead
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#onPress" 
+>
+                                            onPress
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#style" 
+>
+                                            style
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#testID" 
+>
+                                            testID
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="isOffline"></a>
+                                        <span class="name "><b>isOffline</b>
+                                            <a href="#isOffline">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>isOffline:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="lead"></a>
+                                        <span class="name "><b>lead</b>
+                                            <a href="#lead">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>lead:         <code><a href="../interfaces/Lead.html" target="_self" >Lead</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/Lead.html" target="_self" >Lead</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="onPress"></a>
+                                        <span class="name "><b>onPress</b>
+                                            <a href="#onPress">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>onPress:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="style"></a>
+                                        <span class="name "><b>style</b>
+                                            <a href="#style">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>style:     <code>ViewStyle</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>ViewStyle</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="testID"></a>
+                                        <span class="name "><b>testID</b>
+                                            <a href="#testID">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>testID:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React from &#x27;react&#x27;;
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ViewStyle,
+  Linking,
+  Alert,
+} from &#x27;react-native&#x27;;
+
+export interface Lead {
+  createdAt: string | null | undefined;
+  id: string;
+  customer_id: string;
+  status: string;
+  priority: &#x27;high&#x27; | &#x27;medium&#x27; | &#x27;low&#x27;;
+  source: string;
+  product_type?: string;
+  estimated_value?: number;
+  follow_up_date?: string;
+  created_at: string;
+  updated_at: string;
+  remarks?: string;
+  address?: string;
+  phone?: string;
+  email?: string;
+  sync_status: &#x27;synced&#x27; | &#x27;pending&#x27; | &#x27;failed&#x27;;
+  local_changes: string;
+  customerName?: string;
+  assignedTo?: string;
+  services?: string[];
+}
+
+export interface LeadListItemProps {
+  lead: Lead;
+  onPress: (lead: Lead) &#x3D;&gt; void;
+  isOffline?: boolean;
+  testID?: string;
+  style?: ViewStyle;
+}
+
+/**
+ * Get status color
+ */
+const getStatusColor &#x3D; (status: string): string &#x3D;&gt; {
+  switch (status?.toLowerCase()) {
+    case &#x27;new lead&#x27;:
+      return &#x27;#007AFF&#x27;;
+    case &#x27;qualified&#x27;:
+      return &#x27;#34C759&#x27;;
+    case &#x27;proposal sent&#x27;:
+      return &#x27;#FF9500&#x27;;
+    case &#x27;closed won&#x27;:
+      return &#x27;#30B0C7&#x27;;
+    case &#x27;closed lost&#x27;:
+      return &#x27;#FF3B30&#x27;;
+    default:
+      return &#x27;#8E8E93&#x27;;
+  }
+};
+
+/**
+ * Format date to readable format with better error handling
+ */
+const formatDate &#x3D; (dateString: string | null | undefined): string &#x3D;&gt; {
+  // Debug: Log the actual date value
+  console.log(&#x27;🗓️ Date input:&#x27;, dateString, typeof dateString);
+
+  if (!dateString) {
+    return &#x27;No date&#x27;;
+  }
+
+  try {
+    // Try different date parsing approaches
+    let date: Date;
+
+    // Approach 1: Direct parsing
+    date &#x3D; new Date(dateString);
+
+    // Check if date is valid
+    if (isNaN(date.getTime())) {
+      // Approach 2: Handle common API date formats
+      if (typeof dateString &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+        // Handle ISO string with &#x27;T&#x27; separator
+        if (dateString.includes(&#x27;T&#x27;)) {
+          date &#x3D; new Date(dateString);
+        }
+        // Handle date-only strings (YYYY-MM-DD)
+        else if (dateString.includes(&#x27;-&#x27;)) {
+          date &#x3D; new Date(dateString + &#x27;T00:00:00.000Z&#x27;);
+        }
+        // Handle timestamp strings
+        else if (!isNaN(Number(dateString))) {
+          date &#x3D; new Date(Number(dateString));
+        }
+        // Handle DD/MM/YYYY or MM/DD/YYYY format
+        else if (dateString.includes(&#x27;/&#x27;)) {
+          date &#x3D; new Date(dateString);
+        } else {
+          throw new Error(&#x27;Unrecognized date format&#x27;);
+        }
+      }
+    }
+
+    // Final check if date is valid
+    if (isNaN(date.getTime())) {
+      console.warn(&#x27;❌ Invalid date after all attempts:&#x27;, dateString);
+      return &#x27;Invalid date&#x27;;
+    }
+
+    // Format the valid date
+    const formatted &#x3D; date.toLocaleDateString(&#x27;en-US&#x27;, {
+      year: &#x27;numeric&#x27;,
+      month: &#x27;short&#x27;,
+      day: &#x27;numeric&#x27;,
+    });
+
+    console.log(&#x27;✅ Formatted date:&#x27;, formatted);
+    return formatted;
+  } catch (error) {
+    console.error(&#x27;❌ Date formatting error:&#x27;, error, &#x27;Input:&#x27;, dateString);
+    return &#x27;Invalid date&#x27;;
+  }
+};
+
+/**
+ * Handle phone call
+ */
+const handleCall &#x3D; (phoneNumber: string) &#x3D;&gt; {
+  if (!phoneNumber) {
+    Alert.alert(&#x27;No Phone Number&#x27;, &#x27;No phone number available for this lead.&#x27;);
+    return;
+  }
+
+  const cleanNumber &#x3D; phoneNumber.replace(/[^0-9+]/g, &#x27;&#x27;);
+  const callUrl &#x3D; &#x60;tel:${cleanNumber}&#x60;;
+
+  Linking.canOpenURL(callUrl)
+    .then((supported) &#x3D;&gt; {
+      if (supported) {
+        Linking.openURL(callUrl);
+      } else {
+        Alert.alert(&#x27;Error&#x27;, &#x27;Phone calls are not supported on this device.&#x27;);
+      }
+    })
+    .catch((error) &#x3D;&gt; {
+      console.error(&#x27;Call error:&#x27;, error);
+      Alert.alert(&#x27;Error&#x27;, &#x27;Failed to make phone call.&#x27;);
+    });
+};
+
+/**
+ * Memoized LeadListItem component
+ */
+export const LeadListItem: React.FC&lt;LeadListItemProps&gt; &#x3D; React.memo(
+  ({ lead, onPress, isOffline &#x3D; false, testID, style }) &#x3D;&gt; {
+    const statusColor &#x3D; getStatusColor(lead.status);
+    console.log(&#x27;lead details---&gt;&#x27;, lead);
+    // Debug: Log the entire lead object to see what we&#x27;re getting
+    console.log(&#x27;🔍 Lead data:&#x27;, {
+      id: lead.id,
+      customerName: lead.customerName,
+      created_at: lead.created_at,
+      created_at_type: typeof lead.created_at,
+    });
+
+    const handlePress &#x3D; React.useCallback(() &#x3D;&gt; {
+      onPress(lead);
+    }, [lead, onPress]);
+
+    /**
+     * Alternative simple call function (fallback)
+     */
+    const handleCallSimple &#x3D; (phoneNumber: string) &#x3D;&gt; {
+      console.log(&#x27;🔥 Simple call with number:&#x27;, phoneNumber);
+
+      if (!phoneNumber) {
+        Alert.alert(&#x27;No Phone Number&#x27;, &#x27;No phone number available.&#x27;);
+        return;
+      }
+
+      // Very simple approach - just try to open
+      const cleanNumber &#x3D; phoneNumber.replace(/[^0-9+]/g, &#x27;&#x27;);
+      Linking.openURL(&#x60;tel:${cleanNumber}&#x60;).catch((error) &#x3D;&gt; {
+        console.error(&#x27;Call failed:&#x27;, error);
+        Alert.alert(&#x27;Call Failed&#x27;, &#x27;Unable to open phone dialer.&#x27;);
+      });
+    };
+
+    const accessibilityLabel &#x3D; &#x60;Lead for ${
+      lead.customerName || &#x27;Unknown customer&#x27;
+    }. Status: ${lead.status}. Phone: ${lead.phone || &#x27;No phone&#x27;}. Address: ${
+      lead.address || &#x27;No address&#x27;
+    }.&#x60;;
+
+    return (
+      &lt;TouchableOpacity
+        style&#x3D;{[styles.container, style]}
+        onPress&#x3D;{handlePress}
+        testID&#x3D;{testID || &#x60;lead-item-${lead.id}&#x60;}
+        accessibilityLabel&#x3D;{accessibilityLabel}
+        accessibilityRole&#x3D;&quot;button&quot;
+        accessibilityHint&#x3D;&quot;Tap to view lead details&quot;
+      &gt;
+        &lt;View style&#x3D;{styles.card}&gt;
+          {/* Header with Name and Status */}
+          &lt;View style&#x3D;{styles.headerRow}&gt;
+            &lt;Text style&#x3D;{styles.customerName} numberOfLines&#x3D;{1}&gt;
+              {lead.customerName || &#x27;Unknown Customer&#x27;}
+            &lt;/Text&gt;
+            &lt;View
+              style&#x3D;{[styles.statusBadge, { backgroundColor: statusColor }]}
+            &gt;
+              &lt;Text style&#x3D;{styles.statusText}&gt;{lead.status}&lt;/Text&gt;
+            &lt;/View&gt;
+          &lt;/View&gt;
+
+          {/* Mobile Number and Call Button Row */}
+          &lt;View style&#x3D;{styles.phoneRow}&gt;
+            &lt;View style&#x3D;{styles.phoneInfo}&gt;
+              &lt;Text style&#x3D;{styles.phoneLabel}&gt;📱 Mobile:&lt;/Text&gt;
+              &lt;Text style&#x3D;{styles.phoneNumber}&gt;
+                {lead.phone || &#x27;No phone number&#x27;}
+              &lt;/Text&gt;
+            &lt;/View&gt;
+            {lead.phone &amp;&amp; (
+              &lt;TouchableOpacity
+                style&#x3D;{styles.callButton}
+                onPress&#x3D;{() &#x3D;&gt; handleCallSimple(lead?.phone)}
+                testID&#x3D;{&#x60;${testID || lead.id}-call-button&#x60;}
+                accessibilityLabel&#x3D;{&#x60;Call ${lead.phone}&#x60;}
+                accessibilityRole&#x3D;&quot;button&quot;
+              &gt;
+                &lt;Text style&#x3D;{styles.callIcon}&gt;📞&lt;/Text&gt;
+                &lt;Text style&#x3D;{styles.callText}&gt;Call&lt;/Text&gt;
+              &lt;/TouchableOpacity&gt;
+            )}
+          &lt;/View&gt;
+
+          {/* Address Row */}
+          &lt;View style&#x3D;{styles.addressRow}&gt;
+            &lt;Text style&#x3D;{styles.addressLabel}&gt;📍 Address:&lt;/Text&gt;
+            &lt;Text style&#x3D;{styles.addressText} numberOfLines&#x3D;{2}&gt;
+              {lead.address || &#x27;No address provided&#x27;}
+            &lt;/Text&gt;
+          &lt;/View&gt;
+
+          {/* Created Date Row */}
+          &lt;View style&#x3D;{styles.dateRow}&gt;
+            &lt;Text style&#x3D;{styles.dateLabel}&gt;📅 Created:&lt;/Text&gt;
+            &lt;Text style&#x3D;{styles.dateText}&gt;{formatDate(lead.created_at)}&lt;/Text&gt;
+          &lt;/View&gt;
+
+          {/* Cached Indicator */}
+          {/* {isOffline &amp;&amp; (
+            &lt;View style&#x3D;{styles.cachedIndicator}&gt;
+              &lt;Text style&#x3D;{styles.cachedText}&gt;🔄 Cached Data&lt;/Text&gt;
+            &lt;/View&gt;
+          )} */}
+
+          {/* Chevron */}
+          &lt;View style&#x3D;{styles.chevronContainer}&gt;
+            &lt;Text style&#x3D;{styles.chevron}&gt;›&lt;/Text&gt;
+          &lt;/View&gt;
+        &lt;/View&gt;
+      &lt;/TouchableOpacity&gt;
+    );
+  }
+);
+
+LeadListItem.displayName &#x3D; &#x27;LeadListItem&#x27;;
+
+// Consistent height for getItemLayout optimization
+export const LEAD_ITEM_HEIGHT &#x3D; 200; // Increased height for debug info
+
+const styles &#x3D; StyleSheet.create({
+  container: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  card: {
+    backgroundColor: &#x27;#FFFFFF&#x27;,
+    borderRadius: 12,
+    padding: 16,
+    shadowColor: &#x27;#000&#x27;,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    borderWidth: 1,
+    borderColor: &#x27;#E5E5EA&#x27;,
+    minHeight: LEAD_ITEM_HEIGHT - 16,
+  },
+  headerRow: {
+    flexDirection: &#x27;row&#x27;,
+    justifyContent: &#x27;space-between&#x27;,
+    alignItems: &#x27;center&#x27;,
+    marginBottom: 12,
+  },
+  customerName: {
+    fontSize: 18,
+    fontWeight: &#x27;700&#x27;,
+    color: &#x27;#000000&#x27;,
+    flex: 1,
+    marginRight: 12,
+  },
+  statusBadge: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+  },
+  statusText: {
+    fontSize: 12,
+    color: &#x27;#FFFFFF&#x27;,
+    fontWeight: &#x27;600&#x27;,
+  },
+  phoneRow: {
+    flexDirection: &#x27;row&#x27;,
+    justifyContent: &#x27;space-between&#x27;,
+    alignItems: &#x27;center&#x27;,
+    marginBottom: 12,
+  },
+  phoneInfo: {
+    flex: 1,
+  },
+  phoneLabel: {
+    fontSize: 12,
+    color: &#x27;#666666&#x27;,
+    marginBottom: 2,
+  },
+  phoneNumber: {
+    fontSize: 16,
+    fontWeight: &#x27;600&#x27;,
+    color: &#x27;#000000&#x27;,
+  },
+  callButton: {
+    flexDirection: &#x27;row&#x27;,
+    alignItems: &#x27;center&#x27;,
+    backgroundColor: &#x27;#34C759&#x27;,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 20,
+    marginLeft: 12,
+  },
+  callIcon: {
+    fontSize: 14,
+    marginRight: 4,
+  },
+  callText: {
+    fontSize: 12,
+    color: &#x27;#FFFFFF&#x27;,
+    fontWeight: &#x27;600&#x27;,
+  },
+  addressRow: {
+    marginBottom: 12,
+  },
+  addressLabel: {
+    fontSize: 12,
+    color: &#x27;#666666&#x27;,
+    marginBottom: 2,
+  },
+  addressText: {
+    fontSize: 14,
+    color: &#x27;#333333&#x27;,
+    lineHeight: 18,
+  },
+  dateRow: {
+    flexDirection: &#x27;row&#x27;,
+    alignItems: &#x27;center&#x27;,
+    marginBottom: 8,
+  },
+  dateLabel: {
+    fontSize: 12,
+    color: &#x27;#666666&#x27;,
+    marginRight: 8,
+  },
+  dateText: {
+    fontSize: 13,
+    color: &#x27;#007AFF&#x27;,
+    fontWeight: &#x27;500&#x27;,
+  },
+  debugRow: {
+    marginTop: 8,
+    padding: 4,
+    backgroundColor: &#x27;#F0F0F0&#x27;,
+    borderRadius: 4,
+  },
+  debugText: {
+    fontSize: 10,
+    color: &#x27;#666666&#x27;,
+    fontFamily: &#x27;monospace&#x27;,
+  },
+  cachedIndicator: {
+    position: &#x27;absolute&#x27;,
+    top: 12,
+    right: 50,
+    backgroundColor: &#x27;#FFE5B4&#x27;,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  cachedText: {
+    fontSize: 10,
+    color: &#x27;#B8860B&#x27;,
+    fontWeight: &#x27;600&#x27;,
+  },
+  chevronContainer: {
+    position: &#x27;absolute&#x27;,
+    right: 16,
+    top: &#x27;64%&#x27;,
+    transform: [{ translateY: -12 }],
+  },
+  chevron: {
+    fontSize: 24,
+    color: &#x27;#C7C7CC&#x27;,
+    fontWeight: &#x27;300&#x27;,
+  },
+});
+
+export default LeadListItem;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'LeadListItemProps.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

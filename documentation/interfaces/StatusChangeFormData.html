@@ -1,0 +1,1216 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Solarium CP App Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Solarium CP App Documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  StatusChangeFormData</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/components/leads/StatusChangeDialog.tsx</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#newStatus" 
+>
+                                            newStatus
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#nextFollowUpDate" 
+>
+                                            nextFollowUpDate
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#quotationRef" 
+>
+                                            quotationRef
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#remarks" 
+>
+                                            remarks
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#tokenNumber" 
+>
+                                            tokenNumber
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="newStatus"></a>
+                                        <span class="name "><b>newStatus</b>
+                                            <a href="#newStatus">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>newStatus:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="nextFollowUpDate"></a>
+                                        <span class="name "><b>nextFollowUpDate</b>
+                                            <a href="#nextFollowUpDate">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>nextFollowUpDate:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="quotationRef"></a>
+                                        <span class="name "><b>quotationRef</b>
+                                            <a href="#quotationRef">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>quotationRef:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="remarks"></a>
+                                        <span class="name "><b>remarks</b>
+                                            <a href="#remarks">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>remarks:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="tokenNumber"></a>
+                                        <span class="name "><b>tokenNumber</b>
+                                            <a href="#tokenNumber">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>tokenNumber:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import React, {
+  forwardRef,
+  useImperativeHandle,
+  useState,
+  useEffect,
+} from &#x27;react&#x27;;
+import {
+  View,
+  StyleSheet,
+  Modal,
+  Dimensions,
+  ScrollView,
+  Platform,
+  Alert,
+  TouchableOpacity,
+} from &#x27;react-native&#x27;;
+import {
+  Text,
+  Button,
+  TextInput,
+  Card,
+  Chip,
+  useTheme,
+  Portal,
+  Surface,
+  IconButton,
+  HelperText,
+} from &#x27;react-native-paper&#x27;;
+import { useForm, Controller } from &#x27;react-hook-form&#x27;;
+import DatePicker from &#x27;react-native-date-picker&#x27;;
+
+import { useGetQuotationsByLeadIdQuery } from &#x27;../../store/api/leadApi&#x27;;
+import {
+  validateStatusChange,
+  getAllowedNextStatuses,
+  getStatusRequirements,
+} from &#x27;../../validation/statusValidation&#x27;;
+import { StatusChangeDraft } from &#x27;../../types/lead&#x27;;
+import type { LeadStatus } from &#x27;../../constants/leadStatus&#x27;;
+
+const { height: screenHeight } &#x3D; Dimensions.get(&#x27;window&#x27;);
+
+interface StatusChangeFormData {
+  newStatus: string;
+  remarks: string;
+  nextFollowUpDate?: Date;
+  quotationRef?: string;
+  tokenNumber?: string;
+}
+
+interface StatusChangeDialogProps {
+  leadId: string;
+  currentStatus: string;
+  onStatusChange: (data: StatusChangeDraft) &#x3D;&gt; Promise&lt;void&gt;;
+}
+
+export interface StatusChangeDialogRef {
+  open: () &#x3D;&gt; void;
+  close: () &#x3D;&gt; void;
+}
+
+const StatusChangeDialog &#x3D; forwardRef&lt;
+  StatusChangeDialogRef,
+  StatusChangeDialogProps
+&gt;(({ leadId, currentStatus, onStatusChange }, ref) &#x3D;&gt; {
+  const theme &#x3D; useTheme();
+  const [visible, setVisible] &#x3D; useState(false);
+  const [loading, setLoading] &#x3D; useState(false);
+  const [showDatePicker, setShowDatePicker] &#x3D; useState(false);
+
+  // Temporary fix - disable quotations query
+  // const quotations: any[] &#x3D; [];
+  // const quotationsLoading &#x3D; false;
+  // const quotationsError &#x3D; null;
+  // const refetchQuotations &#x3D; () &#x3D;&gt; {};
+
+  // Fetch quotations for the lead
+  const {
+    data: quotations &#x3D; [],
+    isLoading: quotationsLoading,
+    error: quotationsError,
+  } &#x3D; useGetQuotationsByLeadIdQuery(
+    { leadId, offset: 0, limit: 25 },
+    {
+      skip: !visible, // Only fetch when dialog is visible
+      refetchOnMountOrArgChange: true, // Refetch when args change
+    }
+  );
+
+  // Form setup
+  const {
+    control,
+    handleSubmit,
+    watch,
+    setValue,
+    reset,
+    formState: { errors, isValid },
+  } &#x3D; useForm&lt;StatusChangeFormData&gt;({
+    mode: &#x27;onChange&#x27;,
+    defaultValues: {
+      newStatus: &#x27;&#x27;,
+      remarks: &#x27;&#x27;,
+      nextFollowUpDate: undefined,
+      quotationRef: &#x27;&#x27;,
+      tokenNumber: &#x27;&#x27;,
+    },
+  });
+
+  const watchedStatus &#x3D; watch(&#x27;newStatus&#x27;);
+  const watchedRemarks &#x3D; watch(&#x27;remarks&#x27;);
+  const watchedFollowUpDate &#x3D; watch(&#x27;nextFollowUpDate&#x27;);
+  const watchedQuotationRef &#x3D; watch(&#x27;quotationRef&#x27;);
+  const watchedTokenNumber &#x3D; watch(&#x27;tokenNumber&#x27;);
+
+  // Get allowed next statuses
+  const allowedStatuses &#x3D; getAllowedNextStatuses(currentStatus);
+
+  // Check if Won status should be available
+  const isWonAllowed &#x3D; allowedStatuses.includes(&#x27;Won&#x27; as LeadStatus);
+  const hasQuotations &#x3D; quotations.length &gt; 0;
+  const showWonOption &#x3D; isWonAllowed &amp;&amp; hasQuotations;
+
+  // Filter statuses based on quotation availability
+  const availableStatuses &#x3D; allowedStatuses.filter((status) &#x3D;&gt; {
+    if (status &#x3D;&#x3D;&#x3D; &#x27;Won&#x27; &amp;&amp; !hasQuotations) {
+      return false;
+    }
+    return true;
+  });
+
+  // Real-time validation
+  const [validationResult, setValidationResult] &#x3D; useState&lt;{
+    valid: boolean;
+    errors?: Record&lt;string, string&gt;;
+  }&gt;({ valid: false });
+
+  useEffect(() &#x3D;&gt; {
+    if (watchedStatus &amp;&amp; watchedRemarks) {
+      const draft: StatusChangeDraft &#x3D; {
+        currentStatus,
+        newStatus: watchedStatus,
+        remarks: watchedRemarks,
+        nextFollowUpDate: watchedFollowUpDate?.toISOString(),
+        quotationRef: watchedQuotationRef,
+        tokenNumber: watchedTokenNumber,
+      };
+
+      const result &#x3D; validateStatusChange(draft);
+      setValidationResult(result);
+    }
+  }, [
+    currentStatus,
+    watchedStatus,
+    watchedRemarks,
+    watchedFollowUpDate,
+    watchedQuotationRef,
+    watchedTokenNumber,
+  ]);
+
+  useImperativeHandle(ref, () &#x3D;&gt; ({
+    open: () &#x3D;&gt; {
+      console.log(&#x27;📱 Opening status change dialog for lead:&#x27;, leadId);
+      setVisible(true);
+      // Query will automatically start due to skip: !visible
+    },
+    close: () &#x3D;&gt; {
+      console.log(&#x27;📱 Closing status change dialog&#x27;);
+      setVisible(false);
+      reset();
+    },
+  }));
+
+  // Handle form submission
+  const onSubmit &#x3D; async (data: StatusChangeFormData) &#x3D;&gt; {
+    setLoading(true);
+    try {
+      const draft: StatusChangeDraft &#x3D; {
+        currentStatus,
+        newStatus: data.newStatus,
+        remarks: data.remarks,
+        nextFollowUpDate: data.nextFollowUpDate?.toISOString(),
+        quotationRef: data.quotationRef,
+        tokenNumber: data.tokenNumber,
+      };
+
+      await onStatusChange(draft);
+      setVisible(false);
+      reset();
+    } catch (error) {
+      Alert.alert(
+        &#x27;Error&#x27;,
+        error instanceof Error ? error.message : &#x27;Failed to update status&#x27;
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Close dialog
+  const handleClose &#x3D; () &#x3D;&gt; {
+    setVisible(false);
+    reset();
+  };
+
+  // Check if specific fields are required
+  const requiresFollowUp &#x3D; getStatusRequirements(watchedStatus).some((req) &#x3D;&gt;
+    req.includes(&#x27;Follow-up date required&#x27;)
+  );
+  const requiresQuotationRef &#x3D; getStatusRequirements(watchedStatus).some(
+    (req) &#x3D;&gt; req.includes(&#x27;Quotation reference required&#x27;)
+  );
+  const requiresTokenNumber &#x3D; getStatusRequirements(watchedStatus).some((req) &#x3D;&gt;
+    req.includes(&#x27;Token number required&#x27;)
+  );
+
+  // Debug logging - ADD THIS
+  console.log(&#x27;🔍 Dialog Debug Info:&#x27;, {
+    visible,
+    currentStatus,
+    allowedStatuses,
+    quotationsLoading,
+    quotationsCount: quotations?.length || 0,
+    watchedStatus,
+    watchedRemarks,
+  });
+
+  // Also add this to see if sections are being rendered
+  const debugSections &#x3D; {
+    showCurrentStatus: true,
+    showNewStatus: allowedStatuses.length &gt; 0,
+    showQuotationRef: requiresQuotationRef,
+    showTokenNumber: requiresTokenNumber,
+    showFollowUp: requiresFollowUp,
+    showRemarks: true,
+  };
+  console.log(&#x27;📋 Dialog Sections:&#x27;, debugSections);
+
+  return (
+    &lt;Portal&gt;
+      &lt;Modal
+        visible&#x3D;{visible}
+        onDismiss&#x3D;{handleClose}
+        // contentContainerStyle&#x3D;{[
+        //   styles.modalContainer,
+        //   { backgroundColor: theme.colors.background },
+        // ]}
+        testID&#x3D;&quot;status-change-dialog&quot;
+      &gt;
+        &lt;View style&#x3D;{styles.modalContainer}&gt;
+          &lt;Surface
+            style&#x3D;{[
+              styles.dialogSurface,
+              { backgroundColor: theme.colors.background },
+            ]}
+            elevation&#x3D;{4}
+          &gt;
+            {/* Header */}
+            &lt;View style&#x3D;{styles.header}&gt;
+              &lt;Text variant&#x3D;&quot;headlineSmall&quot; style&#x3D;{styles.title}&gt;
+                Change Lead Status
+              &lt;/Text&gt;
+              &lt;TouchableOpacity
+                onPress&#x3D;{handleClose}
+                testID&#x3D;&quot;close-dialog-button&quot;
+                style&#x3D;{styles.closeButton}
+                activeOpacity&#x3D;{0.7}
+                accessibilityLabel&#x3D;&quot;Close Dialog&quot;
+                accessibilityRole&#x3D;&quot;button&quot;
+                accessibilityHint&#x3D;&quot;Closes the status change dialog&quot;
+              &gt;
+                &lt;Text
+                  style&#x3D;{[
+                    styles.closeButtonText,
+                    { color: theme.colors.onSurface },
+                  ]}
+                &gt;
+                  ✕
+                &lt;/Text&gt;
+              &lt;/TouchableOpacity&gt;
+            &lt;/View&gt;
+
+            &lt;ScrollView
+              style&#x3D;{styles.content}
+              showsVerticalScrollIndicator&#x3D;{false}
+              keyboardShouldPersistTaps&#x3D;&quot;handled&quot;
+            &gt;
+              {/* Current Status */}
+              &lt;View style&#x3D;{styles.section}&gt;
+                &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.sectionTitle}&gt;
+                  Current Status
+                &lt;/Text&gt;
+                &lt;View style&#x3D;{styles.currentStatusContainer}&gt;
+                  &lt;Text style&#x3D;{styles.currentStatusText}&gt;{currentStatus}&lt;/Text&gt;
+                &lt;/View&gt;
+              &lt;/View&gt;
+
+              {/* New Status Selection */}
+              &lt;View style&#x3D;{styles.section}&gt;
+                &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.sectionTitle}&gt;
+                  New Status *
+                &lt;/Text&gt;
+                &lt;Controller
+                  name&#x3D;&quot;newStatus&quot;
+                  control&#x3D;{control}
+                  rules&#x3D;{{ required: &#x27;Please select a new status&#x27; }}
+                  render&#x3D;{({ field: { onChange, value } }) &#x3D;&gt; (
+                    &lt;View&gt;
+                      &lt;View style&#x3D;{styles.statusOptions}&gt;
+                        {availableStatuses.map((status) &#x3D;&gt; (
+                          &lt;TouchableOpacity
+                            key&#x3D;{status}
+                            onPress&#x3D;{() &#x3D;&gt; onChange(status)}
+                            style&#x3D;{[
+                              styles.statusOption,
+                              value &#x3D;&#x3D;&#x3D; status &amp;&amp; styles.statusOptionSelected,
+                            ]}
+                            testID&#x3D;{&#x60;status-option-${status
+                              .replace(/\s+/g, &#x27;-&#x27;)
+                              .toLowerCase()}&#x60;}
+                          &gt;
+                            &lt;Text
+                              style&#x3D;{[
+                                styles.statusOptionText,
+                                value &#x3D;&#x3D;&#x3D; status &amp;&amp;
+                                  styles.statusOptionTextSelected,
+                              ]}
+                            &gt;
+                              {status}
+                            &lt;/Text&gt;
+                          &lt;/TouchableOpacity&gt;
+                        ))}
+                      &lt;/View&gt;
+                      {errors.newStatus &amp;&amp; (
+                        &lt;Text style&#x3D;{styles.errorText}&gt;
+                          {errors.newStatus.message}
+                        &lt;/Text&gt;
+                      )}
+                    &lt;/View&gt;
+                  )}
+                /&gt;
+              &lt;/View&gt;
+
+              {requiresQuotationRef &amp;&amp; (
+                &lt;View style&#x3D;{styles.section}&gt;
+                  &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.sectionTitle}&gt;
+                    Quotation Reference *
+                  &lt;/Text&gt;
+                  &lt;Controller
+                    name&#x3D;&quot;quotationRef&quot;
+                    control&#x3D;{control}
+                    rules&#x3D;{{
+                      required: requiresQuotationRef
+                        ? &#x27;Please select a quotation&#x27;
+                        : false,
+                    }}
+                    render&#x3D;{({ field: { onChange, value } }) &#x3D;&gt; (
+                      &lt;View&gt;
+                        &lt;View style&#x3D;{styles.quotationOptions}&gt;
+                          {quotations.map((quotation) &#x3D;&gt; (
+                            &lt;TouchableOpacity
+                              key&#x3D;{quotation.quotationId}
+                              onPress&#x3D;{() &#x3D;&gt; onChange(quotation.quotationId)}
+                              style&#x3D;{[
+                                styles.quotationOption,
+                                value &#x3D;&#x3D;&#x3D; quotation.quotationId &amp;&amp;
+                                  styles.quotationOptionSelected,
+                              ]}
+                              testID&#x3D;{&#x60;quotation-option-${quotation.quotationId}&#x60;}
+                            &gt;
+                              &lt;Text
+                                style&#x3D;{[
+                                  styles.quotationOptionText,
+                                  value &#x3D;&#x3D;&#x3D; quotation.quotationId &amp;&amp;
+                                    styles.quotationOptionTextSelected,
+                                ]}
+                              &gt;
+                                {quotation.quotationId} - ₹
+                                {quotation.totalCost.toLocaleString()}
+                              &lt;/Text&gt;
+                            &lt;/TouchableOpacity&gt;
+                          ))}
+                        &lt;/View&gt;
+                      &lt;/View&gt;
+                    )}
+                  /&gt;
+                &lt;/View&gt;
+              )}
+
+              {/* Token Number (for Under Execution/Executed) */}
+              {requiresTokenNumber &amp;&amp; (
+                &lt;View style&#x3D;{styles.section}&gt;
+                  &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.sectionTitle}&gt;
+                    Token Number *
+                  &lt;/Text&gt;
+                  &lt;Controller
+                    name&#x3D;&quot;tokenNumber&quot;
+                    control&#x3D;{control}
+                    rules&#x3D;{{
+                      required: requiresTokenNumber
+                        ? &#x27;Token number is required&#x27;
+                        : false,
+                    }}
+                    render&#x3D;{({ field: { onChange, onBlur, value } }) &#x3D;&gt; (
+                      &lt;View&gt;
+                        &lt;TextInput
+                          mode&#x3D;&quot;outlined&quot;
+                          value&#x3D;{value}
+                          onChangeText&#x3D;{onChange}
+                          onBlur&#x3D;{onBlur}
+                          placeholder&#x3D;&quot;e.g., TKN-5001&quot;
+                          style&#x3D;{styles.textInput}
+                          testID&#x3D;&quot;token-number-input&quot;
+                          accessibilityLabel&#x3D;&quot;Token Number Input&quot;
+                        /&gt;
+                        {errors.tokenNumber &amp;&amp; (
+                          &lt;HelperText type&#x3D;&quot;error&quot; visible&#x3D;{true}&gt;
+                            {errors.tokenNumber.message}
+                          &lt;/HelperText&gt;
+                        )}
+                        {validationResult.errors?.tokenNumber &amp;&amp; (
+                          &lt;HelperText type&#x3D;&quot;error&quot; visible&#x3D;{true}&gt;
+                            {validationResult.errors.tokenNumber}
+                          &lt;/HelperText&gt;
+                        )}
+                      &lt;/View&gt;
+                    )}
+                  /&gt;
+                &lt;/View&gt;
+              )}
+
+              {/* Follow-up Date */}
+              {requiresFollowUp &amp;&amp; (
+                &lt;View style&#x3D;{styles.section}&gt;
+                  &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.sectionTitle}&gt;
+                    Follow-up Date *
+                  &lt;/Text&gt;
+                  &lt;Controller
+                    name&#x3D;&quot;nextFollowUpDate&quot;
+                    control&#x3D;{control}
+                    rules&#x3D;{{
+                      required: requiresFollowUp
+                        ? &#x27;Follow-up date is required&#x27;
+                        : false,
+                    }}
+                    render&#x3D;{({ field: { onChange, value } }) &#x3D;&gt; (
+                      &lt;View&gt;
+                        &lt;Button
+                          mode&#x3D;&quot;outlined&quot;
+                          onPress&#x3D;{() &#x3D;&gt; setShowDatePicker(true)}
+                          style&#x3D;{styles.dateButton}
+                          contentStyle&#x3D;{styles.dateButtonContent}
+                          testID&#x3D;&quot;follow-up-date-button&quot;
+                        &gt;
+                          {value
+                            ? value.toLocaleDateString()
+                            : &#x27;Select Follow-up Date&#x27;}
+                        &lt;/Button&gt;
+                        {errors.nextFollowUpDate &amp;&amp; (
+                          &lt;HelperText type&#x3D;&quot;error&quot; visible&#x3D;{true}&gt;
+                            {errors.nextFollowUpDate.message}
+                          &lt;/HelperText&gt;
+                        )}
+                        {validationResult.errors?.nextFollowUpDate &amp;&amp; (
+                          &lt;HelperText type&#x3D;&quot;error&quot; visible&#x3D;{true}&gt;
+                            {validationResult.errors.nextFollowUpDate}
+                          &lt;/HelperText&gt;
+                        )}
+
+                        &lt;DatePicker
+                          modal
+                          open&#x3D;{showDatePicker}
+                          date&#x3D;{value || new Date()}
+                          mode&#x3D;&quot;date&quot;
+                          minimumDate&#x3D;{new Date()}
+                          maximumDate&#x3D;{
+                            new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+                          }
+                          onConfirm&#x3D;{(date) &#x3D;&gt; {
+                            setShowDatePicker(false);
+                            onChange(date);
+                          }}
+                          onCancel&#x3D;{() &#x3D;&gt; {
+                            setShowDatePicker(false);
+                          }}
+                          testID&#x3D;&quot;follow-up-date-picker&quot;
+                        /&gt;
+                      &lt;/View&gt;
+                    )}
+                  /&gt;
+                &lt;/View&gt;
+              )}
+
+              {/* Remarks */}
+              &lt;View style&#x3D;{styles.section}&gt;
+                &lt;Text variant&#x3D;&quot;titleMedium&quot; style&#x3D;{styles.sectionTitle}&gt;
+                  Remarks *
+                &lt;/Text&gt;
+                &lt;Controller
+                  name&#x3D;&quot;remarks&quot;
+                  control&#x3D;{control}
+                  rules&#x3D;{{
+                    required: &#x27;Remarks are required&#x27;,
+                    minLength: {
+                      value: 10,
+                      message: &#x27;Remarks must be at least 10 characters&#x27;,
+                    },
+                  }}
+                  render&#x3D;{({ field: { onChange, onBlur, value } }) &#x3D;&gt; (
+                    &lt;View&gt;
+                      &lt;TextInput
+                        mode&#x3D;&quot;outlined&quot;
+                        multiline
+                        numberOfLines&#x3D;{4}
+                        value&#x3D;{value}
+                        onChangeText&#x3D;{onChange}
+                        onBlur&#x3D;{onBlur}
+                        placeholder&#x3D;&quot;Add remarks about this status change...&quot;
+                        style&#x3D;{styles.remarksInput}
+                        testID&#x3D;&quot;remarks-input&quot;
+                        accessibilityLabel&#x3D;&quot;Remarks Input&quot;
+                      /&gt;
+                      &lt;HelperText type&#x3D;&quot;info&quot; visible&#x3D;{true}&gt;
+                        {value?.length || 0}/10 characters minimum
+                      &lt;/HelperText&gt;
+                      {errors.remarks &amp;&amp; (
+                        &lt;HelperText type&#x3D;&quot;error&quot; visible&#x3D;{true}&gt;
+                          {errors.remarks.message}
+                        &lt;/HelperText&gt;
+                      )}
+                      {validationResult.errors?.remarks &amp;&amp; (
+                        &lt;HelperText type&#x3D;&quot;error&quot; visible&#x3D;{true}&gt;
+                          {validationResult.errors.remarks}
+                        &lt;/HelperText&gt;
+                      )}
+                    &lt;/View&gt;
+                  )}
+                /&gt;
+              &lt;/View&gt;
+
+              {/* Validation Errors */}
+              {validationResult.errors?.transition &amp;&amp; (
+                &lt;Card style&#x3D;{styles.errorCard}&gt;
+                  &lt;Card.Content&gt;
+                    &lt;Text
+                      variant&#x3D;&quot;bodyMedium&quot;
+                      style&#x3D;{{ color: theme.colors.error }}
+                    &gt;
+                      ❌ {validationResult.errors.transition}
+                    &lt;/Text&gt;
+                  &lt;/Card.Content&gt;
+                &lt;/Card&gt;
+              )}
+            &lt;/ScrollView&gt;
+
+            {/* Footer */}
+            &lt;View style&#x3D;{styles.footer}&gt;
+              &lt;Button
+                mode&#x3D;&quot;outlined&quot;
+                onPress&#x3D;{handleClose}
+                style&#x3D;{styles.cancelButton}
+                testID&#x3D;&quot;cancel-button&quot;
+              &gt;
+                Cancel
+              &lt;/Button&gt;
+              &lt;Button
+                mode&#x3D;&quot;contained&quot;
+                onPress&#x3D;{handleSubmit(onSubmit)}
+                loading&#x3D;{loading}
+                disabled&#x3D;{!validationResult.valid || loading}
+                style&#x3D;{styles.saveButton}
+                testID&#x3D;&quot;save-button&quot;
+              &gt;
+                Save
+              &lt;/Button&gt;
+            &lt;/View&gt;
+          &lt;/Surface&gt;
+        &lt;/View&gt;
+      &lt;/Modal&gt;
+    &lt;/Portal&gt;
+  );
+});
+
+const styles &#x3D; StyleSheet.create({
+  modalContainer: {
+    flex: 1,
+    justifyContent: &#x27;flex-end&#x27;,
+    backgroundColor: &#x27;rgba(0,0,0,0.5)&#x27;,
+  },
+  dialogSurface: {
+    height: screenHeight * 0.8, // 80% of screen height
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+  },
+  header: {
+    flexDirection: &#x27;row&#x27;,
+    justifyContent: &#x27;space-between&#x27;,
+    alignItems: &#x27;center&#x27;,
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 8,
+  },
+  title: {
+    fontWeight: &#x27;600&#x27;,
+  },
+  //   content: {
+  //     flex: 1,
+  //     paddingHorizontal: 16,
+  //   },
+  section: {
+    marginBottom: 24,
+  },
+  sectionTitle: {
+    marginBottom: 8,
+    fontWeight: &#x27;500&#x27;,
+  },
+  statusChip: {
+    alignSelf: &#x27;flex-start&#x27;,
+  },
+  statusOptions: {
+    flexDirection: &#x27;row&#x27;,
+    flexWrap: &#x27;wrap&#x27;,
+    gap: 8,
+  },
+  statusOption: {
+    marginBottom: 8,
+  },
+  quotationOptions: {
+    gap: 8,
+  },
+  quotationOption: {
+    marginBottom: 8,
+  },
+  textInput: {
+    marginBottom: 4,
+  },
+  remarksInput: {
+    marginBottom: 4,
+  },
+  dateButton: {
+    marginBottom: 4,
+  },
+  dateButtonContent: {
+    paddingVertical: 8,
+  },
+  warningCard: {
+    marginTop: 8,
+    backgroundColor: &#x27;#FFF3E0&#x27;,
+  },
+  loadingCard: {
+    marginTop: 8,
+    backgroundColor: &#x27;#F5F5F5&#x27;,
+  },
+  errorCard: {
+    marginTop: 8,
+    backgroundColor: &#x27;#FFEBEE&#x27;,
+  },
+  footer: {
+    flexDirection: &#x27;row&#x27;,
+    justifyContent: &#x27;space-between&#x27;,
+    padding: 16,
+    paddingTop: 8,
+    gap: 12,
+  },
+  cancelButton: {
+    flex: 1,
+  },
+  saveButton: {
+    flex: 1,
+  },
+  closeButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    alignItems: &#x27;center&#x27;,
+    justifyContent: &#x27;center&#x27;,
+    backgroundColor: &#x27;transparent&#x27;,
+  },
+  closeButtonText: {
+    fontSize: 18,
+    fontWeight: &#x27;bold&#x27;,
+    textAlign: &#x27;center&#x27;,
+    lineHeight: 20,
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 16,
+    minHeight: 400, // Add minimum height
+  },
+  currentStatusContainer: {
+    backgroundColor: &#x27;#F2F2F7&#x27;,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 20,
+    alignSelf: &#x27;flex-start&#x27;,
+    borderWidth: 1,
+    borderColor: &#x27;#E5E5EA&#x27;,
+  },
+  currentStatusText: {
+    fontSize: 14,
+    fontWeight: &#x27;500&#x27;,
+    color: &#x27;#333&#x27;,
+  },
+  statusOptions: {
+    flexDirection: &#x27;row&#x27;,
+    flexWrap: &#x27;wrap&#x27;,
+    gap: 8,
+  },
+  statusOption: {
+    backgroundColor: &#x27;#F8F9FA&#x27;,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: &#x27;#E5E5EA&#x27;,
+    marginBottom: 8,
+  },
+  statusOptionSelected: {
+    backgroundColor: &#x27;#007AFF&#x27;,
+    borderColor: &#x27;#007AFF&#x27;,
+  },
+  statusOptionText: {
+    fontSize: 14,
+    fontWeight: &#x27;500&#x27;,
+    color: &#x27;#333&#x27;,
+  },
+  statusOptionTextSelected: {
+    color: &#x27;#FFFFFF&#x27;,
+  },
+  quotationOptions: {
+    gap: 8,
+  },
+  quotationOption: {
+    backgroundColor: &#x27;#F8F9FA&#x27;,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: &#x27;#E5E5EA&#x27;,
+    marginBottom: 8,
+  },
+  quotationOptionSelected: {
+    backgroundColor: &#x27;#007AFF&#x27;,
+    borderColor: &#x27;#007AFF&#x27;,
+  },
+  quotationOptionText: {
+    fontSize: 14,
+    fontWeight: &#x27;500&#x27;,
+    color: &#x27;#333&#x27;,
+  },
+  quotationOptionTextSelected: {
+    color: &#x27;#FFFFFF&#x27;,
+  },
+  errorText: {
+    fontSize: 12,
+    color: &#x27;#FF3B30&#x27;,
+    marginTop: 4,
+  },
+});
+
+StatusChangeDialog.displayName &#x3D; &#x27;StatusChangeDialog&#x27;;
+
+export default StatusChangeDialog;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'StatusChangeFormData.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
